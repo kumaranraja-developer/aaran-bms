@@ -22,7 +22,7 @@
 
 <div class="w-full bg-gray-50">
 
-    <x-Ui::menu.web.top-menu-2/>
+    <x-Ui::menu.web.top-menu/>
 
     <!-- Page Content -->
     <main class="w-full">

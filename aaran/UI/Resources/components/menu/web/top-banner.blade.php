@@ -2,7 +2,7 @@
 // 'title' => 'home',
  'description' => 'description',
  'slogan' => 'slogan',
- 'bg_colour'=>'bg-purple-100'
+ 'bg_colour'=>'bg-stone-50'
 ])
 
 <div class="relative w-full pt-20 py-4 px-6 bg-center bg-repeat {{$bg_colour}} text-center text-black"
