@@ -10,7 +10,7 @@
 >
     <div class="max-w-3xl mx-auto">
         {{--        <h1 class="text-4xl md:text-5xl font-bold tracking-tight">{{ $title }}</h1>--}}
-        <p class="mt-4 text-lg md:text-xl">{{ $description }}</p>
-        <p class="mt-2 text-sm italic text-orange-500">{{ $slogan }}</p>
+        <p class="mt-4 text-xl tracking-widest md:text-xl">{{ $description }}</p>
+        <p class="mt-2 text-sm italic  tracking-widest text-primary">{{ $slogan }}</p>
     </div>
 </div>

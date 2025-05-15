@@ -8,3 +8,7 @@ Route::get('/abouts', Class\About\Index::class)->name('abouts');
 Route::get('/blogs', Class\Blog\Index::class)->name('blogs');
 Route::get('/web-contacts', Class\Contact\Index::class)->name('web-contacts');
 Route::get('/web-projects', Class\Project\Index::class)->name('web-projects');
+
+
+Route::get('/client-registration', Class\Project\Index::class)->name('client-registration');
+Route::get('/client-plans', Class\Project\Index::class)->name('client-plans');
