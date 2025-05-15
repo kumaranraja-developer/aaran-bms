@@ -13,4 +13,5 @@
         <p class="mt-4 text-xl tracking-widest md:text-xl">{{ $description }}</p>
         <p class="mt-2 text-sm italic  tracking-widest text-primary">{{ $slogan }}</p>
     </div>
+    <div class="h-10">&nbsp;</div>
 </div>

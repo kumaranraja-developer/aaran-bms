@@ -14,5 +14,7 @@ class Software
     public const AppCompanyAddress_5 = 'Tamilnadu, India';
     public const AppCompanyEmail = 'info@aaransofware.com';
     public const AppCompanyMobile = '+91 9655227767';
+    public const AppTrialPeriod = '7- days';
+
 
 }

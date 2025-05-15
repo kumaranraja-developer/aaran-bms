@@ -1,7 +1,7 @@
 <div class="bg-[#1a1a1a]">
     <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
         <span class="text-gray-50 text-xs text-center sm:text-left">
-            <a class="text-gray-50 hover:text-amber-600 cursor-pointer">Aaran info Tech</a>
+            <a class="text-gray-50 hover:text-amber-600 cursor-pointer">{{Aaran\Assets\App\Software::AppCompanyName}}</a>
             © 2020 - {{ date('Y') }} — All Rights Reserved.
         </span>
 

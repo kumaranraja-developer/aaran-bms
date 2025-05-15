@@ -8,8 +8,6 @@
         :slogan="'Driven by Ideas, Defined by Results'"
     />
 
-    <div class="h-10">&nbsp;</div>
-
     <div class="bg-white">
 
         <section class="relative z-10 overflow-hidden  py-20 lg:py-[120px] dark:bg-dark">
