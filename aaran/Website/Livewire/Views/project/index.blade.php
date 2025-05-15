@@ -1,4 +1,4 @@
 <div>
     <x-Ui::menu.web.top-banner/>
-contact
+project
 </div>

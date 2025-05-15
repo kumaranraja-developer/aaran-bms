@@ -13,7 +13,7 @@
 
     <!-- Brand Logo -->
     <a href="#" class="text-3xl flex items-center gap-4 hover:scale-105 transition duration-300">
-        <x-Ui::logo.cxlogo icon="dark" class="w-auto h-10"/>
+{{--        <x-Ui::logo.cxlogo icon="dark" class="w-auto h-10"/>--}}
         <span class="hover:tracking-wide hover:font-semibold hover:underline -mt-2">CODEXSUN</span>
     </a>
 

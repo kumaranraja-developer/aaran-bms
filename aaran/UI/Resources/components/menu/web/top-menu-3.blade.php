@@ -9,7 +9,7 @@
 @endphp
 
 <nav x-data="{ mobileMenuIsOpen: false }" @click.away="mobileMenuIsOpen = false" id="navBar"
-     class="sm:fixed sm:z-40 h-18 sm:w-full flex items-center justify-between border-b border-neutral-300 px-6 py-4 dark:border-neutral-700 text-black transition-colors duration-300">
+     class="sm:fixed sm:z-40 h-18 sm:w-full flex items-center justify-between border-b border-neutral-300 px-6 py-4 dark:border-neutral-700 text-black bg-white duration-300">
 
     <!-- Logo -->
     <a href="#" class="text-3xl flex items-center hover:scale-105 transition duration-500">
