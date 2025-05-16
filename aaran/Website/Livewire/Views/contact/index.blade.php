@@ -357,6 +357,6 @@
 
     </div>
 
-    <x-Ui::web.footer-address/>
-    <x-Ui::web.copyright/>
+    <x-Ui::web.common.footer-address/>
+    <x-Ui::web.common.copyright/>
 </div>

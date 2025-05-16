@@ -1,4 +1,4 @@
-<section class="bg-white py-10">
+<section class="bg-white dark:bg-dark dark:text-dark-9 py-10">
     <div class="max-w-7xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         <!-- Left: Illustration -->
         <div class="w-full lg:w-1/2 lg:flex justify-center hidden ">
@@ -769,7 +769,7 @@
 
         <!-- Right: Text & CTA -->
         <div class="w-full lg:w-1/2 text-center lg:text-left space-y-6">
-            <h1 class="text-4xl sm:text-5xl font-semibold text-gray-900 leading-tight">
+            <h1 class="text-4xl sm:text-5xl font-semibold text-gray-900 dark:text-dark-9 leading-tight">
                 Easier Selling.<br>
 
                 <span class="relative whitespace-nowrap text-green-500">
@@ -786,7 +786,7 @@
 
                 Lasting Growth.
             </h1>
-            <p class="text-gray-600 text-lg">
+            <p class="text-gray-600 text-lg dark:text-dark-9">
                 30-day free trial. No credit card required.
             </p>
             <div class="flex justify-center lg:justify-start gap-4">

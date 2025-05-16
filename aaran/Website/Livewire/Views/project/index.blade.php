@@ -4,7 +4,7 @@
         slogan="All the software you need to run your business."
     />
 
-    <div class="bg-white  scrollbar-hide">
+    <div class="bg-white dark:bg-dark scrollbar-hide">
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[80%] h-max mx-auto gap-4 p-4 items-stretch">
             @foreach($featured as $featuredApps)
