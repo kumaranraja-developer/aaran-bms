@@ -24,7 +24,7 @@
         @foreach ($menuItems as $route => $label)
             <li class="hover:tracking-wide hover:font-bold transition duration-500">
                 <a href="{{ route($route) }}" class="menu-text dark:text-black dark:hover:text-black"
-                   wire:navigate>{{ $label }}</a>
+                   >{{ $label }}</a>
             </li>
         @endforeach
 
@@ -70,21 +70,21 @@
 
         @foreach ($menuItems as $route => $label)
             <li class="py-2">
-                <a href="{{ route($route) }}" class="menu-text-mobile" wire:navigate>{{ $label }}</a>
+                <a href="{{ route($route) }}" class="menu-text-mobile" >{{ $label }}</a>
             </li>
         @endforeach
 
         @auth
-            <li class="py-2"><a href="{{ route('dashboard') }}" class="menu-text-mobile" wire:navigate>Dashboard</a>
+            <li class="py-2"><a href="{{ route('dashboard') }}" class="menu-text-mobile" >Dashboard</a>
             </li>
             <li class="py-2">
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                   class="menu-text-mobile" wire:navigate>Logout</a>
+                   class="menu-text-mobile" >Logout</a>
             </li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
         @else
-            <li class="py-2"><a href="{{ route('login') }}" class="menu-text-mobile" wire:navigate>Login</a></li>
+            <li class="py-2"><a href="{{ route('login') }}" class="menu-text-mobile" >Login</a></li>
         @endauth
     </ul>
 </nav>
