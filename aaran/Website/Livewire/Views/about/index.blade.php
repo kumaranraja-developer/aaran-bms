@@ -16,7 +16,7 @@
                     <p class="my-3 text-justify indent-5 tracking-wide text-body-color">With over a decade of experience
                         in the software industry, we
                         specialize in developing innovative and reliable solutions tailored to simplify business
-                        processes. Our flagship product is a user-friendly GST Billing Software designed to help
+                        processes. Our flagship product is a user-friendly <strong>Business Management Software</strong> designed to help
                         individuals and businesses manage their accounting with ease. Whether it’s tracking profits and
                         losses, generating bills, or analyzing real-time sales and income through live graphs, our
                         software empowers users to gain full control over their financial operations.</p>
@@ -31,10 +31,9 @@
                                 </svg>
                             </div>
                             <div class="text-2xl font-bold">Our Mission</div>
-                            <p class="text-justify tracking-wide text-body-color">Our mission is to simplify the
-                                complexities of financial management
-                                through our GST Billing Software.Maintaining accurate and hassle-free billing Monitoring
-                                profit and loss effortlessly
+                            <p class="text-justify indent-3 tracking-wide text-body-color">Our mission is to simplify
+                                the complexities of financial management through our <strong>Business Management Software.</strong>
+                                Maintaining accurate and hassle-free billing Monitoring profit and loss effortlessly
                             </p>
                         </div>
                         <div class="flex flex-col gap-3">
@@ -47,10 +46,10 @@
                                 </svg>
                             </div>
                             <div class="text-2xl font-bold">Our vision</div>
-                            <p class="text-justify tracking-wide text-body-color">To become a trusted leader in business
-                                technology by providing
-                                accessible, efficient, and intelligent accounting solutions that empower every business
-                                — from small enterprises to large-scale operations — to thrive in the digital page.</p>
+                            <p class="text-justify indent-3 tracking-wide text-body-color">To become a trusted leader in business
+                                technology by providing accessible, efficient, and intelligent accounting solutions that
+                                empower every business — from small enterprises to large-scale operations — to thrive in
+                                the digital page.</p>
                         </div>
                     </div>
                 </div>
@@ -253,7 +252,8 @@
                     Start your {{Aaran\Assets\App\Software::AppTrialPeriod}} free trial or book a personal demo.</p>
             </div>
             <div class="flex flex-col mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
-                <a href="#" class="bg-primary px-2 py-2 rounded-xl hover:bg-black hover:border hover:border-primary">Start free trial</a>
+                <a href="#" class="bg-primary px-2 py-2 rounded-xl hover:bg-black hover:border hover:border-primary">Start
+                    free trial</a>
                 <a href="#" class=" border border-primary px-2 py-2 rounded-xl hover:bg-primary">Book a demo</a>
             </div>
         </div>
