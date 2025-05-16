@@ -54,11 +54,11 @@
                                         Our Location
                                     </h4>
                                     <p class="text-base text-body-color dark:text-dark-6">
-                                        {{Aaran\Assets\App\Software::AppCompanyAddress_1}}<br>
-                                        {{Aaran\Assets\App\Software::AppCompanyAddress_2}}
-                                        ,&nbsp;{{Aaran\Assets\App\Software::AppCompanyAddress_3}}<br>
-                                        {{Aaran\Assets\App\Software::AppCompanyAddress_4}}<br>
-                                        {{Aaran\Assets\App\Software::AppCompanyAddress_5}}<br>
+                                        {{Aaran\Assets\Config\Application::AppCompanyAddress_1}}<br>
+                                        {{Aaran\Assets\Config\Application::AppCompanyAddress_2}}
+                                        ,&nbsp;{{Aaran\Assets\Config\Application::AppCompanyAddress_3}}<br>
+                                        {{Aaran\Assets\Config\Application::AppCompanyAddress_4}}<br>
+                                        {{Aaran\Assets\Config\Application::AppCompanyAddress_5}}<br>
                                     </p>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                         Phone Number
                                     </h4>
                                     <p class="text-base text-body-color dark:text-dark-6">
-                                        {{Aaran\Assets\App\Software::AppCompanyMobile}}
+                                        {{Aaran\Assets\Config\Application::AppCompanyMobile}}
                                     </p>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                         Email Address
                                     </h4>
                                     <p class="text-base text-body-color dark:text-dark-6">
-                                        {{Aaran\Assets\App\Software::AppCompanyEmail}}
+                                        {{Aaran\Assets\Config\Application::AppCompanyEmail}}
                                     </p>
                                 </div>
                             </div>

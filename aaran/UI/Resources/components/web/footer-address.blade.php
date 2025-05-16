@@ -4,17 +4,17 @@
         {{-- Company Info --}}
         <div class="flex flex-col my-6">
             <div
-                class="lg:text-red-500 lg:text-xl text-lg text-red-500">{{Aaran\Assets\App\Software::AppCompanyName}}</div>
+                class="lg:text-red-500 lg:text-xl text-lg text-red-500">{{Aaran\Assets\Config\Application::AppCompanyName}}</div>
             <div class="mt-3">
                 <div class="lg:text-sm text-xs font-roboto text-white leading-relaxed tracking-wider">
-                    {{Aaran\Assets\App\Software::AppCompanyAddress_1}},<br>
-                    {{Aaran\Assets\App\Software::AppCompanyAddress_2}},<br>
-                    {{Aaran\Assets\App\Software::AppCompanyAddress_3}},<br>
-                    {{Aaran\Assets\App\Software::AppCompanyAddress_4}},<br>
-                    {{Aaran\Assets\App\Software::AppCompanyAddress_5}},<br>
+                    {{Aaran\Assets\Config\Application::AppCompanyAddress_1}},<br>
+                    {{Aaran\Assets\Config\Application::AppCompanyAddress_2}},<br>
+                    {{Aaran\Assets\Config\Application::AppCompanyAddress_3}},<br>
+                    {{Aaran\Assets\Config\Application::AppCompanyAddress_4}},<br>
+                    {{Aaran\Assets\Config\Application::AppCompanyAddress_5}},<br>
                     <br>
-                    {{Aaran\Assets\App\Software::AppCompanyEmail}},<br>
-                    {{Aaran\Assets\App\Software::AppCompanyMobile}},<br>
+                    {{Aaran\Assets\Config\Application::AppCompanyEmail}},<br>
+                    {{Aaran\Assets\Config\Application::AppCompanyMobile}},<br>
                 </div>
             </div>
         </div>
