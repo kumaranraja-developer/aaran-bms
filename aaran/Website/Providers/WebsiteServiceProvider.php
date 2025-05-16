@@ -17,6 +17,7 @@ class WebsiteServiceProvider extends ServiceProvider
         $this->registerViews();
 
         $this->registerMigrations();
+        Livewire::component('contact-form', \Aaran\Website\Livewire\Class\Contact\Index::class);
 
         // Livewire::component('website::tenant-setup', TenantSetupWizard::class);
     }
