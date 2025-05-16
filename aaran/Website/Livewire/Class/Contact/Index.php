@@ -20,7 +20,7 @@ class Index extends Component
     public string $message = '';
 
     public bool $active_id = true;
-    public array $show = [];
+    public bool $showDialog = false;
 
     public function rules(): array
     {
@@ -67,23 +67,15 @@ class Index extends Component
                 'active_id' => $this->active_id
             ],
         );
-        $this->show = [
-            'vname' => $this->vname,
-            'email' => $this->email,
-            'phone' => $this->phone,
-            'message' => $this->message,
-        ];
+
+        $this->showDialog = true;
+
+        $this->dispatch('tenant-created');
         $this->dispatch('notify', ...['type' => 'success', 'content' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
-        $this->clearFields();
     }
     public function clearFields(): void
     {
-        $this->vid = null;
-        $this->vname = '';
-        $this->email = '';
-        $this->phone = '';
-        $this->message = '';
-        $this->active_id = true;
+     //
     }
 
     #[Layout('Ui::components.layouts.web')]

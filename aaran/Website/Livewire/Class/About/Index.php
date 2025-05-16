@@ -2,6 +2,8 @@
 
 namespace Aaran\Website\Livewire\Class\About;
 
+use Aaran\Assets\Enums\Active;
+use Aaran\Website\Models\DevTeam;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -10,13 +12,8 @@ class Index extends Component
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {
-        $team=[
-            ['image'=>'/images/web/home/office_1.jpg','name'=>'name','role'=>'developer','about'=>'working as a software developer','fb'=>'#','twit'=>'#','msg'=>'#'],
-            ['image'=>'/images/web/home/office_1.jpg','name'=>'name','role'=>'developer','about'=>'working as a software developer','fb'=>'#','twit'=>'#','msg'=>'#'],
-            ['image'=>'/images/web/home/office_1.jpg','name'=>'name','role'=>'developer','about'=>'working as a software developer','fb'=>'#','twit'=>'#','msg'=>'#'],
-            ['image'=>'/images/web/home/office_1.jpg','name'=>'name','role'=>'developer','about'=>'working as a software developer','fb'=>'#','twit'=>'#','msg'=>'#']
+        $team= DevTeam::where('active_id', Active::ACTIVE)->get();
 
-        ];
         $quotes=[
             ['quote'=>"Edison bulb retro cloud bread echo park, helvetica stumptown
                         taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY
