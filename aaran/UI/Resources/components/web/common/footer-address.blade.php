@@ -20,7 +20,7 @@
         </div>
 
         {{-- Footer Columns --}}
-        <x-Ui::web.footer-column
+        <x-Ui::web.common.footer-column
             title="Aaran"
             :links="[
                 ['label' => 'About', 'href' => route('abouts')],
@@ -31,7 +31,7 @@
             ]"
         />
 
-        <x-Ui::web.footer-column
+        <x-Ui::web.common.footer-column
             title="Links"
             :links="[
                 ['label' => 'FAQ', 'href' => route('abouts')],
@@ -43,7 +43,7 @@
             ]"
         />
 
-        <x-Ui::web.footer-column
+        <x-Ui::web.common.footer-column
             title="Templates"
             :links="[
                 ['label' => 'Invoice', 'href' => route('abouts')],
@@ -55,7 +55,7 @@
             ]"
         />
 
-        <x-Ui::web.footer-column
+        <x-Ui::web.common.footer-column
             title="Templates"
             :links="[
                 ['label' => 'Invoice', 'href' => route('abouts')],
