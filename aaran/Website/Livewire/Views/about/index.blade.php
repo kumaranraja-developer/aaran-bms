@@ -78,7 +78,7 @@
                                      class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
                                      src="{{$member['image']}}">
                                 <div class="flex-grow sm:pl-8">
-                                    <h2 class="title-font font-medium text-lg text-gray-900">{{$member['name']}}</h2>
+                                    <h2 class="title-font font-medium text-lg text-gray-900 dark:text-dark-9">{{$member['name']}}</h2>
                                     <h3 class="text-gray-500 mb-3">{{$member['role']}}</h3>
                                     <p class="mb-4">{{$member['about']}}</p>
                                     <span class="inline-flex">
@@ -153,24 +153,24 @@
 
 
 
-    <section class="text-white bg-gray-900 dark:bg-dark">
+    <section class="text-blue-300 bg-blue-800">
         <div
             class="flex flex-col items-stretch justify-between px-4 py-20 mx-auto max-w-7xl lg:flex-row sm:items-center">
             <div>
-                <h2 class="mb-1 text-xl font-semibold text-left sm:text-2xl sm:text-center lg:text-left  dark:text-dark-9">Built for
+                <h2 class="mb-1 text-xl font-semibold text-left py-4 sm:text-2xl sm:text-center lg:text-left  text-blue-300">Built for
                     companies of all sizes</h2>
-                <p class="mb-6 text-lg font-normal text-left text-gray-200 sm:text-xl lg:mb-0 sm:text-center lg:text-left  dark:text-dark-8">
+                <p class="mb-6 text-lg font-normal text-left text-blue-300 sm:text-xl lg:mb-0 sm:text-center lg:text-left  ">
                     Start your {{Aaran\Assets\Config\Application::AppTrialPeriod}} free trial or book a personal demo.</p>
             </div>
             <div class="flex flex-col mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
-                <a href="#" class="bg-primary px-2 py-2 rounded-xl hover:bg-black hover:border hover:border-primary">Start
+                <a href="#" class="px-2 py-2 border border-black rounded-xl bg-black text-white">Start
                     free trial</a>
-                <a href="#" class=" border border-primary px-2 py-2 rounded-xl hover:bg-primary">Book a demo</a>
+                <a href="#" class="border bg-white text-black px-2 py-2 rounded-xl ">Book a demo</a>
             </div>
         </div>
     </section>
 
 
-    <x-Ui::web.footer-address/>
-    <x-Ui::web.copyright/>
+    <x-Ui::web.common.footer-address/>
+    <x-Ui::web.common.copyright/>
 </div>

@@ -115,5 +115,5 @@
             @endforeach
         </div>
     </div>
-    <div class="text-center my-4 border py-4 border-x-0 border-y-gray-800 cursor-pointer" href="{{route('plan-comparison')}}" wire:navigate>Explore All plans</div>
+    <div class="text-center my-4 border py-4 border-x-0 border-y-gray-800 cursor-pointer text-dark-9" href="{{route('plan-comparison')}}" wire:navigate>Explore All plans</div>
 </section>

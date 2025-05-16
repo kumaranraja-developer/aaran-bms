@@ -14,18 +14,18 @@ class Index extends Component
     public function mount()
     {
         $this->featured = [
-            (object)['icon' => '/images/home/wp1.webp', 'title' => 'CRM', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
-            (object)['icon' => '/images/home/wp1.webp', 'title' => 'CRM', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
+            (object)['icon' => '/images/web/home/img1.jpg', 'title' => 'CRM', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
+            (object)['icon' => '/images/web/home/img1.jpg', 'title' => 'CRM', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
 
         ];
         $this->upcoming = [
-            (object)['icon' => '/images/home/wp1.webp', 'title' => 'Social', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
-            (object)['icon' => '/images/home/wp1.webp', 'title' => 'Sites', 'description' => 'Comprehensive CRM platform for customer-facing teams.Comprehensive CRM platform for customer-facing teams.'],
-            (object)['icon' => '/images/home/wp1.webp', 'title' => 'Landing Page', 'description' => 'Comprehensive CRM platform for customer-facing teams.Comprehensive CRM platform for customer-facing teams.'],
-            (object)['icon' => '/images/home/wp1.webp', 'title' => 'Commerce', 'description' => 'Comprehensive CRM platform for customer-facing teams.Comprehensive CRM platform for customer-facing teams.'],
-            (object)['icon' => '/images/home/wp1.webp', 'title' => 'Desk', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
-            (object)['icon' => '/images/home/wp1.webp', 'title' => 'Booking', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
-            (object)['icon' => '/images/home/wp1.webp', 'title' => 'Show', 'description' => 'Comprehensive CRM platform for customer-facing teams.Comprehensive CRM platform for customer-facing teams.'],
+            (object)['icon' => '/images/web/home/img1.jpg', 'title' => 'Social', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
+            (object)['icon' => '/images/web/home/img1.jpg', 'title' => 'Sites', 'description' => 'Comprehensive CRM platform for customer-facing teams.Comprehensive CRM platform for customer-facing teams.'],
+            (object)['icon' => '/images/web/home/img1.jpg', 'title' => 'Landing Page', 'description' => 'Comprehensive CRM platform for customer-facing teams.Comprehensive CRM platform for customer-facing teams.'],
+            (object)['icon' => '/images/web/home/img1.jpg', 'title' => 'Commerce', 'description' => 'Comprehensive CRM platform for customer-facing teams.Comprehensive CRM platform for customer-facing teams.'],
+            (object)['icon' => '/images/web/home/img1.jpg', 'title' => 'Desk', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
+            (object)['icon' => '/images/web/home/img1.jpg', 'title' => 'Booking', 'description' => 'Comprehensive CRM platform for customer-facing teams.'],
+            (object)['icon' => '/images/web/home/img1.jpg', 'title' => 'Show', 'description' => 'Comprehensive CRM platform for customer-facing teams.Comprehensive CRM platform for customer-facing teams.'],
 
         ];
 

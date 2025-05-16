@@ -1,15 +1,12 @@
 <div>
     <x-Ui::menu.web.top-banner
-        description="Apps"
+        description="Plan Comparison"
         slogan="All the software you need to run your business."
     />
 
-    <div class="bg-white  scrollbar-hide">
+    <div class="bg-white dark:text-dark-9 dark:bg-dark scrollbar-hide">
 
-        <div class="text-black">
-            <div class="h-[40vh] bg-blue-500 font-bold text-white text-6xl flex items-center justify-center">
-                Plan Comparison
-            </div>
+        <div class="text-black dark:text-dark-9">
             <div class="m-15 py-5">
                 <table class="w-full border border-gray-300 border-collapse">
                     <thead class="border border-gray-300 border-collapse">
