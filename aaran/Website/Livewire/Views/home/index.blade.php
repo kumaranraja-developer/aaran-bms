@@ -1,6 +1,6 @@
 <div>
     <x-Ui::slider.new-1/>
-    <x-Ui::web.launch/>
-    <x-Ui::web.footer-address/>
-    <x-Ui::web.copyright/>
+    <x-Ui::web.home.launch/>
+    <x-Ui::web.common.footer-address/>
+    <x-Ui::web.common.copyright/>
 </div>
