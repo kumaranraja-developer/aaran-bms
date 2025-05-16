@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('dev_teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('vname');
             $table->string('role');
             $table->text('photo')->nullable();
             $table->text('about')->nullable();
@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('fb')->nullable();
             $table->string('twitter')->nullable();
             $table->string('msg')->nullable();
+            $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });
     }
