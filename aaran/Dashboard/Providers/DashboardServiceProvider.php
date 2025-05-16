@@ -2,6 +2,7 @@
 
 namespace Aaran\Dashboard\Providers;
 
+use Aaran\Dashboard\Livewire\Class;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -16,7 +17,7 @@ class DashboardServiceProvider extends ServiceProvider
     {
         $this->registerViews();
 
-        // Livewire::component('dashboard::tenant-setup', TenantSetupWizard::class);
+         Livewire::component('dashboard::sales-chart', Class\SalesChart::class);
     }
 
     private function registerViews()
