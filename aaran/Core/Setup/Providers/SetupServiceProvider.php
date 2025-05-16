@@ -7,7 +7,7 @@ use Aaran\Core\Setup\Console\Commands\AaranModule;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
-class SetupServiceProvider extends ServiceProvider
+class  SetupServiceProvider extends ServiceProvider
 {
     public function register(): void
     {

@@ -14,8 +14,8 @@
 
     <!-- Logo -->
     <a href="#" class="text-3xl flex items-center hover:scale-105 transition duration-500">
-        <h1 class="hover:tracking-wide text-orange-400 hover:font-semibold">
-            CODEX<span class="text-neutral-600">SUN</span>
+        <h1 class="hover:tracking-wide text-primary hover:font-semibold">
+            CODEX<span class="text-body-color">SUN</span>
         </h1>
     </a>
 

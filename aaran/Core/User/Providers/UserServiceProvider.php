@@ -14,9 +14,15 @@ class UserServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->registerMigrations();
         $this->registerViews();
 
         // Livewire::component('user::tenant-setup', TenantSetupWizard::class);
+    }
+
+    private function registerMigrations()
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
     private function registerViews()
