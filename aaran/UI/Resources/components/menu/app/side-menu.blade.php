@@ -35,7 +35,7 @@
             <x-Ui::menu.app.sub.books/>
             <x-Ui::menu.app.sub.master/>
             <x-Ui::menu.app.sub.common/>
-            <x-Ui::menu.app.sub.blog/>
+{{--            <x-Ui::menu.app.sub.blog/>--}}
 
             <x-Ui::menu.app.sub.logout/>
 
