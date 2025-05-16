@@ -3,6 +3,7 @@
 namespace Aaran;
 
 use Aaran\Assets\Providers\AssetsServiceProvider;
+use Aaran\BMS\Billing\Baseline\Providers\BaselineServiceProvider;
 use Aaran\Dashboard\Providers\DashboardServiceProvider;
 use Aaran\Core\Setup\Providers\SetupServiceProvider;
 use Aaran\Core\Tenant\Providers\TenantServiceProvider;
@@ -28,6 +29,8 @@ class AaranServiceProvider extends ServiceProvider
         $this->app->register(WebsiteServiceProvider::class);
 
         $this->app->register(DashboardServiceProvider::class);
+
+        $this->app->register(BaselineServiceProvider::class);
 
     }
 

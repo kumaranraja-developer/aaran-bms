@@ -149,7 +149,7 @@
             <div class="flex flex-col mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
                 <a href="#" class="bg-primary px-2 py-2 rounded-xl hover:bg-black hover:border hover:border-primary">Start
                     free trial</a>
-                <a href="#" class=" border border-primary px-2 py-2 rounded-xl hover:bg-primary ">Book a demo</a>
+                <a href="#" class=" border border-primary px-2 py-2 rounded-xl hover:bg-primary">Book a demo</a>
             </div>
         </div>
     </section>
