@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class WebEnquiry extends Model
 {
-    /** @use HasFactory<\Aaran\Website\Database\Factories\WebEnquiryFactory> */
     use HasFactory;
+
+    protected $table = 'web_enquiries';
+
+    protected $guarded = [];
 }

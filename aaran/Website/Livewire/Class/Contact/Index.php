@@ -4,6 +4,7 @@ namespace Aaran\Website\Livewire\Class\Contact;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\BMS\Billing\Common\Models\City;
+use Aaran\Website\Models\WebEnquiry;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
@@ -15,9 +16,9 @@ class Index extends Component
 
     #[Validate]
     public string $vname = '';
-    public string $vemail = '';
-    public string $vphone = '';
-    public string $vmessage = '';
+    public string $email = '';
+    public string $phone = '';
+    public string $message = '';
 
     public bool $active_id = true;
 
@@ -25,9 +26,9 @@ class Index extends Component
     {
         return [
             'vname' => 'required',
-            'vemail' => 'required',
-            'vphone' => 'required',
-            'vmessage' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'message' => 'required',
         ];
     }
 
@@ -35,31 +36,34 @@ class Index extends Component
     {
         return [
             'vname.required' => ':attribute is missing.',
-            'vname.unique' => 'This :attribute is already created.',
-            'vemail.required' => ':attribute is missing.',
-            'vphone.required' => ':attribute is missing.',
-            'vmessage.required' => ':attribute is missing.',
+            'email.required' => ':attribute is missing.',
+            'email.email' => 'This :attribute is not a valid email.',
+            'phone.required' => ':attribute is missing.',
+            'message.required' => ':attribute is missing.',
         ];
     }
 
     public function validationAttributes(): array
     {
         return [
-            'vname' => 'City name',
+            'vname' => 'Name',
+            'email' => 'Email',
+            'phone' => 'Phone',
+            'message' => 'Message',
         ];
     }
 
     public function getSave(): void
     {
         $this->validate();
-//        $connection = $this->getTenantConnection();
-        City::on()->updateOrCreate(
+
+        WebEnquiry::updateOrCreate(
             ['id' => $this->vid],
             [
                 'vname' => Str::ucfirst($this->vname),
-                'vemail' => $this->vemail,
-                'vphone' => $this->vphone,
-                'vmessage' => $this->vmessage,
+                'email' => $this->email,
+                'phone' => $this->phone,
+                'message' => $this->message,
                 'active_id' => $this->active_id
             ],
         );
@@ -71,9 +75,9 @@ class Index extends Component
     {
         $this->vid = null;
         $this->vname = '';
-        $this->vemail = '';
-        $this->vphone = '';
-        $this->vmessage = '';
+        $this->email = '';
+        $this->phone = '';
+        $this->message = '';
         $this->active_id = true;
     }
 
@@ -82,5 +86,4 @@ class Index extends Component
     {
         return view('website::contact.index');
     }
-
 }

@@ -119,22 +119,26 @@
                     </div>
                     <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
                         <div class="relative rounded-lg bg-white p-8 shadow-lg sm:p-12 dark:bg-dark-2">
-                            <form wire:submit.prevent="getSave">
+                            <form wire:submit.prevent="save">
                                 <div class="mb-6">
                                     <input type="text" placeholder="Your Name" wire:model="vname"
                                            class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-9 dark:bg-dark-9 dark:text-dark-6"/>
+                                    <x-Ui::input.error-text wire:model="vname"/>
                                 </div>
                                 <div class="mb-6">
-                                    <input type="email" placeholder="Your Email" wire:mode="vemail"
+                                    <input placeholder="Your Email" wire:model="email"
                                            class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-9 dark:bg-dark-9 dark:text-dark-6"/>
+                                    <x-Ui::input.error-text wire:model="email"/>
                                 </div>
                                 <div class="mb-6">
-                                    <input type="text" placeholder="Your Phone" wire:model="vphone"
+                                    <input type="text" placeholder="Your Phone" wire:model="phone"
                                            class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-9 dark:bg-dark-9 dark:text-dark-6"/>
+                                    <x-Ui::input.error-text wire:model="phone"/>
                                 </div>
                                 <div class="mb-6">
-                                    <textarea rows="6" placeholder="Your Message" wire:model="vmessage"
+                                    <textarea rows="6" placeholder="Your Message" wire:model="message"
                                               class="w-full resize-none rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-9 dark:bg-dark-9 dark:text-dark-6"></textarea>
+                                    <x-Ui::input.error-text wire:model="message"/>
                                 </div>
                                 <div>
                                     <button type="submit"

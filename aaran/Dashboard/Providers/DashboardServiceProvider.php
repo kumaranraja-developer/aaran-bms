@@ -17,6 +17,7 @@ class DashboardServiceProvider extends ServiceProvider
     {
         $this->registerViews();
 
+         Livewire::component('dashboard::index', Class\Index::class);
          Livewire::component('dashboard::sales-chart', Class\SalesChart::class);
     }
 
