@@ -3,7 +3,6 @@
 namespace Aaran\Website\Livewire\Class\Contact;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
-use Aaran\BMS\Billing\Common\Models\City;
 use Aaran\Website\Models\WebEnquiry;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
@@ -21,6 +20,7 @@ class Index extends Component
     public string $message = '';
 
     public bool $active_id = true;
+    public array $show = [];
 
     public function rules(): array
     {
@@ -67,7 +67,12 @@ class Index extends Component
                 'active_id' => $this->active_id
             ],
         );
-
+        $this->show = [
+            'vname' => $this->vname,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'message' => $this->message,
+        ];
         $this->dispatch('notify', ...['type' => 'success', 'content' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
         $this->clearFields();
     }
