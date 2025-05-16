@@ -10,7 +10,14 @@ class Index extends Component
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {
-        return view('website::about.index');
+        $team=[
+            ['image'=>'/images/web/home/office_1.jpg','name'=>'name','role'=>'developer','about'=>'working as a software developer','fb'=>'#','twit'=>'#','msg'=>'#'],
+            ['image'=>'/images/web/home/office_1.jpg','name'=>'name','role'=>'developer','about'=>'working as a software developer','fb'=>'#','twit'=>'#','msg'=>'#'],
+            ['image'=>'/images/web/home/office_1.jpg','name'=>'name','role'=>'developer','about'=>'working as a software developer','fb'=>'#','twit'=>'#','msg'=>'#'],
+            ['image'=>'/images/web/home/office_1.jpg','name'=>'name','role'=>'developer','about'=>'working as a software developer','fb'=>'#','twit'=>'#','msg'=>'#']
+
+        ];
+        return view('website::about.index',compact('team'));
     }
 
 }
