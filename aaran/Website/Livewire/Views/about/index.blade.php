@@ -144,7 +144,7 @@
                 <h2 class="mb-1 text-xl font-semibold text-left sm:text-2xl sm:text-center lg:text-left  dark:text-dark-9">Built for
                     companies of all sizes</h2>
                 <p class="mb-6 text-lg font-normal text-left text-gray-200 sm:text-xl lg:mb-0 sm:text-center lg:text-left  dark:text-dark-8">
-                    Start your {{Aaran\Assets\App\Software::AppTrialPeriod}} free trial or book a personal demo.</p>
+                    Start your {{Aaran\Assets\Config\Application::AppTrialPeriod}} free trial or book a personal demo.</p>
             </div>
             <div class="flex flex-col mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
                 <a href="#" class="bg-primary px-2 py-2 rounded-xl hover:bg-black hover:border hover:border-primary">Start

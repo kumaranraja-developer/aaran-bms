@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use Aaran\Core\Tenant\Models\Tenant;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
@@ -39,6 +40,17 @@ class Login extends Component
                 'email' => __('auth.failed'),
             ]);
         }
+
+        if (Auth::check()) {
+            $tenant = Tenant::where('id', Auth::user()->tenant_id)->first();
+        }
+
+        if ($tenant) {
+            // Store tenant ID in session
+            Session::put('tenant_id', $tenant->id);
+            Session::save();
+        }
+
 
         RateLimiter::clear($this->throttleKey());
         Session::regenerate();
