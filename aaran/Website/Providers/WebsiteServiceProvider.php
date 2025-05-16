@@ -2,6 +2,7 @@
 
 namespace Aaran\Website\Providers;
 
+use Aaran\Website\Livewire\Class\About;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -17,9 +18,10 @@ class WebsiteServiceProvider extends ServiceProvider
         $this->registerViews();
 
         $this->registerMigrations();
+
         Livewire::component('contact-form', \Aaran\Website\Livewire\Class\Contact\Index::class);
 
-        // Livewire::component('website::tenant-setup', TenantSetupWizard::class);
+         Livewire::component('website::about.team', About\Team::class);
     }
 
     private function registerViews()
