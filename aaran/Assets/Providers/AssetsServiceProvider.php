@@ -7,20 +7,16 @@ use Livewire\Livewire;
 
 class AssetsServiceProvider extends ServiceProvider
 {
-    public function register(): void
+    public function boot(): void
     {
-        $this->app->register(AssetsRouteProvider::class);
+        $this->getConfig();
     }
 
-    public function boot()
+    public function getConfig(): void
     {
-        $this->registerViews();
+        $this->mergeConfigFrom(__DIR__ . '/../Config/aaran.php', 'aaran-app');
+        $this->mergeConfigFrom(__DIR__ . '/../Config/software.php', 'software');
 
-        // Livewire::component('assets::tenant-setup', TenantSetupWizard::class);
-    }
-
-    private function registerViews()
-    {
-        $this->loadViewsFrom(__DIR__ . '/../Livewire/Views', 'assets');
+        $this->mergeConfigFrom(__DIR__ . '/../Settings/developer.php', 'developer');
     }
 }
