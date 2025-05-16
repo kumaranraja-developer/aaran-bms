@@ -16,6 +16,8 @@ class WebsiteServiceProvider extends ServiceProvider
     {
         $this->registerViews();
 
+        $this->registerMigrations();
+
         // Livewire::component('website::tenant-setup', TenantSetupWizard::class);
     }
 
@@ -23,4 +25,10 @@ class WebsiteServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../Livewire/Views', 'website');
     }
+
+    private function registerMigrations(): void
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+    }
+
 }
