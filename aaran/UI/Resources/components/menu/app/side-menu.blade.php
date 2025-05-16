@@ -28,14 +28,14 @@
             x-data="{selected:null}">
 
 
-{{--            <x-Ui::menu.app.sub.tenant/>--}}
+            <x-Ui::menu.app.sub.tenant/>
 
-{{--            <x-Ui::menu.app.sub.entries/>--}}
-{{--            <x-Ui::menu.app.sub.transaction/>--}}
-{{--            <x-Ui::menu.app.sub.books/>--}}
-{{--            <x-Ui::menu.app.sub.master/>--}}
-{{--            <x-Ui::menu.app.sub.common/>--}}
-{{--            <x-Ui::menu.app.sub.blog/>--}}
+            <x-Ui::menu.app.sub.entries/>
+            <x-Ui::menu.app.sub.transaction/>
+            <x-Ui::menu.app.sub.books/>
+            <x-Ui::menu.app.sub.master/>
+            <x-Ui::menu.app.sub.common/>
+            <x-Ui::menu.app.sub.blog/>
 
             <x-Ui::menu.app.sub.logout/>
 
