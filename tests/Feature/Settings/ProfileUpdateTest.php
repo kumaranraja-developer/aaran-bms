@@ -1,7 +1,7 @@
 <?php
 
+use Aaran\Core\User\Models\User;
 use App\Livewire\Settings\Profile;
-use App\Models\User;
 use Livewire\Livewire;
 
 test('profile page is displayed', function () {
