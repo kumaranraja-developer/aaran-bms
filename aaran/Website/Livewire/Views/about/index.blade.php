@@ -7,17 +7,16 @@
 
 
     <section>
-        <div class="bg-white">
-            <div class="grid grid-cols-2 text-black p-10 lg:p-20 gap-10">
+        <div class="bg-white dark:bg-dark ">
+            <div class="grid grid-cols-2 text-black p-10 lg:p-20 gap-10 ">
                 <img src="{{asset('/images/web/home/office_1.jpg')}}" alt=""
                      class="h-[70vh] rounded-2xl lg:block m-auto hidden"/>
                 <div>
                     <p class="my-3 text-primary text-xl font-semibold">Who We Are</p>
-                    <p class="my-3 text-justify indent-5 tracking-wide text-body-color">With over a decade of experience
+                    <p class="my-3 text-justify indent-5 tracking-wide text-body-color dark:text-dark-8">With over a decade of experience
                         in the software industry, we
                         specialize in developing innovative and reliable solutions tailored to simplify business
-                        processes. Our flagship product is a user-friendly <strong>Business Management Software</strong>
-                        designed to help
+                        processes. Our flagship product is a user-friendly <strong>Business Management Software</strong> designed to help
                         individuals and businesses manage their accounting with ease. Whether it’s tracking profits and
                         losses, generating bills, or analyzing real-time sales and income through live graphs, our
                         software empowers users to gain full control over their financial operations.</p>
@@ -31,10 +30,9 @@
                                         stroke-width="0.024"></path>
                                 </svg>
                             </div>
-                            <div class="text-2xl font-bold">Our Mission</div>
-                            <p class="text-justify indent-3 tracking-wide text-body-color">Our mission is to simplify
-                                the complexities of financial management through our <strong>Business Management
-                                    Software.</strong>
+                            <div class="text-2xl font-bold dark:text-dark-9">Our Mission</div>
+                            <p class="text-justify indent-3 tracking-wide text-body-color dark:text-dark-8">Our mission is to simplify
+                                the complexities of financial management through our <strong>Business Management Software.</strong>
                                 Maintaining accurate and hassle-free billing Monitoring profit and loss effortlessly
                             </p>
                         </div>
@@ -47,9 +45,8 @@
                                         stroke-width="0.024"></path>
                                 </svg>
                             </div>
-                            <div class="text-2xl font-bold">Our vision</div>
-                            <p class="text-justify indent-3 tracking-wide text-body-color">To become a trusted leader in
-                                business
+                            <div class="text-2xl font-bold dark:text-dark-9">Our vision</div>
+                            <p class="text-justify indent-3 tracking-wide text-body-color dark:text-dark-8">To become a trusted leader in business
                                 technology by providing accessible, efficient, and intelligent accounting solutions that
                                 empower every business — from small enterprises to large-scale operations — to thrive in
                                 the digital page.</p>
@@ -66,18 +63,17 @@
         <section class="text-gray-600 body-font">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-col text-center w-full mb-20">
-                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">OUR TEAM</h1>
-                    <p class="mx-auto leading-relaxed text-base">
-                        <strong>Aaran Software</strong> is built by a focused team of creators and engineers. We value
-                        clarity, purpose, and thoughtful execution <br>in everything we do.
-                    </p>
+                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest dark:text-dark-9">OUR TEAM</h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base dark:text-dark-8">Whatever cardigan tote bag tumblr hexagon
+                        brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't
+                        heard of them.</p>
                 </div>
                 <div class="flex flex-wrap -m-4">
                     @foreach($team as $member)
 
-                        <div class="p-4 lg:w-1/2">
+                    <div class="p-4 lg:w-1/2">
                             <div
-                                class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                                class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left dark:text-dark-8">
                                 <img alt="team"
                                      class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
                                      src="{{$member['image']}}">
@@ -87,23 +83,20 @@
                                     <p class="mb-4">{{$member['about']}}</p>
                                     <span class="inline-flex">
                                     <a class="text-gray-500" href="{{$member['fb']}}">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round" stroke-width="2"
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                          class="w-5 h-5" viewBox="0 0 24 24">
                                       <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                                     </svg>
                                     </a>
                                     <a class="ml-2 text-gray-500" href="{{$member['fb']}}">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round" stroke-width="2"
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                          class="w-5 h-5" viewBox="0 0 24 24">
                                       <path
                                           d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                                     </svg>
                                     </a>
                                     <a class="ml-2 text-gray-500" href="{{$member['fb']}}">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round" stroke-width="2"
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                          class="w-5 h-5" viewBox="0 0 24 24">
                                       <path
                                           d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
@@ -112,7 +105,7 @@
                                 </span>
                                 </div>
                             </div>
-                        </div>
+                    </div>
                     @endforeach
 
                 </div>
@@ -121,7 +114,7 @@
     </section>
 
 
-    <section class="text-gray-600 body-font bg-white">
+    <section class="text-gray-600 body-font bg-white dark:bg-dark dark:text-dark-8">
         <div class="container px-5 py-24 mx-auto">
             <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -129,7 +122,7 @@
                     <path
                         d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                 </svg>
-                <p class="leading-relaxed text-lg">Edison bulb retro cloud bread echo park, helvetica stumptown
+                <p class="leading-relaxed text-lg  dark:text-dark-8">Edison bulb retro cloud bread echo park, helvetica stumptown
                     taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY
                     tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware. Man bun next level
                     coloring book skateboard four loko knausgaard. Kitsch keffiyeh master cleanse direct trade
@@ -137,22 +130,21 @@
                     jean shorts. Slow-carb next level shoindigoitch ethical authentic, yr scenester sriracha forage
                     franzen organic drinking vinegar.</p>
                 <span class="inline-block h-1 w-10 rounded bg-primary mt-8 mb-6"></span>
-                <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
-                <p class="text-gray-500">Senior Product Designer</p>
+                <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm  dark:text-dark-8">HOLDEN CAULFIELD</h2>
+                <p class="text-gray-500  dark:text-dark-8">Senior Product Designer</p>
             </div>
         </div>
     </section>
 
 
-    <section class="text-white bg-gray-900">
+    <section class="text-white bg-gray-900 dark:bg-dark">
         <div
             class="flex flex-col items-stretch justify-between px-4 py-20 mx-auto max-w-7xl lg:flex-row sm:items-center">
             <div>
-                <h2 class="mb-1 text-xl font-semibold text-left sm:text-2xl sm:text-center lg:text-left">Built for
+                <h2 class="mb-1 text-xl font-semibold text-left sm:text-2xl sm:text-center lg:text-left  dark:text-dark-9">Built for
                     companies of all sizes</h2>
-                <p class="mb-6 text-lg font-normal text-left text-gray-200 sm:text-xl lg:mb-0 sm:text-center lg:text-left">
-                    Start your {{Aaran\Assets\Config\Application::AppTrialPeriod}} free trial or book a personal
-                    demo.</p>
+                <p class="mb-6 text-lg font-normal text-left text-gray-200 sm:text-xl lg:mb-0 sm:text-center lg:text-left  dark:text-dark-8">
+                    Start your {{Aaran\Assets\App\Software::AppTrialPeriod}} free trial or book a personal demo.</p>
             </div>
             <div class="flex flex-col mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
                 <a href="#" class="bg-primary px-2 py-2 rounded-xl hover:bg-black hover:border hover:border-primary">Start

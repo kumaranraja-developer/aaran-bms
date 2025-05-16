@@ -40,8 +40,9 @@
     --color-dark-3: #383838;
     --color-dark-4: #464646;
     --color-dark-5: #525252;
-    --color-dark-6: #636363;
-
+    --color-dark-7: #939191;
+    --color-dark-8: #a3a2a2;
+    --color-dark-9: #faf9f9;
 
 }
 
@@ -81,3 +82,12 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
+.carousel-item {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.carousel-item.active {
+    display: block;
+    opacity: 1;
+}
