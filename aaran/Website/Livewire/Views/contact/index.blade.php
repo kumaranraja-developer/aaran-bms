@@ -1,6 +1,7 @@
 <div>
     @php
-        $fill = '#ff4500'
+        $fill = '#ff4500';
+        $confirmation_msg=true;
     @endphp
 
     <x-Ui::menu.web.top-banner
@@ -360,6 +361,36 @@
         </section>
 
     </div>
+    @if(!empty($show))
+        <div class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 {{ $confirmation_msg ? 'flex' : 'hidden' }}">
+            <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg transform transition-all scale-100">
+                <div class="flex items-center justify-center mb-6">
+                    <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+
+                <h2 class="text-2xl font-bold text-center text-green-700 mb-4">Message Sent Successfully!</h2>
+                <p class="text-center text-gray-600 mb-6">Thank you for contacting us. We'll be in touch soon.</p>
+
+                <div class="text-sm text-gray-700 space-y-2 bg-gray-50 rounded-lg p-4">
+                    <p><span class="font-semibold">Name:</span> {{ $show['vname'] }}</p>
+                    <p><span class="font-semibold">Email:</span> {{ $show['email'] }}</p>
+                    <p><span class="font-semibold">Phone:</span> {{ $show['phone'] }}</p>
+                    <p><span class="font-semibold">Message:</span> {{ $show['message'] }}</p>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <a href="{{ route('home') }}"
+                       class="inline-block bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
+                        OK
+                    </a>
+                </div>
+            </div>
+        </div>
+    @endif
 
     <x-Ui::web.common.footer-address/>
     <x-Ui::web.common.copyright/>

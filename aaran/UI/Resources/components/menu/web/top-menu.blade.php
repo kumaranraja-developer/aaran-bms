@@ -22,7 +22,7 @@
     <!-- Desktop Menu -->
     <ul class="hidden md:flex items-center gap-16">
         @foreach ($menuItems as $route => $label)
-            <li class="hover:tracking-wide hover:font-bold transition duration-500">
+            <li class="hover:tracking-wide hover:font-bold transition duration-500 ">
                 <a href="{{ route($route) }}" class="menu-text dark:text-black dark:hover:text-black"
                 >{{ $label }}</a>
             </li>
@@ -49,7 +49,7 @@
     <!-- Mobile Menu Button -->
     <button @click="mobileMenuIsOpen = !mobileMenuIsOpen" :aria-expanded="mobileMenuIsOpen"
             :class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-50' : null" type="button"
-            class="flex text-neutral-600 dark:text-neutral-300 md:hidden" aria-label="mobile menu">
+            class="flex  text-neutral-600 dark:text-dark md:hidden" aria-label="mobile menu">
         <svg x-cloak x-show="!mobileMenuIsOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -75,7 +75,7 @@
 
         @foreach ($menuItems as $route => $label)
             <li class="py-2">
-                <a href="{{ route($route) }}" class="menu-text-mobile">{{ $label }}</a>
+                <a href="{{ route($route) }}" class="menu-text-mobile dark:text-dark-9">{{ $label }}</a>
             </li>
         @endforeach
 
@@ -89,7 +89,7 @@
             </li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
         @else
-            <li class="py-2"><a href="{{ route('login') }}" class="menu-text-mobile">Login</a></li>
+            <li class="py-2 dark:text-dark-9"><a href="{{ route('login') }}" class="menu-text-mobile">Login</a></li>
         @endauth
     </ul>
 </nav>
