@@ -19,6 +19,7 @@ class WebsiteServiceProvider extends ServiceProvider
 
         $this->registerMigrations();
 
+         Livewire::component('website::testimonial', About\TestimonialList::class);
         Livewire::component('contact-form', \Aaran\Website\Livewire\Class\Contact\Index::class);
 
          Livewire::component('website::about.team', About\Team::class);

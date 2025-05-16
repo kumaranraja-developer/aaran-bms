@@ -5,9 +5,9 @@ namespace Aaran\Website\Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Aaran\Website\Models\ClientReview>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Aaran\Website\Models\Testimonial>
  */
-class ClientReviewFactory extends Factory
+class TestimonialFactory extends Factory
 {
     /**
      * Define the model's default state.
