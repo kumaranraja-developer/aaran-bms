@@ -38,7 +38,12 @@
                         <x-Ui::table.cell-text>{{$index+1}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->vname}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->role}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->photo}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>
+                            <img class="h-24 w-full"
+                                 src="{{asset('images/teams/'.$row->photo)}}"
+                                 alt="">
+                            {{$row->photo}}
+                        </x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->about}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->mail}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->mobile}}</x-Ui::table.cell-text>

@@ -16,7 +16,7 @@ class DevTeamSeeder extends Seeder
             [
                 'vname' => 'Sundar',
                 'role' => 'CEO',
-                'photo' => 'team/sundar.png',
+                'photo' => 'sundar.jpg',
                 'about' => 'Sundar Team',
                 'mail' => 'sundar@sundar.com',
                 'mobile' => '9655227738',
@@ -40,7 +40,7 @@ class DevTeamSeeder extends Seeder
             [
                 'vname' => 'Haris',
                 'role' => 'Developer/Team Leader',
-                'photo' => 'team/haris.png',
+                'photo' => 'haris.jpg',
                 'about' => 'Haris Team',
                 'mail' => 'haris@example.com',
                 'mobile' => '1234567891',
@@ -52,7 +52,7 @@ class DevTeamSeeder extends Seeder
             [
                 'vname' => 'Muthukumaran',
                 'role' => 'Full Stack Developer/Team Leader',
-                'photo' => 'team/muthukumaran.png',
+                'photo' => 'muthukumaran.jpg',
                 'about' => 'Haris Team',
                 'mail' => 'muthu@example.com',
                 'mobile' => '1234567892',
@@ -64,7 +64,7 @@ class DevTeamSeeder extends Seeder
             [
                 'vname' => 'Saran',
                 'role' => 'Full Stack Developer/Team Leader',
-                'photo' => 'team/saran.png',
+                'photo' => 'saran.jpg',
                 'about' => 'Haris Team',
                 'mail' => 'saran@example.com',
                 'mobile' => '1234567893',
@@ -76,7 +76,7 @@ class DevTeamSeeder extends Seeder
             [
                 'vname' => 'Arunesh',
                 'role' => 'Full Stack Developer',
-                'photo' => 'team/saran.png',
+                'photo' => 'arunesh.jpg',
                 'about' => 'Haris Team',
                 'mail' => 'saran@example.com',
                 'mobile' => '1234567893',
@@ -88,7 +88,7 @@ class DevTeamSeeder extends Seeder
             [
                 'vname' => 'Mukila',
                 'role' => 'Developer',
-                'photo' => 'team/saran.png',
+                'photo' => 'mukila.jpg',
                 'about' => 'Haris Team',
                 'mail' => 'saran@example.com',
                 'mobile' => '1234567893',
