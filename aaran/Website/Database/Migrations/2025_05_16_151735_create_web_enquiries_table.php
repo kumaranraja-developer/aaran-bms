@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('web_enquiries', function (Blueprint $table) {
             $table->id();
             $table->string('vname');
-            $table->string('vemail');
-            $table->string('vphone');
-            $table->text('vmessage');
+            $table->string('email');
+            $table->string('phone');
+            $table->text('message');
             $table->boolean('active_id')->default(false);
             $table->timestamps();
         });
