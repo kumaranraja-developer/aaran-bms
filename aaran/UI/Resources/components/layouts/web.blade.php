@@ -18,9 +18,9 @@
     <!-- Styles -->
     @fluxAppearance
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased ">
 
-<div class="w-full bg-gray-50">
+<div class="w-full bg-gray-50 dark:bg-dark">
 
     <x-Ui::menu.web.top-menu/>
 

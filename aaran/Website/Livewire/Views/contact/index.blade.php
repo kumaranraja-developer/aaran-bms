@@ -8,9 +8,9 @@
         :slogan="'Driven by Ideas, Defined by Results'"
     />
 
-    <div class="bg-white">
+    <div class="bg-white dark:bg-dark dark:text-dark-9">
 
-        <section class="relative z-10 overflow-hidden  py-20 lg:py-[120px] dark:bg-dark">
+        <section class="relative z-10 overflow-hidden px-15 py-20 lg:py-[120px] dark:bg-dark">
             <div class="container mx-auto">
                 <div class="-mx-4 flex flex-wrap lg:justify-between">
                     <div class="w-full px-4 lg:w-1/2 xl:w-6/12">
@@ -22,7 +22,7 @@
                                 class="mb-6 text-[32px] font-bold uppercase text-dark sm:text-[40px] lg:text-[36px] xl:text-[40px] dark:text-white">
                                 GET IN TOUCH WITH US
                             </h2>
-                            <p class="mb-2 text-base  indent-5 leading-relaxed text-body-color dark:text-dark-6">
+                            <p class="mb-2 text-base  indent-5 leading-relaxed text-body-color dark:text-dark-8">
                                 We’re here to help you streamline your business operations with effective and reliable
                                 software solutions.
                                 Whether you have questions about our GST Billing Software, need assistance, or are
@@ -33,7 +33,7 @@
                             </p>
 
 
-                            <p class="mb-9 text-base indent-5 leading-relaxed text-body-color dark:text-dark-6">
+                            <p class="mb-9 text-base indent-5 leading-relaxed text-body-color dark:text-dark-8">
                                 Please feel free to reach out to us through the contact form, email, or phone. We look
                                 forward to connecting with you and supporting your journey towards better financial and
                                 operational management.
@@ -50,10 +50,10 @@
                                     </svg>
                                 </div>
                                 <div class="w-full">
-                                    <h4 class="mb-1 text-xl font-bold text-dark dark:text-white">
+                                    <h4 class="mb-1 text-xl font-bold text-dark dark:text-dark-9">
                                         Our Location
                                     </h4>
-                                    <p class="text-base text-body-color dark:text-dark-6">
+                                    <p class="text-base text-body-color dark:text-dark-8">
                                         {{Aaran\Assets\App\Software::AppCompanyAddress_1}}<br>
                                         {{Aaran\Assets\App\Software::AppCompanyAddress_2}}
                                         ,&nbsp;{{Aaran\Assets\App\Software::AppCompanyAddress_3}}<br>
@@ -87,10 +87,10 @@
                                     </svg>
                                 </div>
                                 <div class="w-full">
-                                    <h4 class="mb-1 text-xl font-bold text-dark dark:text-white">
+                                    <h4 class="mb-1 text-xl font-bold text-dark dark:text-dark-9">
                                         Phone Number
                                     </h4>
-                                    <p class="text-base text-body-color dark:text-dark-6">
+                                    <p class="text-base text-body-color dark:text-dark-8">
                                         {{Aaran\Assets\App\Software::AppCompanyMobile}}
                                     </p>
                                 </div>
@@ -107,10 +107,10 @@
                                     </svg>
                                 </div>
                                 <div class="w-full">
-                                    <h4 class="mb-1 text-xl font-bold text-dark dark:text-white">
+                                    <h4 class="mb-1 text-xl font-bold text-dark dark:text-dark-9">
                                         Email Address
                                     </h4>
-                                    <p class="text-base text-body-color dark:text-dark-6">
+                                    <p class="text-base text-body-color dark:text-dark-8">
                                         {{Aaran\Assets\App\Software::AppCompanyEmail}}
                                     </p>
                                 </div>
@@ -122,19 +122,19 @@
                             <form>
                                 <div class="mb-6">
                                     <input type="text" placeholder="Your Name"
-                                           class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"/>
+                                           class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-9 dark:bg-dark-9 dark:text-dark-6"/>
                                 </div>
                                 <div class="mb-6">
                                     <input type="email" placeholder="Your Email"
-                                           class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"/>
+                                           class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-9 dark:bg-dark-9 dark:text-dark-6"/>
                                 </div>
                                 <div class="mb-6">
                                     <input type="text" placeholder="Your Phone"
-                                           class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"/>
+                                           class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-9 dark:bg-dark-9 dark:text-dark-6"/>
                                 </div>
                                 <div class="mb-6">
                 <textarea rows="6" placeholder="Your Message"
-                          class="w-full resize-none rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3 dark:bg-dark dark:text-dark-6"></textarea>
+                          class="w-full resize-none rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-9 dark:bg-dark-9 dark:text-dark-6"></textarea>
                                 </div>
                                 <div>
                                     <button type="submit"
