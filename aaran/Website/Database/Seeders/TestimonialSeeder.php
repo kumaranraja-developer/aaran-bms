@@ -4,7 +4,7 @@ namespace Aaran\Website\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class ClientReviewSeeder extends Seeder
+class TestimonialSeeder extends Seeder
 {
     /**
      * Run the database seeds.
