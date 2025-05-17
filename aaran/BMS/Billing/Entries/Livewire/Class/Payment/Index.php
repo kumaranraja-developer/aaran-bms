@@ -6,6 +6,7 @@ use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\BMS\Billing\Transaction\Models\Transaction;
 use Carbon\Carbon;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Crypt;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
@@ -17,7 +18,7 @@ class Index extends Component
     use ComponentStateTrait, TenantAwareTrait;
 
     public ?string $account_book_id = null;
-    public ?string $transaction_mode= null;
+    public ?string $transaction_mode = null;
     #[Validate]
     public ?string $contact_id;
 
@@ -86,7 +87,7 @@ class Index extends Component
                 'acyear' => session('acyear_id'),
                 'company_id' => session('company_id'),
                 'account_book_id' => $this->account_book_id,
-                'transaction_mode' => $this->transaction_mode ?: '1',
+                'transaction_mode' => $this->transaction_mode,
                 'contact_id' => $this->contact_id ?: '1',
                 'vch_no' => $this->vch_no,
                 'vdate' => $this->vdate,
@@ -119,7 +120,6 @@ class Index extends Component
     {
         $this->vid = null;
         $this->account_book_id = $this->account_book_id;
-        $this->transaction_mode = request()->routeIs('receipts') ? '1' : '2';
         $this->contact_id = '';
         $this->vch_no = null;
         $this->vdate = Carbon::now()->format('Y-m-d');
