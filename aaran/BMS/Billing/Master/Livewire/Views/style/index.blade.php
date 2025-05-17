@@ -82,8 +82,6 @@
                                     <img class="h-24 w-full"
                                          src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_image))}}"
                                          alt="">
-                                @else
-                                    <x-Ui::icons.icon :icon="'image'" class="w-auto h-auto block "/>
                                 @endif
                             </div>
                         </div>
