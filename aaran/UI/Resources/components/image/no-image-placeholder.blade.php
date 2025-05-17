@@ -1,6 +1,6 @@
 <svg
     viewBox="0 0 329.77792 406.00738"
-    {{$attributes}}
+    {{$attributes->merge(['class' => 'h-15 disabled w-auto block cursor-not-allowed'])}}
 >
     <defs
         id="defs4">

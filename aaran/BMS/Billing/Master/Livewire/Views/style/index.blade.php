@@ -20,7 +20,7 @@
                     Name
                 </x-Ui::table.header-text>
                 <x-Ui::table.header-text sortIcon="none">Description</x-Ui::table.header-text>
-                <x-Ui::table.header-text sortIcon="none" class="w-15">Image</x-Ui::table.header-text>
+                <x-Ui::table.header-text sortIcon="none">Image</x-Ui::table.header-text>
                 <x-Ui::table.header-status/>
                 <x-Ui::table.header-action/>
             </x-slot:table_header>
@@ -32,17 +32,15 @@
                         <x-Ui::table.cell-text left>{{$row->vname}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->description}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>
-                            @if($row->image && $row->image !== 'no_image')
-                            <img src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$row->image))}}" alt="">
-                            @else
-                               <x-Ui::icons.no-image-placeholder class="h-15 w-auto block"/>
-                            @endif
-
+                            <x-Ui::image.lightbox-image :image="$row->image"
+                                                        thumb-size="h-22 w-auto"
+                            />
                         </x-Ui::table.cell-text>
                         <x-Ui::table.cell-status active="{{$row->active_id}}"/>
                         <x-Ui::table.cell-action id="{{$row->id}}"/>
                     </x-Ui::table.row>
                 @endforeach
+
             </x-slot:table_body>
         </x-Ui::table.form>
 
