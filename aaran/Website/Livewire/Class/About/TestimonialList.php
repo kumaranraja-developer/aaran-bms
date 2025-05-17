@@ -7,15 +7,18 @@ use Aaran\Website\Models\Testimonial;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class TestimonialList extends Component
 {
     use ComponentStateTrait;
+    use WithFileUploads;
 
     #[Validate]
     public string $vname = '';
     public string $company = '';
-    public string $photo = '';
+    #[validate('image|max:1024')]
+    public $photo;
     public string $testimonial = '';
 
     public bool $active_id = true;
@@ -46,13 +49,14 @@ class TestimonialList extends Component
     {
         $this->validate();
 
+        $photoPath = $this->photo ? $this->photo->store('photos','public') : null;
 
         Testimonial::updateOrCreate(
             ['id' => $this->vid],
             [
                 'vname' => Str::ucfirst($this->vname),
                 'company' => $this->company,
-                'photo' => $this->photo,
+                'photo' => $photoPath ? basename($photoPath) : $this->photo,
                 'testimonial' => $this->testimonial,
                 'active_id' => $this->active_id
             ],

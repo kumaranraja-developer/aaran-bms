@@ -40,7 +40,12 @@
                         <x-Ui::table.cell-text>{{$index+1}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->vname}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->company}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->photo}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>
+                            @if($row->photo)
+                                <img src="{{ asset('storage/photos/' . $row->photo) }}" class="h-10 w-10 rounded-full object-cover" alt="photo" />
+                            @else
+                                N/A
+                            @endif                        </x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->testimonial}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-status active="{{$row->active_id}}"/>
                         <x-Ui::table.cell-action id="{{$row->id}}"/>
@@ -62,7 +67,7 @@
             <x-Ui::input.floating wire:model="vname" label="Name" />
             <x-Ui::input.error-text wire:model="vname"/>
             <x-Ui::input.floating wire:model="company" label="Company" />
-            <x-Ui::input.floating wire:model="photo" label="Photo" />
+            <x-Ui::input.floating type="file" wire:model="photo" label="Photo" />
             <x-Ui::input.floating wire:model="testimonial" label="Testimonial" />
 
             </div>
