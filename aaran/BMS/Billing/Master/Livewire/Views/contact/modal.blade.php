@@ -264,7 +264,7 @@
 
                                             <x-Ui::input.floating wire:model="outstanding" label="Outstanding"/>
 
-                                            <x-Ui::input.floating wire:model="effective_from" label="Effective from"/>
+                                            <x-Ui::input.model-date wire:model="effective_from" label="Effective from"/>
 
                                         </div>
                                     </x-Ui::tabs.content>
