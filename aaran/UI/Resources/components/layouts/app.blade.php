@@ -29,7 +29,7 @@
         <x-Ui::menu.app.side-menu/>
 
         <!-- Page Content -->
-        <main class=" bg-[#F8F8FF] print:bg-white sm:p-5 p-2 ">
+        <main class=" bg-[#F8F8FF] print:bg-white sm:p-5 p-2 dark:bg-dark dark:text-dark-9 cursor-default">
             {{ $slot }}
         </main>
 

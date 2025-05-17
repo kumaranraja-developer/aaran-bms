@@ -53,30 +53,29 @@
 
 
 
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
     @foreach ($cards as $card)
-        <div
-            class="bg-white rounded-md border-t-2 {{ $card['border_color'] }} flex flex-col justify-evenly shadow-md">
-            <div class="flex flex-row justify-between items-center px-5">
-                <div class="space-y-2">
+        <div class="bg-white rounded-md border-t-2 {{ $card['border_color'] }} flex flex-col justify-evenly shadow-md dark:bg-dark-3 dark:text-dark-9">
+            <div class="block  p-3">
+                <div class=" flex justify-between space-y-6">
                     <div class="text-md font-semibold">{{ $card['title'] }}</div>
-                    <div class="sm:text-2xl text-md  {{ $card['text_color'] }} font-semibold">
-                        {{ $card['total'] }}
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full sm:hidden md:flex  lg:hidden xl:flex {{$card['icon_color']}}">
+                        <x-Ui::icons.icon :icon="$card['icon']" class="w-6 h-auto lg:hidden xl:flex {{ $card['text_color'] }}"/>
                     </div>
                 </div>
-                <div class="flex items-center justify-center w-14 h-14 rounded-full {{$card['icon_color']}}">
-                    <x-Ui::icons.icon :icon="$card['icon']" class="w-8 h-auto  {{ $card['text_color'] }}"/>
+                <div class="sm:text-xl text-md  {{ $card['text_color'] }} font-semibold">
+                    {{ $card['total'] }}
                 </div>
-            </div>
 
-            <div class="flex flex-row justify-between items-center pb-5 px-5">
+            </div>
+            <div class="flex flex-row md:block  justify-between p-5">
                 <div class="text-md font-semibold">
                     <div class="text-gray-500">This month</div>
-                    <div class=" {{ $card['text_color'] }}">
+                    <div class="sm:text-md {{ $card['text_color'] }}">
                         {{ $card['monthly'] }}
                     </div>
                 </div>
-                <div>
+                <div class="flex justify-end">
                     <a href="{{ route($card['route']) }}"
                        class=" {{ $card['text_color'] }} text-sm hover:bg-opacity-10 {{ $card['hover_color'] }} px-3 py-1 rounded-md font-semibold inline-flex items-center gap-x-2">
                         <span>View All</span>

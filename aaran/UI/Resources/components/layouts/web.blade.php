@@ -20,12 +20,12 @@
 </head>
 <body class="font-sans antialiased ">
 
-<div class="w-full bg-gray-50 dark:bg-dark">
+<div class="w-full bg-gray-50 ">
 
     <x-Ui::menu.web.top-menu/>
 
     <!-- Page Content -->
-    <main class="w-full">
+    <main class="w-full dark:bg-dark">
         {{ $slot }}
     </main>
 </div>

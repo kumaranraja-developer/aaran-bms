@@ -2,7 +2,7 @@
 'entries' => null
 ])
 
-<div class="sm:w-4/12 w-auto bg-white  rounded-lg flex-col flex h-[28rem] shadow-md">
+<div class="w-auto bg-white rounded-lg flex-col flex h-[28rem] shadow-md dark:bg-dark-3 dark:text-dark-9">
 
     <div class="w-full h-[4rem] py-3 border-b border-gray-200 inline-flex items-center justify-between px-8">
         <span class="inline-flex items-center gap-2">

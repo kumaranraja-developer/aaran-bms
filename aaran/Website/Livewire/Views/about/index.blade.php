@@ -68,7 +68,7 @@
         <section class="text-gray-600 bg-purple-50">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-col text-center w-full mb-20">
-                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest dark:text-dark-9">OUR
+                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest dark:text-dark">OUR
                         TEAM</h1>
                     <p class="lg:w-2/3 mx-auto leading-relaxed text-base dark:text-dark-8">
                         Aaran Software is built by a focused team of creators and engineers. We value clarity, purpose,
@@ -85,7 +85,7 @@
                                      class="flex-shrink-0 object-fill b rounded-lg w-48 h-48  object-center sm:mb-0 mb-4"
                                      src="{{asset('images/teams/'.$member->photo)}}">
                                 <div class="flex-grow sm:pl-8">
-                                    <h2 class="title-font font-medium text-lg text-gray-900 dark:text-dark-9">{{$member->vname}}</h2>
+                                    <h2 class="title-font font-medium text-lg text-gray-900 dark:text-dark">{{$member->vname}}</h2>
                                     <h3 class="text-gray-500 mb-3">{{$member->role}}</h3>
                                     <p class="mb-4">{{$member->about}}</p>
                                     <span class="inline-flex">

@@ -1,13 +1,13 @@
-<div>
+<div class="dark:bg-dark dark:text-dark-9">
     <x-slot name="header">Dashboard</x-slot>
 
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
 
-        <div class="grid auto-rows-min gap-4 md:grid-cols-3">
+        <div class="grid grid-cols-1 md:grid-cols-[50%_50%] lg:grid-cols-3 auto-rows-min gap-4">
 
             <x-Ui::web.dashboard.greetings/>
 
-            <div class="w-auto h-auto bg-white p-5 rounded-lg border-t-2 border-[#23B7E5] shadow-md">
+            <div class="w-auto h-auto bg-white p-5 rounded-lg border-t-2 border-[#23B7E5] shadow-md dark:bg-dark-3 dark:text-dark-9">
                 <div class="flex justify-between">
                     <div class="space-y-2">
                         <div class="flex-col gap-1 font-semibold">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
 
-                    <div class="w-16 h-16 mt-1 mr-5">
+                    <div class="w-16 h-16 mt-1 mr-5 ">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
                              class="">
@@ -57,17 +57,11 @@
             </div>
 
             <x-Ui::web.dashboard.cards :transactions="$transactions"/>
-
-        </div>
-
-        <!-- row 2 ---------------------------------------------------------------------------------------------------->
-        <div class=" bg-[#F8F8FF] gap-10 flex sm:flex-row flex-col tracking-wider rounded-lg ">
-
             <x-Ui::web.dashboard.customer :contacts="$contacts"/>
 
             <x-Ui::web.dashboard.entries :entries="$entries"/>
 
-            <div class="sm:w-5/12 w-auto bg-white  rounded-lg flex-col flex h-[28rem] gap-y-5 shadow-md gap-y">
+            <div class="bg-white  rounded-lg flex-col flex h-[28rem] gap-y-5 shadow-md gap-y dark:bg-dark-3 dark:text-dark-9">
 
                 <div
                     class="w-full h-[4rem] py-3 border-b border-gray-200 inline-flex items-center justify-between px-8">
@@ -82,15 +76,15 @@
                         <span class="text-lg font-semibold font-lex">Recent Articles</span>
                     </span>
                 </div>
-                <div class="flex-col flex px-5 overflow-y-auto gap-y-5 font-lex" wire:poll.300s>
+                <div class="flex-col flex px-5 overflow-y-auto gap-y-5 font-lex pb-4 mb-4" wire:poll.300s>
                     @if(isset($blogs))
                         @forelse($blogs as $index=>$row)
 
                             <a
                                 {{--                                href="{{ route('showArticles', [$index]) }}"--}}
-                                class="flex w-full h-auto rounded-md gap-x-2 bg-gray-50 hover:bg-slate-100 animate__animated wow animate__backInRight"
+                                class="flex w-full h-auto rounded-md gap-x-2 bg-gray-50 hover:bg-slate-100 animate__animated wow animate__backInRight dark:bg-dark-3 dark:text-dark-9 border border-white  dark:hover:bg-dark-4"
                                 data-wow-duration="3s">
-                                <div class="w-32 h-24 overflow-hidden">
+                                <div class="w-32 h-24 overflow-hidden ">
                                     <img src="{{ $row['image'] }}"
                                          class="object-cover w-full h-full transition duration-300 ease-in-out hover:scale-105 rounded-l-md "
                                          alt="">
@@ -155,6 +149,7 @@
                 </div>
             </div>
         </div>
+
 
         <!-- copy right ---------------------------------------------------------------------------------------------------->
         <x-Ui::web.dashboard.copyright/>
