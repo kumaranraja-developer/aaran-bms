@@ -2,6 +2,7 @@
 
 namespace Aaran\Assets\Providers;
 
+use Aaran\Assets\Services\ImageService;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -10,6 +11,13 @@ class AssetsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->getConfig();
+    }
+
+    public function register(): void
+    {
+        $this->app->singleton(ImageService::class, function ($app) {
+            return new ImageService();
+        });
     }
 
     public function getConfig(): void

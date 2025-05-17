@@ -2,21 +2,25 @@
 
 namespace Aaran\BMS\Billing\Master\Livewire\Class\Style;
 
+use Aaran\Assets\Services\ImageService;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\BMS\Billing\Master\Models\Style;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Index extends Component
 {
-    use ComponentStateTrait, TenantAwareTrait;
+    use ComponentStateTrait, TenantAwareTrait, WithFileUploads;
 
     #[Validate]
     public string $vname = '';
     public string $description = '';
-    public string $image = '';
+    public mixed $image;
+    public mixed $old_image;
     public bool $active_id = true;
 
     #region[Validation]
@@ -41,11 +45,15 @@ class Index extends Component
             'vname' => 'Styles name',
         ];
     }
+
     #endregion
+
 
     #region[Save]
     public function getSave(): void
     {
+        $imageService = app(ImageService::class);
+
         $this->validate();
         $connection = $this->getTenantConnection();
 
@@ -54,7 +62,7 @@ class Index extends Component
             [
                 'vname' => Str::ucfirst($this->vname),
                 'description' => $this->description,
-                'image' => $this->image,
+                'image' => $imageService->save($this->image, $this->old_image),
                 'active_id' => $this->active_id
             ],
         );
@@ -65,13 +73,13 @@ class Index extends Component
 
     #endregion
 
-
     public function clearFields(): void
     {
         $this->vid = null;
         $this->vname = '';
         $this->description = '';
         $this->image = '';
+        $this->old_image = '';
         $this->active_id = true;
         $this->searches = '';
     }
@@ -83,7 +91,7 @@ class Index extends Component
             $this->vid = $obj->id;
             $this->vname = $obj->vname;
             $this->description = $obj->description;
-            $this->image = $obj->image;
+            $this->old_image = $obj->image;
             $this->active_id = $obj->active_id;
         }
     }

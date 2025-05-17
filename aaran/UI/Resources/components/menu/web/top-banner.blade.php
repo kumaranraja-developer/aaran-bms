@@ -6,7 +6,7 @@
 ])
 
 <div class="relative w-full pt-20 py-4 px-6 bg-center bg-repeat {{$bg_colour}} text-center text-black"
-     style="background-image: url('{{ asset('images/bg-geometry.png') }}');"
+     style="background-image: url('{{ asset('images/web/texture/bg-white-crystal.jpg') }}');"
 >
     <div class="max-w-3xl mx-auto">
         {{--        <h1 class="text-4xl md:text-5xl font-bold tracking-tight">{{ $title }}</h1>--}}
