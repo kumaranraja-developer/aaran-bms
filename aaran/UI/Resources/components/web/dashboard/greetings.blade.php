@@ -1,4 +1,4 @@
-<div class="size-full sm:min-h-[20vh] min-h-[30vh]rounded-lg bg-gray-50 hover:shadow-md">
+<div class="size-full sm:min-h-[20vh] min-h-[30vh]rounded-lg bg-gray-50 hover:shadow-md dark:bg-dark dark:text-dark-9">
     @php
         $greeting = Aaran\Assets\Helper\Core::greetings();
         $backgrounds = [

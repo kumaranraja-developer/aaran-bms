@@ -8,7 +8,7 @@
     ]
 )
 
-<div class="flex items-center justify-between p-3 border-b border-gray-200 hover:bg-[#FFFFF0]">
+<div class="flex items-center justify-between p-3 border-b border-gray-200 dark:hover:bg-dark-4  hover:bg-[#FFFFF0]">
     <div class=" w-3/12 flex-col flex gap-y-2 justify-center items-center">
         <div class="w-10 h-10">
             {{ $slot }}
