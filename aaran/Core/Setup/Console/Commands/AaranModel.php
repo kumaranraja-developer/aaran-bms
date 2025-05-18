@@ -55,7 +55,7 @@ class AaranModel extends Command
                 '{{ class_lower }}' => $table,
             ]);
 
-            $this->makeFromStub('livewire_view', "{$basePath}/Livewire/Views/{$class_lower}-list.blade.php", [
+            $this->makeFromStub('livewire_view', "{$basePath}/Livewire/Views/{$table}-list.blade.php", [
                 '{{ class }}' => $class,
                 '{{ model }}' => $class,
                 '{{ basePath }}' => $relativePath,
