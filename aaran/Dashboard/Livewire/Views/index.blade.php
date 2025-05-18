@@ -15,7 +15,7 @@
                             <div class="text-2xl text-[#23B7E5]">{{ $transactions['total_sales'] }}</div>
                         </div>
                         <div class="flex flex-col gap-1 font-semibold">
-                            <span class="text-xs text-gray-500">This month</span>
+                            <span class="text-xs text-gray-500 dark:text-dark-9">This month</span>
                             <span class="text-[#23B7E5] text-sm">{{ $transactions['month_sales'] }}</span>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                                                   clip-rule="evenodd"/>
                                         </svg>
                                     </span>
-                                        <span class="text-xs font-semibold text-gray-600">By <span
+                                        <span class="text-xs font-semibold text-gray-600 dark:text-dark-9">By <span
                                                 class="text-cyan-600">{{ $row['user_name'] }}</span></span>
 
                                     </div>
