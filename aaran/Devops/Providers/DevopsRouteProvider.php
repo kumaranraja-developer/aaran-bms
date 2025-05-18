@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Core\Devops\Providers;
+namespace Aaran\Devops\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
