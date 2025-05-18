@@ -1,65 +1,102 @@
 <?php
 
-namespace {{ namespace }};
+namespace Aaran\{{ basePath }}\Livewire\Class;
 
-use {{ rootNamespace }}Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Aaran\Assets\Traits\ComponentStateTrait;
+use Aaran\Assets\Traits\TenantAwareTrait;
+use Aaran\{{ basePath }}\Models\{{ class }};
+use Illuminate\Support\Str;
+use Livewire\Attributes\Validate;
+use Livewire\Component;
 
-class {{ class }} extends Controller
+class {{ class }}List extends Component
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    use ComponentStateTrait, TenantAwareTrait;
+
+    #[Validate]
+    public string $vname = '';
+    public bool $active_id = true;
+
+    public function rules(): array
     {
-        //
+        return [
+            'vname' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.cities,vname"),
+        ];
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function messages(): array
     {
-        //
+        return [
+            'vname.required' => ':attribute is missing.',
+            'vname.unique' => 'This :attribute is already created.',
+        ];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function validationAttributes(): array
     {
-        //
+        return [
+            'vname' => '{{ class }} name',
+        ];
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function getSave(): void
     {
-        //
+        $this->validate();
+        $connection = $this->getTenantConnection();
+
+        {{ class }}::on($connection)->updateOrCreate(
+            ['id' => $this->vid],
+            [
+                'vname' => Str::ucfirst($this->vname),
+                'active_id' => $this->active_id
+            ],
+        );
+
+        $this->dispatch('notify', ...['type' => 'success', 'content' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
+        $this->clearFields();
+    }
+    public function clearFields(): void
+    {
+        $this->vid = null;
+        $this->vname = '';
+        $this->active_id = true;
+        $this->searches = '';
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function getObj(int $id): void
     {
-        //
+        if ($obj = {{ class }}::on($this->getTenantConnection())->find($id)) {
+            $this->vid = $obj->id;
+            $this->vname = $obj->vname;
+            $this->active_id = $obj->active_id;
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function getList()
     {
-        //
+        return {{ class }}::on($this->getTenantConnection())
+            ->active($this->activeRecord)
+            ->when($this->searches, fn($query) => $query->searchByName($this->searches))
+            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+            ->paginate($this->perPage);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function deleteFunction(): void
     {
-        //
+        if (!$this->deleteId) return;
+
+        $obj = {{ class }}::on($this->getTenantConnection())->find($this->deleteId);
+        if ($obj) {
+            $obj->delete();
+        }
     }
+
+    public function render()
+    {
+        return view('common::{{ class_lower }}-list', [
+            'list' => $this->getList()
+        ]);
+    }
+
 }

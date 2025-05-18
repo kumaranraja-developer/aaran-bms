@@ -1,15 +1,13 @@
 <?php
 
-namespace {{ namespace }};
+namespace Aaran\{{ basePath }}\Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Aaran\{{ basePath }}\Models\{{ class }};
 use Illuminate\Database\Seeder;
 
-class {{ class }} extends Seeder
+class {{ class }}Seeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
         //

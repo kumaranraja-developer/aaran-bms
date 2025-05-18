@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class AaranModel extends Command
 {
-    protected $signature = 'aaran:model {name} {--all} {--path=}';
+    protected $signature = 'aaran:model {name} {--all} {--path=} {--force}';
     protected $description = 'Generate a module skeleton using stubs';
 
     public function handle()
@@ -16,6 +16,7 @@ class AaranModel extends Command
         $name = Str::studly($this->argument('name'));
         $table = Str::snake(Str::pluralStudly($name));
         $class = $name;
+        $class_lower = Str::lower($name);
 
         $relativePath = $this->option('path') ?? '';
         $relativePath = trim(str_replace(['.', '\\'], DIRECTORY_SEPARATOR, $relativePath), DIRECTORY_SEPARATOR);
@@ -23,7 +24,7 @@ class AaranModel extends Command
 
         $this->makeFromStub('model', "{$basePath}/Models/{$class}.php", [
             '{{ class }}' => $class,
-            '{{ basePath }}' => $basePath,
+            '{{ basePath }}' => $relativePath,
         ]);
 
         if ($this->option('all')) {
@@ -35,23 +36,29 @@ class AaranModel extends Command
 
             $this->makeFromStub('factory', "{$basePath}/Database/Factories/{$class}Factory.php", [
                 '{{ class }}' => $class,
+                '{{ class_lower }}' => $class_lower,
                 '{{ model }}' => $class,
+                '{{ basePath }}' => $relativePath,
             ]);
 
             $this->makeFromStub('seeder', "{$basePath}/Database/Seeders/{$class}Seeder.php", [
                 '{{ class }}' => $class,
                 '{{ model }}' => $class,
+                '{{ basePath }}' => $relativePath,
             ]);
 
 
             $this->makeFromStub('livewire_class', "{$basePath}/Livewire/Class/{$class}List.php", [
                 '{{ class }}' => $class,
                 '{{ model }}' => $class,
+                '{{ basePath }}' => $relativePath,
+                '{{ class_lower }}' => $class_lower,
             ]);
 
-            $this->makeFromStub('livewire_view', "{$basePath}/Livewire/View/{$class}list.php", [
+            $this->makeFromStub('livewire_view', "{$basePath}/Livewire/Views/{$class_lower}-list.blade.php", [
                 '{{ class }}' => $class,
                 '{{ model }}' => $class,
+                '{{ basePath }}' => $relativePath,
             ]);
         }
 
@@ -67,6 +74,11 @@ class AaranModel extends Command
             return;
         }
 
+        if (File::exists($destination) && !$this->option('force')) {
+            $this->warn("Skipped (already exists): {$destination}");
+            return;
+        }
+
         $content = File::get($stubPath);
 
         foreach ($replacements as $search => $replace) {
@@ -75,7 +87,6 @@ class AaranModel extends Command
 
         File::ensureDirectoryExists(dirname($destination));
         File::put($destination, $content);
+        $this->info("Created: {$destination}");
     }
-
-
 }

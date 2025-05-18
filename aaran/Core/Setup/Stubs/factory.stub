@@ -1,23 +1,19 @@
 <?php
 
-namespace {{ factoryNamespace }};
+namespace Aaran\{{ basePath }}\Database\Factories;
 
+use Aaran\{{ basePath }}\Models\{{ class }};
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\{{ namespacedModel }}>
- */
-class {{ factory }}Factory extends Factory
+class {{ class }}Factory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = {{ class }}::class;
+
     public function definition(): array
     {
         return [
-            //
+            'vname' => $this->faker->name,
+            'active_id' => 1
         ];
     }
 }

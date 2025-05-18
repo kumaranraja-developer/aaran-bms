@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Core\{{moduleName}}\Providers;
+namespace Aaran\{{moduleName}}\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;

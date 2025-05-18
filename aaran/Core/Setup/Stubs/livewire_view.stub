@@ -1,65 +1,51 @@
-<?php
+<div>
+    <x-slot name="header">{{ class }}</x-slot>
+    <x-Ui::forms.m-panel>
+        <x-Ui::alerts.notification/>
 
-namespace {{ namespace }};
+        <!-- Top Controls --------------------------------------------------------------------------------------------->
+        <x-Ui::forms.top-controls :show-filters="$showFilters"/>
 
-use {{ rootNamespace }}Http\Controllers\Controller;
-use Illuminate\Http\Request;
+        <!-- Table Caption -------------------------------------------------------------------------------------------->
+        <x-Ui::table.caption :caption="'{{ class }}'">
+            {{$list->count()}}
+        </x-Ui::table.caption>
 
-class {{ class }} extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+        <!-- Table Data ----------------------------------------------------------------------------------------------->
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        <x-Ui::table.form>
+            <x-slot:table_header>
+                <x-Ui::table.header-serial/>
+                <x-Ui::table.header-text wire:click.prevent="sortBy('id')" sortIcon="{{$sortAsc}}" :left="true">
+                    Name
+                </x-Ui::table.header-text>
+                <x-Ui::table.header-status/>
+                <x-Ui::table.header-action/>
+            </x-slot:table_header>
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+            <x-slot:table_body>
+                @foreach($list as $index=>$row)
+                    <x-Ui::table.row>
+                        <x-Ui::table.cell-text>{{$index+1}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>{{$row->vname}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-status active="{{$row->active_id}}"/>
+                        <x-Ui::table.cell-action id="{{$row->id}}"/>
+                    </x-Ui::table.row>
+                @endforeach
+            </x-slot:table_body>
+        </x-Ui::table.form>
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        <!-- Delete Modal --------------------------------------------------------------------------------------------->
+        <x-Ui::modal.confirm-delete/>
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        <div class="pt-5">{{ $list->links() }}</div>
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-}
+        <x-Ui::forms.create :id="$vid">
+            <x-Ui::input.floating wire:model="vname" label="{{ class }} Name"/>
+            <x-Ui::input.error-text wire:model="vname"/>
+        </x-Ui::forms.create>
+
+    </x-Ui::forms.m-panel>
+</div>
