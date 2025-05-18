@@ -39,7 +39,7 @@
         @endif
 
     </ul>
-    <div class=" border-b border-gray-200 shadow-md"></div>
+    <div class=" border-b border-gray-200 shadow-md "></div>
 
     <!-- Panels -->
     <div role="tabpanel" x-cloak class="min-h-96 border-l border-r border-b rounded-b-xl border-neutral-300 bg-white dark:bg-dark dark:text-dark-9 text-xs">

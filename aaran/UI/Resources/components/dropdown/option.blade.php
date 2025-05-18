@@ -1,7 +1,7 @@
 @props([
     'highlight' => null
 ])
-<li class="cursor-pointer px-3 py-1 hover:font-bold hover:bg-zinc-100 text-blue-900 h-fit ml-2 mr-2
+<li class="cursor-pointer px-3 py-1 dark:bg-dark dark:text-dark-9 hover:font-bold hover:bg-zinc-100 dark:hover:bg-dark-4 text-blue-900 h-fit ml-2 mr-2
 rounded-md text-xs my-1 {{$highlight ? 'bg-blue-100' : ''}} "
     {{$attributes}} x-on:click="isTyped = false">
     {{$slot}}
