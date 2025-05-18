@@ -4,14 +4,14 @@
         <!-- Section Title -->
         <div class="flex items-center gap-x-3 justify-center animate__animated wow bounceInDown" data-wow-duration="3s">
             <span class="h-2 px-4 bg-gradient-to-r from-white to-[#070609]"></span>
-            <span class="text-[#070609] text-xs sm:text-xl font-semibold">Billing Made Simple and Efficient</span>
+            <span class="text-[#070609] text-xs sm:text-xl font-semibold dark:text-dark-9">Billing Made Simple and Efficient</span>
             <span class="h-2 px-4 bg-gradient-to-r from-[#070609] to-white"></span>
         </div>
 
-        <div class="text-center text-black text-1xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">Try India’s easiest GST billing platform</div>
+        <div class="text-center text-black text-1xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold  dark:text-dark-9">Try India’s easiest GST billing platform</div>
 
         <!-- Feature Cards Grid -->
-        <div class="grid w-10/12 mx-auto gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid w-10/12 mx-auto gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 dark:text-dark-9">
             <x-Ui::web.home.cover-card
                 title="Sales & Purchase"
                 desc="Create sleek invoices with the click of a button. Customize templates to reflect your brand."

@@ -6,12 +6,12 @@
     />
 
 
-    <section>
+    <section class="cursor-default">
         <div class="bg-white dark:bg-dark ">
-            <div class="grid grid-cols-2 text-black p-10 lg:p-20 gap-10 ">
+            <div class="grid grid-cols-1 md:grid-cols-2 text-black p-10 lg:p-20 gap-10 ">
                 <img src="{{asset('/images/web/home/office_1.jpg')}}" alt=""
-                     class="h-[70vh] rounded-2xl lg:block m-auto hidden"/>
-                <div>
+                     class="h-[70vh] rounded-2xl md:block m-auto hidden"/>
+                <div >
                     <p class="my-3 text-primary text-xl font-semibold">Who We Are</p>
                     <p class="my-3 text-justify indent-5 tracking-wide text-body-color dark:text-dark-8">With over a
                         decade of experience
@@ -64,11 +64,11 @@
 
     </section>
 
-    <section>
-        <section class="text-gray-600 bg-purple-50">
+    <section class="cursor-default">
+        <section class="text-gray-600 bg-purple-50 dark:bg-dark dark:text-dark-9">
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-col text-center w-full mb-20">
-                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest dark:text-dark">OUR
+                    <h1 class="text-2xl font-medium title-font mb-4 dark:text-dark-9 text-gray-900 tracking-widest ">OUR
                         TEAM</h1>
                     <p class="lg:w-2/3 mx-auto leading-relaxed text-base dark:text-dark-8">
                         Aaran Software is built by a focused team of creators and engineers. We value clarity, purpose,
@@ -85,8 +85,8 @@
                                      class="flex-shrink-0 object-fill b rounded-lg w-48 h-48  object-center sm:mb-0 mb-4"
                                      src="{{asset('images/teams/'.$member->photo)}}">
                                 <div class="flex-grow sm:pl-8">
-                                    <h2 class="title-font font-medium text-lg text-gray-900 dark:text-dark">{{$member->vname}}</h2>
-                                    <h3 class="text-gray-500 mb-3">{{$member->role}}</h3>
+                                    <h2 class="title-font font-medium text-lg mb-2 text-gray-900 dark:text-dark-9">{{$member->vname}}</h2>
+                                    <h3 class="text-gray-500 mb-3  dark:text-dark-8">{{$member->role}}</h3>
                                     <p class="mb-4">{{$member->about}}</p>
                                     <span class="inline-flex">
                                     <a class="text-gray-500" href="{{$member->fb}}">
@@ -124,7 +124,7 @@
     </section>
 
 
-    <section class="text-gray-600 body-font bg-white h-[80vh] flex items-center justify-center dark:bg-dark">
+    <section class="text-gray-600 body-font bg-white h-[80vh] flex items-center justify-center dark:bg-dark cursor-default">
         <div class="container px-5 mx-auto">
             <div id="customCarousel" class="carousel">
                 @foreach($quotes as $index => $quote)
@@ -163,11 +163,11 @@
     </script>
 
 
-    <section class="text-blue-300 bg-blue-800">
+    <section class="text-blue-300 bg-blue-800 cursor-default">
         <div
             class="flex flex-col items-stretch justify-between px-4 py-20 mx-auto max-w-7xl lg:flex-row sm:items-center">
             <div>
-                <h2 class="mb-1 text-xl font-semibold text-left py-4 sm:text-2xl sm:text-center lg:text-left  text-blue-300">
+                <h2 class="mb-1 text-xl font-semibold text-left py-4 sm:text-2xl sm:text-center lg:text-left  text-white">
                     Built for
                     companies of all sizes</h2>
                 <p class="mb-6 text-lg font-normal text-left text-blue-300 sm:text-xl lg:mb-0 sm:text-center lg:text-left  ">
@@ -175,9 +175,9 @@
                     demo.</p>
             </div>
             <div class="flex flex-col mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
-                <a href="#" class="px-2 py-2 border border-black rounded-xl bg-black text-white">Start
+                <a href="#" class="px-4 py-2 border border-blue-800 bg-primary text-white  hover:bg-orange-500">Start
                     free trial</a>
-                <a href="#" class="border bg-white text-black px-2 py-2 rounded-xl ">Book a demo</a>
+                <a href="#" class="border bg-white text-black hover:text-white hover:bg-dark-2 px-4 py-2">Book a demo</a>
             </div>
         </div>
     </section>
