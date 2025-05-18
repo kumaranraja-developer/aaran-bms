@@ -13,10 +13,10 @@
         wire:blur="hideDropdown"
 
         class="block px-2.5 pb-2.5 pt-4 w-full text-xs text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none
-                                      focus:outline-none focus:ring-2 focus:ring-cyan-50 focus:border-blue-600 peer"
+                                      focus:outline-none focus:ring-2 focus:ring-cyan-50 focus:border-blue-600 peer dark:bg-dark dark:text-dark-9"
         placeholder=" "/>
     <label for="floating_outlined"
-           class="absolute text-xs text-gray-500  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white
+           class="absolute text-xs text-gray-500  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark dark:text-dark-9
                                px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2
                                peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4
                                rtl:peer-focus:left-auto start-1 pointer-events-none">
@@ -28,11 +28,11 @@
             <div class="absolute z-20 w-full my-2">
                 <li class="block py-2 shadow-md w-full
                         rounded-lg border-transparent flex-1 appearance-none border
-                        bg-white text-gray-800 ring-1 ring-blue-600">
+                        bg-white text-gray-800 ring-1 dark:bg-dark dark:text-dark-9 ring-blue-600">
                     <ul class="overflow-y-scroll h-44 text-xs">
                         @forelse ($results as $index => $colour)
                             <li wire:click="selectColour(@js($colour))"
-                                class="cursor-pointer px-3 py-1 hover:font-bold hover:bg-zinc-100 text-blue-900 h-fit ml-2 mr-2 rounded-md
+                                class="cursor-pointer px-3 py-1 hover:font-bold dark:bg-dark dark:text-dark-9 dark:hover:bg-dark-4 hover:bg-zinc-100 text-blue-900 h-fit ml-2 mr-2 rounded-md
                                 {{ $highlightIndex === $index ? 'bg-blue-100 ' : '' }}">
                                 {{ $colour->vname }}
                             </li>

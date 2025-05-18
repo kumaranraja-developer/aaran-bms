@@ -12,10 +12,10 @@
         wire:focus="searchBy"
         wire:blur="hideDropdown"
         class="block px-2.5 pb-2.5 pt-4 w-full text-xs text-gray-900 bg-transparent rounded-lg border border-gray-300 appearance-none
-               focus:outline-none focus:ring-2 focus:ring-cyan-50 focus:border-blue-600 peer"
+               focus:outline-none focus:ring-2 focus:ring-cyan-50 focus:border-blue-600 peer dark:bg-dark dark:text-dark-9"
         placeholder=" "/>
 
-    <label class="absolute text-xs text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white
+    <label class="absolute text-xs text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark dark:text-dark-9
                   px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2
                   peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 pointer-events-none">
         {{ $label }}
@@ -25,7 +25,7 @@
         <div x-show="showDropdown" x-cloak x-transition>
             <div class="absolute z-20 w-full my-2">
                 <li class="block py-2 shadow-md w-full rounded-lg border-transparent flex-1 appearance-none border
-                        bg-white text-gray-800 ring-1 ring-blue-600">
+                        bg-white text-gray-800 ring-1 ring-blue-600 dark:bg-dark dark:text-dark-9">
                     <ul class="overflow-y-scroll h-44 text-xs">
                         @forelse ($results as $index => $contact)
                             <li wire:click="selectContact(@js($contact))"

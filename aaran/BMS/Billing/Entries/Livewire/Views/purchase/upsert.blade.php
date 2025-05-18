@@ -151,7 +151,7 @@
                                 <div class="max-w-7xl mx-auto">
                                     <div class="w-full border rounded-lg overflow-hidden">
                                         <table class="w-full text-xs ">
-                                            <tr class="bg-neutral-50  text-neutral-400 border-b font-medium font-sans tracking-wider">
+                                            <tr class="bg-neutral-50  text-neutral-400 border-b font-medium font-sans tracking-wider dark:bg-dark-3 dark:text-dark-9">
                                                 <th class="py-4 border-r">#</th>
                                                 @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
                                                     <th class="border-r">PO</th>
@@ -181,7 +181,7 @@
                                             </tr>
                                             @if ($purchase->itemList)
                                                 @foreach($purchase->itemList as $index => $row)
-                                                    <tr class="text-center border-b font-lex tracking-wider hover:bg-amber-50">
+                                                    <tr class="text-center border-b font-lex tracking-wider hover:bg-amber-50 dark:hover:bg-dark-4 dark:bg-dark-3 dark:text-dark-9">
                                                         <td class="py-2 border-r"
                                                             wire:click.prevent="changeItems({{$index}})">{{(int)$index+1}}</td>
                                                         @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
@@ -240,7 +240,7 @@
                                             <!--  Bottom Total ------------------------------------------------------------------------------------------------->
 
 
-                                            <tr class="bg-neutral-50 text-neutral-400 text-center font-sans tracking-wider">
+                                            <tr class="bg-neutral-50 text-neutral-400 text-center font-sans tracking-wider dark:bg-dark-3 dark:text-dark-9">
 
                                                 @if (\Aaran\Assets\Features\SaleEntry::hasNo_of_roll() && \Aaran\Assets\Features\SaleEntry::hasSize() && \Aaran\Assets\Features\SaleEntry::hasColour())
                                                     <td class="py-2 border-r" colspan="7">TOTALS.</td>
