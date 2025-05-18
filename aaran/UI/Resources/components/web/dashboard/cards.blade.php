@@ -70,7 +70,7 @@
             </div>
             <div class="flex flex-row md:block  justify-between p-5">
                 <div class="text-md font-semibold">
-                    <div class="text-gray-500">This month</div>
+                    <div class="text-gray-500  dark:text-dark-8">This month</div>
                     <div class="sm:text-md {{ $card['text_color'] }}">
                         {{ $card['monthly'] }}
                     </div>

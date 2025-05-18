@@ -20,7 +20,7 @@
            class="inline-flex items-center gap-1 text-gray-500 font-semibold
             hover:bg-cyan-50 hover:text-cyan-600 px-2 py-1 rounded-md transition-colors duration-300 ease-out dark:hover:bg-dark-2 ">
 
-            <span class="text-xs ">View All </span>
+            <span class="text-xs dark:text-dark-9">View All </span>
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke-width="1.5"
@@ -45,7 +45,7 @@
 
                         <div
                             class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-slate-600 rounded-full dark:bg-gray-600
-                            outline-2 outline-offset-2 outline-blue-900">
+                            outline-2 outline-offset-2 outline-blue-900 dark:outline-blue-700">
                         <span class=" font-medium text-white dark:text-gray-400">
                             {{substr($contact->vname,0,2)}}
                         </span>
@@ -57,7 +57,7 @@
                                 {{$contact->vname}}
                             </div>
 
-                            <div class="text-gray-600 text-xs">
+                            <div class="text-gray-600 text-xs dark:text-dark-8">
                                 {{ date('d-M', strtotime($contact->updated_at)) }}
                             </div>
 

@@ -16,7 +16,7 @@
                       {{$slot}}
        </span>
     </div>
-    <div class="text-2xl font-semibold text-black py-4">{{$title}}</div>
-    <div class="text-black text-center text-sm">{{$desc}}
+    <div class="text-2xl font-semibold text-black py-4 dark:text-dark-9">{{$title}}</div>
+    <div class="text-black text-center text-sm dark:text-dark-9">{{$desc}}
     </div>
 </div>

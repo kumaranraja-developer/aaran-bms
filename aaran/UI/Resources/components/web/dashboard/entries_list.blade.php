@@ -19,7 +19,7 @@
         <span class="text-xs font-semibold ">
             {{ $invoice }}
         </span>
-        <div class="text-xs text-gray-600">
+        <div class="text-xs text-gray-600 dark:text-dark-8">
             {{ $date }}
         </div>
     </div>
