@@ -23,7 +23,7 @@
                             <div class="space-y-5 py-3">
                                 <div class="w-full flex gap-5 ">
 
-                                    <div class="w-full space-y-5">
+                                    <div class="w-full space-y-5 dark:bg-dark dark:text-dark-9">
 
                                         <div>
                                             @livewire('master::contact.lookup',['initId' => $sale->contact_id] )
@@ -57,9 +57,9 @@
                                             <x-Ui::input.error-text wire:model="sale.invoice_date"/>
                                         </div>
                                         <div>
-                                            <x-Ui::input.model-select class="w-full" wire:model="sale.sales_type"
+                                            <x-Ui::input.model-select class="w-full dark:bg-dark dark:text-dark-9" wire:model="sale.sales_type"
                                                                       :label="'Sales Type'">
-                                                <option value="0" class="text-gray-400"> choose ..</option>
+                                                <option value="0" class="text-gray-400 "> choose ..</option>
                                                 <option value="1">CGST-SGST</option>
                                                 <option value="2">IGST</option>
                                             </x-Ui::input.model-select>
@@ -85,7 +85,7 @@
                                     class="px-4 pb-4  text-lg font-merri tracking-wider text-orange-600 underline underline-offset-4 underline-orange-500">
                                     Sales Items
                                 </div>
-                                <div class="w-full flex  gap-x-1 pb-4">
+                                <div class="w-full flex  gap-x-1 pb-4 dark:bg-dark dark:text-dark-9">
 
                                     @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
                                         <div class="">
@@ -141,7 +141,7 @@
                                 <div class="max-w-7xl mx-auto">
                                     <div class="w-full border rounded-lg overflow-hidden">
                                         <table class="w-full text-xs ">
-                                            <tr class="bg-neutral-50  text-neutral-400 border-b font-medium font-sans tracking-wider">
+                                            <tr class="bg-neutral-50 dark:bg-dark-3 dark:text-dark-9 text-neutral-400 border-b font-medium font-sans tracking-wider">
                                                 <th class="py-4 border-r">#</th>
                                                 @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
                                                     <th class="border-r">PO</th>
@@ -156,7 +156,7 @@
                                                     <th width="5%" class="border-r">Color</th>
                                                 @endif
                                                 @if(\Aaran\Assets\Features\SaleEntry::hasSize())
-                                                    <th width="4%" class="border-r">Size</th>
+                                                    <th width="4%" class="border-r ">Size</th>
                                                 @endif
                                                 @if(\Aaran\Assets\Features\SaleEntry::hasNo_of_roll())
                                                     <th width="5%" class="border-r">No 0f Rolls</th>
@@ -171,7 +171,7 @@
                                             </tr>
                                             @if ($sale->itemList)
                                                 @foreach($sale->itemList as $index => $row)
-                                                    <tr class="text-center border-b font-lex tracking-wider hover:bg-amber-50">
+                                                    <tr class="text-center border-b  font-lex tracking-wider hover:bg-amber-50">
                                                         <td class="py-2 border-r"
                                                             wire:click.prevent="changeItems({{$index}})">{{(int)$index+1}}</td>
                                                         @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
@@ -230,7 +230,7 @@
                                             <!--  Bottom Total ------------------------------------------------------------------------------------------------->
 
 
-                                            <tr class="bg-neutral-50 text-neutral-400 text-center font-sans tracking-wider">
+                                            <tr class="bg-neutral-50 text-neutral-400 text-center font-sans tracking-wider dark:bg-dark-3 dark:text-dark-9">
 
                                                 @if (\Aaran\Assets\Features\SaleEntry::hasNo_of_roll() && \Aaran\Assets\Features\SaleEntry::hasSize() && \Aaran\Assets\Features\SaleEntry::hasColour())
                                                     <td class="py-2 border-r" colspan="7">TOTALS.</td>
@@ -298,7 +298,7 @@
                         <!--  TAB 2 - Address ------------------------------------------------------------------------------------------------->
 
                         <x-Ui::tabs.content>
-                            <div class="w-1/2 space-y-8 h-52 pt-3">
+                            <div class="w-1/2 space-y-8 h-52 pt-3 dark:bg-dark dark:text-dark-9">
                                 <div>
                                     @if(\Aaran\Assets\Features\SaleEntry::hasBillingAddress())
                                         @livewire('master::contact.billing-address', ['initId' => $sale->billing_id])
@@ -319,7 +319,7 @@
 
                         <x-Ui::tabs.content>
                             <div>
-                                <div class="flex justify-between gap-5 pt-3">
+                                <div class="flex justify-between gap-5 pt-3 ">
 
                                     <div class="w-full space-y-8 ">
 
@@ -383,7 +383,7 @@
                                                       label="Addition"
                                                       class="text-right block px-2.5 pb-2.5 pt-4 w-full text-sm
                                                       text-gray-900 bg-transparent rounded-lg border-1
-                                                       border-gray-300 appearance-none
+                                                       border-gray-300 appearance-none dark:bg-dark dark:text-dark-9
                                                        focus:outline-none focus:ring-2 focus:ring-cyan-50 focus:border-blue-600 peer"/>
                             </div>
                         </x-Ui::tabs.content>

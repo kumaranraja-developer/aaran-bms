@@ -6,7 +6,7 @@
     'routes' => '/',
 
 ])
-<div class="sm:px-8 px-2 border border-neutral-200 border-t-0 bg-zinc-50 rounded-b-md shadow-lg w-full">
+<div class="sm:px-8 px-2 border border-neutral-200 border-t-0 bg-zinc-50 rounded-b-md shadow-lg w-full dark:bg-dark dark:text-dark-9">
     <div class="flex flex-row justify-between py-4 gap-3">
         <div class="flex flex-wrap  gap-3">
             @if($active)
