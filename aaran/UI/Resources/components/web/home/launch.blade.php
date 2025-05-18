@@ -786,16 +786,16 @@
                 Business Winning.
             </h1>
             <p class="text-gray-600 text-lg dark:text-dark-9">
-                30-day free trial. No credit card required.
+                {{\Aaran\Assets\Config\Application::AppTrialPeriod}} free trial. No credit card required.
             </p>
             <div class="flex justify-center lg:justify-start gap-4">
                 <a
                     href="{{route('client-registration')}}"
-                   class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-semibold text-sm">
+                   class="bg-primary hover:bg-orange-500  text-white px-6 py-3 rounded font-semibold text-sm cursor-pointer">
                     SIGN UP FOR FREE
                 </a>
                 <a href="{{route('client-plans')}}"
-                   class="border border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600 px-6 py-3 rounded font-semibold text-sm">
+                   class="border border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600 px-6 py-3 rounded font-semibold text-sm cursor-pointer">
                     SEE PLANS AND PRICING
                 </a>
             </div>

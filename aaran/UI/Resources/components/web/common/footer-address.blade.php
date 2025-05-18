@@ -27,31 +27,43 @@
                 ['label' => 'Contact Us', 'href' => route('web-projects')],
                 ['label' => 'Blog', 'href' => route('abouts')],
                 ['label' => 'Careers', 'href' => route('abouts')],
-                ['label' => 'Contact', 'href' => route('web-contacts')],
+                ['label' => 'Partners', 'href' => route('abouts')],
+
             ]"
         />
 
         <x-Ui::web.common.footer-column
-            title="Links"
+            title="Projects"
             :links="[
+                ['label' => 'Billing', 'href' => route('web-projects')],
+                ['label' => 'Gst Invoice', 'href' => route('web-contacts')],
+                ['label' => 'CRM', 'href' => route('web-contacts')],
+                ['label' => 'LMS', 'href' => route('web-contacts')],
+                ['label' => 'Erp', 'href' => route('web-contacts')],
+                ['label' => 'WebSite', 'href' => route('web-contacts')],
+                ['label' => 'E Commerce', 'href' => route('web-contacts')],
+            ]"
+        />
+
+        <x-Ui::web.common.footer-column
+            title="Helpful Links"
+            :links="[
+                ['label' => 'Contact', 'href' => route('web-contacts')],
                 ['label' => 'FAQ', 'href' => route('abouts')],
+                ['label' => 'Live Chat', 'href' => route('abouts')],
                 ['label' => 'Pricing', 'href' => route('web-projects')],
                 ['label' => 'Feed back', 'href' => route('abouts')],
-                ['label' => 'Terms', 'href' => route('abouts')],
-                ['label' => 'Privacy', 'href' => route('web-contacts')],
                 ['label' => 'Help', 'href' => route('web-contacts')],
             ]"
         />
 
         <x-Ui::web.common.footer-column
-            title="Templates"
+            title="Legal"
             :links="[
-                ['label' => 'Invoice', 'href' => route('abouts')],
-                ['label' => 'Gst Invoice', 'href' => route('web-projects')],
-                ['label' => 'Quotations', 'href' => route('abouts')],
-                ['label' => 'Consulting', 'href' => route('abouts')],
-                ['label' => 'Estimate', 'href' => route('web-contacts')],
-                ['label' => 'Others', 'href' => route('web-contacts')],
+                ['label' => 'Privacy Policy', 'href' => route('web-contacts')],
+                ['label' => 'Terms & Conditions', 'href' => route('abouts')],
+                ['label' => 'Return Policy', 'href' => route('abouts')],
+                ['label' => 'Accessibility', 'href' => route('web-projects')],
             ]"
         />
 
