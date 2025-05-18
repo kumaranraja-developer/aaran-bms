@@ -1,9 +1,10 @@
 @php
     $plans = [
         [
-            'id' => 'starter',
+            'id' => 'basic',
             'title' => 'Basic',
-            'price' => '$9',
+            'monthly' => '₹ 750',
+            'yearly' => '₹ 750',
             'description' => 'For freelancers & beginners.Simple GST billing to get you started.',
             'features' => [
                 'Send 10 quotes and invoices',
@@ -15,9 +16,10 @@
             'highlighted' => false,
         ],
         [
-             'id' => 'smallbusiness',
+             'id' => 'medium',
             'title' => 'Small Business',
-            'price' => '$19',
+               'monthly' => '₹ 750',
+            'yearly' => '₹ 750',
             'description' => 'For growing businesses.More users, smart reports, and inventory tools.',
             'features' => [
                 'Send 50 quotes and invoices',
@@ -31,7 +33,8 @@
         [
              'id' => 'enterprise',
             'title' => 'Enterprise',
-            'price' => '$49',
+               'monthly' => '₹ 750',
+            'yearly' => '₹ 750',
             'description' => 'For power users.Full features, advanced insights, and payroll.',
             'features' => [
                 'Unlimited quotes and invoices',
@@ -45,7 +48,8 @@
         [
              'id' => 'elite',
             'title' => 'Elite',
-            'price' => '$49+',
+               'monthly' => 'Custom price',
+            'yearly' => '₹ 750',
             'description' => 'For unique needs.Tailored tools, custom access, and support.',
             'features' => [
                 'Full Customizable',
@@ -60,7 +64,7 @@
     ];
 @endphp
 
-<section id="pricing" aria-label="Pricing" class="bg-slate-900 py-10 sm:py-12">
+<section id="pricing" aria-label="Pricing" class="bg-slate-900 py-12 sm:py-22">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="md:text-center">
             <h2 class="font-display text-3xl tracking-tight text-white sm:text-4xl text-center"><span
@@ -73,10 +77,34 @@
 
                 .
             </h2>
-            <p class="mt-4 text-lg text-center mb-5 text-slate-400">
+            <p class="mt-6 text-lg text-center mb-5 text-slate-400">
                 Start with what you need and upgrade when you're ready. GST billing has never been this easy.
             </p>
         </div>
+
+
+        <div x-data="{ billing: 'monthly' }" class="text-center mb-6">
+            <div class="inline-flex rounded-lg overflow-hidden border border-slate-600">
+                <button
+                    :class="billing === 'monthly' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400'"
+                    class="px-4 py-2"
+                    @click="billing = 'monthly'"
+                >
+                    Pay monthly
+                </button>
+                <button
+                    :class="billing === 'yearly' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400'"
+                    class="px-4 py-2"
+                    @click="billing = 'yearly'"
+                >
+                    Pay yearly
+                </button>
+            </div>
+            <p x-show="billing === 'yearly'" class="mt-2 text-green-400 text-sm font-medium">
+                Save up to 20% with yearly
+            </p>
+        </div>
+
 
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 px-6 sm:px-8 lg:py-8">
             @foreach ($plans as $plan)
@@ -88,12 +116,20 @@
 
                 <section class="flex flex-col rounded-3xl p-6 {{ $containerClasses }}">
                     @if ($plan['highlighted'])
-                        <span class="mb-3 inline-block self-start rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-indigo-200">
+                        <span
+                            class="mb-3 inline-block self-start rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-indigo-200">
                             Most Popular
                         </span>
                     @endif
 
-                    <div class="text-5xl font-light tracking-tight">{{ $plan['price'] }}</div>
+{{--                    <div class="text-5xl font-light tracking-tight">{{ $plan['price'] }}</div>--}}
+
+                        <div class="text-5xl font-light tracking-tight">
+                            <span x-show="billing === 'monthly'">{{ $plan['monthly']  }}</span>
+                            <span x-show="billing === 'yearly'">{{ $plan['yearly']  }}</span>
+                        </div>
+
+
                     <div class="mt-5 text-lg font-semibold">{{ $plan['title'] }}</div>
                     <p class="mt-2 text-base text-slate-300">{{ $plan['description'] }}</p>
 
@@ -117,5 +153,7 @@
             @endforeach
         </div>
     </div>
-    <div class="text-center my-4 border py-4 border-x-0 border-y-gray-800 cursor-pointer text-dark-9" href="{{route('plan-comparison')}}" wire:navigate>Explore All plans</div>
+    <div class="text-center my-4 border py-4 border-x-0 border-y-gray-800 cursor-pointer text-dark-9"
+         href="{{route('plan-comparison')}}" wire:navigate>Explore All plans
+    </div>
 </section>

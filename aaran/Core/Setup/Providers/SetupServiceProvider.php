@@ -3,6 +3,7 @@
 namespace Aaran\Core\Setup\Providers;
 
 use Aaran\Core\Setup\Console\Commands\AaranMigrateCommand;
+use Aaran\Core\Setup\Console\Commands\AaranModel;
 use Aaran\Core\Setup\Console\Commands\AaranModule;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -14,6 +15,7 @@ class  SetupServiceProvider extends ServiceProvider
         $this->commands([
             AaranMigrateCommand::class,
             AaranModule::class,
+            AaranModel::class,
         ]);
 
         $this->app->register(SetupRouteProvider::class);
