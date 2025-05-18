@@ -13,7 +13,7 @@
         wire:blur="hideDropdown"
 
         class="block px-2.5 pb-2.5 pt-4 w-full text-xs text-gray-900 bg-transparent  rounded-lg border-1 border-gray-300 appearance-none
-                                      focus:outline-none focus:ring-2 focus:ring-cyan-50 focus:border-blue-600 peer"
+                                      focus:outline-none focus:ring-2 focus:ring-cyan-50 focus:border-blue-600 peer dark:bg-dark dark:text-dark-9"
         placeholder=" "/>
     <label for="floating_outlined"
            class="absolute text-xs text-gray-500  duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-dark dark:text-dark-9
@@ -39,7 +39,7 @@
                         @empty
                             <li class="px-4 py-2 text-gray-500 text-sm tracking-wider">No Results Found ...</li>
                             <button @click="showCreateModal = true;" wire:click="openCreateModal"
-                                    class="w-full inline-flex items-center gap-x-3 px-4 py-2  text-blue-600 border-t border-b border-gray-300px-2 hover:bg-blue-100 cursor-pointer">
+                                    class="w-full inline-flex items-center gap-x-3 px-4 py-2  text-blue-600 border-t border-b border-gray-300px-2 hover:bg-blue-100 dark:hover:bg-dark-4 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                      class="size-6">
                                     <path fill-rule="evenodd"

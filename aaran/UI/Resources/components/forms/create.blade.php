@@ -24,18 +24,18 @@
                         class="flex min-h-full justify-center items-center">
                         <div class="relative sm:w-full sm:max-w-4xl sm:mx-auto">
 
-                            <div class="bg-white rounded-t-lg px-2 pb-2">
+                            <div class="bg-white dark:bg-dark dark:text-dark-9 rounded-t-lg px-2 pb-2">
 
                                 <div class="text-lg text-neutral-400 pt-2 px-2">
                                     {{$id === null ? 'New Entry' : 'Edit Entry'}}
                                 </div>
 
-                                <div class="border p-5 mt-2 rounded-xl border-neutral-300">
+                                <div class="border p-5 mt-2 rounded-xl border-neutral-300 dark:border-dark-4">
                                     {{$slot}}
                                 </div>
                             </div>
 
-                            <div class="bg-gray-100  rounded-b-lg px-4 py-3 flex gap-3 justify-end">
+                            <div class="bg-gray-100  rounded-b-lg px-4 py-3 flex gap-3 justify-end dark:bg-dark dark:text-dark-9">
 
                                 <div class="w-full flex justify-between gap-3">
                                     <div class="py-2">
@@ -45,14 +45,14 @@
                                                    wire:model="active_id">
                                             <div
                                                 class="w-10 h-5 bg-gray-200 rounded-full peer peer-focus:ring-2
-                                                         peer-focus:ring-blue-300
+                                                         peer-focus:ring-blue-300 dark:bg-dark dark:text-dark-9
                                                          peer-checked:after:translate-x-full peer-checked:after:border-white
                                                          after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300
                                                          after:border after:rounded-full after:h-4 after:w-4 after:transition-all
                                                          peer-checked:bg-blue-600">
                                             </div>
                                             <span
-                                                class="ml-3 sm:text-sm text-xs font-medium text-gray-900">Active</span>
+                                                class="ml-3 sm:text-sm text-xs font-medium text-gray-900  dark:text-dark-9">Active</span>
                                         </label>
                                     </div>
 

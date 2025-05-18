@@ -4,8 +4,8 @@ shadow-md print:hidden">
     <div class="w-full sm:px-2 px-0 flex flex-row  justify-between items-center">
 
         <div
-            class="w-3/12 flex sm:flex-row flex-col sm:justify-start sm:space-x-4
-            items-center sm:space-y-1.5 space-y-3">
+            class="w-3/12 flex
+            items-center">
             <div class="p-1 cursor-pointer hover:bg-gray-200 self-start hover:rounded-sm"
                  @click="sidebarOpen = !sidebarOpen">
 
@@ -21,16 +21,16 @@ shadow-md print:hidden">
             </div>
             <!-- Page Heading -->
             <div
-                class=" font-semibold sm:text-xl text-md text-gray-800 leading-tight sm:px-0 px-2 mt-2 self-start">
+                class=" font-semibold sm:text-xl text-md text-gray-800 leading-tight sm:px-0 px-2 self-start block my-auto">
 
                 {{$slot ?? 'Dashboard'}}
             </div>
         </div>
-        <div class="w-5/12 flex sm:flex-row flex-col sm:justify-end justify-evenly items-center space-y-1">
-            <div class="flex max-w-max justify-center items-center">
+        <div class="w-7/12 flex md:flex-row mr-4 md:mr-0 justify-end items-center">
+            <div class="flex">
 
                 <a role="button" href="{{route('switch-default-company')}}"
-                        class="text-gray-600 bg-white focus:outline-none hover:bg-gray-100 font-semibold sm:px-2 px-0.5 sm:py-2 py-1 rounded-lg text-xs cursor-pointer">
+                        class="text-gray-600 bg-white focus:outline-none text-xs sm:text-lg md:text-lg hover:bg-gray-100 font-semibold sm:px-2 px-0.5 sm:py-2 py-1 rounded-lg cursor-pointer">
                     {{session()->get('company_name') ?:'Select Company' }}
 {{--                    &nbsp;-&nbsp;{{ \Aaran\Assets\Enums\Acyear::tryFrom(session()->get('acyear_id'))->getName()}}--}}
                 </a>
@@ -38,7 +38,7 @@ shadow-md print:hidden">
             </div>
 
             {{-- login menu--}}
-            <div class="sm:flex sm:items-center ">
+            <div class="md:flex items-center hidden">
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-Ui::jet.dropdown align="right" width="48">
