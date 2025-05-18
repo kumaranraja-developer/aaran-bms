@@ -9,7 +9,7 @@
         :tabindex="isSelected($el.id) ? 0 : -1"
         :aria-selected="isSelected($el.id)"
         :class="isSelected($el.id) ? ' border-blue-500 ' : 'border-transparent'"
-        class="inline-flex rounded-t-sm border-b-2 mx-0.5  px-5 py-3 font-merri text-xs text-gray-400 tracking-wider"
+        class="inline-flex rounded-t-sm border-b-2 mx-0.5 dark:bg-dark dark:text-dark-9 px-5 py-3 font-merri text-xs text-gray-400 tracking-wider"
         role="tab"
     >
         {{$slot}}
