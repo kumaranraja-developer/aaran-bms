@@ -3,6 +3,8 @@
 namespace Aaran\{{ basePath }}\Models;
 
 use Aaran\{{ basePath }}\Database\Factories\{{ class }}Factory;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class {{ class }} extends Model
@@ -21,8 +23,8 @@ class {{ class }} extends Model
             return $query->where('vname', 'like', "%$search%");
     }
 
-    protected static function newFactory(): FeatureFactory
+    protected static function newFactory():  {{ class }}Factory
     {
-            return FeatureFactory::new();
+            return  {{ class }}Factory::new();
     }
 }
