@@ -3,12 +3,13 @@
 namespace Aaran\BMS\Billing\Common\Livewire\Class\Lookup;
 
 use Aaran\Assets\Traits\TenantAwareTrait;
-use Aaran\BMS\Billing\Common\Models\City;
+use Aaran\BMS\Billing\Common\Models\Pincode;
+use Aaran\BMS\Billing\Common\Models\State;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
-class CityLookup extends Component
+class PinCodeLookup extends Component
 {
     use TenantAwareTrait;
 
@@ -27,7 +28,7 @@ class CityLookup extends Component
         if ($initId && $this->getTenantConnection()) {
 
             $vname = DB::connection($this->getTenantConnection())
-                ->table('cities')
+                ->table('pincodes')
                 ->where('id', $initId)
                 ->value('vname');
 
@@ -51,7 +52,7 @@ class CityLookup extends Component
         }
 
         $query = DB::connection($this->getTenantConnection())
-            ->table('cities')
+            ->table('pincodes')
             ->select('id', 'vname')
             ->orderBy('vname');
 
@@ -83,18 +84,18 @@ class CityLookup extends Component
     {
         $selected = $this->results[$this->highlightIndex] ?? null;
         if ($selected) {
-            $this->selectCity($selected);
+            $this->selectPinCode($selected);
         }
     }
 
-    public function selectCity($city): void
+    public function selectPinCode($pincode): void
     {
-        $city = (object)$city;
+        $pincode = (object)$pincode;
 
-        $this->search = $city->vname;
+        $this->search = $pincode->vname;
         $this->results = [];
         $this->showDropdown = false;
-        $this->dispatch('refresh-city', $city->id);
+        $this->dispatch('refresh-pincode', $pincode->id);
     }
 
     public function hideDropdown(): void
@@ -104,16 +105,17 @@ class CityLookup extends Component
 
     public function createNew(): void
     {
-        $city = City::on($this->getTenantConnection())->create([
+        $pincode = Pincode::on($this->getTenantConnection())->create([
             'vname' => $this->search,
             'active_id' => 1
         ]);
-        $this->dispatch('refresh-city', $city->id);
-        $this->dispatch('notify', ...['type' => 'success', 'content' => $this->search. '- City Saved Successfully']);
+
+        $this->dispatch('refresh-pincode', $pincode->id);
+        $this->dispatch('notify', ...['type' => 'success', 'content' => $this->search. '- pincode Saved Successfully']);
         $this->showDropdown = false;
     }
 
-    #[On('refresh-city-lookup')]
+    #[On('refresh-pincode-lookup')]
     public function refreshItem($obj): void
     {
         if (!empty($obj)) {
@@ -127,6 +129,6 @@ class CityLookup extends Component
 
     public function render()
     {
-        return view('common::lookup.city-lookup');
+        return view('common::lookup.pincode-lookup');
     }
 }
