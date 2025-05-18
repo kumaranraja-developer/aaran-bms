@@ -8,18 +8,18 @@ class SlideQuotes
     {
         return [
             [
-                'h1' => 'Accounting <keyword>made simple</keyword> for small businesses.',
+                'h1' => 'Accounting for <keyword>Growing Businesses</keyword> ',
                 'p' => [
-                    'Most bookkeeping software is accurate,',
-                    'but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+                    'Most software gets bookkeeping right,',
+                    ' But feels like a maze. We’ve flipped the script: effortless to use, powerful under the hood.',
                 ],
                 'color' => ['bg' => 'bg-blue-50', 'text' => 'text-blue-500', 'fill' => 'fill-blue-400/70'],
             ],
             [
-                'h1' => 'Best Online GST <keyword>Billing Software</keyword> in India.',
+                'h1' => '<keyword>India’s #1 </keyword>Online GST Billing Software',
                 'p' => [
-                    'Create, manage & track invoices,',
-                    'e-invoices, and eWay bills. 100% safe, reliable, and secure.',
+                    'Create, manage and track invoices,',
+                    'E-invoices and E-Way bills — all in one secure reliable platform.',
                 ],
                 'color' => ['bg' => 'bg-red-50','text' => 'text-red-500', 'fill' => 'fill-red-400/70'],
             ],
@@ -32,10 +32,10 @@ class SlideQuotes
                 'color' => ['bg' => 'bg-green-50','text' => 'text-green-500', 'fill' => 'fill-green-400/70'],
             ],
             [
-                'h1' => 'Real-Time Financial <keyword>Monitoring and Reporting</keyword>',
+                'h1' => 'Real-Time Financial <keyword>Monitoring and Insights</keyword>',
                 'p' => [
-                    'Track KPIs like revenue growth, cash flow, and net profit',
-                    'with crystal-clear real-time dashboards.',
+                    'Track key metrics like revenue, cash flow, and profit ',
+                    'All with crystal-clear dashboards updated in real time.',
                 ],
                 'color' => ['bg' => 'bg-purple-50','text' => 'text-purple-500', 'fill' => 'fill-purple-400/70'],
             ],
@@ -43,15 +43,16 @@ class SlideQuotes
                 'h1' => 'Smart Inventory and Stock <keyword>Management</keyword>',
                 'p' => [
                     'Avoid stockouts and overstocking.',
-                    'Get automatic alerts, real-time updates, and full visibility.',
+                    'Get automatic alerts, real-time tracking, and complete inventory visibility.',
                 ],
                 'color' => ['bg' => 'bg-pink-50','text' => 'text-pink-500', 'fill' => 'fill-pink-400/70'],
             ],
             [
-                'h1' => 'Payroll & Compliance, <keyword>Simplified</keyword>',
+                'h1' => 'Payroll & Compliance, <keyword>simplified</keyword>',
                 'p' => [
-                    'From payslips to PF and ESI,',
-                    'we handle everything — on time, every time.',
+                    'Generate payslips, manage PF, ESI, and stay compliant',
+                    'All automatically, without the headache.
+',
                 ],
                 'color' => ['bg' => 'bg-yellow-50','text' => 'text-yellow-500', 'fill' => 'fill-yellow-400/70'],
             ],
@@ -64,18 +65,19 @@ class SlideQuotes
                 'color' => ['bg' => 'bg-indigo-50','text' => 'text-indigo-500', 'fill' => 'fill-indigo-400/70'],
             ],
             [
-                'h1' => 'Customizable Reports with One <keyword>Click</keyword>',
+                'h1' => '<keyword>Instant</keyword>Customizable Financial Reports
+',
                 'p' => [
-                    'From tax summaries to balance sheets,',
-                    'generate reports tailored to your needs — instantly.',
+                    'From tax summaries to balance sheets, generate tailored reports in a single click,',
+                    'Anytime you need them.',
                 ],
                 'color' => ['bg' => 'bg-teal-50','text' => 'text-teal-500', 'fill' => 'fill-teal-400/70'],
             ],
             [
-                'h1' => 'Seamless Multi-User <keyword>Access</keyword>',
+                'h1' => 'Collaborate with Ease <keyword>Multi-User</keyword> Access',
                 'p' => [
-                    'Add your accountant, manager, or co-founder.',
-                    'Work together, in real-time, from anywhere.',
+                    'Add your accountant, partner, or team.',
+                    'Work together in real time, securely and efficiently from anywhere.',
                 ],
                 'color' => ['bg' => 'bg-orange-50','text' => 'text-orange-500', 'fill' => 'fill-orange-400/70'],
             ],
