@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
+//table creation
     public function up(): void
     {
         Schema::create('task_comments', function (Blueprint $table) {
