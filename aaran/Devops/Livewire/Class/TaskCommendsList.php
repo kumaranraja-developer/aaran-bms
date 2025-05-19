@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class TaskCommendsList extends Component
 {
-//property
+
     use ComponentStateTrait, TenantAwareTrait;
 
     #[Validate]
