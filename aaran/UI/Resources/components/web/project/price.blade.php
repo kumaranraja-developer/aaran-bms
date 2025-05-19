@@ -3,8 +3,7 @@
         [
             'id' => 'basic',
             'title' => 'Basic',
-            'monthly' => '₹ 750',
-            'yearly' => '₹ 750',
+            'price' => '750',
             'description' => 'For freelancers & beginners.Simple GST billing to get you started.',
             'features' => [
                 'Send 10 quotes and invoices',
@@ -16,10 +15,9 @@
             'highlighted' => false,
         ],
         [
-             'id' => 'medium',
+            'id' => 'medium',
             'title' => 'Small Business',
-               'monthly' => '₹ 750',
-            'yearly' => '₹ 750',
+            'price' => '1500',
             'description' => 'For growing businesses.More users, smart reports, and inventory tools.',
             'features' => [
                 'Send 50 quotes and invoices',
@@ -31,10 +29,9 @@
             'highlighted' => true,
         ],
         [
-             'id' => 'enterprise',
+            'id' => 'enterprise',
             'title' => 'Enterprise',
-               'monthly' => '₹ 750',
-            'yearly' => '₹ 750',
+            'price' => '3000',
             'description' => 'For power users.Full features, advanced insights, and payroll.',
             'features' => [
                 'Unlimited quotes and invoices',
@@ -46,10 +43,9 @@
             'highlighted' => false,
         ],
         [
-             'id' => 'elite',
+            'id' => 'elite',
             'title' => 'Elite',
-               'monthly' => 'Custom price',
-            'yearly' => '₹ 750',
+            'price' => 'Custom price',
             'description' => 'For unique needs.Tailored tools, custom access, and support.',
             'features' => [
                 'Full Customizable',
@@ -59,7 +55,7 @@
                 'Full payroll automation',
                 'Unlimited reporting & analytics',
             ],
-            'highlighted' => true,
+            'highlighted' => false,
         ],
     ];
 @endphp
@@ -100,57 +96,87 @@
                     Pay yearly
                 </button>
             </div>
+
+            <p x-show="billing === 'monthly'" class="mt-2 text-green-400 text-sm font-medium">
+                &nbsp;
+            </p>
+
             <p x-show="billing === 'yearly'" class="mt-2 text-green-400 text-sm font-medium">
                 Save up to 20% with yearly
             </p>
-        </div>
 
 
-        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 px-6 sm:px-8 lg:py-8">
-            @foreach ($plans as $plan)
-                @php
-                    $containerClasses = $plan['highlighted']
-                        ? 'bg-gradient-to-br from-indigo-700 to-indigo-900 ring-2 ring-indigo-500 shadow-2xl text-white'
-                        : 'bg-slate-800 text-slate-100';
-                @endphp
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 px-6 sm:px-8 lg:py-8">
+                @foreach ($plans as $plan)
+                    @php
+                        $containerClasses = $plan['highlighted']
+                            ? 'bg-gradient-to-br from-indigo-700 to-indigo-900 ring-2 ring-indigo-500 shadow-2xl text-white'
+                            : 'bg-slate-800 text-slate-100';
+                    @endphp
 
-                <section class="flex flex-col rounded-3xl p-6 {{ $containerClasses }}">
-                    @if ($plan['highlighted'])
-                        <span
-                            class="mb-3 inline-block self-start rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-indigo-200">
+                    <section class="flex flex-col rounded-3xl p-6 {{ $containerClasses }}">
+                        @if ($plan['highlighted'])
+                            <span
+                                class="mb-3 inline-block self-start rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-indigo-200">
                             Most Popular
                         </span>
-                    @endif
+                        @else
+                            <span
+                                class="mb-3 inline-block">
+                            &nbsp;
+                        </span>
+                        @endif
 
-{{--                    <div class="text-5xl font-light tracking-tight">{{ $plan['price'] }}</div>--}}
 
-                        <div class="text-5xl font-light tracking-tight">
-                            <span x-show="billing === 'monthly'">{{ $plan['monthly']  }}</span>
-                            <span x-show="billing === 'yearly'">{{ $plan['yearly']  }}</span>
+                        <div class="text-3xl h-20 font-light tracking-tight">
+
+                            <div x-show="billing === 'monthly'">
+                                <div>&nbsp;</div>
+                                <div>{{ Aaran\Assets\Helper\ConvertTo::rupeesFormat(floatval($plan['price']))  }}</div>
+                            </div>
+
+
+                            <div x-show="billing === 'yearly'">
+                                <div
+                                    class="text-xl line-through ">{{ Aaran\Assets\Helper\ConvertTo::rupeesFormat((floatval($plan['price'])*12)) }}</div>
+                                <div>{{ Aaran\Assets\Helper\ConvertTo::rupeesFormat((floatval($plan['price'])*12)-(floatval($plan['price']) * 12 * 0.12)) }}</div>
+                            </div>
+
+                            @if($plan['price'] ==='Custom price')
+                                <div>
+                                    <div x-show="billing === 'yearly'">
+                                        <div>&nbsp;</div>
+                                    </div>
+                                    <div>Custom Price</div>
+                                </div>
+                            @endif
+
                         </div>
 
 
-                    <div class="mt-5 text-lg font-semibold">{{ $plan['title'] }}</div>
-                    <p class="mt-2 text-base text-slate-300">{{ $plan['description'] }}</p>
+                        <div class="mt-5 text-lg font-semibold">{{ $plan['title'] }}</div>
+                        <p class="mt-2 text-base text-slate-300">{{ $plan['description'] }}</p>
 
-                    <a href="{{route('client-info',$plan['id'])}}"
-                       class="mt-8 inline-flex items-center justify-center rounded-full border {{$plan['highlighted']?'bg-white text-gray-900 hover:text-white ':' '}}  border-white py-2 px-4 text-sm hover:bg-white/10">
-                        Start my free trial
-                    </a>
+                        <a href="{{route('client-info',$plan['id'])}}"
+                           class="mt-8 inline-flex items-center justify-center rounded-full border {{$plan['highlighted']?'bg-white text-gray-900 hover:text-white ':' '}}  border-white py-2 px-4 text-sm hover:bg-white/10">
+                            Start my free trial
+                        </a>
 
-                    <ul class="mt-10 space-y-3 text-sm text-inherit">
-                        @foreach ($plan['features'] as $feature)
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 flex-none fill-current stroke-current text-slate-400"
-                                     viewBox="0 0 24 24">
-                                    <path d="M9 12l2 2 4-4" stroke-width="2" fill="none" stroke="currentColor"/>
-                                </svg>
-                                <span class="ml-4">{{ $feature }}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                </section>
-            @endforeach
+                        <ul class="mt-10 space-y-3 text-sm">
+                            @foreach ($plan['features'] as $feature)
+                                <li class="flex items-start">
+                                    <svg class="h-6 w-6 flex-none fill-current stroke-current text-slate-400"
+                                         viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4" stroke-width="2" fill="none" stroke="currentColor"/>
+                                    </svg>
+                                    <span class="ml-1 flex text-left shrink-0 w-full">{{ $feature }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </section>
+                @endforeach
+            </div>
+
         </div>
     </div>
     <div class="text-center my-4 border py-4 border-x-0 border-y-gray-800 cursor-pointer text-dark-9"
