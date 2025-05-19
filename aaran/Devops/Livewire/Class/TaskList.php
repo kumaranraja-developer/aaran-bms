@@ -121,7 +121,7 @@ class TaskList extends Component
 
     public function render()
     {
-        return view('devops::task-managers-list', [
+        return view('devops::task-list', [
             'list' => $this->getList()
         ]);
     }

@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class JobManagerList extends Component
+class JobList extends Component
 {
 
     use ComponentStateTrait, TenantAwareTrait;
@@ -101,7 +101,7 @@ class JobManagerList extends Component
 
     public function render()
     {
-        return view('devops::job-managers-list', [
+        return view('devops::job-list', [
             'list' => $this->getList()
         ]);
     }

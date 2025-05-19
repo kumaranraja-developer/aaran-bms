@@ -22,7 +22,7 @@
                 <x-Ui::table.header-text>
                     Content
                 </x-Ui::table.header-text>
-                <x-Ui::table.header-text >
+                <x-Ui::table.header-text>
                     Status
                 </x-Ui::table.header-text>
                 <x-Ui::table.header-status/>
@@ -51,12 +51,25 @@
         <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
 
         <x-Ui::forms.create :id="$vid">
-            <x-Ui::input.floating wire:model="title" label="Job title"/>
-            <x-Ui::input.error-text wire:model="title"/>
-            <x-Ui::input.floating wire:model="content" label="Job Description"/>
-            <x-Ui::input.error-text wire:model="content"/>
-            <x-Ui::input.floating wire:model="status" label="Status"/>
-            <x-Ui::input.error-text wire:model="status"/>
+            <div class="flex flex-col gap-5">
+
+                <div>
+                    <x-Ui::input.floating wire:model="title" label="Job title"/>
+                    <x-Ui::input.error-text wire:model="title"/>
+                </div>
+
+                <div>
+                    <x-Ui::input.floating wire:model="content" label="Job Description"/>
+                    <x-Ui::input.error-text wire:model="content"/>
+                </div>
+
+
+                <div>
+                    <x-Ui::input.floating wire:model="status" label="Status"/>
+                    <x-Ui::input.error-text wire:model="status"/>
+                </div>
+
+            </div>
 
         </x-Ui::forms.create>
 
