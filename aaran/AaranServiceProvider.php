@@ -14,6 +14,7 @@ use Aaran\Dashboard\Providers\DashboardServiceProvider;
 use Aaran\Core\Setup\Providers\SetupServiceProvider;
 use Aaran\Core\Tenant\Providers\TenantServiceProvider;
 use Aaran\Core\User\Providers\UserServiceProvider;
+use Aaran\Devops\Providers\DevopsServiceProvider;
 use Aaran\Website\Providers\WebsiteServiceProvider;
 use Aaran\UI\Providers\UIServiceProvider;
 use Illuminate\Support\ServiceProvider;
@@ -49,6 +50,8 @@ class AaranServiceProvider extends ServiceProvider
         $this->app->register(ReportsServiceProvider::class);
 
         $this->app->register(TransactionServiceProvider::class);
+        
+        $this->app->register(DevopsServiceProvider::class);
 
 
     }
