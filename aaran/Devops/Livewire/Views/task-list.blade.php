@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="header">TaskManager</x-slot>
+    <x-slot name="header">Task Manager</x-slot>
     <x-Ui::forms.m-panel>
         <x-Ui::alerts.notification/>
 
@@ -7,7 +7,7 @@
         <x-Ui::forms.top-controls :show-filters="$showFilters"/>
 
         <!-- Table Caption -------------------------------------------------------------------------------------------->
-        <x-Ui::table.caption :caption="'TaskManager'">
+        <x-Ui::table.caption :caption="'Task Manager'">
             {{$list->count()}}
         </x-Ui::table.caption>
 
@@ -17,7 +17,7 @@
             <x-slot:table_header>
                 <x-Ui::table.header-serial/>
                 <x-Ui::table.header-text wire:click.prevent="sortBy('id')" sortIcon="{{$sortAsc}}" :left="true">
-                    title
+                    Title
                 </x-Ui::table.header-text>
                 <x-Ui::table.header-text wire:click.prevent="sortBy('id')" sortIcon="{{$sortAsc}}" :left="true">
                     Content
@@ -49,7 +49,7 @@
                     <x-Ui::table.row>
                         <x-Ui::table.cell-text>{{$index+1}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->title}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->content}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>{{$row->body}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->start_time}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->due_time}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->assigned}}</x-Ui::table.cell-text>
@@ -71,22 +71,47 @@
         <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
 
         <x-Ui::forms.create :id="$vid">
-            <x-Ui::input.floating wire:model="title" label="Title"/>
-            <x-Ui::input.error-text wire:model="title"/>
-            <x-Ui::input.floating wire:model="content" label="Content"/>
-            <x-Ui::input.error-text wire:model="content"/>
-            <x-Ui::input.floating wire:model="start_time" label="Start Time"/>
-            <x-Ui::input.error-text wire:model="start_time"/>
-            <x-Ui::input.floating wire:model="due_time" label="Due Time"/>
-            <x-Ui::input.error-text wire:model="due_time"/>
-            <x-Ui::input.floating wire:model="assigned" label="Assigned"/>
-            <x-Ui::input.error-text wire:model="assigned"/>
-            <x-Ui::input.floating wire:model="job_id" label="Job Id"/>
-            <x-Ui::input.error-text wire:model="job_id"/>
-            <x-Ui::input.floating wire:model="priority" label="Priority"/>
-            <x-Ui::input.error-text wire:model="priority"/>
-            <x-Ui::input.floating wire:model="status" label="Priority"/>
-            <x-Ui::input.error-text wire:model="status"/>
+            <div class="flex flex-col gap-5">
+                <div>
+                    <x-Ui::input.floating wire:model="title" label="Title"/>
+                    <x-Ui::input.error-text wire:model="title"/>
+                </div>
+
+                <div>
+                    <x-Ui::input.floating wire:model="body" label="Content"/>
+                    <x-Ui::input.error-text wire:model="body"/>
+                </div>
+
+                <div>
+                    <x-Ui::input.floating wire:model="start_time" label="Start Time"/>
+                    <x-Ui::input.error-text wire:model="start_time"/>
+                </div>
+
+                <div>
+                    <x-Ui::input.floating wire:model="due_time" label="Due Time"/>
+                    <x-Ui::input.error-text wire:model="due_time"/>
+                </div>
+
+                <div>
+                    <x-Ui::input.floating wire:model="assigned" label="Assigned"/>
+                    <x-Ui::input.error-text wire:model="assigned"/>
+                </div>
+
+                <div>
+                     <x-Ui::input.floating wire:model="job_id" label="Job Id"/>
+                     <x-Ui::input.error-text wire:model="job_id"/>
+                </div>
+
+                <div>
+                     <x-Ui::input.floating wire:model="priority" label="Priority"/>
+                     <x-Ui::input.error-text wire:model="priority"/>
+                </div>
+
+                <div>
+                    <x-Ui::input.floating wire:model="status" label="Status"/>
+                    <x-Ui::input.error-text wire:model="status"/>
+                </div>
+            </div>
         </x-Ui::forms.create>
 
     </x-Ui::forms.m-panel>

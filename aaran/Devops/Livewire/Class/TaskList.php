@@ -16,7 +16,7 @@ class TaskList extends Component
 
     #[Validate]
     public string $title = '';
-    public string $content = '';
+    public string $body = '';
     public string $start_time = '';
     public string $due_time = '';
     public string $assigned = '';
@@ -28,7 +28,7 @@ class TaskList extends Component
     public function rules(): array
     {
         return [
-            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.task_managers,title"),
+            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.tasks,title"),
         ];
     }
 
@@ -55,7 +55,7 @@ class TaskList extends Component
             ['id' => $this->vid],
             [
                 'title' => Str::ucfirst($this->title),
-                'content' => Str::ucfirst($this->content),
+                'body' => Str::ucfirst($this->body),
                 'start_time' => Str::ucfirst($this->start_time),
                 'due_time' => Str::ucfirst($this->due_time),
                 'assigned' => Str::ucfirst($this->assigned),
@@ -66,18 +66,18 @@ class TaskList extends Component
             ],
         );
 
-        $this->dispatch('notify', ...['type' => 'success', 'content' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
+        $this->dispatch('notify', ...['type' => 'success', 'body' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
         $this->clearFields();
     }
     public function clearFields(): void
     {
         $this->vid = null;
         $this->title = '';
-        $this->content = '';
+        $this->body = '';
         $this->start_time = '';
         $this->due_time = '';
         $this->assigned = '';
-        $this->job_id = '';
+        $this->job_id = 1;
         $this->priority = '';
         $this->status = '';
         $this->active_id = true;
@@ -89,7 +89,7 @@ class TaskList extends Component
         if ($obj = Task::on($this->getTenantConnection())->find($id)) {
             $this->vid = $obj->id;
             $this->title = $obj->title;
-            $this->content = $obj->content;
+            $this->body = $obj->body;
             $this->start_time = $obj->start_time;
             $this->due_time = $obj->due_time;
             $this->assigned = $obj->assigned;
