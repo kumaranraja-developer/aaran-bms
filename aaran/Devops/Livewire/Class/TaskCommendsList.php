@@ -25,7 +25,7 @@ class TaskCommendsList extends Component
     public function rules(): array
     {
         return [
-            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.task_commends,title"),
+            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.task_comments,title"),
         ];
     }
 
