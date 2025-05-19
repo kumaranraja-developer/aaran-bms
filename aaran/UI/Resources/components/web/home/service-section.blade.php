@@ -17,28 +17,28 @@
 
             <!-- Invoice Service Card -->
             <div class="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition duration-300 hover:scale-105">
-                @include('components.svgs.invoice')
+                <x-Ui::storyset.invoice/>
                 <h3 class="text-lg font-semibold text-gray-800 mt-4">Smart Invoicing</h3>
                 <p class="text-sm text-gray-600 mt-2">Automate billing with accurate and clear invoices.</p>
             </div>
 
             <!-- Report Service Card -->
             <div class="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition duration-300 hover:scale-105">
-                @include('components.svgs.report')
+                <x-Ui::storyset.report/>
                 <h3 class="text-lg font-semibold text-gray-800 mt-4">Analytics & Reports</h3>
                 <p class="text-sm text-gray-600 mt-2">Track performance with real-time financial reports.</p>
             </div>
 
             <!-- Secure Payment Service Card -->
             <div class="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition duration-300 hover:scale-105">
-                @include('components.svgs.securePay')
+                <x-Ui::storyset.securePay/>
                 <h3 class="text-lg font-semibold text-gray-800 mt-4">Secure Payments</h3>
                 <p class="text-sm text-gray-600 mt-2">Protect your transactions with end-to-end security.</p>
             </div>
 
             <!-- Lightning Support Service Card -->
             <div class="bg-white p-6 rounded-2xl shadow-md text-center hover:shadow-lg transition duration-300 hover:scale-105">
-                @include('components.svgs.support')
+                <x-Ui::storyset.support/>
                 <h3 class="text-lg font-semibold text-gray-800 mt-4">Fast Support</h3>
                 <p class="text-sm text-gray-600 mt-2">Weekday support to keep your billing on track.</p>
             </div>
