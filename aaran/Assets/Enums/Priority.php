@@ -32,6 +32,10 @@ enum Priority: int
             self::IMPORTANT => 'text-yellow-700 bg-yellow-500',
             self::PRIORITY => 'text-white bg-yellow-600',
             self::TOPMOST => 'text-red-700 bg-red-300',
+            self::LOW => 'text-blue-600 bg-blue-300',
+            self::MEDIUM => 'text-gray-700 bg-red-300',
+            self::HIGH => 'text-orange-700 bg-red-300',
+            self::MODERATE => 'text-stone-700 bg-red-300',
         };
     }
 

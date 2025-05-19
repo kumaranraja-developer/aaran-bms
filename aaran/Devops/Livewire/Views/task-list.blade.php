@@ -57,16 +57,24 @@
                             {!! \Illuminate\Support\Str::limit($row->body,50) !!}
                         </x-Ui::table.cell-link>
 
-                        <x-Ui::table.cell-link :href="$link">{{$row->due_date}}</x-Ui::table.cell-link>
-
-                        <x-Ui::table.cell-link :href="$link">{{$row->assigned_id}}</x-Ui::table.cell-link>
-
                         <x-Ui::table.cell-link :href="$link">
-                            {{\Aaran\Assets\Enums\Priority::tryFrom($row->priority_id)->getName()}}
+                            {{ date('d-m-Y', strtotime( $row->due_date))}}
                         </x-Ui::table.cell-link>
 
                         <x-Ui::table.cell-link :href="$link">
+                            {{\Aaran\Core\User\Models\User::getName($row->assigned_id)}}
+                        </x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link">
+                            <div class="{{ \Aaran\Assets\Enums\Priority::tryFrom($row->priority_id)->getStyle() }}">
+                                {{\Aaran\Assets\Enums\Priority::tryFrom($row->priority_id)->getName()}}
+                            </div>
+                        </x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link">
+                            <div class="{{ \Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getStyle() }}">
                             {{\Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getName()}}
+                            </div>
                         </x-Ui::table.cell-link>
 
                         <x-Ui::table.cell-action id="{{$row->id}}"/>
@@ -111,7 +119,7 @@
                     <x-Ui::input.error-text wire:model="plan_id"/>
                 </div>
 
-                <div class="flex flex-row justify-between gap-5">
+                <div class="flex flex-row justify-between z-10 gap-5">
                     <div class="w-full">
                         <div>
                             <x-Ui::input.floating-dropdown
@@ -125,7 +133,7 @@
                         </div>
                     </div>
 
-                    <div class="w-full">
+                    <div class="w-full ">
                         <div>
                             <x-Ui::input.floating-dropdown
                                 wire:model="status_id"

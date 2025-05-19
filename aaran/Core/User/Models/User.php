@@ -26,6 +26,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public static function getName($id)
+    {
+        return self::find($id)->name;
+    }
+
     protected function casts(): array
     {
         return [

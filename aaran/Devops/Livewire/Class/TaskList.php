@@ -3,6 +3,7 @@
 namespace Aaran\Devops\Livewire\Class;
 
 use Aaran\Assets\Enums\Active;
+use Aaran\Assets\Enums\Priority;
 use Aaran\Assets\Enums\Status;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
@@ -62,7 +63,7 @@ class TaskList extends Component
 
         $this->users = User::where('active_id', Active::ACTIVE)->get()->pluck('name', 'id')->toArray();
 
-        $this->priorities = collect(Status::cases())
+        $this->priorities = collect(Priority::cases())
             ->mapWithKeys(fn($case) => [$case->value => $case->getname()])->toArray();
 
         $this->statuses = collect(Status::cases())->mapWithKeys(fn($case) => [$case->value => $case->getname()])->toArray();
