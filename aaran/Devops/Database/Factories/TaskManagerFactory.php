@@ -2,12 +2,12 @@
 
 namespace Aaran\Devops\Database\Factories;
 
-use Aaran\Devops\Models\TaskManager;
+use Aaran\Devops\Models\Task;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TaskManagerFactory extends Factory
 {
-    protected $model = TaskManager::class;
+    protected $model = Task::class;
 
     public function definition(): array
     {

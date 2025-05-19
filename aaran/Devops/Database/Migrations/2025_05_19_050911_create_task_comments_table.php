@@ -9,12 +9,11 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('task_commends', function (Blueprint $table) {
+        Schema::create('task_comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('commend');
-            $table->string('job_id');
-            $table->string('commend_id');
+            $table->foreignId('task_id')->references('id')->on('tasks')->cascadeOnDelete();
+            $table->text('body')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });
@@ -22,6 +21,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('task_commends');
+        Schema::dropIfExists('task_comments');
     }
 };

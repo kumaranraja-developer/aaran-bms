@@ -2,8 +2,8 @@
     $fill='rgb(255,69,0)'
 @endphp
 
-<svg class="animated" id="freepik_stories-invoice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"
-     version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
+<svg class="animated" id="freepik_stories-invoice" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 500 500">
     <style>svg#freepik_stories-invoice:not(.animated) .animable {
             opacity: 0;
         }

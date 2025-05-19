@@ -4,16 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
 
     public function up(): void
     {
-        Schema::create('job_managers', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->string('status', 100)->default('Pending');
+            $table->smallInteger('status')->nullable();
             $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });
@@ -21,6 +20,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('job_managers');
+        Schema::dropIfExists('jobs');
     }
 };

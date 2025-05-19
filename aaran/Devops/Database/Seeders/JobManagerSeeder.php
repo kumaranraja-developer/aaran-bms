@@ -2,7 +2,7 @@
 
 namespace Aaran\Devops\Database\Seeders;
 
-use Aaran\Devops\Models\JobManager;
+use Aaran\Devops\Models\Job;
 use Illuminate\Database\Seeder;
 
 class JobManagerSeeder extends Seeder

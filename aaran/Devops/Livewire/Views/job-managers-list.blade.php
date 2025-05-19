@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="header">JobManager</x-slot>
+    <x-slot name="header">Job Manager</x-slot>
     <x-Ui::forms.m-panel>
         <x-Ui::alerts.notification/>
 
@@ -7,7 +7,7 @@
         <x-Ui::forms.top-controls :show-filters="$showFilters"/>
 
         <!-- Table Caption -------------------------------------------------------------------------------------------->
-        <x-Ui::table.caption :caption="'JobManager'">
+        <x-Ui::table.caption :caption="'Job Manager'">
             {{$list->count()}}
         </x-Ui::table.caption>
 

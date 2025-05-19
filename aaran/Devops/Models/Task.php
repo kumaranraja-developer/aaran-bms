@@ -2,16 +2,16 @@
 
 namespace Aaran\Devops\Models;
 
-use Aaran\Devops\Database\Factories\TaskCommendsFactory;
+use Aaran\Devops\Database\Factories\TaskManagerFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TaskCommends extends Model
+class Task extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','commend', 'job_id','commend_id','active_id'];
+    protected $guarded = [];
 
     public function scopeActive(Builder $query, $status = '1'): Builder
     {
@@ -21,10 +21,7 @@ class TaskCommends extends Model
     public function scopeSearchByName(Builder $query, string $search): Builder
     {
             return $query->where('title', 'like', "%$search%");
-    }
-
-    protected static function newFactory():  TaskCommendsFactory
-    {
-            return  TaskCommendsFactory::new();
+//            return $query->where('assigned', 'like', "%$search%");
+//            return $query->where('job_id', 'like', "%$search%");
     }
 }

@@ -4,7 +4,7 @@ namespace Aaran\Devops\Livewire\Class;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
-use Aaran\Devops\Models\TaskCommends;
+use Aaran\Devops\Models\TaskComments;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -49,7 +49,7 @@ class TaskCommendsList extends Component
         $this->validate();
         $connection = $this->getTenantConnection();
 
-        TaskCommends::on($connection)->updateOrCreate(
+        TaskComments::on($connection)->updateOrCreate(
             ['id' => $this->vid],
             [
                 'title' => Str::ucfirst($this->title),
@@ -76,7 +76,7 @@ class TaskCommendsList extends Component
 
     public function getObj(int $id): void
     {
-        if ($obj = TaskCommends::on($this->getTenantConnection())->find($id)) {
+        if ($obj = TaskComments::on($this->getTenantConnection())->find($id)) {
             $this->vid = $obj->id;
             $this->title = $obj->title;
             $this->commend = $obj->commend;
@@ -88,7 +88,7 @@ class TaskCommendsList extends Component
 
     public function getList()
     {
-        return TaskCommends::on($this->getTenantConnection())
+        return TaskComments::on($this->getTenantConnection())
             ->active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
@@ -99,7 +99,7 @@ class TaskCommendsList extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = TaskCommends::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = TaskComments::on($this->getTenantConnection())->find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }

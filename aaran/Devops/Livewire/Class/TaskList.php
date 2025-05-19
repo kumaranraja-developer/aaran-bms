@@ -4,12 +4,12 @@ namespace Aaran\Devops\Livewire\Class;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
-use Aaran\Devops\Models\TaskManager;
+use Aaran\Devops\Models\Task;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class TaskManagerList extends Component
+class TaskList extends Component
 {
 
     use ComponentStateTrait, TenantAwareTrait;
@@ -51,7 +51,7 @@ class TaskManagerList extends Component
         $this->validate();
         $connection = $this->getTenantConnection();
 
-        TaskManager::on($connection)->updateOrCreate(
+        Task::on($connection)->updateOrCreate(
             ['id' => $this->vid],
             [
                 'title' => Str::ucfirst($this->title),
@@ -86,7 +86,7 @@ class TaskManagerList extends Component
 
     public function getObj(int $id): void
     {
-        if ($obj = TaskManager::on($this->getTenantConnection())->find($id)) {
+        if ($obj = Task::on($this->getTenantConnection())->find($id)) {
             $this->vid = $obj->id;
             $this->title = $obj->title;
             $this->content = $obj->content;
@@ -102,7 +102,7 @@ class TaskManagerList extends Component
 
     public function getList()
     {
-        return TaskManager::on($this->getTenantConnection())
+        return Task::on($this->getTenantConnection())
             ->active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
@@ -113,7 +113,7 @@ class TaskManagerList extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = TaskManager::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = Task::on($this->getTenantConnection())->find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }

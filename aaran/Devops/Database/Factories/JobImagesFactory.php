@@ -2,12 +2,12 @@
 
 namespace Aaran\Devops\Database\Factories;
 
-use Aaran\Devops\Models\JobImages;
+use Aaran\Devops\Models\TaskImage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class JobImagesFactory extends Factory
 {
-    protected $model = JobImages::class;
+    protected $model = TaskImage::class;
 
     public function definition(): array
     {

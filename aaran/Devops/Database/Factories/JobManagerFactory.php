@@ -2,12 +2,12 @@
 
 namespace Aaran\Devops\Database\Factories;
 
-use Aaran\Devops\Models\JobManager;
+use Aaran\Devops\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class JobManagerFactory extends Factory
 {
-    protected $model = JobManager::class;
+    protected $model = Job::class;
 
     public function definition(): array
     {

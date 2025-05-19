@@ -4,7 +4,7 @@ namespace Aaran\Devops\Livewire\Class;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
-use Aaran\Devops\Models\JobManager;
+use Aaran\Devops\Models\Job;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -23,7 +23,7 @@ class JobManagerList extends Component
     public function rules(): array
     {
         return [
-            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.cities,title"),
+            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.jobs,title"),
         ];
     }
 
@@ -37,7 +37,7 @@ class JobManagerList extends Component
     public function validationAttributes(): array
     {
         return [
-            'title' => 'JobManager name',
+            'title' => 'Job Name',
         ];
     }
 
@@ -46,12 +46,12 @@ class JobManagerList extends Component
         $this->validate();
         $connection = $this->getTenantConnection();
 
-        JobManager::on($connection)->updateOrCreate(
+        Job::on($connection)->updateOrCreate(
             ['id' => $this->vid],
             [
                 'title' => Str::ucfirst($this->title),
-                'content' => Str::ucfirst($this->content),
-                'status' => Str::ucfirst($this->status),
+                'content' => $this->content,
+                'status' => $this->status,
                 'active_id' => $this->active_id
             ],
         );
@@ -71,7 +71,7 @@ class JobManagerList extends Component
 
     public function getObj(int $id): void
     {
-        if ($obj = JobManager::on($this->getTenantConnection())->find($id)) {
+        if ($obj = Job::on($this->getTenantConnection())->find($id)) {
             $this->vid = $obj->id;
             $this->title = $obj->title;
             $this->content = $obj->content;
@@ -82,7 +82,7 @@ class JobManagerList extends Component
 
     public function getList()
     {
-        return JobManager::on($this->getTenantConnection())
+        return Job::on($this->getTenantConnection())
             ->active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
@@ -93,7 +93,7 @@ class JobManagerList extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = JobManager::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = Job::on($this->getTenantConnection())->find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }

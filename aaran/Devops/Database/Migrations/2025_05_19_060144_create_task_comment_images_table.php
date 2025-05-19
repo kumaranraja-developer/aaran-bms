@@ -9,17 +9,15 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('task_replies', function (Blueprint $table) {
+        Schema::create('task_comment_images', function (Blueprint $table) {
             $table->id();
             $table->foreignId('task_comment_id')->references('id')->on('task_comments')->cascadeOnDelete();
-            $table->text('body')->nullable();
-            $table->foreignId('user_id')->nullable();
-            $table->timestamps();
+            $table->text('image')->nullable();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('task_replies');
+        Schema::dropIfExists('task_comment_images');
     }
 };

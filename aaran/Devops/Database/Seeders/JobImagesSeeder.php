@@ -2,7 +2,7 @@
 
 namespace Aaran\Devops\Database\Seeders;
 
-use Aaran\Devops\Models\JobImages;
+use Aaran\Devops\Models\TaskImage;
 use Illuminate\Database\Seeder;
 
 class JobImagesSeeder extends Seeder

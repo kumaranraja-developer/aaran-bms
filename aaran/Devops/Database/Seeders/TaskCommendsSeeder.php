@@ -2,7 +2,7 @@
 
 namespace Aaran\Devops\Database\Seeders;
 
-use Aaran\Devops\Models\TaskCommends;
+use Aaran\Devops\Models\TaskComments;
 use Illuminate\Database\Seeder;
 
 class TaskCommendsSeeder extends Seeder
