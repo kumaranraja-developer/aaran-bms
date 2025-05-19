@@ -19,8 +19,8 @@ class Index extends Component
     #[Validate]
     public string $vname = '';
     public string $description = '';
-    public mixed $image;
-    public mixed $old_image;
+    public mixed $image  = null;
+    public mixed $old_image = null;
     public bool $active_id = true;
 
     #region[Validation]
