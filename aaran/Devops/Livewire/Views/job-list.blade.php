@@ -22,22 +22,31 @@
                 <x-Ui::table.header-text>
                     Content
                 </x-Ui::table.header-text>
-                <x-Ui::table.header-text>
-                    Status
-                </x-Ui::table.header-text>
                 <x-Ui::table.header-status/>
                 <x-Ui::table.header-action/>
             </x-slot:table_header>
 
             <x-slot:table_body>
                 @foreach($list as $index=>$row)
+                    @php
+                        $link = route('task-managers',[$row->id])
+                    @endphp
                     <x-Ui::table.row>
-                        <x-Ui::table.cell-text>{{$index+1}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->title}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->content}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->status}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-status active="{{$row->active_id}}"/>
+
+                        <x-Ui::table.cell-link :href="$link">{{$index+1}}</x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link" left>
+                            {{$row->title}}
+                        </x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link" left>
+                            {!! \Illuminate\Support\Str::limit($row->content,50) !!}
+                        </x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-status :href="$link" active="{{$row->active_id}}"/>
+
                         <x-Ui::table.cell-action id="{{$row->id}}"/>
+
                     </x-Ui::table.row>
                 @endforeach
             </x-slot:table_body>
@@ -59,15 +68,15 @@
                 </div>
 
                 <div>
-                    <x-Ui::input.floating wire:model="content" label="Job Description"/>
+                    <x-Ui::input.rich-text wire:model="content" label="Job Description"/>
                     <x-Ui::input.error-text wire:model="content"/>
                 </div>
 
 
-                <div>
-                    <x-Ui::input.floating wire:model="status" label="Status"/>
-                    <x-Ui::input.error-text wire:model="status"/>
-                </div>
+                {{--                <div>--}}
+                {{--                    <x-Ui::input.floating wire:model="status" label="Status"/>--}}
+                {{--                    <x-Ui::input.error-text wire:model="status"/>--}}
+                {{--                </div>--}}
 
             </div>
 
@@ -75,3 +84,5 @@
 
     </x-Ui::forms.m-panel>
 </div>
+
+

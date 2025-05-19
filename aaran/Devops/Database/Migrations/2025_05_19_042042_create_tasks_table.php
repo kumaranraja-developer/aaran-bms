@@ -13,11 +13,10 @@ return new class extends Migration {
             $table->foreignId('job_id')->references('id')->on('jobs')->cascadeOnDelete();
             $table->string('title');
             $table->text('body')->nullable();
-            $table->date('start_time')->nullable();
-            $table->date('due_time')->nullable();
-            $table->foreignId('assigned')->nullable();
-            $table->smallInteger('priority')->nullable();
-            $table->string('status')->nullable();
+            $table->date('start_at')->nullable();
+            $table->date('due_date')->nullable();
+            $table->foreignId('assigned_id')->nullable();
+            $table->smallInteger('priority_id')->nullable();
             $table->smallInteger('status_id')->nullable();
             $table->tinyInteger('active_id')->default('1')->nullable();
             $table->timestamps();

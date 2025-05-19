@@ -20,9 +20,9 @@
     <input id="x" class="hidden">
     <trix-editor x-ref="trix" input="x" placeholder="{{$placeholder}}" class="overflow-y-auto text-ellipsis form-textarea block text text-xs
                     rounded-lg appearance-none border-2 {{$height}} {{$width}}
-                    border-gray-200 py-2 px-3 bg-white text-zinc-700 dark:bg-dark dark:text-dark-9
+                    border-none py-2 px-3 bg-white text-zinc-700 dark:bg-dark dark:text-dark-9
                     placeholder-gray-400 text-base focus:outline-none
-                    focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-150 ease-in-out"></trix-editor>
+                    focus:ring-1 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out"></trix-editor>
 </div>
 
 

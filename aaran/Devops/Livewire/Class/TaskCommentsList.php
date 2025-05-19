@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class TaskCommendsList extends Component
+class TaskCommentsList extends Component
 {
 
     use ComponentStateTrait, TenantAwareTrait;
@@ -42,6 +42,15 @@ class TaskCommendsList extends Component
         return [
             'title' => 'TaskCommends name',
         ];
+    }
+
+    public $task_id;
+    public function mount($id = null)
+    {
+        if ($id){
+            $this->task_id = $id;
+        }
+
     }
 
     public function getSave(): void

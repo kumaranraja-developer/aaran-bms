@@ -16,48 +16,61 @@
         <x-Ui::table.form>
             <x-slot:table_header>
                 <x-Ui::table.header-serial/>
+
                 <x-Ui::table.header-text wire:click.prevent="sortBy('id')" sortIcon="{{$sortAsc}}" :left="true">
                     Title
                 </x-Ui::table.header-text>
+
                 <x-Ui::table.header-text wire:click.prevent="sortBy('id')" sortIcon="{{$sortAsc}}" :left="true">
                     Content
                 </x-Ui::table.header-text>
-                <x-Ui::table.header-text>
-                    Start Time
-                </x-Ui::table.header-text>
-                <x-Ui::table.header-text>
-                    Due Time
-                </x-Ui::table.header-text>
-                <x-Ui::table.header-text>
-                    Assigned
-                </x-Ui::table.header-text>
-                <x-Ui::table.header-text>
-                    Job Id
-                </x-Ui::table.header-text>
-                <x-Ui::table.header-text>
-                    Priority
-                </x-Ui::table.header-text>
-                <x-Ui::table.header-text>
-                    Status
-                </x-Ui::table.header-text>
+
+                {{-- <x-Ui::table.header-text sortIcon="none">Start Time</x-Ui::table.header-text>--}}
+
+                <x-Ui::table.header-text sortIcon="none">Due date</x-Ui::table.header-text>
+
+                <x-Ui::table.header-text sortIcon="none">Assigned</x-Ui::table.header-text>
+
+                {{-- <x-Ui::table.header-text sortIcon="none">Job Id</x-Ui::table.header-text>--}}
+
+                <x-Ui::table.header-text sortIcon="none">Priority</x-Ui::table.header-text>
+
                 <x-Ui::table.header-status/>
+
                 <x-Ui::table.header-action/>
             </x-slot:table_header>
 
             <x-slot:table_body>
                 @foreach($list as $index=>$row)
+                    @php
+                        $link = route('task-comments',[$row->id])
+                    @endphp
                     <x-Ui::table.row>
-                        <x-Ui::table.cell-text>{{$index+1}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->title}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->body}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->start_time}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->due_time}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->assigned}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->job_id}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->priority}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->status}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-status active="{{$row->active_id}}"/>
+
+                        <x-Ui::table.cell-link :href="$link">{{$index+1}}</x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link" left>
+                            {{$row->title}}
+                        </x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link" left>
+                            {!! \Illuminate\Support\Str::limit($row->body,50) !!}
+                        </x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link">{{$row->due_date}}</x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link">{{$row->assigned_id}}</x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link">
+                            {{\Aaran\Assets\Enums\Priority::tryFrom($row->priority_id)->getName()}}
+                        </x-Ui::table.cell-link>
+
+                        <x-Ui::table.cell-link :href="$link">
+                            {{\Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getName()}}
+                        </x-Ui::table.cell-link>
+
                         <x-Ui::table.cell-action id="{{$row->id}}"/>
+
                     </x-Ui::table.row>
                 @endforeach
             </x-slot:table_body>
@@ -78,38 +91,52 @@
                 </div>
 
                 <div>
-                    <x-Ui::input.floating wire:model="body" label="Content"/>
+                    <x-Ui::input.rich-text placeholder="Content goes here" wire:model="body" label="Content"/>
                     <x-Ui::input.error-text wire:model="body"/>
                 </div>
 
                 <div>
-                    <x-Ui::input.floating wire:model="start_time" label="Start Time"/>
-                    <x-Ui::input.error-text wire:model="start_time"/>
+                    <x-Ui::input.model-date wire:model="due_date" label="Due Date"/>
+                    <x-Ui::input.error-text wire:model="due_date"/>
                 </div>
 
                 <div>
-                    <x-Ui::input.floating wire:model="due_time" label="Due Time"/>
-                    <x-Ui::input.error-text wire:model="due_time"/>
+                    <x-Ui::input.floating-dropdown
+                        wire:model="assigned_id"
+                        label="Assign to"
+                        id="assigned_id"
+                        :options="$users"
+                        placeholder="Choose a .."
+                    />
+                    <x-Ui::input.error-text wire:model="plan_id"/>
                 </div>
 
-                <div>
-                    <x-Ui::input.floating wire:model="assigned" label="Assigned"/>
-                    <x-Ui::input.error-text wire:model="assigned"/>
-                </div>
+                <div class="flex flex-row justify-between gap-5">
+                    <div class="w-full">
+                        <div>
+                            <x-Ui::input.floating-dropdown
+                                wire:model="priority_id"
+                                label="Priority"
+                                id="priority_id"
+                                :options="$priorities"
+                                placeholder="Choose a .."
+                            />
+                            <x-Ui::input.error-text wire:model="priority_id"/>
+                        </div>
+                    </div>
 
-                <div>
-                     <x-Ui::input.floating wire:model="job_id" label="Job Id"/>
-                     <x-Ui::input.error-text wire:model="job_id"/>
-                </div>
-
-                <div>
-                     <x-Ui::input.floating wire:model="priority" label="Priority"/>
-                     <x-Ui::input.error-text wire:model="priority"/>
-                </div>
-
-                <div>
-                    <x-Ui::input.floating wire:model="status" label="Status"/>
-                    <x-Ui::input.error-text wire:model="status"/>
+                    <div class="w-full">
+                        <div>
+                            <x-Ui::input.floating-dropdown
+                                wire:model="status_id"
+                                label="Status"
+                                id="status_id"
+                                :options="$statuses"
+                                placeholder="Choose a .."
+                            />
+                            <x-Ui::input.error-text wire:model="status_id"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </x-Ui::forms.create>
