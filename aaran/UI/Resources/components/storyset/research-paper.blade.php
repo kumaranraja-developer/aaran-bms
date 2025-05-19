@@ -2,8 +2,7 @@
 $fill='rgb(255,69,0)'
 @endphp
 
-<svg class="animated" id="freepik_stories-research-paper" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"
-     version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
+<svg class="animated" id="freepik_stories-research-paper" viewBox="0 0 500 500">
     <style>svg#freepik_stories-research-paper:not(.animated) .animable {
             opacity: 0;
         }
@@ -232,7 +231,7 @@ $fill='rgb(255,69,0)'
         <g id="freepik--books--inject-158" class="animable" style="transform-origin: 346.965px 212.101px;">
             <g id="freepik--Book--inject-158" class="animable" style="transform-origin: 352.835px 230.578px;">
                 <path d="M457.54,254.28,454,252.36l3.27-.79A2.53,2.53,0,0,1,457.54,254.28Z"
-                      style="fill: rgb(255,69,0); transform-origin: 455.907px 252.925px;" id="els0mv4qw32t"
+                      style="fill: {{$fill}}; transform-origin: 455.907px 252.925px;" id="els0mv4qw32t"
                       class="animable"></path>
                 <g id="elwd4vbo0colp">
                     <path d="M457.54,254.28,454,252.36l3.27-.79A2.53,2.53,0,0,1,457.54,254.28Z"
@@ -241,11 +240,11 @@ $fill='rgb(255,69,0)'
                 </g>
                 <path
                     d="M362.38,302.2a8.11,8.11,0,0,0,7.31,0l82-47.35L328.93,185.12l-2.87-1.66-82,46.19c-2,1.17-2,3.07,0,4.22Z"
-                    style="fill: rgb(255,69,0); transform-origin: 347.125px 243.265px;" id="ell752g4mlbc7"
+                    style="fill: {{$fill}}; transform-origin: 347.125px 243.265px;" id="ell752g4mlbc7"
                     class="animable"></path>
                 <path
                     d="M393.17,213.9l28.6,16.46,18.51-10.68,21.54,12.44v14.37c0,1.88-2.11,4.56-2.88,4.12a20.77,20.77,0,0,0-4.11,1.46,30.94,30.94,0,0,0-5.95,4.4l-65.71-36.79Z"
-                    style="fill: rgb(255,69,0); transform-origin: 422.495px 235.185px;" id="eliyg55a3cryf"
+                    style="fill: {{$fill}}; transform-origin: 422.495px 235.185px;" id="eliyg55a3cryf"
                     class="animable"></path>
                 <g id="elxpcgdra9z2p">
                     <path
@@ -274,7 +273,7 @@ $fill='rgb(255,69,0)'
                     class="animable"></path>
                 <path
                     d="M328.93,162l122.76,70.88v1.64c0,.92,1.28,1.25,2.86.34s2.87-2,2.87-3.63l.15-1.56-125.08-72.2-.51-.3a1.77,1.77,0,0,0-.21.76v.76C331.77,159.6,330.51,161.06,328.93,162Z"
-                    style="fill: rgb(255,69,0); transform-origin: 393.25px 196.284px;" id="elv3gh2mipw8"
+                    style="fill: {{$fill}}; transform-origin: 393.25px 196.284px;" id="elv3gh2mipw8"
                     class="animable"></path>
                 <g id="el1c4voelmz9w">
                     <path
@@ -284,15 +283,15 @@ $fill='rgb(255,69,0)'
                 </g>
                 <path
                     d="M369.69,280.22l80.18-46.3c1-.54,1.95-1,2.35-.76l-.53-.29L328.93,162l-1.43-.83c-.79-.46-2.53-.2-3.87.57l-79.57,45.94c-2,1.17-2,3.07,0,4.22l118.32,68.33A8.11,8.11,0,0,0,369.69,280.22Z"
-                    style="fill: rgb(255,69,0); transform-origin: 347.39px 221.019px;" id="el0xtd6ytbjh8e"
+                    style="fill: {{$fill}}; transform-origin: 347.39px 221.019px;" id="el0xtd6ytbjh8e"
                     class="animable"></path>
                 <path
                     d="M332,157.16l.51.3,125.08,72.2a.88.88,0,0,1,.27-.33l.42-.24.9-.52,1.11-.65a1.13,1.13,0,0,1,1.42.13.39.39,0,0,1,.14.12,2.58,2.58,0,0,1,.38.52,3.07,3.07,0,0,1,.32.71,6.4,6.4,0,0,1,.26.81c.07.31.12.62.18,1a5.22,5.22,0,0,1,.07.57c0,.16,0,.3,0,.47,0,.35,0,.71,0,1.09v-3.51c0-1.94-1.64-4.46-3.65-5.62L341.14,155.84c-2-1.17-4.94-1.36-6.51-.46l-1.49.87-.06,0c-.1.07-.35.21-.63.36a0,0,0,0,0,0,0A1.3,1.3,0,0,0,332,157.16Z"
-                    style="fill: rgb(255,69,0); transform-origin: 397.53px 194.077px;" id="el35i44p7yj8e"
+                    style="fill: {{$fill}}; transform-origin: 397.53px 194.077px;" id="el35i44p7yj8e"
                     class="animable"></path>
                 <path
                     d="M369.69,302.19l4.95-2.87,74.24-42.86a4.82,4.82,0,0,1,1-2.66,10.8,10.8,0,0,1,3.25-2.85,7.31,7.31,0,0,1,3.5-1.1,3.72,3.72,0,0,1,2.31.76,12.87,12.87,0,0,0,1.36-6.14h2.81c0,3.88-1.28,7.77-2.85,8.67l-1.42.83c-.8.47-1.43.49-1.43.06v-.76c0-.84-1.28-.8-2.87.11s-2.86,2.34-2.86,3.18v.76c0,.43-1.09,1.4-2.43,2.18L377.46,301l-7.77,4.48h0a7.56,7.56,0,0,1-3.64.86v-3.25A7.42,7.42,0,0,0,369.69,302.19Z"
-                    style="fill: rgb(255,69,0); transform-origin: 414.58px 275.406px;" id="elbgj323n5u5v"
+                    style="fill: {{$fill}}; transform-origin: 414.58px 275.406px;" id="elbgj323n5u5v"
                     class="animable"></path>
                 <g id="elpsgw5oet87">
                     <path
@@ -302,7 +301,7 @@ $fill='rgb(255,69,0)'
                 </g>
                 <path
                     d="M369.66,280.23h0l4.95-2.87,57-32.91,18.21-10.52c1.29-.76,2.35-1,2.42-.63a.06.06,0,0,1,0,0v.83c0,.92,1.28.92,2.86,0s2.22-2,2.25-2.87v-.9a1.28,1.28,0,0,1,.42-1.06,4.81,4.81,0,0,1,.42-.24l.9-.52,1.11-.65a1.13,1.13,0,0,1,1.42.13.39.39,0,0,1,.14.12,1.42,1.42,0,0,1,.25.34.75.75,0,0,1,.13.18,3.07,3.07,0,0,1,.32.71,6.4,6.4,0,0,1,.26.81c.07.31.12.62.18,1a5.22,5.22,0,0,1,.07.57c0,.16,0,.3,0,.47,0,.35,0,.71,0,1.09v11.17h-2.81V233.3c0-.29,0-.59,0-.87l-.07-.7a.17.17,0,0,0,0-.07c-.25,2.23-2.39,4.23-4.25,5.29a7.09,7.09,0,0,1-3.43,1.06,3.77,3.77,0,0,1-2.51-.92l-.26.14-.49.29L377.46,279l-7.77,4.49h0l-.05,0a7.6,7.6,0,0,1-3.59.83v-3.25A7.49,7.49,0,0,0,369.66,280.23Z"
-                    style="fill: rgb(255,69,0); transform-origin: 414.51px 256.01px;" id="elolcv7iywc5b"
+                    style="fill: {{$fill}}; transform-origin: 414.51px 256.01px;" id="elolcv7iywc5b"
                     class="animable"></path>
                 <g id="el64oq4fms46u">
                     <path
@@ -312,7 +311,7 @@ $fill='rgb(255,69,0)'
                 </g>
                 <path
                     d="M242.56,209.74v3.31a2.51,2.51,0,0,0,1.44,2.08l.06,0L354.62,279l7.76,4.49h0a7.67,7.67,0,0,0,3.64.86v-3.25a7.38,7.38,0,0,1-3.65-.87l-4.94-2.85h0L244.06,211.9A2.51,2.51,0,0,1,242.56,209.74Z"
-                    style="fill: rgb(255,69,0); transform-origin: 304.29px 247.045px;" id="el38vsd3faiqj"
+                    style="fill: {{$fill}}; transform-origin: 304.29px 247.045px;" id="el38vsd3faiqj"
                     class="animable"></path>
                 <g id="el6vtpv2v2o9f">
                     <path
@@ -322,7 +321,7 @@ $fill='rgb(255,69,0)'
                 </g>
                 <path
                     d="M242.56,231.72V235A2.5,2.5,0,0,0,244,237.1l.06,0L354.62,301l7.76,4.48h0a7.56,7.56,0,0,0,3.64.86v-3.25a7.38,7.38,0,0,1-3.65-.87l-4.94-2.85h0L244.06,233.87A2.51,2.51,0,0,1,242.56,231.72Z"
-                    style="fill: rgb(255,69,0); transform-origin: 304.29px 269.031px;" id="ele1heqdzzcoi"
+                    style="fill: {{$fill}}; transform-origin: 304.29px 269.031px;" id="ele1heqdzzcoi"
                     class="animable"></path>
                 <g id="elr6m2s4devfr">
                     <path
@@ -333,7 +332,7 @@ $fill='rgb(255,69,0)'
             </g>
             <g id="freepik--book--inject-158" class="animable" style="transform-origin: 344.195px 196.699px;">
                 <polygon points="457.57 218.28 361.69 272.89 234.17 199.72 330.05 145.09 457.57 218.28"
-                         style="fill: rgb(255,69,0); transform-origin: 345.87px 208.99px;" id="elo9pq575p09"
+                         style="fill: {{$fill}}; transform-origin: 345.87px 208.99px;" id="elo9pq575p09"
                          class="animable"></polygon>
                 <g id="eljp30v4jp5m">
                     <polygon points="457.57 218.28 361.69 272.89 234.17 199.72 330.05 145.09 457.57 218.28"
@@ -345,7 +344,7 @@ $fill='rgb(255,69,0)'
                       class="animable"></path>
                 <path
                     d="M365.48,243.75a15.72,15.72,0,0,0-7.15,12.32v14.39c0,4.54,3.2,6.37,7.16,4.11l92.07-52.73v-3.56l-91.1,51.9c-2.37,1.36-4.29.25-4.28-2.47l.06-13.33a9.46,9.46,0,0,1,4.3-7.39l91-51.92v-4Z"
-                    style="fill: rgb(255,69,0); transform-origin: 407.945px 233.304px;" id="el3lzplk9sfmf"
+                    style="fill: {{$fill}}; transform-origin: 407.945px 233.304px;" id="el3lzplk9sfmf"
                     class="animable"></path>
                 <g id="elrz0v4h8qjp">
                     <path
@@ -355,7 +354,7 @@ $fill='rgb(255,69,0)'
                 </g>
                 <path
                     d="M457.56,191,330,117.86,238,170.58a15.7,15.7,0,0,0-7.16,12.32v14.39c0,2.26.8,3.85,2.1,4.6l127.51,73.18c-1.3-.75-2.09-2.34-2.1-4.6v-14.4a15.71,15.71,0,0,1,7.16-12.32Z"
-                    style="fill: rgb(255,69,0); transform-origin: 344.2px 196.465px;" id="elwgxzq2av6l"
+                    style="fill: {{$fill}}; transform-origin: 344.2px 196.465px;" id="elwgxzq2av6l"
                     class="animable"></path>
                 <g id="els6grusev3ki">
                     <path
@@ -365,7 +364,7 @@ $fill='rgb(255,69,0)'
                 </g>
                 <path
                     d="M360.42,249.06a14.53,14.53,0,0,0-2.1,7v14.4c0,2.26.8,3.85,2.1,4.6L232.92,201.89c-1.3-.75-2.1-2.34-2.1-4.6V182.9a14.42,14.42,0,0,1,2.1-7Z"
-                    style="fill: rgb(255,69,0); transform-origin: 295.62px 225.48px;" id="elhlr4fv7i8g"
+                    style="fill: {{$fill}}; transform-origin: 295.62px 225.48px;" id="elhlr4fv7i8g"
                     class="animable"></path>
                 <g id="ellrw6vld67im">
                     <path
@@ -386,7 +385,7 @@ $fill='rgb(255,69,0)'
         <g id="freepik--folder--inject-158" class="animable" style="transform-origin: 173.864px 328.119px;">
             <path
                 d="M18.47,321.66c-2.65-1.53-2.66-4,0-5.56l135.82-78.92L331.05,339.23,194.79,417.91a10.65,10.65,0,0,1-9.62,0l-101-58.29-16.9,3.18a4.56,4.56,0,0,1-3.15-.53l-41.9-24.14a4.6,4.6,0,0,1-1.54-6.52l4.43-6.09Z"
-                style="fill: rgb(255,69,0); transform-origin: 173.764px 328.119px;" id="el2u6bq4u56br"
+                style="fill: {{$fill}}; transform-origin: 173.764px 328.119px;" id="el2u6bq4u56br"
                 class="animable"></path>
             <g id="el0fkwej0ai079">
                 <path
@@ -399,7 +398,7 @@ $fill='rgb(255,69,0)'
                      class="animable"></polygon>
             <path
                 d="M331.25,339.35l-123,70.72a10.34,10.34,0,0,1-9.36-.16L32.2,313.67c-2.66-1.53-2.77-3.95-.26-5.41l122.53-71Z"
-                style="fill: rgb(255,69,0); transform-origin: 180.689px 324.186px;" id="el1f10elu4xxf"
+                style="fill: {{$fill}}; transform-origin: 180.689px 324.186px;" id="el1f10elu4xxf"
                 class="animable"></path>
         </g>
     </g>
@@ -415,11 +414,11 @@ $fill='rgb(255,69,0)'
                 class="animable"></path>
             <path
                 d="M332.83,384.21a12.31,12.31,0,0,0,5.1,9.91,3.93,3.93,0,0,0,3.81.63c.75-.35,3.65-1.63,4.43-2,1.13-.51,1.89-1.79,2-3.69a12.7,12.7,0,0,0-5.25-10.22c-1.59-1-3.07-1.16-4.14-.54-.75.42-4.18,2.4-4.18,2.4A4,4,0,0,0,332.83,384.21Z"
-                style="fill: rgb(255,69,0); transform-origin: 340.498px 386.461px;" id="el3lgiz21u967"
+                style="fill: {{$fill}}; transform-origin: 340.498px 386.461px;" id="el3lgiz21u967"
                 class="animable"></path>
             <path
                 d="M332.83,384.21c.17-3.55,2.74-4.86,5.72-2.94a12.33,12.33,0,0,1,5.1,9.91c-.18,3.55-2.74,4.87-5.72,2.94A12.31,12.31,0,0,1,332.83,384.21Z"
-                style="fill: rgb(255,69,0); transform-origin: 338.24px 387.697px;" id="el208fbutjtuj" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 338.24px 387.697px;" id="el208fbutjtuj" class="animable"></path>
             <g id="el5m70si9j7n4">
                 <path
                     d="M332.83,384.21c.17-3.55,2.74-4.86,5.72-2.94a12.33,12.33,0,0,1,5.1,9.91c-.18,3.55-2.74,4.87-5.72,2.94A12.31,12.31,0,0,1,332.83,384.21Z"
@@ -436,7 +435,7 @@ $fill='rgb(255,69,0)'
                 class="animable"></path>
             <path
                 d="M228.22,403.5v14.67c0,8,5.26,15.92,15.78,22,21.05,12.15,55.17,12.15,76.22,0,10.52-6.08,15.78-14,15.79-22V403.5h0c0-8-5.27-15.93-15.79-22-21.05-12.15-55.17-12.15-76.22,0-10.52,6.07-15.78,14-15.78,22Zm102.57,0c0,6.37-4.68,12.58-13.18,17.49-9.4,5.42-22,8.41-35.5,8.41s-26.1-3-35.5-8.41c-8.5-4.91-13.18-11.12-13.18-17.49s4.68-12.58,13.18-17.49c9.4-5.43,22-8.42,35.5-8.42s26.11,3,35.5,8.42C326.11,390.92,330.79,397.13,330.79,403.5Z"
-                style="fill: rgb(255,69,0); transform-origin: 282.115px 410.835px;" id="elylgp32dxlt" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 282.115px 410.835px;" id="elylgp32dxlt" class="animable"></path>
             <g id="elp42xm3xdmch">
                 <path
                     d="M228.22,403.5v14.67c0,8,5.26,15.92,15.78,22,21.05,12.15,55.17,12.15,76.22,0,10.52-6.08,15.78-14,15.79-22V403.5h0c0-8-5.27-15.93-15.79-22-21.05-12.15-55.17-12.15-76.22,0-10.52,6.07-15.78,14-15.78,22Zm102.57,0c0,6.37-4.68,12.58-13.18,17.49-9.4,5.42-22,8.41-35.5,8.41s-26.1-3-35.5-8.41c-8.5-4.91-13.18-11.12-13.18-17.49s4.68-12.58,13.18-17.49c9.4-5.43,22-8.42,35.5-8.42s26.11,3,35.5,8.42C326.11,390.92,330.79,397.13,330.79,403.5Z"
@@ -446,7 +445,7 @@ $fill='rgb(255,69,0)'
             <g id="el4kwvc3ry5o4">
                 <path
                     d="M328.26,395.46a14.83,14.83,0,0,1,2.53,8c0,6.37-4.68,12.58-13.18,17.49a58.44,58.44,0,0,1-13.38,5.5v20.05a64.9,64.9,0,0,0,16-6.37c10.52-6.08,15.78-14,15.79-22V403.5a20,20,0,0,0-3.38-10.83Z"
-                    style="fill: rgb(255,69,0); opacity: 0.4; transform-origin: 320.125px 419.585px;" class="animable"
+                    style="fill: {{$fill}}; opacity: 0.4; transform-origin: 320.125px 419.585px;" class="animable"
                     id="elgh3lwp1elf"></path>
             </g>
             <g id="elhy3eeeomk5h">
@@ -457,7 +456,7 @@ $fill='rgb(255,69,0)'
             </g>
             <path
                 d="M320.22,381.5c-21-12.15-55.17-12.15-76.21,0s-21,31.85,0,44,55.17,12.15,76.21,0S341.27,393.65,320.22,381.5ZM317.62,421c-9.4,5.42-22,8.41-35.5,8.41s-26.11-3-35.51-8.41c-8.49-4.91-13.17-11.12-13.17-17.49s4.67-12.58,13.17-17.49c9.4-5.43,22-8.42,35.51-8.42s26.1,3,35.5,8.42c8.5,4.91,13.18,11.12,13.18,17.49S326.12,416.08,317.62,421Z"
-                style="fill: rgb(255,69,0); transform-origin: 282.124px 403.5px;" id="elxcrvcf2xuy" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 282.124px 403.5px;" id="elxcrvcf2xuy" class="animable"></path>
             <g id="elkvdnimx373h">
                 <g style="opacity: 0.5; transform-origin: 282.124px 403.5px;" class="animable" id="elbxf6rh7dusc">
                     <path
@@ -474,7 +473,7 @@ $fill='rgb(255,69,0)'
             </g>
             <path
                 d="M330.8,403.5a14.45,14.45,0,0,1-2.11,7.34c-2.13-3.71-5.9-7.18-11.08-10.16-9.39-5.43-22-8.42-35.5-8.42s-26.1,3-35.49,8.42c-5.18,3-9,6.45-11.09,10.16a14.53,14.53,0,0,1-2.1-7.34c0-6.37,4.68-12.58,13.19-17.49,9.39-5.42,22-8.42,35.49-8.42s26.11,3,35.5,8.42C326.12,390.92,330.8,397.13,330.8,403.5Z"
-                style="fill: rgb(255,69,0); transform-origin: 282.115px 394.215px;" id="elukkpqj2pc6" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 282.115px 394.215px;" id="elukkpqj2pc6" class="animable"></path>
             <g id="elewrbzb2yv7s">
                 <path
                     d="M330.8,403.5a14.45,14.45,0,0,1-2.11,7.34c-2.13-3.71-5.9-7.18-11.08-10.16-9.39-5.43-22-8.42-35.5-8.42s-26.1,3-35.49,8.42c-5.18,3-9,6.45-11.09,10.16a14.53,14.53,0,0,1-2.1-7.34c0-6.37,4.68-12.58,13.19-17.49,9.39-5.42,22-8.42,35.49-8.42s26.11,3,35.5,8.42C326.12,390.92,330.8,397.13,330.8,403.5Z"
@@ -484,7 +483,7 @@ $fill='rgb(255,69,0)'
             <g id="elnv2fy0i9nzd">
                 <path
                     d="M246.62,386c-8.51,4.91-13.19,11.12-13.19,17.49a14.53,14.53,0,0,0,2.1,7.34c2.14-3.71,5.91-7.18,11.09-10.16a53.5,53.5,0,0,1,6.8-3.28c-2,.8-8.35,2.82-6.06-3.19,2.74-7.14,16.07-14.87,25.87-16.15v0C263.16,379.06,253.91,381.8,246.62,386Z"
-                    style="fill: rgb(255,69,0); opacity: 0.4; transform-origin: 253.33px 394.44px;" class="animable"
+                    style="fill: {{$fill}}; opacity: 0.4; transform-origin: 253.33px 394.44px;" class="animable"
                     id="elilkgwcgxln"></path>
             </g>
             <g id="elj7ro8imzi0l">
@@ -507,7 +506,7 @@ $fill='rgb(255,69,0)'
                     style="fill: rgb(235, 235, 235); transform-origin: 90.4012px 386.551px;" id="elocy2idlha0h"
                     class="animable"></path>
                 <path d="M94.25,382.2c-1.9-1.18-7.82,8.38-5.92,9.56l2.87,1.65c-1.89-1.17,4-10.73,5.92-9.56Z"
-                      style="fill: rgb(255,69,0); transform-origin: 92.5395px 387.755px;" id="el17fq8ut9zc8"
+                      style="fill: {{$fill}}; transform-origin: 92.5395px 387.755px;" id="el17fq8ut9zc8"
                       class="animable"></path>
                 <path
                     d="M99.86,385.43,97,383.79c-1.85-1.16-7.66,8-6.08,9.47a.73.73,0,0,0,.09.08L93.9,395C92,393.75,98,384.24,99.86,385.43Z"
@@ -541,7 +540,7 @@ $fill='rgb(255,69,0)'
     <g id="freepik--Notes--inject-158" class="animable" style="transform-origin: 417.86px 330.98px;">
         <g id="freepik--notes--inject-158" class="animable" style="transform-origin: 417.86px 330.98px;">
             <polygon points="372.72 328.3 421.62 300.07 468.64 327.22 419.74 355.45 372.72 328.3"
-                     style="fill: rgb(255,69,0); transform-origin: 420.68px 327.76px;" id="elkyyaw60z8uk"
+                     style="fill: {{$fill}}; transform-origin: 420.68px 327.76px;" id="elkyyaw60z8uk"
                      class="animable"></polygon>
             <g id="el40yji701nzc">
                 <polygon points="372.72 328.3 421.62 300.07 468.64 327.22 419.74 355.45 372.72 328.3"
@@ -549,11 +548,11 @@ $fill='rgb(255,69,0)'
                          class="animable" id="el2q84x71ot5i"></polygon>
             </g>
             <polygon points="372.72 328.3 367.08 325.05 415.98 296.81 421.62 300.07 372.72 328.3"
-                     style="fill: rgb(255,69,0); transform-origin: 394.35px 312.555px;" id="elvua48hp557n"
+                     style="fill: {{$fill}}; transform-origin: 394.35px 312.555px;" id="elvua48hp557n"
                      class="animable"></polygon>
             <g id="elu86wvex9j7s">
                 <polygon points="372.72 328.3 367.08 325.05 415.98 296.81 421.62 300.07 372.72 328.3"
-                         style="fill: rgb(255,69,0); opacity: 0.15; transform-origin: 394.35px 312.555px;" class="animable"
+                         style="fill: {{$fill}}; opacity: 0.15; transform-origin: 394.35px 312.555px;" class="animable"
                          id="elpxafh6e9ob"></polygon>
             </g>
             <g id="elnw2ybuvb5c">
@@ -562,7 +561,7 @@ $fill='rgb(255,69,0)'
                          class="animable" id="elr4b1dnp7cb"></polygon>
             </g>
             <polygon points="367.08 325.05 367.08 334.74 419.74 365.15 419.74 355.45 367.08 325.05"
-                     style="fill: rgb(255,69,0); transform-origin: 393.41px 345.1px;" id="eluwlg8pag5ha"
+                     style="fill: {{$fill}}; transform-origin: 393.41px 345.1px;" id="eluwlg8pag5ha"
                      class="animable"></polygon>
             <g id="elf49lznpavkv">
                 <polygon points="367.08 325.05 367.08 334.74 419.74 365.15 419.74 355.45 367.08 325.05"
@@ -570,11 +569,11 @@ $fill='rgb(255,69,0)'
                          id="el9yoz5tggyxt"></polygon>
             </g>
             <polygon points="419.74 355.45 468.64 327.22 468.64 336.91 419.74 365.15 419.74 355.45"
-                     style="fill: rgb(255,69,0); transform-origin: 444.19px 346.185px;" id="el3dz8fizb16h"
+                     style="fill: {{$fill}}; transform-origin: 444.19px 346.185px;" id="el3dz8fizb16h"
                      class="animable"></polygon>
             <path
                 d="M459.52,317.57h0l-37.9-17.5-48.9,28.23,47,21.72,42.32-24.43c2.58-1.5,5.09-4,4.93-7.34C465.52,319,463.15,319.25,459.52,317.57Z"
-                style="fill: rgb(255,69,0); transform-origin: 419.849px 325.045px;" id="eltae1ykonwi8"
+                style="fill: {{$fill}}; transform-origin: 419.849px 325.045px;" id="eltae1ykonwi8"
                 class="animable"></path>
             <g id="el9zx9f868zn">
                 <path
@@ -593,7 +592,7 @@ $fill='rgb(255,69,0)'
             <g id="freepik--speech-bubble--inject-158" class="animable" style="transform-origin: 244.73px 95.3138px;">
                 <path
                     d="M250.34,126.56l-1.66-5.92c.72-3.4-13.15,4.61-13.87,8l4.47,12a1.84,1.84,0,0,0,.75.87c1,.61,7.6,4.36,7.92,4.56A1.93,1.93,0,0,0,250.8,145l5.79-19.85C257,123.51,253.76,124.61,250.34,126.56Z"
-                    style="fill: rgb(255,69,0); transform-origin: 245.718px 133.085px;" id="elsua5h89b5z"
+                    style="fill: {{$fill}}; transform-origin: 245.718px 133.085px;" id="elsua5h89b5z"
                     class="animable"></path>
                 <g id="elps69jk6cdl">
                     <path
@@ -603,7 +602,7 @@ $fill='rgb(255,69,0)'
                 </g>
                 <path
                     d="M266.18,44,213.45,74.4a3.94,3.94,0,0,0-1.79,3.09V140a3.89,3.89,0,0,0,1.8,3.07l6.27,3.56a4,4,0,0,0,3.57,0L276,116.17a4,4,0,0,0,1.78-3.09V50.59A3.9,3.9,0,0,0,276,47.52L269.76,44A4,4,0,0,0,266.18,44Z"
-                    style="fill: rgb(255,69,0); transform-origin: 244.72px 95.3138px;" id="elqiwgd16nxs"
+                    style="fill: {{$fill}}; transform-origin: 244.72px 95.3138px;" id="elqiwgd16nxs"
                     class="animable"></path>
                 <g id="elahyuc5ar8bu">
                     <path
@@ -613,7 +612,7 @@ $fill='rgb(255,69,0)'
                 </g>
                 <path
                     d="M276,49.56,223.3,80a4,4,0,0,0-1.78,3.09v62.49c0,1.13.8,1.6,1.78,1L243.48,135l3.71,10.28a1.93,1.93,0,0,0,3.61-.19l4.93-17.16L276,116.17a4,4,0,0,0,1.78-3.09V50.59C277.82,49.46,277,49,276,49.56Z"
-                    style="fill: rgb(255,69,0); transform-origin: 249.651px 98.0819px;" id="elfmt73m1lkva"
+                    style="fill: {{$fill}}; transform-origin: 249.651px 98.0819px;" id="elfmt73m1lkva"
                     class="animable"></path>
                 <g id="el2if4o6nhqwd">
                     <path
@@ -734,7 +733,7 @@ $fill='rgb(255,69,0)'
                 style="fill: rgb(69, 90, 100); transform-origin: 148.286px 183.304px;" id="elal6cw6f1br9"
                 class="animable"></path>
             <polygon points="158.51 185.2 95.06 221.83 96.79 222.83 160.24 186.2 158.51 185.2"
-                     style="fill: rgb(255,69,0); transform-origin: 127.65px 204.015px;" id="el1tpxundjuoh"
+                     style="fill: {{$fill}}; transform-origin: 127.65px 204.015px;" id="el1tpxundjuoh"
                      class="animable"></polygon>
             <g id="elel977fdq01">
                 <polygon points="158.51 185.2 95.06 221.83 96.79 222.83 160.24 186.2 158.51 185.2"
@@ -766,22 +765,22 @@ $fill='rgb(255,69,0)'
                      style="fill: rgb(224, 224, 224); transform-origin: 256.14px 276.94px;" id="elpeg494p1ogb"
                      class="animable"></polygon>
             <polygon points="113.33 240.22 101.17 247.24 96.36 244.47 108.53 237.45 113.33 240.22"
-                     style="fill: rgb(255,69,0); transform-origin: 104.845px 242.345px;" id="elubzbh59j7w"
+                     style="fill: {{$fill}}; transform-origin: 104.845px 242.345px;" id="elubzbh59j7w"
                      class="animable"></polygon>
             <polygon points="128.19 231.63 116.03 238.66 111.23 235.88 123.39 228.86 128.19 231.63"
-                     style="fill: rgb(255,69,0); transform-origin: 119.71px 233.76px;" id="eluq0wuq5tt6f"
+                     style="fill: {{$fill}}; transform-origin: 119.71px 233.76px;" id="eluq0wuq5tt6f"
                      class="animable"></polygon>
             <polygon points="143.06 223.05 130.9 230.07 126.1 227.3 138.26 220.28 143.06 223.05"
-                     style="fill: rgb(255,69,0); transform-origin: 134.58px 225.175px;" id="el5s725kvrqdq"
+                     style="fill: {{$fill}}; transform-origin: 134.58px 225.175px;" id="el5s725kvrqdq"
                      class="animable"></polygon>
             <polygon points="157.93 214.47 145.77 221.49 140.97 218.72 153.13 211.69 157.93 214.47"
-                     style="fill: rgb(255,69,0); transform-origin: 149.45px 216.59px;" id="elubohkh98kqq"
+                     style="fill: {{$fill}}; transform-origin: 149.45px 216.59px;" id="elubohkh98kqq"
                      class="animable"></polygon>
             <polygon points="172.8 205.88 160.64 212.9 155.84 210.13 168 203.11 172.8 205.88"
-                     style="fill: rgb(255,69,0); transform-origin: 164.32px 208.005px;" id="elikk3qvllnca"
+                     style="fill: {{$fill}}; transform-origin: 164.32px 208.005px;" id="elikk3qvllnca"
                      class="animable"></polygon>
             <polygon points="187.67 197.3 175.51 204.32 170.71 201.55 182.87 194.53 187.67 197.3"
-                     style="fill: rgb(255,69,0); transform-origin: 179.19px 199.425px;" id="elo1o9z4ctlm"
+                     style="fill: {{$fill}}; transform-origin: 179.19px 199.425px;" id="elo1o9z4ctlm"
                      class="animable"></polygon>
             <polygon points="119.6 243.84 107.44 250.86 102.64 248.09 114.8 241.07 119.6 243.84"
                      style="fill: rgb(240, 240, 240); transform-origin: 111.12px 245.965px;" id="elf0o7kiacavq"
@@ -847,25 +846,25 @@ $fill='rgb(255,69,0)'
                      style="fill: rgb(240, 240, 240); transform-origin: 212.89px 201.705px;" id="elmmteun5kqsd"
                      class="animable"></polygon>
             <polygon points="113.33 240.22 101.17 247.24 96.36 244.47 108.53 237.45 113.33 240.22"
-                     style="fill: rgb(255,69,0); transform-origin: 104.845px 242.345px;" id="el7pu60kjo2rf"
+                     style="fill: {{$fill}}; transform-origin: 104.845px 242.345px;" id="el7pu60kjo2rf"
                      class="animable"></polygon>
             <polygon points="128.19 231.63 116.03 238.66 111.23 235.88 123.39 228.86 128.19 231.63"
-                     style="fill: rgb(255,69,0); transform-origin: 119.71px 233.76px;" id="elo9n4vgo182"
+                     style="fill: {{$fill}}; transform-origin: 119.71px 233.76px;" id="elo9n4vgo182"
                      class="animable"></polygon>
             <polygon points="143.06 223.05 130.9 230.07 126.1 227.3 138.26 220.28 143.06 223.05"
-                     style="fill: rgb(255,69,0); transform-origin: 134.58px 225.175px;" id="el1bp62i4tjgd"
+                     style="fill: {{$fill}}; transform-origin: 134.58px 225.175px;" id="el1bp62i4tjgd"
                      class="animable"></polygon>
             <polygon points="157.93 214.47 145.77 221.49 140.97 218.72 153.13 211.69 157.93 214.47"
-                     style="fill: rgb(255,69,0); transform-origin: 149.45px 216.59px;" id="elfjuurpfp9wc"
+                     style="fill: {{$fill}}; transform-origin: 149.45px 216.59px;" id="elfjuurpfp9wc"
                      class="animable"></polygon>
             <polygon points="172.8 205.88 160.64 212.9 155.84 210.13 168 203.11 172.8 205.88"
-                     style="fill: rgb(255,69,0); transform-origin: 164.32px 208.005px;" id="elm58cxkprmlo"
+                     style="fill: {{$fill}}; transform-origin: 164.32px 208.005px;" id="elm58cxkprmlo"
                      class="animable"></polygon>
             <polygon points="187.67 197.3 175.51 204.32 170.71 201.55 182.87 194.53 187.67 197.3"
-                     style="fill: rgb(255,69,0); transform-origin: 179.19px 199.425px;" id="elcuwj65us87j"
+                     style="fill: {{$fill}}; transform-origin: 179.19px 199.425px;" id="elcuwj65us87j"
                      class="animable"></polygon>
             <polygon points="202.54 188.71 190.38 195.73 185.58 192.96 197.74 185.94 202.54 188.71"
-                     style="fill: rgb(255,69,0); transform-origin: 194.06px 190.835px;" id="elzu30som2uf"
+                     style="fill: {{$fill}}; transform-origin: 194.06px 190.835px;" id="elzu30som2uf"
                      class="animable"></polygon>
             <g id="elveef8g8sftd">
                 <g style="opacity: 0.3; transform-origin: 149.45px 216.59px;" class="animable" id="elsf5ur22z45">
@@ -893,7 +892,7 @@ $fill='rgb(255,69,0)'
                 </g>
             </g>
             <path d="M213.29,252.51l-22-12.71c9.05-5.16,23.62-6.18,35.34-2.72,14.48,4.28,21.38,15.06,14.4,23.57Z"
-                  style="fill: rgb(255,69,0); transform-origin: 217.531px 247.853px;" id="el103ddycov7th"
+                  style="fill: {{$fill}}; transform-origin: 217.531px 247.853px;" id="el103ddycov7th"
                   class="animable"></path>
             <g id="elm25v5cz4499">
                 <g style="opacity: 0.6; transform-origin: 217.531px 247.853px;" class="animable" id="elpcntttri45">
@@ -905,7 +904,7 @@ $fill='rgb(255,69,0)'
             </g>
             <path
                 d="M233.53,265.45a32.62,32.62,0,0,1-6.25,2.72L215.9,255.28l22.34,6.57A21.72,21.72,0,0,1,233.53,265.45Z"
-                style="fill: rgb(255,69,0); transform-origin: 227.07px 261.725px;" id="elzhll9894rjh" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 227.07px 261.725px;" id="elzhll9894rjh" class="animable"></path>
             <g id="elppj624w0tn">
                 <g style="opacity: 0.2; transform-origin: 227.07px 261.725px;" class="animable" id="el42nu99m2oc6">
                     <path
@@ -914,10 +913,10 @@ $fill='rgb(255,69,0)'
                 </g>
             </g>
             <path d="M225.23,269.78a50.79,50.79,0,0,1-25.74,0l12.88-14.57Z"
-                  style="fill: rgb(255,69,0); transform-origin: 212.36px 263.324px;" id="elutceuplioe"
+                  style="fill: {{$fill}}; transform-origin: 212.36px 263.324px;" id="elutceuplioe"
                   class="animable"></path>
             <path d="M197.45,268.17a32.26,32.26,0,0,1-6.2-2.74c-11.27-6.51-11.63-17-1.06-23.74l20.29,11.72Z"
-                  style="fill: rgb(255,69,0); transform-origin: 196.501px 254.93px;" id="el4nk9phso5fk"
+                  style="fill: {{$fill}}; transform-origin: 196.501px 254.93px;" id="el4nk9phso5fk"
                   class="animable"></path>
             <g id="el1vqlt4wc1cs">
                 <g style="opacity: 0.3; transform-origin: 196.501px 254.93px;" class="animable" id="elbf2r2rw1sq">
@@ -948,14 +947,14 @@ $fill='rgb(255,69,0)'
                 class="animable"></path>
             <path
                 d="M241.24,229.83a.29.29,0,0,1-.14,0,.33.33,0,0,1-.15,0l-.66-.38-1.69,1a.24.24,0,0,1-.15,0,.26.26,0,0,1-.15,0l-.38-.22s-.09-.06-.1-.1a.34.34,0,0,1,0-.12l-.41-2.16a.18.18,0,0,1,.08-.21l.42-.24.15,0,.14,0,2.18,1.26.47-.27a.3.3,0,0,1,.3,0l.38.22a.09.09,0,0,1,.07.09.12.12,0,0,1-.06.08L241,229l.66.38a.12.12,0,0,1,.06.09.09.09,0,0,1-.06.08Zm-1.63-.78-1.17-.67.24,1.21Z"
-                style="fill: rgb(255,69,0); transform-origin: 239.561px 228.931px;" id="ellv34c2nm0zi"
+                style="fill: {{$fill}}; transform-origin: 239.561px 228.931px;" id="ellv34c2nm0zi"
                 class="animable"></path>
             <path
                 d="M239.49,226.6a.09.09,0,0,1-.06-.08.1.1,0,0,1,.06-.09l2-1.18a.3.3,0,0,1,.3,0l.39.22a.1.1,0,0,1,.06.09.09.09,0,0,1-.06.08l-1.54.89.64.43a.88.88,0,0,1,.22-.21l.23-.14a2.9,2.9,0,0,1,.65-.28,2.78,2.78,0,0,1,.69-.12,3.25,3.25,0,0,1,.7,0,2.57,2.57,0,0,1,.65.25,1.46,1.46,0,0,1,.48.41.6.6,0,0,1,.11.41.84.84,0,0,1-.22.4,2.51,2.51,0,0,1-.49.37,3.53,3.53,0,0,1-.73.32,3,3,0,0,1-.68.12,2.49,2.49,0,0,1-.62,0,2,2,0,0,1-.5-.18.09.09,0,0,1-.07-.09.13.13,0,0,1,.07-.08l.44-.25a.18.18,0,0,1,.13,0,.41.41,0,0,1,.16,0,1.13,1.13,0,0,0,.31.06l.29,0a1.14,1.14,0,0,0,.26-.09,2.1,2.1,0,0,0,.26-.13c.21-.12.32-.25.33-.38s-.07-.27-.27-.38a1,1,0,0,0-.6-.13,1.61,1.61,0,0,0-.67.19,1,1,0,0,0-.23.17.48.48,0,0,0-.1.12l0,.1a.38.38,0,0,1-.11.08l-.5.29a.23.23,0,0,1-.14,0,.24.24,0,0,1-.15,0Z"
-                style="fill: rgb(255,69,0); transform-origin: 242.221px 226.86px;" id="elbuw39fliei9" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 242.221px 226.86px;" id="elbuw39fliei9" class="animable"></path>
             <path
                 d="M243.15,224.29a1.62,1.62,0,0,1,.41-.17,1.83,1.83,0,0,1,.4-.05,1.5,1.5,0,0,1,.37,0,1.25,1.25,0,0,1,.31.1l.32.17.29.18a1,1,0,0,1,.18.18.36.36,0,0,1,.07.22.5.5,0,0,1-.1.23.79.79,0,0,1-.29.23,1.32,1.32,0,0,1-.41.17,1.39,1.39,0,0,1-.4.06,1.5,1.5,0,0,1-.37,0,1.42,1.42,0,0,1-.31-.11l-.31-.17a2.45,2.45,0,0,1-.29-.18.66.66,0,0,1-.19-.18.27.27,0,0,1-.06-.21.37.37,0,0,1,.09-.23A.92.92,0,0,1,243.15,224.29Zm1.52.54-.1-.06-.15-.08-.14-.09-.11-.06a1.1,1.1,0,0,0-.26-.06.48.48,0,0,0-.29.08c-.11.06-.16.12-.15.17a.32.32,0,0,0,.12.15l.1.06.14.09.15.08.11.06a.58.58,0,0,0,.26.06.48.48,0,0,0,.29-.08c.11-.06.15-.12.14-.17A.24.24,0,0,0,244.67,224.83Zm.8-1.73a.14.14,0,0,1,0-.09.24.24,0,0,1,.09-.08l.33-.19.12,0,.12,0,0,0s0,0,0,0l.85,3.6a.14.14,0,0,1,0,.09.24.24,0,0,1-.09.08l-.33.19a.28.28,0,0,1-.12,0,.2.2,0,0,1-.11,0l0,0v0Zm1.95.93a1.78,1.78,0,0,1,.41-.17,2,2,0,0,1,.41-.05,1.5,1.5,0,0,1,.37,0,1.42,1.42,0,0,1,.31.11l.31.16.29.19a.79.79,0,0,1,.19.17.3.3,0,0,1,.06.22.4.4,0,0,1-.09.23,1.05,1.05,0,0,1-.29.24,1.74,1.74,0,0,1-.41.16,1.44,1.44,0,0,1-.4.06,1.5,1.5,0,0,1-.37,0,1.25,1.25,0,0,1-.31-.11l-.32-.16-.29-.19a.62.62,0,0,1-.18-.18.31.31,0,0,1-.07-.21.5.5,0,0,1,.1-.23A.87.87,0,0,1,247.42,224Zm1.53.55-.1-.07-.15-.08-.15-.09-.11-.05a.72.72,0,0,0-.25-.07.52.52,0,0,0-.3.08c-.1.06-.15.12-.14.17a.29.29,0,0,0,.11.15l.1.07.15.08.15.08.11.06a.72.72,0,0,0,.25.07.54.54,0,0,0,.3-.09c.1-.06.15-.11.14-.17A.24.24,0,0,0,249,224.58Z"
-                style="fill: rgb(255,69,0); transform-origin: 246.27px 224.724px;" id="elaxeijtolxy6" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 246.27px 224.724px;" id="elaxeijtolxy6" class="animable"></path>
             <g id="elhg56ut5ysed">
                 <g style="opacity: 0.6; transform-origin: 243.587px 226.601px;" class="animable" id="elicw2lrynq0a">
                     <path
@@ -1014,14 +1013,14 @@ $fill='rgb(255,69,0)'
                 class="animable"></path>
             <path
                 d="M159.75,269.84a.39.39,0,0,1,.3,0l.38.23a.14.14,0,0,1,.08.09s0,.06,0,.09l0,.95a2.84,2.84,0,0,1,.56-.19,3.7,3.7,0,0,1,.57-.07,2.51,2.51,0,0,1,.55.07,1.81,1.81,0,0,1,.5.2,1,1,0,0,1,.39.36.5.5,0,0,1,.07.39.88.88,0,0,1-.24.41,2.11,2.11,0,0,1-.5.38,3.31,3.31,0,0,1-.76.33,3.1,3.1,0,0,1-.7.14,2.35,2.35,0,0,1-.6,0,1.64,1.64,0,0,1-.47-.14c-.05,0-.07-.05-.07-.08s0-.06.07-.09l.43-.25a.24.24,0,0,1,.12,0l.18,0,.21,0,.25,0a1.35,1.35,0,0,0,.3-.08,3,3,0,0,0,.36-.18.88.88,0,0,0,.4-.39q.07-.2-.18-.33a.73.73,0,0,0-.55-.09,2,2,0,0,0-.64.25l-.46.26a.33.33,0,0,1-.15,0,.33.33,0,0,1-.14,0l-.39-.22a.13.13,0,0,1-.07-.09.38.38,0,0,1,0-.1l0-.9-1.5.87a.39.39,0,0,1-.3,0l-.39-.23a.09.09,0,0,1-.06-.08s0-.06.06-.09Z"
-                style="fill: rgb(255,69,0); transform-origin: 160.232px 271.525px;" id="elo42npqos55e"
+                style="fill: {{$fill}}; transform-origin: 160.232px 271.525px;" id="elo42npqos55e"
                 class="animable"></path>
             <path
                 d="M165,268.47l.23.13.26.15.25.15a2.36,2.36,0,0,1,.23.13,2.57,2.57,0,0,1,.49.4.73.73,0,0,1,.22.41.61.61,0,0,1-.14.44,1.82,1.82,0,0,1-.56.45,2.78,2.78,0,0,1-.79.33,2.82,2.82,0,0,1-.75.08,3,3,0,0,1-.73-.13,4.88,4.88,0,0,1-.68-.28l-.48-.27c-.17-.1-.33-.19-.46-.28a2.65,2.65,0,0,1-.5-.4.72.72,0,0,1-.22-.42.63.63,0,0,1,.12-.44,1.71,1.71,0,0,1,.56-.45,2.78,2.78,0,0,1,.79-.33,2.85,2.85,0,0,1,.76-.08,2.6,2.6,0,0,1,.72.13A4.43,4.43,0,0,1,165,268.47Zm-1.26,1.82a2.2,2.2,0,0,0,.8.24,1.29,1.29,0,0,0,.76-.19c.25-.15.36-.29.33-.44a1,1,0,0,0-.42-.46l-.45-.27-.47-.26a2.2,2.2,0,0,0-.8-.24,1.29,1.29,0,0,0-.76.19c-.25.15-.36.29-.32.44a.86.86,0,0,0,.42.46l.44.27Z"
-                style="fill: rgb(255,69,0); transform-origin: 164.024px 269.6px;" id="ell1dv72tpky" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 164.024px 269.6px;" id="ell1dv72tpky" class="animable"></path>
             <path
                 d="M164.88,266.85a1.29,1.29,0,0,1,.41-.16,1.94,1.94,0,0,1,.4-.06,1.45,1.45,0,0,1,.37,0,1.25,1.25,0,0,1,.31.11,2.48,2.48,0,0,1,.32.17l.29.18a.62.62,0,0,1,.18.18.31.31,0,0,1,.07.21.39.39,0,0,1-.1.23.92.92,0,0,1-.29.24,1.67,1.67,0,0,1-.4.16,1.44,1.44,0,0,1-.4.06,1.53,1.53,0,0,1-.38,0,1.41,1.41,0,0,1-.31-.1l-.31-.17-.29-.18a1.11,1.11,0,0,1-.19-.18.35.35,0,0,1-.06-.22.4.4,0,0,1,.09-.23A.92.92,0,0,1,164.88,266.85Zm1.52.55-.1-.07-.15-.08-.14-.09-.11-.05a.77.77,0,0,0-.26-.07.55.55,0,0,0-.29.08c-.11.07-.16.12-.14.17a.23.23,0,0,0,.11.15l.1.07.14.08.15.09.11.05a.77.77,0,0,0,.26.07.55.55,0,0,0,.29-.08c.11-.07.16-.12.15-.17A.25.25,0,0,0,166.4,267.4Zm.8-1.73a.14.14,0,0,1,0-.09.19.19,0,0,1,.09-.09l.33-.19a.27.27,0,0,1,.12,0,.16.16,0,0,1,.12,0l0,0,0,0,.85,3.6a.28.28,0,0,1,0,.09s0,.05-.09.08l-.32.19a.22.22,0,0,1-.13,0l-.11,0,0,0v0Zm2,.92a1.92,1.92,0,0,1,.41-.16,2,2,0,0,1,.41-.06,2.21,2.21,0,0,1,.37,0l.31.11.31.17a2.45,2.45,0,0,1,.29.18.66.66,0,0,1,.19.18.35.35,0,0,1,.07.21.43.43,0,0,1-.1.23,1.05,1.05,0,0,1-.29.24,1.78,1.78,0,0,1-.41.17,1.83,1.83,0,0,1-.4.05,1.5,1.5,0,0,1-.37,0,1.25,1.25,0,0,1-.31-.1l-.31-.17-.3-.18a1,1,0,0,1-.18-.18.36.36,0,0,1-.07-.22.5.5,0,0,1,.1-.23A.87.87,0,0,1,169.15,266.59Zm1.53.55-.1-.06-.15-.09-.15-.08-.11-.06a.72.72,0,0,0-.25-.07.64.64,0,0,0-.3.09c-.1.06-.15.11-.14.17a.22.22,0,0,0,.12.14s.05,0,.09.07l.15.08.15.09.11.05a.77.77,0,0,0,.26.07.51.51,0,0,0,.29-.08c.1-.06.15-.12.14-.17A.26.26,0,0,0,170.68,267.14Z"
-                style="fill: rgb(255,69,0); transform-origin: 168.03px 267.279px;" id="elqu0aqpi3j5a" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 168.03px 267.279px;" id="elqu0aqpi3j5a" class="animable"></path>
             <g id="elx2o8zpd6bxl">
                 <g style="opacity: 0.3; transform-origin: 164.43px 269.264px;" class="animable" id="eln0u0tfnwqej">
                     <path
@@ -1087,14 +1086,14 @@ $fill='rgb(255,69,0)'
                 class="animable"></path>
             <path
                 d="M189.25,285.67a.39.39,0,0,1,.3,0l.39.23a.18.18,0,0,1,.07.08s0,.07,0,.1l0,.94a3,3,0,0,1,.56-.18,2.86,2.86,0,0,1,.57-.07,2,2,0,0,1,.55.07,1.69,1.69,0,0,1,.5.2,1,1,0,0,1,.39.35.52.52,0,0,1,.07.4.93.93,0,0,1-.24.41,2.11,2.11,0,0,1-.5.38,3.44,3.44,0,0,1-.75.33,3.94,3.94,0,0,1-.7.14,2.41,2.41,0,0,1-.61,0,1.75,1.75,0,0,1-.47-.14c-.05,0-.07-.05-.07-.08a.13.13,0,0,1,.07-.09l.43-.25a.24.24,0,0,1,.12,0h.18a1.18,1.18,0,0,0,.21,0l.25,0a1,1,0,0,0,.3-.09,2.84,2.84,0,0,0,.36-.17.88.88,0,0,0,.4-.39c0-.13,0-.24-.17-.34a.82.82,0,0,0-.56-.08,2,2,0,0,0-.64.25l-.46.26a.32.32,0,0,1-.14,0,.33.33,0,0,1-.15,0l-.39-.23a.13.13,0,0,1-.07-.08.38.38,0,0,1,0-.1l0-.9-1.5.86a.3.3,0,0,1-.3,0l-.39-.22a.09.09,0,0,1-.06-.08.1.1,0,0,1,.06-.09Z"
-                style="fill: rgb(255,69,0); transform-origin: 189.732px 287.355px;" id="elm5gug9fuhy" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 189.732px 287.355px;" id="elm5gug9fuhy" class="animable"></path>
             <path
                 d="M194.48,284.3l.23.13.26.15.26.14.22.14a3,3,0,0,1,.49.39.78.78,0,0,1,.22.42.61.61,0,0,1-.14.44,1.84,1.84,0,0,1-.56.45,3.5,3.5,0,0,1-.79.33,2.8,2.8,0,0,1-.75.07,2.85,2.85,0,0,1-.72-.12,4.09,4.09,0,0,1-.68-.29l-.49-.26-.46-.28a3,3,0,0,1-.5-.4.75.75,0,0,1-.22-.42.63.63,0,0,1,.12-.44,1.85,1.85,0,0,1,.56-.46,3.05,3.05,0,0,1,.79-.32,2.49,2.49,0,0,1,.76-.08,2.6,2.6,0,0,1,.72.13A3.61,3.61,0,0,1,194.48,284.3Zm-1.26,1.81a2.2,2.2,0,0,0,.8.24,1.27,1.27,0,0,0,.76-.18c.25-.15.36-.3.33-.44a.92.92,0,0,0-.42-.46c-.14-.09-.28-.18-.45-.27l-.47-.26a2.2,2.2,0,0,0-.8-.24,1.29,1.29,0,0,0-.76.19c-.25.14-.36.29-.32.43s.17.3.42.46a4.45,4.45,0,0,0,.45.27Z"
-                style="fill: rgb(255,69,0); transform-origin: 193.504px 285.425px;" id="ela0o997bktj6"
+                style="fill: {{$fill}}; transform-origin: 193.504px 285.425px;" id="ela0o997bktj6"
                 class="animable"></path>
             <path
                 d="M194.38,282.68a1.62,1.62,0,0,1,.41-.17,1.9,1.9,0,0,1,.4-.05,1.45,1.45,0,0,1,.37,0,1.5,1.5,0,0,1,.32.1l.31.17.29.18a1.11,1.11,0,0,1,.19.18.35.35,0,0,1,.06.22.48.48,0,0,1-.09.23.84.84,0,0,1-.3.23,1.38,1.38,0,0,1-.4.17,1.52,1.52,0,0,1-.77,0,1.51,1.51,0,0,1-.32-.11l-.31-.17-.29-.18a.66.66,0,0,1-.19-.18.31.31,0,0,1-.06-.21.37.37,0,0,1,.09-.23A1.05,1.05,0,0,1,194.38,282.68Zm1.52.55-.1-.07-.14-.08-.15-.09-.11-.05a.71.71,0,0,0-.26-.07.48.48,0,0,0-.29.08c-.11.06-.15.12-.14.17a.29.29,0,0,0,.11.15l.1.06.14.09.15.08.11.06a.58.58,0,0,0,.26.06.48.48,0,0,0,.29-.08c.11-.06.16-.11.15-.17A.22.22,0,0,0,195.9,283.23Zm.8-1.74a.14.14,0,0,1,0-.09.24.24,0,0,1,.09-.08l.33-.19.12,0a.24.24,0,0,1,.12,0l0,0,0,0,.85,3.6a.28.28,0,0,1,0,.09s0,.05-.09.08l-.32.19a.33.33,0,0,1-.13,0,.2.2,0,0,1-.11,0l0,0,0,0Zm2,.93a1.62,1.62,0,0,1,.41-.17,1.83,1.83,0,0,1,.4-.05,1.5,1.5,0,0,1,.37,0,1.25,1.25,0,0,1,.31.11l.31.16.3.19a.77.77,0,0,1,.18.18.31.31,0,0,1,.07.21.46.46,0,0,1-.1.23,1.05,1.05,0,0,1-.29.24,1.59,1.59,0,0,1-.41.16,1.39,1.39,0,0,1-.4.06,1.5,1.5,0,0,1-.37,0,1.42,1.42,0,0,1-.31-.11l-.31-.16-.29-.19a.66.66,0,0,1-.19-.18.31.31,0,0,1-.07-.21.5.5,0,0,1,.1-.23A.92.92,0,0,1,198.66,282.42Zm1.52.55-.1-.07-.15-.08-.15-.09-.1-.05a.77.77,0,0,0-.26-.07.48.48,0,0,0-.29.08c-.11.06-.16.12-.15.17s.05.1.12.15l.09.07.15.08.15.09.11.05a.77.77,0,0,0,.26.07.49.49,0,0,0,.29-.09c.11-.06.15-.11.14-.17A.24.24,0,0,0,200.18,283Z"
-                style="fill: rgb(255,69,0); transform-origin: 197.525px 283.11px;" id="elbpanxetj4rb" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 197.525px 283.11px;" id="elbpanxetj4rb" class="animable"></path>
             <path
                 d="M192.78,292.92l.07,0,.07,0,.19.11s0,0,0,0,0,0,0,0l-1.14.66h-.14l-1.68-1s0,0,0-.05l0,0,.21-.12h.14l1.42.83Z"
                 style="fill: rgb(224, 224, 224); transform-origin: 191.63px 293.105px;" id="eliydukq7rh1d"
@@ -1137,14 +1136,14 @@ $fill='rgb(255,69,0)'
                 class="animable"></path>
             <path
                 d="M255.93,255a.29.29,0,0,1-.14,0,.12.12,0,0,1,0-.09l.25-1.22,0-.09a.18.18,0,0,1,.07-.08l.43-.24a.23.23,0,0,1,.14,0,.24.24,0,0,1,.15,0l3.53,2s.06.05,0,.08,0,.07-.06.09l-.44.26a.32.32,0,0,1-.14,0,.33.33,0,0,1-.15,0l-2.7-1.56-.17.8a.08.08,0,0,1-.07.07.38.38,0,0,1-.16,0Z"
-                style="fill: rgb(255,69,0); transform-origin: 258.084px 254.493px;" id="el5qeihk0axjr"
+                style="fill: {{$fill}}; transform-origin: 258.084px 254.493px;" id="el5qeihk0axjr"
                 class="animable"></path>
             <path
                 d="M261.72,251.87l.23.13.26.15.26.15.22.13a2.57,2.57,0,0,1,.49.4.73.73,0,0,1,.22.41.61.61,0,0,1-.14.44,1.71,1.71,0,0,1-.56.45,2.78,2.78,0,0,1-.79.33,2.74,2.74,0,0,1-.75.08,2.86,2.86,0,0,1-.72-.13,4,4,0,0,1-.68-.28l-.49-.27c-.17-.1-.33-.19-.46-.28a3,3,0,0,1-.49-.39.73.73,0,0,1-.23-.43.63.63,0,0,1,.12-.44,1.82,1.82,0,0,1,.56-.45,2.78,2.78,0,0,1,.79-.33,2.65,2.65,0,0,1,1.48.05A4.43,4.43,0,0,1,261.72,251.87Zm-1.25,1.82a2.1,2.1,0,0,0,.79.24,1.27,1.27,0,0,0,.76-.19c.25-.15.36-.29.33-.44a1,1,0,0,0-.42-.46l-.45-.27-.47-.26a2.2,2.2,0,0,0-.8-.24,1.24,1.24,0,0,0-.75.19c-.26.15-.37.29-.33.44a1,1,0,0,0,.42.46l.45.27Z"
-                style="fill: rgb(255,69,0); transform-origin: 260.744px 253px;" id="elodr43vsntum" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 260.744px 253px;" id="elodr43vsntum" class="animable"></path>
             <path
                 d="M261.62,250.25a1.59,1.59,0,0,1,.41-.16,1.52,1.52,0,0,1,.77,0,1.33,1.33,0,0,1,.32.11l.31.17.29.18a.66.66,0,0,1,.19.18.32.32,0,0,1,.06.21.37.37,0,0,1-.09.23,1,1,0,0,1-.3.24,2.28,2.28,0,0,1-.4.17,1.9,1.9,0,0,1-.4.05,1.45,1.45,0,0,1-.37,0,1.25,1.25,0,0,1-.31-.1l-.32-.17-.29-.18a1.11,1.11,0,0,1-.19-.18.43.43,0,0,1-.06-.22.4.4,0,0,1,.09-.23A1.05,1.05,0,0,1,261.62,250.25Zm1.52.55-.1-.07-.14-.08-.15-.08-.11-.06a.71.71,0,0,0-.26-.07.55.55,0,0,0-.29.08c-.11.07-.15.12-.14.17a.23.23,0,0,0,.11.15l.1.07.14.08.15.09.11,0a.84.84,0,0,0,.26.07.61.61,0,0,0,.3-.08c.1-.06.15-.12.14-.17A.22.22,0,0,0,263.14,250.8Zm.8-1.73a.14.14,0,0,1,0-.09.19.19,0,0,1,.09-.09l.33-.19a.27.27,0,0,1,.12,0,.16.16,0,0,1,.12,0l0,0,0,0,.85,3.6a.27.27,0,0,1,0,.09s0,0-.09.08l-.33.19a.2.2,0,0,1-.13,0l-.11,0s0,0,0,0,0,0,0,0Zm2,.92a1.59,1.59,0,0,1,.41-.16,1.84,1.84,0,0,1,.4-.06,2.21,2.21,0,0,1,.37,0,1.85,1.85,0,0,1,.31.11l.31.17.3.18a.62.62,0,0,1,.18.18.35.35,0,0,1,.07.21.43.43,0,0,1-.1.23.92.92,0,0,1-.29.24,1.62,1.62,0,0,1-.41.17,1.83,1.83,0,0,1-.4,0,1.5,1.5,0,0,1-.37,0,1.41,1.41,0,0,1-.31-.1l-.31-.17a2.45,2.45,0,0,1-.29-.18.66.66,0,0,1-.19-.18.3.3,0,0,1-.06-.22.4.4,0,0,1,.09-.23A.92.92,0,0,1,265.9,250Zm1.52.55-.1-.06-.15-.09-.14-.08-.11-.06a.77.77,0,0,0-.26-.07.57.57,0,0,0-.29.09c-.11.06-.16.11-.15.17a.26.26,0,0,0,.12.14l.1.07.14.08.15.09.11.05a.77.77,0,0,0,.26.07.48.48,0,0,0,.29-.08c.11-.06.15-.12.14-.17A.29.29,0,0,0,267.42,250.54Z"
-                style="fill: rgb(255,69,0); transform-origin: 264.765px 250.68px;" id="elqc23939p33" class="animable"></path>
+                style="fill: {{$fill}}; transform-origin: 264.765px 250.68px;" id="elqc23939p33" class="animable"></path>
             <g id="el0qize29shym">
                 <g style="opacity: 0.2; transform-origin: 262.036px 252.203px;" class="animable" id="elx4gumf75xrc">
                     <path

@@ -97,11 +97,11 @@
                 </button>
             </div>
 
-            <p x-show="billing === 'monthly'" class="mt-2 text-green-400 text-sm font-medium">
+            <p x-show="billing === 'monthly'" class="mt-2 text-primary text-sm font-medium">
                 &nbsp;
             </p>
 
-            <p x-show="billing === 'yearly'" class="mt-2 text-green-400 text-sm font-medium">
+            <p x-show="billing === 'yearly'" class="mt-2 text-primary text-sm font-medium">
                 Save up to 20% with yearly
             </p>
 
