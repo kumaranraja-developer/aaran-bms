@@ -9,11 +9,12 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('job_managers', function (Blueprint $table) {
+        Schema::create('task_commends', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
-            $table->string('status', 100)->default('Pending');
+            $table->text('commend');
+            $table->string('job_id');
+            $table->string('commend_id');
             $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });
@@ -21,6 +22,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('job_managers');
+        Schema::dropIfExists('task_commends');
     }
 };

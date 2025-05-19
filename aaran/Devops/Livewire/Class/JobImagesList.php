@@ -4,40 +4,42 @@ namespace Aaran\Devops\Livewire\Class;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
-use Aaran\Devops\Models\JobManager;
+use Aaran\Devops\Models\JobImages;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class JobManagerList extends Component
+class JobImagesList extends Component
 {
 
     use ComponentStateTrait, TenantAwareTrait;
 
     #[Validate]
-    public string $title = '';
-    public string $content = '';
-    public string $status = '';
+    public string $model = '';
+    public string $model_id = '';
+    public string $image_id = '';
+    public string $path = '';
     public bool $active_id = true;
 
     public function rules(): array
     {
         return [
-            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.cities,title"),
+            'model' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.job_images,model"),
         ];
     }
 
     public function messages(): array
     {
         return [
-            'title.required' => ':attribute is missing.',
+            'model.required' => ':attribute is missing.',
+            'model.unique' => 'This :attribute is already created.',
         ];
     }
 
     public function validationAttributes(): array
     {
         return [
-            'title' => 'JobManager name',
+            'model' => 'JobImages name',
         ];
     }
 
@@ -46,12 +48,13 @@ class JobManagerList extends Component
         $this->validate();
         $connection = $this->getTenantConnection();
 
-        JobManager::on($connection)->updateOrCreate(
+        JobImages::on($connection)->updateOrCreate(
             ['id' => $this->vid],
             [
-                'title' => Str::ucfirst($this->title),
-                'content' => Str::ucfirst($this->content),
-                'status' => Str::ucfirst($this->status),
+                'model' => Str::ucfirst($this->model),
+                'model_id' => Str::ucfirst($this->model_id),
+                'image_id' => Str::ucfirst($this->image_id),
+                'path' => Str::ucfirst($this->path),
                 'active_id' => $this->active_id
             ],
         );
@@ -62,27 +65,29 @@ class JobManagerList extends Component
     public function clearFields(): void
     {
         $this->vid = null;
-        $this->title = '';
-        $this->content = '';
-        $this->status = '';
+        $this->model = '';
+        $this->model_id = '';
+        $this->image_id = '';
+        $this->path = '';
         $this->active_id = true;
         $this->searches = '';
     }
 
     public function getObj(int $id): void
     {
-        if ($obj = JobManager::on($this->getTenantConnection())->find($id)) {
+        if ($obj = JobImages::on($this->getTenantConnection())->find($id)) {
             $this->vid = $obj->id;
-            $this->title = $obj->title;
-            $this->content = $obj->content;
-            $this->status = $obj->status;
+            $this->model = $obj->model;
+            $this->model_id = $obj->model_id;
+            $this->image_id = $obj->image_id;
+            $this->path = $obj->path;
             $this->active_id = $obj->active_id;
         }
     }
 
     public function getList()
     {
-        return JobManager::on($this->getTenantConnection())
+        return JobImages::on($this->getTenantConnection())
             ->active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
@@ -93,7 +98,7 @@ class JobManagerList extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = JobManager::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = JobImages::on($this->getTenantConnection())->find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }
@@ -101,7 +106,7 @@ class JobManagerList extends Component
 
     public function render()
     {
-        return view('devops::job-managers-list', [
+        return view('devops::job_images-list', [
             'list' => $this->getList()
         ]);
     }

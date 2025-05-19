@@ -4,12 +4,12 @@ namespace Aaran\Devops\Livewire\Class;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
-use Aaran\Devops\Models\JobManager;
+use Aaran\Devops\Models\TaskManager;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class JobManagerList extends Component
+class TaskManagerList extends Component
 {
 
     use ComponentStateTrait, TenantAwareTrait;
@@ -17,13 +17,18 @@ class JobManagerList extends Component
     #[Validate]
     public string $title = '';
     public string $content = '';
+    public string $start_time = '';
+    public string $due_time = '';
+    public string $assigned = '';
+    public string $job_id = '';
+    public string $priority = '';
     public string $status = '';
     public bool $active_id = true;
 
     public function rules(): array
     {
         return [
-            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.cities,title"),
+            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.task_managers,title"),
         ];
     }
 
@@ -37,7 +42,7 @@ class JobManagerList extends Component
     public function validationAttributes(): array
     {
         return [
-            'title' => 'JobManager name',
+            'title' => 'TaskManager name',
         ];
     }
 
@@ -46,11 +51,16 @@ class JobManagerList extends Component
         $this->validate();
         $connection = $this->getTenantConnection();
 
-        JobManager::on($connection)->updateOrCreate(
+        TaskManager::on($connection)->updateOrCreate(
             ['id' => $this->vid],
             [
                 'title' => Str::ucfirst($this->title),
                 'content' => Str::ucfirst($this->content),
+                'start_time' => Str::ucfirst($this->start_time),
+                'due_time' => Str::ucfirst($this->due_time),
+                'assigned' => Str::ucfirst($this->assigned),
+                'job_id' => Str::ucfirst($this->job_id),
+                'priority' => Str::ucfirst($this->priority),
                 'status' => Str::ucfirst($this->status),
                 'active_id' => $this->active_id
             ],
@@ -64,6 +74,11 @@ class JobManagerList extends Component
         $this->vid = null;
         $this->title = '';
         $this->content = '';
+        $this->start_time = '';
+        $this->due_time = '';
+        $this->assigned = '';
+        $this->job_id = '';
+        $this->priority = '';
         $this->status = '';
         $this->active_id = true;
         $this->searches = '';
@@ -71,10 +86,15 @@ class JobManagerList extends Component
 
     public function getObj(int $id): void
     {
-        if ($obj = JobManager::on($this->getTenantConnection())->find($id)) {
+        if ($obj = TaskManager::on($this->getTenantConnection())->find($id)) {
             $this->vid = $obj->id;
             $this->title = $obj->title;
             $this->content = $obj->content;
+            $this->start_time = $obj->start_time;
+            $this->due_time = $obj->due_time;
+            $this->assigned = $obj->assigned;
+            $this->job_id = $obj->job_id;
+            $this->priority = $obj->priority;
             $this->status = $obj->status;
             $this->active_id = $obj->active_id;
         }
@@ -82,7 +102,7 @@ class JobManagerList extends Component
 
     public function getList()
     {
-        return JobManager::on($this->getTenantConnection())
+        return TaskManager::on($this->getTenantConnection())
             ->active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
@@ -93,7 +113,7 @@ class JobManagerList extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = JobManager::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = TaskManager::on($this->getTenantConnection())->find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }
@@ -101,7 +121,7 @@ class JobManagerList extends Component
 
     public function render()
     {
-        return view('devops::job-managers-list', [
+        return view('devops::task-managers-list', [
             'list' => $this->getList()
         ]);
     }

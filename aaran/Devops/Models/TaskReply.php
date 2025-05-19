@@ -2,16 +2,16 @@
 
 namespace Aaran\Devops\Models;
 
-use Aaran\Devops\Database\Factories\JobManagerFactory;
+use Aaran\Devops\Database\Factories\TaskReplyFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JobManager extends Model
+class TaskReply extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','content','commend_id', 'active_id'];
+    protected $fillable = ['title', 'commend', 'job_id', 'commend_id', 'reply_id', 'active_id'];
 
     public function scopeActive(Builder $query, $status = '1'): Builder
     {
@@ -23,8 +23,8 @@ class JobManager extends Model
             return $query->where('vname', 'like', "%$search%");
     }
 
-    protected static function newFactory():  JobManagerFactory
+    protected static function newFactory():  TaskReplyFactory
     {
-            return  JobManagerFactory::new();
+            return  TaskReplyFactory::new();
     }
 }

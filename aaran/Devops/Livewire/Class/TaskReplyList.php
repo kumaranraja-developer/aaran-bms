@@ -4,26 +4,28 @@ namespace Aaran\Devops\Livewire\Class;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
-use Aaran\Devops\Models\JobManager;
+use Aaran\Devops\Models\TaskReply;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class JobManagerList extends Component
+class TaskReplyList extends Component
 {
 
     use ComponentStateTrait, TenantAwareTrait;
 
     #[Validate]
     public string $title = '';
-    public string $content = '';
-    public string $status = '';
+    public string $commend = '';
+    public string $job_id = '';
+    public string $commend_id = '';
+    public string $reply_id = '';
     public bool $active_id = true;
 
     public function rules(): array
     {
         return [
-            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.cities,title"),
+            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.task_replies,title"),
         ];
     }
 
@@ -31,13 +33,14 @@ class JobManagerList extends Component
     {
         return [
             'title.required' => ':attribute is missing.',
+            'title.unique' => 'This :attribute is already created.',
         ];
     }
 
     public function validationAttributes(): array
     {
         return [
-            'title' => 'JobManager name',
+            'title' => 'TaskReply name',
         ];
     }
 
@@ -46,12 +49,14 @@ class JobManagerList extends Component
         $this->validate();
         $connection = $this->getTenantConnection();
 
-        JobManager::on($connection)->updateOrCreate(
+        TaskReply::on($connection)->updateOrCreate(
             ['id' => $this->vid],
             [
                 'title' => Str::ucfirst($this->title),
-                'content' => Str::ucfirst($this->content),
-                'status' => Str::ucfirst($this->status),
+                'commend' => Str::ucfirst($this->commend),
+                'job_id' => Str::ucfirst($this->job_id),
+                'commend_id' => Str::ucfirst($this->commend_id),
+                'reply_id' => Str::ucfirst($this->reply_id),
                 'active_id' => $this->active_id
             ],
         );
@@ -63,26 +68,30 @@ class JobManagerList extends Component
     {
         $this->vid = null;
         $this->title = '';
-        $this->content = '';
-        $this->status = '';
+        $this->commend = '';
+        $this->job_id = '';
+        $this->commend_id = '';
+        $this->reply_id = '';
         $this->active_id = true;
         $this->searches = '';
     }
 
     public function getObj(int $id): void
     {
-        if ($obj = JobManager::on($this->getTenantConnection())->find($id)) {
+        if ($obj = TaskReply::on($this->getTenantConnection())->find($id)) {
             $this->vid = $obj->id;
             $this->title = $obj->title;
-            $this->content = $obj->content;
-            $this->status = $obj->status;
+            $this->commend = $obj->commend;
+            $this->job_id = $obj->job_id;
+            $this->commend_id = $obj->commend_id;
+            $this->reply_id = $obj->reply_id;
             $this->active_id = $obj->active_id;
         }
     }
 
     public function getList()
     {
-        return JobManager::on($this->getTenantConnection())
+        return TaskReply::on($this->getTenantConnection())
             ->active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
@@ -93,7 +102,7 @@ class JobManagerList extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = JobManager::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = TaskReply::on($this->getTenantConnection())->find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }
@@ -101,7 +110,7 @@ class JobManagerList extends Component
 
     public function render()
     {
-        return view('devops::job-managers-list', [
+        return view('devops::task-replies-list', [
             'list' => $this->getList()
         ]);
     }

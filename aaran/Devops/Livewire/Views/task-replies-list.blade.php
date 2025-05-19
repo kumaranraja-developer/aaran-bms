@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="header">JobManager</x-slot>
+    <x-slot name="header">TaskReply</x-slot>
     <x-Ui::forms.m-panel>
         <x-Ui::alerts.notification/>
 
@@ -7,7 +7,7 @@
         <x-Ui::forms.top-controls :show-filters="$showFilters"/>
 
         <!-- Table Caption -------------------------------------------------------------------------------------------->
-        <x-Ui::table.caption :caption="'JobManager'">
+        <x-Ui::table.caption :caption="'TaskReply'">
             {{$list->count()}}
         </x-Ui::table.caption>
 
@@ -20,11 +20,18 @@
                     Title
                 </x-Ui::table.header-text>
                 <x-Ui::table.header-text>
-                    Content
+                    Commend
                 </x-Ui::table.header-text>
                 <x-Ui::table.header-text >
-                    Status
+                    Job ID
                 </x-Ui::table.header-text>
+                <x-Ui::table.header-text >
+                    Commend ID
+                </x-Ui::table.header-text>
+                <x-Ui::table.header-text >
+                    Reply ID
+                </x-Ui::table.header-text>
+
                 <x-Ui::table.header-status/>
                 <x-Ui::table.header-action/>
             </x-slot:table_header>
@@ -34,8 +41,10 @@
                     <x-Ui::table.row>
                         <x-Ui::table.cell-text>{{$index+1}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->title}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->content}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->status}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>{{$row->commend}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>{{$row->job_id}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>{{$row->commend_id}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>{{$row->reply_id}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-status active="{{$row->active_id}}"/>
                         <x-Ui::table.cell-action id="{{$row->id}}"/>
                     </x-Ui::table.row>
@@ -51,13 +60,16 @@
         <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
 
         <x-Ui::forms.create :id="$vid">
-            <x-Ui::input.floating wire:model="title" label="Job title"/>
+            <x-Ui::input.floating wire:model="title" label="Title"/>
             <x-Ui::input.error-text wire:model="title"/>
-            <x-Ui::input.floating wire:model="content" label="Job Description"/>
-            <x-Ui::input.error-text wire:model="content"/>
-            <x-Ui::input.floating wire:model="status" label="Status"/>
-            <x-Ui::input.error-text wire:model="status"/>
-
+            <x-Ui::input.floating wire:model="commend" label="Commend"/>
+            <x-Ui::input.error-text wire:model="commend"/>
+            <x-Ui::input.floating wire:model="job_id" label="Job ID"/>
+            <x-Ui::input.error-text wire:model="job_id"/>
+            <x-Ui::input.floating wire:model="commend_id" label="Commend ID"/>
+            <x-Ui::input.error-text wire:model="commend_id"/>
+            <x-Ui::input.floating wire:model="reply_id" label="Reply ID"/>
+            <x-Ui::input.error-text wire:model="reply_id"/>
         </x-Ui::forms.create>
 
     </x-Ui::forms.m-panel>

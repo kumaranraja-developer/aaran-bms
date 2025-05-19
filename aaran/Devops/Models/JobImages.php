@@ -2,16 +2,16 @@
 
 namespace Aaran\Devops\Models;
 
-use Aaran\Devops\Database\Factories\JobManagerFactory;
+use Aaran\Devops\Database\Factories\JobImagesFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JobManager extends Model
+class JobImages extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','content','commend_id', 'active_id'];
+    protected $fillable = ['model','model_id','image_id','path', 'active_id'];
 
     public function scopeActive(Builder $query, $status = '1'): Builder
     {
@@ -20,11 +20,11 @@ class JobManager extends Model
 
     public function scopeSearchByName(Builder $query, string $search): Builder
     {
-            return $query->where('vname', 'like', "%$search%");
+            return $query->where('model', 'like', "%$search%");
     }
 
-    protected static function newFactory():  JobManagerFactory
+    protected static function newFactory():  JobImagesFactory
     {
-            return  JobManagerFactory::new();
+            return  JobImagesFactory::new();
     }
 }

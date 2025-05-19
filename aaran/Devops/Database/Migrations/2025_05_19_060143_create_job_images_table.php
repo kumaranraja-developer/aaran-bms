@@ -9,11 +9,13 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('job_managers', function (Blueprint $table) {
+        Schema::create('job_images', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('content');
-            $table->string('status', 100)->default('Pending');
+            $table->text('model');
+            $table->text('model_id');
+            $table->text('image_id');
+            $table->text('path');
+
             $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });
@@ -21,6 +23,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('job_managers');
+        Schema::dropIfExists('job_images');
     }
 };

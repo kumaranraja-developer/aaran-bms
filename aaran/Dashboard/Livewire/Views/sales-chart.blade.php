@@ -3,7 +3,7 @@
     <div class="pt-5">
         <div>
             @if ($monthlyTotals->isEmpty())
-                <p class="dark:bg-dark dark:text-dark-9">No sales data available for this company.</p>
+                <p class="dark:bg-dark-3 dark:text-dark-9">No sales data available for this company.</p>
             @else
                 <canvas id="myChart" style="width:100%; max-width:600px;"></canvas>
                 <script>
