@@ -2,9 +2,15 @@
     $fill='rgb(255,69,0)'
 @endphp
 
-<svg class="animated" id="freepik_stories-invoice" viewBox="0 0 500 500">
+<svg class="animated" id="freepik_stories-invoice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"
+     version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
     <style>svg#freepik_stories-invoice:not(.animated) .animable {
             opacity: 0;
+        }
+
+        svg#freepik_stories-invoice.animated #freepik--background-complete--inject-1 {
+            animation: 1s 1 forwards ease-in slideLeft;
+            animation-delay: 0s;
         }
 
         svg#freepik_stories-invoice.animated #freepik--Invoice--inject-1 {
@@ -15,6 +21,17 @@
         svg#freepik_stories-invoice.animated #freepik--Character--inject-1 {
             animation: 1.5s Infinite linear floating;
             animation-delay: 0s;
+        }
+
+        @keyframes slideLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         @keyframes heartbeat {
@@ -352,8 +369,7 @@
                  style="fill: rgb(240, 240, 240); transform-origin: 345.615px 142.125px;" id="elvbl7pb3ksro"
                  class="animable"></polygon>
     </g>
-    <g id="freepik--Character--inject-1" class="animable animator-active"
-       style="transform-origin: 155.266px 263.113px;">
+    <g id="freepik--Character--inject-1" class="animable" style="transform-origin: 155.266px 263.113px;">
         <path
             d="M137.18,213l3.62,1.45a8.13,8.13,0,0,1,3.36,2.52l1.66,2.1a3.67,3.67,0,0,1-.12,4.71l-1.76,2a3.69,3.69,0,0,1-5.24.31L137,224.59s-5.2-3.65-6.73-8.48l1-1A6.91,6.91,0,0,1,137.18,213Z"
             style="fill: rgb(255, 181, 115); transform-origin: 138.443px 219.989px;" id="el7z832gxbrrf"
