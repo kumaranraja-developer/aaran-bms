@@ -12,6 +12,7 @@ class Task extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $table = 'tasks';
 
     public function scopeActive(Builder $query, $status = '1'): Builder
     {
@@ -20,7 +21,7 @@ class Task extends Model
 
     public function scopeSearchByName(Builder $query, string $search): Builder
     {
-            return $query->where('title', 'like', "%$search%");
+            return $query->where('vname', 'like', "%$search%");
 //            return $query->where('assigned', 'like', "%$search%");
 //            return $query->where('job_id', 'like', "%$search%");
     }
