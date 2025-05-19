@@ -106,7 +106,7 @@ class JobImagesList extends Component
 
     public function render()
     {
-        return view('devops::job_images-list', [
+        return view('devops::job-images-list', [
             'list' => $this->getList()
         ]);
     }

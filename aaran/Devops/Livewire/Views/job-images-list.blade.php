@@ -7,7 +7,7 @@
         <x-Ui::forms.top-controls :show-filters="$showFilters"/>
 
         <!-- Table Caption -------------------------------------------------------------------------------------------->
-        <x-Ui::table.caption :caption="'JobImages'">
+        <x-Ui::table.caption :caption="'Job Images'">
             {{$list->count()}}
         </x-Ui::table.caption>
 
