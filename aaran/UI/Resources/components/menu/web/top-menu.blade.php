@@ -9,21 +9,21 @@
 @endphp
 
 <nav x-data="{ mobileMenuIsOpen: false }" @click.away="mobileMenuIsOpen = false" id="navBar"
-     class="sm:fixed sm:z-40 h-18 sm:w-full flex items-center justify-between border-b border-neutral-300 px-6 py-4 dark:border-neutral-700 text-black
+     class="sm:fixed sm:z-40 h-18 sm:w-full flex items-center justify-between border-b border-neutral-300 px-6 py-4 dark:border-neutral-700 dark:bg-dark-4 dark:text-dark-9 text-black
      {{ Route::currentRouteNamed('home') ? 'transition-colors' : 'bg-white' }}  duration-300">
 
     <!-- Logo -->
     <a href="#" class="text-3xl flex items-center hover:scale-105 transition duration-500">
         <h1 class="hover:tracking-wide text-primary hover:font-semibold">
-            CODEX<span class="text-body-color">SUN</span>
+            CODEX<span class="text-body-color dark:text-dark-9">SUN</span>
         </h1>
     </a>
 
     <!-- Desktop Menu -->
-    <ul class="hidden md:flex items-center gap-16">
+    <ul class="hidden md:flex items-center gap-16 dark:bg-dark-4">
         @foreach ($menuItems as $route => $label)
             <li class="hover:tracking-wide hover:font-bold transition duration-500 ">
-                <a href="{{ route($route) }}" class="menu-text dark:text-black dark:hover:text-black"
+                <a href="{{ route($route) }}" class="menu-text dark:text-dark-9 dark:hover:text-dark-9"
                 >{{ $label }}</a>
             </li>
         @endforeach
@@ -71,11 +71,11 @@
         x-transition:leave-start="translate-y-0"
         x-transition:leave-end="-translate-y-full"
         id="mobileMenu"
-        class="fixed inset-x-0 top-0 z-20 flex flex-col divide-y divide-neutral-300 border-b border-neutral-300 bg-neutral-50 px-6 pb-6 pt-10 dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-900 md:hidden">
+        class="fixed inset-x-0 top-0 z-20 flex flex-col divide-y divide-neutral-300 border-b border-neutral-300 bg-neutral-50 px-6 pb-6 pt-10 dark:divide-dark-7 dark:border-dark-8 dark:bg-dark-4 dark:text-dark-9 md:hidden">
 
         @foreach ($menuItems as $route => $label)
             <li class="py-2">
-                <a href="{{ route($route) }}" class="menu-text-mobile dark:text-dark-9">{{ $label }}</a>
+                <a href="{{ route($route) }}" class="menu-text-mobile dark:bg-dark-4 dark:text-dark-9">{{ $label }}</a>
             </li>
         @endforeach
 

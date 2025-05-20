@@ -15,17 +15,11 @@ class Index extends Component
         $team= DevTeam::where('active_id', Active::ACTIVE)->get();
 
         $quotes=[
-            ['quote'=>"Edison bulb retro cloud bread echo park, helvetica stumptown
-                        taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY
-                        tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware. Man bun next level
-                        coloring book skateboard four loko knausgaard. Kitsch keffiyeh master cleanse direct trade
-                        indigo juice before they sold out gentrify plaid gastropub normcore XOXO 90's pickled cindigo
-                        jean shorts. Slow-carb next level shoindigoitch ethical authentic, yr scenester sriracha forage
-                        franzen organic drinking vinegar.",'name'=>'muthu','job'=>'developer'],
-            ['quote'=>"Edison bulb retro cloud bread echo park, helvetica stumptown
-                        taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY
-                        tote bag drinlevel shoindigoitch ethical authentic, yr scenester sriracha forage
-                        franzen organic drinking vinegar.",'name'=>'haris','job'=>'developer']
+            ['quote'=>"Your GST billing software has made a real difference in how we manage our accounts. It's simple to use, accurate, and has helped us save a lot of time on paperwork. Highly recommend it for any manufacturing business looking for a reliable solution.",'name'=>'Sivasubramaniyan','job'=>'UPVC Manufacturing Company'],
+            ['quote'=>"We were looking for a streamlined CRM and billing tool, and this software exceeded our expectations. The team was supportive during setup, and the live sales tracking feature gives us clear visibility on our daily performance. Excellent for businesses that value efficiency.",'name'=>'Vijayanand','job'=>'Tech Media (Electronics Retailer)'],
+            ['quote'=>"Billing was always a hassle at our store, especially with GST. Since using this software, things have become smooth and error-free. The customer support team is also very responsive. It's been a great help to our small business.",'name'=>'Veera','job'=>'Veera Enterprises (Paint & Hardware Shop)
+'],
+            ['quote'=>"I was impressed by how well the software fits even a printing business like ours. Invoices, customer records, and reports are all organized in one place now. Very user-friendly and tailored to real business needs.",'name'=>'Kala Rani','job'=>'SK Printers']
         ];
         return view('website::about.index',compact('team'),compact('quotes'));
     }
