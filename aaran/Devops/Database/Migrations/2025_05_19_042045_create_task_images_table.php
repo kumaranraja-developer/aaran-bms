@@ -11,10 +11,12 @@ return new class extends Migration
     {
         Schema::create('task_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('task_id')->references('id')->on('tasks')->cascadeOnDelete();
-            $table->text('image')->nullable();
+            $table->foreignId('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->longText('image')->nullable();
+            $table->timestamps();
         });
     }
+
 
     public function down(): void
     {

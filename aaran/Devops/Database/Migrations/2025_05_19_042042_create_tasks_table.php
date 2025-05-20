@@ -20,7 +20,8 @@ return new class extends Migration {
             $table->foreignId('reporter_id')->nullable();
             $table->smallInteger('priority_id')->nullable();
             $table->smallInteger('status_id')->nullable();
-            $table->tinyInteger('active_id')->default('1')->nullable();
+            $table->tinyInteger('active_id')->nullable();
+            $table->string('flag')->nullable();
             $table->timestamps();
         });
     }

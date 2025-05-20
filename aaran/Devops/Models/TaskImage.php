@@ -2,10 +2,9 @@
 
 namespace Aaran\Devops\Models;
 
-use Aaran\Devops\Database\Factories\JobImagesFactory;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class TaskImage extends Model
 {
@@ -13,16 +12,8 @@ class TaskImage extends Model
 
     protected $guarded = [];
 
-    public $timestamps = false;
-
-    public function scopeActive(Builder $query, $status = '1'): Builder
+    public function task(): BelongsTo
     {
-            return $query->where('active_id', $status);
+        return  $this->belongsTo(Task::class);
     }
-
-    public function scopeSearchByName(Builder $query, string $search): Builder
-    {
-            return $query->where('model', 'like', "%$search%");
-    }
-
 }

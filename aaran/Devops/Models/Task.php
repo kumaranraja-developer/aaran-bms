@@ -3,15 +3,19 @@
 namespace Aaran\Devops\Models;
 
 use Aaran\Core\User\Models\User;
+use Aaran\Taskmanager\Models\Reply;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Task extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
+
     protected $table = 'tasks';
 
     public function scopeActive(Builder $query, $status = '1'): Builder
@@ -28,9 +32,24 @@ class Task extends Model
 
     public static function assigned($str)
     {
-
         return $str? User::find($str)->name:'';
     }
+
+    public function job(): BelongsTo
+    {
+        return $this->belongsTo(Job::class);
+    }
+
+    public function reply() :HasMany
+    {
+        return $this->hasMany(Reply::class);
+    }
+
+    public function TaskImage() :HasMany
+    {
+        return $this->hasMany(TaskImage::class);
+    }
+
 
 
 }

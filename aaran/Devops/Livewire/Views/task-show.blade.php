@@ -1,15 +1,15 @@
 <div>
     <x-slot name="header">Task</x-slot>
-    {{--    {{dd($task)}}--}}
+    {{--    {{dd($taskData)}}--}}
 
     <!-- Top Control ------------------------------------------------------------------------------------------------>
 
-    <x-Ui::forms.m-panel>
+    <x-forms.m-panel>
         <div class="max-w-7xl mx-auto space-y-5 font-lex ">
 
             <div class="inline-flex 1space-x-2 font-merri">
-                <div class="text-5xl text-gray-700">{{$task->id}}.</div>
-                <div class="text-5xl font-bold tracking-wider capitalize text-gray-700">{{$task->title}}</div>
+                <div class="text-5xl text-gray-700">{{$taskData->id}}.</div>
+                <div class="text-5xl font-bold tracking-wider capitalize text-gray-700">{{$taskData->vname}}</div>
             </div>
 
 
@@ -27,29 +27,29 @@
                     <div class="flex flex-row gap-2 text-md capitalize">
                         <div
                             class="text-gray-600 my-0.5">Job :
-                            <span class="text-blue-500">{{$task->job_id}}</span> &nbsp;|
+                            <span class="text-blue-500">{{\Aaran\Taskmanager\Models\Task::common($taskData->job_id)}}</span> &nbsp;|
                         </div>
 
                         <div
                             class="text-gray-600 my-0.5">
                             Module :
-                            <span class="text-blue-500">{{$task->module_id }}</span>
+                            <span class="text-blue-500">{{\Aaran\Taskmanager\Models\Task::common($taskData->module_id) }}</span>
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <x-Ui::button.edit wire:click="editTask"/>
+                    <x-button.edit wire:click="editTask"/>
                 </div>
             </div>
 
             <div class="w-full shadow-md shadow-gray-700 rounded-lg overflow-hidden">
-                @if($images)
+                @if($taskImage)
 
                     <div class="w-full h-[40rem] md:h-[40rem] overflow-hidden ">
                         <div x-data="{
             slides: [
-                @foreach($images as $row)
+                @foreach($taskImage as $row)
                                 {
                                     imgSrc: '{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$row['image']))}}',
                                     imgAlt: '{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$row['image']))}}',
@@ -122,29 +122,27 @@
             <!--User Data ------------------------------------------------------------------------------------------------>
 
             <div class="flex  items-center font-semibold text-sm font-lex gap-x-5">
-                <div>Created By : <span class="text-red-600">{{$task->reporter_id}}</span></div>
+                <div>Created By : <span class="text-red-600">{{$taskData->reporter->name}}</span></div>
                 <div class="border-l-2 h-5 border-gray-400"></div>
 
-                <div class="text-gray-600">  {{$task->created_at->diffForHumans()}}</div>
+                <div class="text-gray-600">  {{$taskData->created_at->diffForHumans()}}</div>
                 <div class="border-l-2 h-5 border-gray-400"></div>
                 <div> Allocated To : <span
-                        class="text-indigo-600">{{$task->allocated_id}}</span>
+                        class="text-indigo-600">{{$taskData->allocated->name}}</span>
                 </div>
                 <div class="border-l-2  h-5 border-gray-400"></div>
 
                 <div> Priority To :</div>
                 <div
-                    class="text-xs px-2 rounded-full py-0.5 {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getStyle() }}">
-                    {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getName() }}</div>
+                    class="text-xs px-2 rounded-full py-0.5 {{ \App\Enums\Priority::tryFrom($taskData->priority_id)->getStyle() }}">{{ \App\Enums\Priority::tryFrom($taskData->priority_id)->getName() }}</div>
                 <div class="border-l-2 h-5 border-gray-400"></div>
 
                 <div> Status :</div>
                 <div
-                    class="text-xs px-2 rounded-full py-0.5 {{\Aaran\Assets\Enums\Status::tryFrom($task->status_id)->getStyle()}}">
-                    {{ \Aaran\Assets\Enums\Status::tryFrom($task->status_id)->getName() }}</div>
+                    class="text-xs px-2 rounded-full py-0.5 {{\App\Enums\Status::tryFrom($taskData->status_id)->getStyle()}}">{{ \App\Enums\Status::tryFrom($taskData->status_id)->getName() }}</div>
             </div>
 
-            <div class="text-sm text-justify leading-loose ">{!! $task->body !!}</div>
+            <div class="text-sm text-justify leading-loose ">{!! $taskData->body !!}</div>
             <div class="border-b-2 border-gray-600">&nbsp;</div>
 
             <!-- Activity ----------------------------------------------------------------------------------------->
@@ -156,29 +154,29 @@
                             <div class="flex flex-col items-center">
                                 <div class="flex justify-center gap-x-2">
                                     <div
-                                        class="text-xs px-2 py-1 rounded-full mx-1 {{ \Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getStyle() }}">
-                                        {{ \Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getName() }}</div>
+                                        class="text-xs px-2 py-1 rounded-full mx-1 {{ \App\Enums\Status::tryFrom($row->status_id)->getStyle() }}">
+                                        {{ \App\Enums\Status::tryFrom($row->status_id)->getName() }}</div>
 
 
                                     <div class="flex-row flex text-sm space-x-2 mt-0.5">
-                                        <div class="text-indigo-600">{{$row->user_id}}</div> &nbsp;&nbsp;|
+                                        <div class="text-indigo-600">{{$row->user->name}}</div> &nbsp;&nbsp;|
                                         <div
                                             class="text-gray-600 text-xs my-0.5"> {{$row->created_at->diffForHumans()}}  </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex justify-center items-center gap-3 self-center">
-                                <x-Ui::button.edit wire:click="editActivity({{$row->id}})"/>
-                                <x-Ui::button.delete wire:click="getDelete({{$row->id}})"/>
+                                <x-button.edit wire:click="editActivity({{$row->id}})"/>
+                                <x-button.delete wire:click="getDelete({{$row->id}})"/>
                             </div>
                         </div>
 
                         <div class="flex flex-row p-3 text-justify ml-8 gap-x-3">
                             <div class="w-6 h-6 rounded-full overflow-hidden">
-                                {{--                                <img src="{{$row->user->profile_photo_url}}" alt="">--}}
+                                <img src="{{$row->user->profile_photo_url}}" alt="">
                             </div>
                             <div
-                                class="text-slate-700 text-sm bg-white capitalize"> {!! $row->body !!} </div>
+                                class="text-slate-700 text-sm bg-white capitalize"> {!! $row->vname !!} </div>
                         </div>
                     </div>
                 @empty
@@ -195,13 +193,13 @@
                 <span class="my-2">Activity</span>
 
                 <div class="bg-gray-200 p-1 rounded-md">
-                    <x-Ui::input.textarea :label="'comments'" type="textarea" wire:model="common.vname"/>
+                    <x-input.textarea :label="'comments'" type="textarea" wire:model="common.vname"/>
                 </div>
 
                 <div class="w-full flex justify-between gap-4">
-                    <x-Ui::input.floating wire:model="start_on" :label="'Start_On'" type="date"/>
+                    <x-input.floating wire:model="start_on" :label="'Start_On'" type="date"/>
 
-                    <x-Ui::input.floating wire:model="end_on" :label="'End_On'" type="date"/>
+                    <x-input.floating wire:model="end_on" :label="'End_On'" type="date"/>
                 </div>
 
 
@@ -239,12 +237,12 @@
 
                 <div class="w-full items-center justify-between">
                     <div class="w-3/12">
-                        <x-Ui::input.model-select wire:model="status_id" :label="'Status'">
+                        <x-input.model-select wire:model="status_id" :label="'Status'">
                             <option value="">Choose...</option>
-                            @foreach(\Aaran\Assets\Enums\Status::cases() as $status)
+                            @foreach(App\Enums\Status::cases() as $status)
                                 <option value="{{$status->value}}">{{$status->getName()}}</option>
                             @endforeach
-                        </x-Ui::input.model-select>
+                        </x-input.model-select>
                     </div>
 
                     <div class="w-full flex items-center justify-end ">
@@ -258,43 +256,43 @@
 
             </div>
         </div>
-        <x-Ui::modal.delete/>
+        <x-modal.delete/>
 
         <!-- Edit Model ----------------------------------------------------------------------------------------------->
 
-        <x-Ui::forms.create :id="$task_id" :max-width="'6xl'">
+        <x-forms.create :id="$task_id" :max-width="'6xl'">
             <div class="flex flex-row space-x-5 w-full">
                 <div class="flex flex-col space-y-5 w-full">
 
-                    <x-Ui::input.floating wire:model="taskTitle" :label="'Title'"/>
+                    <x-input.floating wire:model="taskTitle" :label="'Title'"/>
 
-                    <x-Ui::dropdown.wrapper label="Job" type="jobTyped">
+                    <x-dropdown.wrapper label="Job" type="jobTyped">
                         <div class="relative">
-                            <x-Ui::dropdown.input label="Job" id="job_name"
-                                                  wire:model.live="job_name"
-                                                  wire:keydown.arrow-up="decrementJob"
-                                                  wire:keydown.arrow-down="incrementJob"
-                                                  wire:keydown.enter="enterJob"/>
-                            <x-Ui::dropdown.select>
+                            <x-dropdown.input label="Job" id="job_name"
+                                              wire:model.live="job_name"
+                                              wire:keydown.arrow-up="decrementJob"
+                                              wire:keydown.arrow-down="incrementJob"
+                                              wire:keydown.enter="enterJob"/>
+                            <x-dropdown.select>
                                 @if($jobCollection)
                                     @forelse ($jobCollection as $i => $job)
-                                        <x-Ui::dropdown.option highlight="{{$highlightJob === $i}}"
-                                                               wire:click.prevent="setJob('{{$job->vname}}','{{$job->id}}')">
+                                        <x-dropdown.option highlight="{{$highlightJob === $i}}"
+                                                           wire:click.prevent="setJob('{{$job->vname}}','{{$job->id}}')">
                                             {{ $job->vname }}
-                                        </x-Ui::dropdown.option>
+                                        </x-dropdown.option>
                                     @empty
-                                        <x-Ui::dropdown.create wire:click.prevent="jobSave('{{$job_name}}')"
-                                                               label="Job"/>
+                                        <x-dropdown.create wire:click.prevent="jobSave('{{$job_name}}')"
+                                                           label="Job"/>
                                     @endforelse
                                 @endif
-                            </x-Ui::dropdown.select>
+                            </x-dropdown.select>
                         </div>
-                    </x-Ui::dropdown.wrapper>
+                    </x-dropdown.wrapper>
                     @error('job_name')
                     <span class="text-red-400">{{$message}}</span>
                     @enderror
 
-                    <x-Ui::input.rich-text wire:model="taskBody" :placeholder="'Write the error'"/>
+                    <x-input.rich-text wire:model="taskBody" :placeholder="'Write the error'"/>
 
 
                 </div>
@@ -304,52 +302,52 @@
                 <div class="flex flex-col space-y-5 w-full">
 
 
-                    <x-Ui::dropdown.wrapper label="Module" type="moduleTyped">
+                    <x-dropdown.wrapper label="Module" type="moduleTyped">
                         <div class="relative">
-                            <x-Ui::dropdown.input label="Module" id="module_name"
-                                                  wire:model.live="module_name"
-                                                  wire:keydown.arrow-up="decrementModule"
-                                                  wire:keydown.arrow-down="incrementModule"
-                                                  wire:keydown.enter="enterModule"/>
-                            <x-Ui::dropdown.select>
+                            <x-dropdown.input label="Module" id="module_name"
+                                              wire:model.live="module_name"
+                                              wire:keydown.arrow-up="decrementModule"
+                                              wire:keydown.arrow-down="incrementModule"
+                                              wire:keydown.enter="enterModule"/>
+                            <x-dropdown.select>
                                 @if($moduleCollection)
                                     @forelse ($moduleCollection as $i => $module)
-                                        <x-Ui::dropdown.option highlight="{{$highlightModule === $i}}"
-                                                               wire:click.prevent="setModule('{{$module->vname}}','{{$module->id}}')">
+                                        <x-dropdown.option highlight="{{$highlightModule === $i}}"
+                                                           wire:click.prevent="setModule('{{$module->vname}}','{{$module->id}}')">
                                             {{ $module->vname }}
-                                        </x-Ui::dropdown.option>
+                                        </x-dropdown.option>
                                     @empty
-                                        <x-Ui::dropdown.create wire:click.prevent="moduleSave('{{$module_name}}')"
-                                                               label="Module"/>
+                                        <x-dropdown.create wire:click.prevent="moduleSave('{{$module_name}}')"
+                                                           label="Module"/>
                                     @endforelse
                                 @endif
-                            </x-Ui::dropdown.select>
+                            </x-dropdown.select>
                         </div>
-                    </x-Ui::dropdown.wrapper>
+                    </x-dropdown.wrapper>
                     @error('module_name')
                     <span class="text-red-400">{{$message}}</span>
                     @enderror
 
-                    <x-Ui::input.model-select wire:model="allocated" :label="'Allocated'">
+                    <x-input.model-select wire:model="allocated" :label="'Allocated'">
                         <option value="">Choose...</option>
                         @foreach($users as $user)
                             <option value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
-                    </x-Ui::input.model-select>
+                    </x-input.model-select>
 
-                    <x-Ui::input.model-select wire:model="priority" :label="'Priority'">
+                    <x-input.model-select wire:model="priority" :label="'Priority'">
                         <option value="">Choose...</option>
-                        @foreach(\Aaran\Assets\Enums\Priority::cases() as $priority)
+                        @foreach(App\Enums\Priority::cases() as $priority)
                             <option value="{{$priority->value}}">{{$priority->getName()}}</option>
                         @endforeach
-                    </x-Ui::input.model-select>
+                    </x-input.model-select>
 
-                    <x-Ui::input.model-select wire:model="status" :label="'Status'">
+                    <x-input.model-select wire:model="status" :label="'Status'">
                         <option value="">Choose...</option>
-                        @foreach(\Aaran\Assets\Enums\Status::cases() as $status)
+                        @foreach(App\Enums\Status::cases() as $status)
                             <option value="{{$status->value}}">{{$status->getName()}}</option>
                         @endforeach
-                    </x-Ui::input.model-select>
+                    </x-input.model-select>
 
 
                     <!-- Image  ----------------------------------------------------------------------------------------------->
@@ -385,14 +383,13 @@
                                                         src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_image->image))}}"
                                                         alt="">
                                                     <div class="flex justify-center items-center">
-                                                        <x-Ui::button.delete
-                                                            wire:click="DeleteImage({{$old_image->id}})"/>
+                                                        <x-button.delete wire:click="DeleteImage({{$old_image->id}})"/>
                                                     </div>
                                                 </div>
                                             @endforeach
                                         </div>
                                     @else
-                                        <x-Ui::icons.icon :icon="'logo'" class="w-auto h-auto block "/>
+                                        <x-icons.icon :icon="'logo'" class="w-auto h-auto block "/>
                                     @endif
                                 </div>
                             </div>
@@ -403,7 +400,7 @@
                                            class="text-gray-500 font-semibold text-base rounded flex flex-col items-center
                                    justify-center cursor-pointer border-2 border-gray-300 border-dashed p-2
                                    mx-auto font-[sans-serif]">
-                                        <x-Ui::icons.icon icon="cloud-upload" class="w-8 h-auto block text-gray-400"/>
+                                        <x-icons.icon icon="cloud-upload" class="w-8 h-auto block text-gray-400"/>
                                         Upload Photo
                                         <input type="file" id='bg_image' wire:model="images" class="hidden" multiple/>
                                         <p class="text-xs font-light text-gray-400 mt-2">PNG and JPG are
@@ -422,6 +419,6 @@
 
                 </div>
             </div>
-        </x-Ui::forms.create>
-    </x-Ui::forms.m-panel>
+        </x-forms.create>
+    </x-forms.m-panel>
 </div>
