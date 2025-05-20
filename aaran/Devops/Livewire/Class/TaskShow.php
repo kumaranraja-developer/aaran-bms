@@ -5,47 +5,23 @@ namespace Aaran\Devops\Livewire\Class;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Devops\Models\Activities;
-use Aaran\Devops\Models\Module;
 use Aaran\Devops\Models\Task;
 use Aaran\Devops\Models\TaskImage;
-use Carbon\Carbon;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class TaskShow extends Component
 {
-
     use ComponentStateTrait, TenantAwareTrait, WithFileUploads;
 
     public $task;
-
     public $taskImage;
 
-    #region[property]
-    public $remarks;
-    public $estimated;
-    public $duration;
+    public $vname;
     public $start_on;
     public $end_on;
-    public $cdate;
-    public $task_id;
-    public $verified = '';
-    public $verified_on;
-
-    public $taskTitle;
-    public $taskBody;
-    public $allocated;
-    public $priority;
-    public $status;
-    public $images = [];
-    public $old_images = [];
     public $status_id;
     public $active_id;
-
-    #endregion
 
     public function mount($id)
     {
