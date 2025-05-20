@@ -217,9 +217,15 @@
                     <x-Ui::input.floating wire:model="end_on" :label="'End_On'" type="date"/>
                 </div>
 
+
                 <div class="w-full items-center justify-between">
                     <div class="w-3/12">
-
+                        {{--                        <x-Ui::input.model-select wire:model="status_id" :label="'Status'">--}}
+                        {{--                            <option value="">Choose...</option>--}}
+                        {{--                            @foreach( \Aaran\Assets\Enums\Status::cases() as $status)--}}
+                        {{--                                <option value="{{$status->value}}">{{$status->getName()}}</option>--}}
+                        {{--                            @endforeach--}}
+                        {{--                        </x-Ui::input.model-select>--}}
                     </div>
 
                     <div class="w-full flex items-center justify-end ">
@@ -233,7 +239,6 @@
 
             </div>
         </div>
-
         <x-Ui::modal.confirm-delete/>
 
         <!-- Edit Model ----------------------------------------------------------------------------------------------->

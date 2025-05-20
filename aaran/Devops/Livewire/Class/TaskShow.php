@@ -7,6 +7,7 @@ use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Devops\Models\Activities;
 use Aaran\Devops\Models\Task;
 use Aaran\Devops\Models\TaskImage;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -25,7 +26,11 @@ class TaskShow extends Component
 
     public function mount($id)
     {
-        $this->task = Task::on($this->getTenantConnection())->find($id);
+        if ($id) {
+            $this->task = DB::connection($this->getTenantConnection())
+                ->table('tasks')->where('id', $id)->get();
+        }
+
         $this->taskImage = TaskImage::on($this->getTenantConnection())->where('task_id', $id)->get()->toarray();
 
 //        $this->old_images = TaskImage::on($this->getTenantConnection())->where('task_id', $id)->get();
@@ -66,16 +71,13 @@ class TaskShow extends Component
     public function getList()
     {
         return Activities::on($this->getTenantConnection())
-            ->select('activities.*')
-            ->where('task_id', $this->task->id)
-            ->orderBy('id', 'asc')
-            ->paginate($this->perPage);
+            ->get();
     }
 
     public function render()
     {
         return view('devops::task-show')->with([
-            'list' => $this->getList(),
+//            'list' => $this->getList(),
             ]);
     }
 }

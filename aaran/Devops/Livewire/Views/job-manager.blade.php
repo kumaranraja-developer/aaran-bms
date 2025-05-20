@@ -1,5 +1,14 @@
 <div class="bg-white dark:bg-dark">
     <x-slot name="header">Job Manager</x-slot>
+
+    <!-- Top Controls --------------------------------------------------------------------------------------------->
+    <x-Ui::forms.top-controls :show-filters="$showFilters"/>
+
+    <!-- Table Caption -------------------------------------------------------------------------------------------->
+    <x-Ui::table.caption :caption="'Job Manager'">
+        {{$list->count()}}
+    </x-Ui::table.caption>
+
     <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5 p-5">
         @foreach($list as $card)
             @php
@@ -11,7 +20,7 @@
                         {{ $card->title }}
                     </a>
 
-                    <a href="{{$link}}" class="text-justify text-sm break-words">
+                    <a href="{{$link}}" class="text-justify line-clamp-3 text-sm break-words">
                         {!! $card->content !!}
                     </a>
                 </div>
@@ -36,4 +45,29 @@
         @endforeach
 
     </div>
+
+    <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
+
+    <x-Ui::forms.create :id="$vid">
+        <div class="flex flex-col gap-5">
+
+            <div>
+                <x-Ui::input.floating wire:model="title" label="Job title"/>
+                <x-Ui::input.error-text wire:model="title"/>
+            </div>
+
+            <div>
+                <x-Ui::input.rich-text wire:model="content" label="Job Description"/>
+                <x-Ui::input.error-text wire:model="content"/>
+            </div>
+
+
+            {{--                <div>--}}
+            {{--                    <x-Ui::input.floating wire:model="status" label="Status"/>--}}
+            {{--                    <x-Ui::input.error-text wire:model="status"/>--}}
+            {{--                </div>--}}
+
+        </div>
+
+    </x-Ui::forms.create>
 </div>

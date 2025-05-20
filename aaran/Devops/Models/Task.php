@@ -2,17 +2,12 @@
 
 namespace Aaran\Devops\Models;
 
-use Aaran\Core\User\Models\User;
-use Aaran\Taskmanager\Models\Reply;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Task extends Model
 {
-    use HasFactory;
 
     protected $guarded = [];
 
@@ -23,10 +18,10 @@ class Task extends Model
         return $query->where('active_id', $status);
     }
 
-    public function scopeSearchByName(Builder $query, string $search): Builder
-    {
-        return $query->where('vname', 'like', "%$search%");
-    }
+//    public function scopeSearchByName(Builder $query, string $search): Builder
+//    {
+//        return $query->where('vname', 'like', "%$search%");
+//    }
 
 //    public function job(): BelongsTo
 //    {
