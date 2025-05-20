@@ -49,7 +49,7 @@
     <!-- Mobile Menu Button -->
     <button @click="mobileMenuIsOpen = !mobileMenuIsOpen" :aria-expanded="mobileMenuIsOpen"
             :class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-50' : null" type="button"
-            class="flex  text-neutral-600 dark:text-dark md:hidden" aria-label="mobile menu">
+            class="flex  text-neutral-600 dark:text-dark-9 md:hidden" aria-label="mobile menu">
         <svg x-cloak x-show="!mobileMenuIsOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -71,7 +71,7 @@
         x-transition:leave-start="translate-y-0"
         x-transition:leave-end="-translate-y-full"
         id="mobileMenu"
-        class="fixed inset-x-0 top-0 z-20 flex flex-col divide-y divide-neutral-300 border-b border-neutral-300 bg-neutral-50 px-6 pb-6 pt-10 dark:divide-dark-7 dark:border-dark-8 dark:bg-dark-4 dark:text-dark-9 md:hidden">
+        class="absolute w-[300px] h-[100vh] justify-evenly right-0 top-0 z-20 flex flex-col divide-y divide-neutral-300 border-b border-neutral-300 bg-neutral-50 px-6 pb-6 pt-10 dark:divide-dark-7 dark:border-dark-8 dark:bg-dark-4 dark:text-dark-9 md:hidden">
 
         @foreach ($menuItems as $route => $label)
             <li class="py-2">
@@ -94,6 +94,7 @@
     </ul>
 </nav>
 
+
 <!-- Scroll Effect Script -->
 <script>
     window.onscroll = () => {
@@ -101,7 +102,7 @@
         const menuText = document.querySelectorAll(".menu-text");
         if (document.documentElement.scrollTop > 100) {
             navBar.classList.add("sticky-header");
-            menuText.forEach(el => el.classList.add("text-black"));
+            menuText.forEach(el => el.classList.add("text-black","scroll-text-color"));
         } else {
             navBar.classList.remove("sticky-header");
             menuText.forEach(el => el.classList.remove("text-black"));
@@ -115,6 +116,17 @@
         background-color: white !important;
         color: black !important;
         transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    }
+
+    /* Dark mode overrides for sticky-header */
+    @media (prefers-color-scheme: dark) {
+        .sticky-header {
+            background-color: #464646 !important; /* dark:bg-dark-4 */
+            color: #faf9f9 !important; /* dark:text-dark-9 */
+        }
+        .scroll-text-color{
+            color: white;
+        }
     }
 
     .menu-text {

@@ -5,7 +5,7 @@
 <div>
     @if ($showFilters)
         <div class="bg-blue-50 dark:bg-dark-4 p-4 rounded shadow-inner flex relative ring-1 ring-blue-600">
-            <div class="w-1/2 pr-2 space-y-4">
+            <div class="pr-2 space-y-4">
                 <x-Ui::input.group inline for="activeRecord" label="Active" class="dark:text-dark-9">
                     <x-Ui::input.select wire:model.live="activeRecord" id="activeRecord" class="dark:bg-dark dark:text-dark-9">
                         <option value="" disabled>Select...</option>
