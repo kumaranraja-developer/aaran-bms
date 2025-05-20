@@ -4,6 +4,7 @@ namespace Aaran\Devops\Providers;
 
 use Aaran\Devops\Livewire\Class\JobImagesList;
 use Aaran\Devops\Livewire\Class\JobList;
+use Aaran\Devops\Livewire\Class\ModuleList;
 use Aaran\Devops\Livewire\Class\TaskCommentsList;
 use Aaran\Devops\Livewire\Class\TaskList;
 use Aaran\Devops\Livewire\Class\TaskReplyList;
@@ -24,6 +25,7 @@ class DevopsServiceProvider extends ServiceProvider
          Livewire::component('job-managers-list', JobList::class);
          Livewire::component('task-list', TaskList::class);
          Livewire::component('task-show', TaskShow::class);
+         Livewire::component('modules', ModuleList::class);
 
 
 //         Livewire::component('task-commends-list', TaskCommentsList::class);

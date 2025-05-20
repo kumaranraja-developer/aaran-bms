@@ -1,7 +1,7 @@
 <header class="flex  items-center sm:px-4 px-1 py-3 text-semibold text-gray-800  border-b
-shadow-md print:hidden">
+shadow-md print:hidden dark:bg-dark-3 dark:text-dark-9">
 
-    <div class="w-full sm:px-2 px-0 flex flex-row  justify-between items-center">
+    <div class="w-full sm:px-2 px-0 flex flex-row dark:bg-dark-3 dark:text-dark-9 justify-between items-center">
 
         <div
             class="w-3/12 flex
@@ -21,7 +21,7 @@ shadow-md print:hidden">
             </div>
             <!-- Page Heading -->
             <div
-                class=" font-semibold sm:text-xl text-md text-gray-800 leading-tight sm:px-0 px-2 self-start block my-auto">
+                class=" font-semibold sm:text-lg text-md text-gray-800 leading-tight sm:px-0 px-2 self-start block my-auto  dark:text-dark-9">
 
                 {{$slot ?? 'Dashboard'}}
             </div>
@@ -30,7 +30,7 @@ shadow-md print:hidden">
             <div class="flex">
 
                 <a role="button" href="{{route('switch-default-company')}}"
-                        class="text-gray-600 bg-white focus:outline-none text-xs sm:text-lg md:text-lg hover:bg-gray-100 font-semibold sm:px-2 px-0.5 sm:py-2 py-1 rounded-lg cursor-pointer">
+                        class="text-gray-600 bg-white focus:outline-none text-xs sm:text-lg  font-semibold sm:px-2 px-0.5 sm:py-2 py-1 rounded-lg cursor-pointer dark:bg-dark-3 dark:text-dark-9">
                     {{session()->get('company_name') ?:'Select Company' }}
 {{--                    &nbsp;-&nbsp;{{ \Aaran\Assets\Enums\Acyear::tryFrom(session()->get('acyear_id'))->getName()}}--}}
                 </a>

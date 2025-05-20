@@ -90,16 +90,16 @@
         id="{{ $id }}"
         @focus="open = true"
         class="block px-2.5 pb-2.5 pt-3 w-full bg-transparent rounded-lg border-1 appearance-none tracking-wide focus:outline-none peer
-           text-gray-900 border-gray-300 focus:ring-cyan-50 focus:border-blue-400"
+           text-gray-900 border-gray-300 focus:ring-cyan-50 focus:border-blue-400 dark:bg-dark dark:text-dark-9"
         type="text"
-        :placeholder="selectedLabel ? selectedLabel : '{{ $placeholder }}'"
+        :placeholder="selectedLabel ? selectedLabel : ''"
         autocomplete="off"
     />
 
     <!-- Floating label -->
     <label for="{{ $id }}"
            class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2
-                  peer-focus:text-blue-400 peer-placeholder-shown:scale-100
+                  peer-focus:text-blue-400 peer-placeholder-shown:scale-100 dark:bg-dark dark:text-dark-9
                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2
                   peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-2.5 pointer-events-none">
         {{ $label }}
@@ -109,7 +109,7 @@
     <ul
         x-show="open && filtered().length"
         x-transition
-        class="absolute z-50 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-md max-h-48 overflow-auto"
+        class="absolute z-50 mt-1 w-full bg-white border border-gray-300 dark:bg-dark dark:text-dark-9 rounded-md shadow-md max-h-48 overflow-auto"
     >
         <template x-for="([key, label], index) in filtered()" :key="key">
             <li
@@ -118,7 +118,7 @@
                     'bg-blue-100': index === activeIndex,
                     'bg-white': index !== activeIndex
                 }"
-                class="flex items-center justify-between px-4 py-2 hover:bg-blue-100 cursor-pointer"
+                class="flex items-center justify-between px-4 py-2 dark:bg-dark dark:text-dark-9 dark:hover:bg-dark-4 hover:bg-blue-100 cursor-pointer"
                 @mouseenter="activeIndex = index"
             >
                 <span x-text="label"></span>

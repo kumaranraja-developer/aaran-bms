@@ -4,40 +4,43 @@ namespace Aaran\Devops\Livewire\Class;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
-use Aaran\Devops\Models\Job;
+use Aaran\Devops\Models\Module;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class JobList extends Component
+class ModuleList extends Component
 {
 
     use ComponentStateTrait, TenantAwareTrait;
 
     #[Validate]
-    public string $title = '';
-    public string $content = '';
-    public string $status = '';
+    public string $vname = '';
+    public string $description = '';
     public bool $active_id = true;
 
     public function rules(): array
     {
         return [
-            'title' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.jobs,title"),
+            'vname' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.modules,vname"),
         ];
     }
 
     public function messages(): array
     {
         return [
-            'title.required' => ':attribute is missing.',
+            'vname.required' => ':attribute is missing.',
+            'vname.unique' => 'This :attribute is already created.',
+            'description.required' => ':attribute is missing.',
+
         ];
     }
 
     public function validationAttributes(): array
     {
         return [
-            'title' => 'Job Name',
+            'vname' => 'Module name',
+            'description' => 'description',
         ];
     }
 
@@ -46,12 +49,11 @@ class JobList extends Component
         $this->validate();
         $connection = $this->getTenantConnection();
 
-        Job::on($connection)->updateOrCreate(
+        Module::on($connection)->updateOrCreate(
             ['id' => $this->vid],
             [
-                'title' => Str::ucfirst($this->title),
-                'content' => $this->content,
-                'status' => $this->status,
+                'vname' => Str::ucfirst($this->vname),
+                'description' => Str::ucfirst($this->vname),
                 'active_id' => $this->active_id
             ],
         );
@@ -62,27 +64,25 @@ class JobList extends Component
     public function clearFields(): void
     {
         $this->vid = null;
-        $this->title = '';
-        $this->content = '';
-        $this->status = '';
+        $this->vname = '';
+        $this->description = '';
         $this->active_id = true;
         $this->searches = '';
     }
 
     public function getObj(int $id): void
     {
-        if ($obj = Job::on($this->getTenantConnection())->find($id)) {
+        if ($obj = Module::on($this->getTenantConnection())->find($id)) {
             $this->vid = $obj->id;
-            $this->title = $obj->title;
-            $this->content = $obj->content;
-            $this->status = $obj->status;
+            $this->vname = $obj->vname;
+            $this->description = $obj->description;
             $this->active_id = $obj->active_id;
         }
     }
 
     public function getList()
     {
-        return Job::on($this->getTenantConnection())
+        return Module::on($this->getTenantConnection())
             ->active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
@@ -93,7 +93,7 @@ class JobList extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = Job::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = Module::on($this->getTenantConnection())->find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }
@@ -101,7 +101,7 @@ class JobList extends Component
 
     public function render()
     {
-        return view('devops::job-list', [
+        return view('devops::modules-list', [
             'list' => $this->getList()
         ]);
     }
