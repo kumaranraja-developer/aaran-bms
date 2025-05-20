@@ -179,8 +179,8 @@
 
         </div>
     </div>
-    <div class="text-center my-4 border py-4 border-x-0 border-y-gray-800 cursor-pointer text-dark-9
-           hover:bg-blue-600 transition-colors duration-100 delay-100 text-xl"
+    <div class="text-center my-4 border py-4 border-x-0 border-y-gray-800 cursor-pointer text-dark-9 hover:bg-gradient-to-r
+           hover:from-indigo-700 hover:to-indigo-900  transition-colors duration-100 delay-100 text-xl"
          href="{{route('plan-comparison')}}" wire:navigate>Explore All plans
     </div>
 </section>
