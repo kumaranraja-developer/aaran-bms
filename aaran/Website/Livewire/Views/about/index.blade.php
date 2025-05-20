@@ -75,7 +75,7 @@
                         and thoughtful execution in everything we do.
                     </p>
                 </div>
-                <div class="flex flex-wrap -m-4">
+                <div class="flex flex-wrap -m-4 xl:px-15">
                     @foreach($team as $member)
 
                         <div class="p-4 lg:w-1/2">
@@ -87,7 +87,7 @@
                                 <div class="flex-grow sm:pl-8">
                                     <h2 class="title-font font-medium text-lg mb-2 text-gray-900 dark:text-dark-9">{{$member->vname}}</h2>
                                     <h3 class="text-gray-500 mb-3  dark:text-dark-8">{{$member->role}}</h3>
-                                    <p class="mb-4">{{$member->about}}</p>
+                                    <p class="mb-4 text-justify xl:pr-5">{{$member->about}}</p>
                                     <span class="inline-flex">
                                     <a class="text-gray-500" href="{{$member->fb}}">
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round"
