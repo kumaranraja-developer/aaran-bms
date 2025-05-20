@@ -40,6 +40,7 @@ class TaskShow extends Component
 
     public function getSaveActivity(): void
     {
+        dd('ag');
         $connection = $this->getTenantConnection();
 
         $obj = Activities::on($connection)->updateOrCreate(

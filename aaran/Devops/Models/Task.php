@@ -20,36 +20,28 @@ class Task extends Model
 
     public function scopeActive(Builder $query, $status = '1'): Builder
     {
-            return $query->where('active_id', $status);
+        return $query->where('active_id', $status);
     }
 
     public function scopeSearchByName(Builder $query, string $search): Builder
     {
-            return $query->where('vname', 'like', "%$search%");
-//            return $query->where('assigned', 'like', "%$search%");
-//            return $query->where('job_id', 'like', "%$search%");
+        return $query->where('vname', 'like', "%$search%");
     }
 
-    public function job(): BelongsTo
-    {
-        return $this->belongsTo(Job::class);
-    }
-
-    public function module(): BelongsTo
-    {
-        return $this->belongsTo(Module::class);
-    }
-
-    public function reply() :HasMany
-    {
-        return $this->hasMany(Reply::class);
-    }
-
-    public function TaskImage() :HasMany
-    {
-        return $this->hasMany(TaskImage::class);
-    }
-
-
+//    public function job(): BelongsTo
+//    {
+//        return $this->belongsTo(Job::class);
+//    }
+//
+//    public function module(): BelongsTo
+//    {
+//        return $this->belongsTo(Module::class);
+//    }
+//
+//    public function TaskImage(): HasMany
+//    {
+//        return $this->hasMany(TaskImage::class);
+//    }
+//
 
 }

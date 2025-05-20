@@ -12,8 +12,8 @@ class TaskImage extends Model
 
     protected $guarded = [];
 
-    public function task(): BelongsTo
-    {
-        return  $this->belongsTo(Task::class);
-    }
+//    public function task(): BelongsTo
+//    {
+//        return  $this->belongsTo(Task::class);
+//    }
 }
