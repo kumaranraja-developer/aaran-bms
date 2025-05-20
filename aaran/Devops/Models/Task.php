@@ -30,11 +30,6 @@ class Task extends Model
 //            return $query->where('job_id', 'like', "%$search%");
     }
 
-    public static function assigned($str)
-    {
-        return $str? User::find($str)->name:'';
-    }
-
     public function job(): BelongsTo
     {
         return $this->belongsTo(Job::class);

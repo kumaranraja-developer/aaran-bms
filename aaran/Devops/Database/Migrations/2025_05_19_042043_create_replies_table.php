@@ -12,8 +12,8 @@ return new class extends Migration {
                 $table->id();
                 $table->foreignId('task_id')->references('id')->on('tasks')->onDelete('cascade');
                 $table->longText('vname');
-                $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-                $table->string('active_id', 3)->nullable();
+                $table->foreignId('user_id')->nullable();
+                $table->tinyInteger('active_id')->nullable();
                 $table->timestamps();
             });
     }

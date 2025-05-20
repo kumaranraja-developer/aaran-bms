@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->text('body')->nullable();
             $table->date('start_at')->nullable();
             $table->date('due_date')->nullable();
-            $table->foreignId('module_id')->nullable();
+            $table->foreignId('module_id')->references('id')->on('modules')->cascadeOnDelete();
             $table->foreignId('allocated_id')->nullable();
             $table->foreignId('reporter_id')->nullable();
             $table->smallInteger('priority_id')->nullable();

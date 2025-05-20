@@ -12,6 +12,7 @@ use Aaran\Core\User\Models\User;
 use Aaran\Devops\Models\Task;
 use Aaran\Devops\Models\TaskImage;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -34,6 +35,9 @@ class TaskList extends Component
     public string $priority_id = '';
     public string $status_id = '';
     public bool $active_id = true;
+    public mixed $filter = '';
+    public $jobCollection = [];
+    public $moduleCollection = [];
 
     public $image;
     public array $images = [];
@@ -42,6 +46,11 @@ class TaskList extends Component
     public $users;
     public $priorities;
     public $statuses;
+    public $flag;
+
+    public $old_images = [];
+    public $jobFilter = [];
+
 
     public function rules(): array
     {
@@ -160,11 +169,34 @@ class TaskList extends Component
             $this->status_id = $obj->status_id;
             $this->active_id = $obj->active_id;
 
-            $data = TaskImage::on($this->getTenantConnection())->where('task_id', $id)->get();
-            foreach ($data as $row) {
-                $this->images[] = $row->image;
-            }
+            $this->old_images = TaskImage::on($this->getTenantConnection())
+                ->where('task_id', $id)
+                ->get(['id', 'image'])
+                ->toArray();
         }
+    }
+
+    public function DeleteImage($id)
+    {
+        $image = TaskImage::on($this->getTenantConnection())->find($id);
+
+        if ($image) {
+            // Delete the file from storage
+            Storage::disk('public')->delete('images/' . $image->image);
+
+            $image->delete();
+        }
+    }
+
+
+    public function getTaskImage($id)
+    {
+        $data = TaskImage::on($this->getTenantConnection())->where('task_id', $id)->get();
+        $arrayImage = [];
+        foreach ($data as $key => $value) {
+            $arrayImage[$key]['imgSrc'] = URL(\Illuminate\Support\Facades\Storage::url('images/' . $value->image));
+        }
+        return $arrayImage;
     }
 
     public function getList()

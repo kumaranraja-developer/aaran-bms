@@ -4,6 +4,7 @@ namespace Aaran\Devops\Providers;
 
 use Aaran\Devops\Livewire\Class\JobImagesList;
 use Aaran\Devops\Livewire\Class\JobList;
+use Aaran\Devops\Livewire\Class\Lookup\ModuleLookup;
 use Aaran\Devops\Livewire\Class\ModuleList;
 use Aaran\Devops\Livewire\Class\TaskCommentsList;
 use Aaran\Devops\Livewire\Class\TaskList;
@@ -22,10 +23,12 @@ class DevopsServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerViews();
-         Livewire::component('job-managers-list', JobList::class);
-         Livewire::component('task-list', TaskList::class);
-         Livewire::component('task-show', TaskShow::class);
-         Livewire::component('modules', ModuleList::class);
+         Livewire::component('devops::job-managers-list', JobList::class);
+         Livewire::component('devops::task-list', TaskList::class);
+         Livewire::component('devops::task-show', TaskShow::class);
+         Livewire::component('devops::modules', ModuleList::class);
+
+         Livewire::component('devops::module-lookup', ModuleLookup::class);
 
 
 //         Livewire::component('task-commends-list', TaskCommentsList::class);
