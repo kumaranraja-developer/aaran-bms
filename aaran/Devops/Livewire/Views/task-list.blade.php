@@ -43,7 +43,7 @@
             <x-slot:table_body>
                 @foreach($list as $index=>$row)
                     @php
-                        $link = route('task-comments',[$row->id])
+                        $link = route('task-shows',[$row->id])
                     @endphp
                     <x-Ui::table.row>
 

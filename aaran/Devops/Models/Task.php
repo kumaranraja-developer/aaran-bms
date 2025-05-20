@@ -2,7 +2,7 @@
 
 namespace Aaran\Devops\Models;
 
-use Aaran\Devops\Database\Factories\TaskManagerFactory;
+use Aaran\Core\User\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -25,4 +25,12 @@ class Task extends Model
 //            return $query->where('assigned', 'like', "%$search%");
 //            return $query->where('job_id', 'like', "%$search%");
     }
+
+    public static function assigned($str)
+    {
+
+        return $str? User::find($str)->name:'';
+    }
+
+
 }

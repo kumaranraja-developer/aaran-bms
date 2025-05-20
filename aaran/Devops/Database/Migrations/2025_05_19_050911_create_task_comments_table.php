@@ -11,11 +11,9 @@ return new class extends Migration
     {
         Schema::create('task_comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('job_id')->nullable();
-            $table->text('title')->nullable();
+            $table->foreignId('task_id')->references('id')->on('tasks')->cascadeOnDelete();
+            $table->text('body')->nullable();
             $table->foreignId('user_id')->nullable();
-            $table->text('commend_id')->nullable();
-            $table->text('commend')->nullable();
             $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });

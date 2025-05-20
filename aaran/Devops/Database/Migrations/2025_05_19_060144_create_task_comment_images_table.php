@@ -11,6 +11,7 @@ return new class extends Migration
     {
         Schema::create('task_comment_images', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('task_id')->references('id')->on('tasks')->cascadeOnDelete();
             $table->foreignId('task_comment_id')->references('id')->on('task_comments')->cascadeOnDelete();
             $table->text('image')->nullable();
         });

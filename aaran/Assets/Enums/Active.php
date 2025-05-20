@@ -16,4 +16,13 @@ enum Active: int
             self::UNKNOW => 'Unknow',
         };
     }
+
+    public function getStyle(): string
+    {
+        return match ($this) {
+            self::ACTIVE => 'bg-green-500 text-green-700',
+            self::NOT_ACTIVE => 'bg-red-500 text-red-700',
+            self::UNKNOW => 'bg-gray-500 text-gray-700',
+        };
+    }
 }

@@ -15,7 +15,9 @@ return new class extends Migration {
             $table->text('body')->nullable();
             $table->date('start_at')->nullable();
             $table->date('due_date')->nullable();
-            $table->foreignId('assigned_id')->nullable();
+            $table->foreignId('module_id')->nullable();
+            $table->foreignId('allocated_id')->nullable();
+            $table->foreignId('reporter_id')->nullable();
             $table->smallInteger('priority_id')->nullable();
             $table->smallInteger('status_id')->nullable();
             $table->tinyInteger('active_id')->default('1')->nullable();
