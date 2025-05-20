@@ -1,6 +1,5 @@
 <div>
     <x-slot name="header">Task</x-slot>
-    {{--    {{dd($taskData)}}--}}
 
     <!-- Top Control ------------------------------------------------------------------------------------------------>
 
@@ -8,28 +7,32 @@
         <div class="max-w-7xl mx-auto space-y-5 font-lex ">
 
             <div class="inline-flex 1space-x-2 font-merri">
-                <div class="text-5xl text-gray-700">{{$taskData->id}}.</div>
-                <div class="text-5xl font-bold tracking-wider capitalize text-gray-700">{{$taskData->title}}</div>
-            </div>
+                <div class="text-5xl text-gray-700">{{$task->id}}.</div>
 
+                <div class="text-5xl font-bold tracking-wider capitalize text-gray-700">
+                    {{$task->title}}
+                </div>
+            </div>
 
             <div class="hidden lg:flex justify-between">
                 <div class="flex flex-row my-1 gap-5">
-                    <a href="{{route('task-shows',$taskData->id)}}"
-                       class="text-sm text-gray-600 gap-x-3 inline-flex items-center font-semibold hover:underline hover:decoration-blue-600 hover:text-blue-600 transition-all duration-300 ease-in-out">
+                    <a href="{{route('task-managers',$task->job_id)}}"
+                       class="text-sm text-gray-600 gap-x-3 inline-flex items-center font-semibold hover:underline
+                       hover:decoration-blue-600 hover:text-blue-600 transition-all duration-300 ease-in-out">
+
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
                             <path fill-rule="evenodd"
                                   d="M4.72 9.47a.75.75 0 0 0 0 1.06l4.25 4.25a.75.75 0 1 0 1.06-1.06L6.31 10l3.72-3.72a.75.75 0 1 0-1.06-1.06L4.72 9.47Zm9.25-4.25L9.72 9.47a.75.75 0 0 0 0 1.06l4.25 4.25a.75.75 0 1 0 1.06-1.06L11.31 10l3.72-3.72a.75.75 0 0 0-1.06-1.06Z"
                                   clip-rule="evenodd"/>
                         </svg>
                         Back to Task
+
                     </a>
                     <div class="flex flex-row gap-2 text-md capitalize">
                         <div
                             class="text-gray-600 my-0.5">Job :
                             <span
-                                class="text-blue-500">{{ \Aaran\Core\User\Models\User::getName($taskData->job_id)}}</span>
-                            &nbsp;|
+                                class="text-blue-500">{{ $task->job_id}}</span>
                         </div>
 
                         <div
@@ -37,7 +40,7 @@
                             Module :
                             <span
                                 class="text-blue-500">
-{{--                                {{ $taskData->module->vname }}--}}
+{{--                                {{ $task->module->vname }}--}}
                             </span>
                         </div>
                     </div>
@@ -128,32 +131,32 @@
 
             <div class="flex  items-center font-semibold text-sm font-lex gap-x-5">
                 <div>Created By : <span
-                        class="text-red-600">{{ \Aaran\Core\User\Models\User::getName($taskData->reporter_id)}}</span>
+                        class="text-red-600">{{ \Aaran\Core\User\Models\User::getName($task->reporter_id)}}</span>
                 </div>
                 <div class="border-l-2 h-5 border-gray-400"></div>
 
-                <div class="text-gray-600">  {{$taskData->created_at->diffForHumans()}}</div>
+                <div class="text-gray-600">  {{$task->created_at->diffForHumans()}}</div>
                 <div class="border-l-2 h-5 border-gray-400"></div>
                 <div> Allocated To : <span
-                        class="text-indigo-600">{{ \Aaran\Core\User\Models\User::getName($taskData->allocated_id)}}</span>
+                        class="text-indigo-600">{{ \Aaran\Core\User\Models\User::getName($task->allocated_id)}}</span>
                 </div>
                 <div class="border-l-2  h-5 border-gray-400"></div>
 
                 <div> Priority To :</div>
                 <div
                     class="text-xs px-2 rounded-full py-0.5
-                    {{ \Aaran\Assets\Enums\Priority::tryFrom($taskData->priority_id)->getStyle() }}">
-                    {{ \Aaran\Assets\Enums\Priority::tryFrom($taskData->priority_id)->getName() }}</div>
+                    {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getStyle() }}">
+                    {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getName() }}</div>
                 <div class="border-l-2 h-5 border-gray-400"></div>
 
                 <div> Status :</div>
                 <div
                     class="text-xs px-2 rounded-full py-0.5
-                    {{ \Aaran\Assets\Enums\Status::tryFrom($taskData->status_id)->getStyle()}}">
-                    {{ \Aaran\Assets\Enums\Status::tryFrom($taskData->status_id)->getName() }}</div>
+                    {{ \Aaran\Assets\Enums\Status::tryFrom($task->status_id)->getStyle()}}">
+                    {{ \Aaran\Assets\Enums\Status::tryFrom($task->status_id)->getName() }}</div>
             </div>
 
-            <div class="text-sm text-justify leading-loose ">{!! $taskData->body !!}</div>
+            <div class="text-sm text-justify leading-loose ">{!! $task->vname !!}</div>
             <div class="border-b-2 border-gray-600">&nbsp;</div>
 
             <!-- Activity ----------------------------------------------------------------------------------------->
@@ -171,7 +174,7 @@
 
 
                                     <div class="flex-row flex text-sm space-x-2 mt-0.5">
-                                        <div class="text-indigo-600">{{$row->user->name}}</div> &nbsp;&nbsp;|
+                                        <div class="text-indigo-600">{{$row->user_id}}</div> &nbsp;&nbsp;|
                                         <div
                                             class="text-gray-600 text-xs my-0.5"> {{$row->created_at->diffForHumans()}}  </div>
                                     </div>
@@ -185,10 +188,10 @@
 
                         <div class="flex flex-row p-3 text-justify ml-8 gap-x-3">
                             <div class="w-6 h-6 rounded-full overflow-hidden">
-                                <img src="{{$row->user->profile_photo_url}}" alt="">
+{{--                                <img src="{{$row->user->profile_photo_url}}" alt="">--}}
                             </div>
                             <div
-                                class="text-slate-700 text-sm bg-white capitalize"> {!! $row->vname !!} </div>
+                                class="text-slate-700 text-sm bg-white capitalize"> {!! $row->body !!} </div>
                         </div>
                     </div>
                 @empty
@@ -205,7 +208,7 @@
                 <span class="my-2">Activity</span>
 
                 <div class="bg-gray-200 p-1 rounded-md">
-                    <x-Ui::input.textarea :label="'comments'" type="textarea" wire:model="common.vname"/>
+                    <x-Ui::input.textarea :label="'comments'" type="textarea" wire:model="vname"/>
                 </div>
 
                 <div class="w-full flex justify-between gap-4">
@@ -214,47 +217,14 @@
                     <x-Ui::input.floating wire:model="end_on" :label="'End_On'" type="date"/>
                 </div>
 
-
-                {{--                <x-tabs.tab-panel>--}}
-                {{--                    <x-slot name="tabs">--}}
-                {{--                        <x-tabs.tab>Activity</x-tabs.tab>--}}
-                {{--                        <x-tabs.tab>Duration</x-tabs.tab>--}}
-                {{--                        <x-tabs.tab>Remarks</x-tabs.tab>--}}
-                {{--                    </x-slot>--}}
-
-                {{--                    <x-slot name="content">--}}
-                {{--                        <x-tabs.content>--}}
-                {{--                            <x-input.model-date wire:model="cdate" :label="'Date'"/>--}}
-
-                {{--                            <x-input.rich-text wire:model="common.vname" :placeholder="'Write your comments'"/>--}}
-
-                {{--                          --}}
-                {{--                        </x-tabs.content>--}}
-
-                {{--                        <x-tabs.content>--}}
-                {{--                            <x-input.floating wire:model="estimated" :label="'Estimate'"/>--}}
-
-                {{--                            <x-input.floating wire:model="duration" :label="'Duration'"/>--}}
-
-                {{--                          --}}
-                {{--                        </x-tabs.content>--}}
-
-                {{--                        <x-tabs.content>--}}
-
-                {{--                            <x-input.rich-text wire:model="remarks" :placeholder="'Write your remarks'"/>--}}
-                {{--                        </x-tabs.content>--}}
-
-                {{--                    </x-slot>--}}
-                {{--                </x-tabs.tab-panel>--}}
-
                 <div class="w-full items-center justify-between">
                     <div class="w-3/12">
-{{--                        <x-Ui::input.model-select wire:model="status_id" :label="'Status'">--}}
-{{--                            <option value="">Choose...</option>--}}
-{{--                            @foreach( \Aaran\Assets\Enums\Status::cases() as $status)--}}
-{{--                                <option value="{{$status->value}}">{{$status->getName()}}</option>--}}
-{{--                            @endforeach--}}
-{{--                        </x-Ui::input.model-select>--}}
+                        {{--                        <x-Ui::input.model-select wire:model="status_id" :label="'Status'">--}}
+                        {{--                            <option value="">Choose...</option>--}}
+                        {{--                            @foreach( \Aaran\Assets\Enums\Status::cases() as $status)--}}
+                        {{--                                <option value="{{$status->value}}">{{$status->getName()}}</option>--}}
+                        {{--                            @endforeach--}}
+                        {{--                        </x-Ui::input.model-select>--}}
                     </div>
 
                     <div class="w-full flex items-center justify-end ">
@@ -268,6 +238,7 @@
 
             </div>
         </div>
+
         <x-Ui::modal.confirm-delete/>
 
         <!-- Edit Model ----------------------------------------------------------------------------------------------->
