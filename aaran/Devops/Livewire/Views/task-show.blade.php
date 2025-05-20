@@ -36,7 +36,9 @@
                             class="text-gray-600 my-0.5">
                             Module :
                             <span
-                                class="text-blue-500">{{ $taskData->module->vname }}</span>
+                                class="text-blue-500">
+{{--                                {{ $taskData->module->vname }}--}}
+                            </span>
                         </div>
                     </div>
                 </div>

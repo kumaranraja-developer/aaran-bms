@@ -147,75 +147,6 @@ class TaskShow extends Component
     }
 #endregion
 
-    #region[job]
-    public $job_id = '';
-    public $job_name = '';
-    public Collection $jobCollection;
-    public $highlightJob = 0;
-    public $jobTyped = false;
-
-    public function decrementJob(): void
-    {
-        if ($this->highlightJob === 0) {
-            $this->highlightJob = count($this->jobCollection) - 1;
-            return;
-        }
-        $this->highlightJob--;
-    }
-
-    public function incrementJob(): void
-    {
-        if ($this->highlightJob === count($this->jobCollection) - 1) {
-            $this->highlightJob = 0;
-            return;
-        }
-        $this->highlightJob++;
-    }
-
-    public function setJob($name, $id): void
-    {
-        $this->job_name = $name;
-        $this->job_id = $id;
-        $this->getJobList();
-    }
-
-    public function enterJob(): void
-    {
-        $obj = $this->jobCollection[$this->highlightJob] ?? null;
-
-        $this->job_name = '';
-        $this->jobCollection = Collection::empty();
-        $this->highlightJob = 0;
-
-        $this->job_name = $obj['vname'] ?? '';
-        $this->job_id = $obj['id'] ?? '';
-    }
-
-    public function refreshJob($v): void
-    {
-        $this->job_id = $v['id'];
-        $this->job_name = $v['name'];
-        $this->jobTyped = false;
-    }
-
-    public function jobSave($name)
-    {
-        $obj = Common::create([
-            'label_id' => 25, // Assuming label_id for jobs is 24
-            'vname' => $name,
-            'active_id' => '1'
-        ]);
-        $v = ['name' => $name, 'id' => $obj->id];
-        $this->refreshJob($v);
-    }
-
-    public function getJobList(): void
-    {
-        $this->jobCollection = $this->job_name ?
-            Common::search(trim($this->job_name))->where('label_id', '=', '25')->get() : '';
-    }
-
-#endregion
     public function saveTaskImage($id): void
     {
         foreach ($this->old_images as $old_image) {
@@ -224,7 +155,7 @@ class TaskShow extends Component
 
         if ($this->images != []) {
             foreach ($this->images as $image) {
-                TaskImage::create([
+                TaskImage::on($this->getTenantConnection())->create([
                     'task_id' => $id,
                     'image' => $this->saveImage($image),
                 ]);
@@ -267,40 +198,20 @@ class TaskShow extends Component
     #region[getSave]
     public function getSaveActivity(): void
     {
-        if ($this->common->vid == '') {
-            $activity = new Activities();
-            $extraFields = [
+        $connection = $this->getTenantConnection();
+
+        $obj = Activities::on($connection)->updateOrCreate(
+            ['id' => $this->vid],
+            [
                 'task_id' => $this->task_id,
-//                'estimated' => $this->estimated,
-//                'duration' => $this->duration,
                 'start_on' => $this->start_on,
                 'end_on' => $this->end_on,
-//                'cdate' => $this->cdate,
-//                'remarks' => $this->remarks,
                 'status_id' => $this->status_id ?: '1',
                 'user_id' => auth()->id(),
-            ];
-            $this->common->save($activity, $extraFields);
-            $this->clearFields();
-            $message = "Saved";
-        } else {
-            $activity = Activities::find($this->common->vid);
-            $extraFields = [
-                'task_id' => $this->task_id,
-//                'estimated' => $this->estimated,
-//                'duration' => $this->duration,
-                'start_on' => $this->start_on,
-                'end_on' => $this->end_on,
-//                'cdate' => $this->cdate,
-//                'remarks' => $this->remarks,
-                'status_id' => $this->status_id ?: '1',
-                'user_id' => auth()->id(),
-            ];
-            $this->common->edit($activity, $extraFields);
-            $this->clearFields();
-            $message = "Updated";
-        }
-        $this->dispatch('notify', ...['type' => 'success', 'content' => $message . ' Successfully']);
+            ],
+        );
+
+        $this->dispatch('notify', ...['type' => 'success', 'body' => ('Actives updated Successfully')]);
     }
     #endregion
 
