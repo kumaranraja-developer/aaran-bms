@@ -1,24 +1,36 @@
 <div class="bg-white dark:bg-dark">
     <x-slot name="header">Job Manager</x-slot>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 ">
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5 p-5">
         @foreach($list as $card)
             @php
                 $link = route('task-managers',[$card->id])
             @endphp
-            <div class="bg-gray-300 text-black px-4 py-4 flex flex-col h-full rounded">
+            <div class="bg-white border border-gray-50 dark:border-gray-500 dark:bg-dark-4 dark:text-dark-9 text-black p-6 flex flex-col h-full rounded-lg gap-3 hover:scale-103 shadow-lg hover:shadow-xl transition duration-300">
                 <div class="flex-grow flex flex-col gap-y-2">
-                    <a class="font-bold text-2xl" href="{{$link}}">
+                    <a class="font-bold text-xl" href="{{$link}}">
                         {{ $card->title }}
                     </a>
 
-                    <a href="{{$link}}" class="text-justify">
+                    <a href="{{$link}}" class="text-justify text-sm break-words">
                         {!! $card->content !!}
                     </a>
                 </div>
 
-                <div class="pt-2 flex flex-col gap-y-2">
-                    <img src="{{ asset('images/home/wp1.webp') }}" alt="Card Image" class="w-full object-cover rounded" />
-                    <x-Ui::table.cell-status active="{{ $card->active_id }}" />
+                <div class="pt-2 flex flex-col gap-y-4">
+                    <img src="{{ asset('images/home/wp1.webp') }}" alt="Card Image" class="w-full object-cover rounded h-[200px]" />
+                    <div
+                            class="inline-flex items-center px-3 py-1 rounded-xl gap-x-2 @if($card->active===1)bg-emerald-100/60 @else bg-red-100/60 @endif ">
+
+                        <span class="h-1.5 w-1.5  rounded-full @if($card->active===1)bg-emerald-500 @else bg-red-500 @endif"></span>
+
+                        <h2 class=" font-normal @if($card->active===1) text-emerald-500 @else text-red-500 @endif">@if($card->active===1)
+                                Active
+                            @else
+                                In-Active
+                            @endif
+                        </h2>
+
+                    </div>
                 </div>
             </div>
         @endforeach

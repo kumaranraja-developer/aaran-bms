@@ -6,7 +6,7 @@ shadow-md print:hidden dark:bg-dark-3 dark:text-dark-9">
         <div
             class="w-3/12 flex
             items-center">
-            <div class="p-1 cursor-pointer hover:bg-gray-200 self-start hover:rounded-sm"
+            <div class="p-1 cursor-pointer hover:bg-gray-200 dark:hover:bg-dark-3 self-start hover:rounded-sm"
                  @click="sidebarOpen = !sidebarOpen">
 
                 <svg class="sm:h-8 sm:w-8 w-5 h-5" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -38,9 +38,9 @@ shadow-md print:hidden dark:bg-dark-3 dark:text-dark-9">
             </div>
 
             {{-- login menu--}}
-            <div class="md:flex items-center hidden">
+            <div class="md:flex items-center hidden ">
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
+                <div class="ml-3 relative ">
                     <x-Ui::jet.dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @auth
@@ -56,7 +56,7 @@ shadow-md print:hidden dark:bg-dark-3 dark:text-dark-9">
                                 <span class="inline-flex rounded-md">
                                     <button type="button"
                                             class="inline-flex items-center sm:px-3 px-1 sm:py-2 py-1 border border-gray-300 sm:text-sm text-xs
-                                            leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                            leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition dark:text-dark-9 dark:bg-dark-4 dark:hover:text-primary">
                                         {{ Auth::user()->name }}
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                                              viewBox="0 0 20 20" fill="currentColor">
@@ -74,7 +74,7 @@ shadow-md print:hidden dark:bg-dark-3 dark:text-dark-9">
                         <x-slot name="content">
 
                             <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
+                            <div class="block px-4 py-2 text-xs text-gray-400 dark:text-dark-9 dark:bg-dark-4">
                                 {{ __('Manage Account') }}
                             </div>
 
