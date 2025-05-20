@@ -11,7 +11,6 @@ use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Core\User\Models\User;
 use Aaran\Devops\Models\Task;
 use Aaran\Devops\Models\TaskImage;
-use App\Models\Image;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
@@ -29,7 +28,9 @@ class TaskList extends Component
     public string $body = '';
     public mixed $start_at = null;
     public mixed $due_date = null;
-    public string $assigned_id = '';
+    public string $module_id = '';
+    public string $allocated_id = '';
+    public string $reporter_id = '';
     public string $priority_id = '';
     public string $status_id = '';
     public bool $active_id = true;
@@ -37,6 +38,10 @@ class TaskList extends Component
     public $image;
     public array $images = [];
     public bool $isUploaded = false;
+
+    public $users;
+    public $priorities;
+    public $statuses;
 
     public function rules(): array
     {
@@ -58,10 +63,6 @@ class TaskList extends Component
             'title' => 'Title',
         ];
     }
-
-    public $users;
-    public $priorities;
-    public $statuses;
 
     public function mount($id = null): void
     {
@@ -92,10 +93,12 @@ class TaskList extends Component
                 'body' => $this->body,
                 'start_at' => $this->start_at ?: now()->format("Y-m-d"),
                 'due_date' => $this->due_date ?: now()->format("Y-m-d"),
-                'assigned_id' => $this->assigned_id,
-                'priority_id' => $this->priority_id,
-                'status_id' => $this->status_id,
-                'active_id' => $this->active_id
+                'module_id' => $this->module_id ?:'1',
+                'allocated_id' => $this->allocated_id ?:'1',
+                'priority_id' => $this->priority_id ?:'1',
+                'reporter_id' => $this->reporter_id ?:'1',
+                'status_id' => $this->status_id ?:'1',
+                'active_id' => $this->active_id ?:'1',
             ],
         );
 
@@ -130,7 +133,9 @@ class TaskList extends Component
         $this->body = '';
         $this->start_at = Carbon::now()->format('Y-m-d');;
         $this->due_date = Carbon::now()->addDay(1)->format('Y-m-d');
-        $this->assigned_id = '';
+        $this->module_id = '';
+        $this->allocated_id = '';
+        $this->reporter_id = '';
         $this->priority_id = '';
         $this->status_id = '';
         $this->active_id = true;
@@ -148,7 +153,9 @@ class TaskList extends Component
             $this->body = $obj->body;
             $this->start_at = $obj->start_at;
             $this->due_date = $obj->due_date;
-            $this->assigned_id = $obj->assigned_id;
+            $this->module_id = $obj->module_id;
+            $this->allocated_id = $obj->allocated_id;
+            $this->reporter_id = $obj->reporter_id;
             $this->priority_id = $obj->priority_id;
             $this->status_id = $obj->status_id;
             $this->active_id = $obj->active_id;
