@@ -62,7 +62,7 @@
                         </x-Ui::table.cell-link>
 
                         <x-Ui::table.cell-link :href="$link">
-                            {{\Aaran\Core\User\Models\User::getName($row->assigned_id)}}
+                            {{\Aaran\Core\User\Models\User::getName($row->allocated_id)}}
                         </x-Ui::table.cell-link>
 
                         <x-Ui::table.cell-link :href="$link">
@@ -110,9 +110,9 @@
 
                 <div>
                     <x-Ui::input.floating-dropdown
-                        wire:model="assigned_id"
-                        label="Assign to"
-                        id="assigned_id"
+                        wire:model="allocated_id"
+                        label="Allocated to"
+                        id="allocated_id"
                         :options="$users"
                         placeholder="Choose a .."
                     />
