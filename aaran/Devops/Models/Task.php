@@ -35,6 +35,11 @@ class Task extends Model
         return $this->belongsTo(Job::class);
     }
 
+    public function module(): BelongsTo
+    {
+        return $this->belongsTo(Module::class);
+    }
+
     public function reply() :HasMany
     {
         return $this->hasMany(Reply::class);

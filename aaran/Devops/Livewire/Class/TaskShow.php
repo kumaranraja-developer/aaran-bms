@@ -2,22 +2,16 @@
 
 namespace Aaran\Devops\Livewire\Class;
 
-use Aaran\Assets\Enums\Active;
-use Aaran\Assets\Enums\Priority;
-use Aaran\Assets\Enums\Status;
-use Aaran\Assets\Services\ImageService;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
-use Aaran\Core\User\Models\User;
+use Aaran\Devops\Models\Activities;
+use Aaran\Devops\Models\Module;
 use Aaran\Devops\Models\Task;
-use Aaran\Devops\Models\TaskCommentImage;
-use Aaran\Devops\Models\TaskComments;
 use Aaran\Devops\Models\TaskImage;
-use Aaran\Devops\Models\TaskReply;
-use App\Models\Image;
 use Carbon\Carbon;
-use Illuminate\Support\Str;
-use Livewire\Attributes\Validate;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -48,26 +42,27 @@ class TaskShow extends Component
     public $images = [];
     public $old_images = [];
     public $status_id;
+    public $active_id;
 
     #endregion
 
     public function mount($id)
     {
-        $this->taskData = Task::find($id);
+        $this->taskData = Task::on($this->getTenantConnection())->find($id);
 //        dd($this->taskData);
-        $this->taskImage = TaskImage::where('task_id', $id)->get()->toarray();
+        $this->taskImage = TaskImage::on($this->getTenantConnection())->where('task_id', $id)->get()->toarray();
         $this->task_id = $id;
-        $this->common->active_id = 1;
+        $this->active_id = 1;
         $this->taskTitle = $this->taskData->vname;
         $this->taskBody = $this->taskData->body;
         $this->allocated = $this->taskData->allocated_id;
         $this->priority = $this->taskData->priority_id;
         $this->status = $this->taskData->status_id;
         $this->module_id = $this->taskData->module_id;
-        $this->module_name = Common::find($this->taskData->module_id)->vname;
+//        $this->module_name = Common::find($this->taskData->module_id)->vname;
         $this->job_id = $this->taskData->job_id;
-        $this->job_name = Common::find($this->taskData->job_id)->vname;
-        $this->old_images = TaskImage::where('task_id', $id)->get();
+//        $this->job_name = Common::find($this->taskData->job_id)->vname;
+        $this->old_images = TaskImage::on($this->getTenantConnection())->where('task_id', $id)->get();
         $this->cdate = Carbon::now()->format('Y-m-d');
         $this->verified_on = Carbon::now()->format('Y-m-d');
     }
@@ -148,9 +143,7 @@ class TaskShow extends Component
 
     public function getModuleList(): void
     {
-        $this->moduleCollection = $this->module_name ?
-            Common::search(trim($this->module_name))->where('label_id', '=', '24')->get() :
-            Common::where('label_id', '=', '24')->orWhere('label_id', '=', '24')->get();
+        $this->moduleCollection = Module::on($this->getTenantConnection())->where('active_id', 1)->get();
     }
 #endregion
 
@@ -219,12 +212,11 @@ class TaskShow extends Component
     public function getJobList(): void
     {
         $this->jobCollection = $this->job_name ?
-            Common::search(trim($this->job_name))->where('label_id', '=', '25')->get() :
-            Common::where('label_id', '=', '25')->orWhere('label_id', '=', '24')->get();
+            Common::search(trim($this->job_name))->where('label_id', '=', '25')->get() : '';
     }
 
 #endregion
-    public function saveTaskImage($id)
+    public function saveTaskImage($id): void
     {
         foreach ($this->old_images as $old_image) {
             $old_image->save();
@@ -358,21 +350,22 @@ class TaskShow extends Component
 
     public function getList()
     {
-        return Activities::select('activities.*')
+        return Activities::on($this->getTenantConnection())
+            ->select('activities.*')
             ->where('task_id', $this->taskData->id)
             ->orderBy('id', 'asc')
-            ->paginate($this->getListForm->perPage);
+            ->paginate($this->perPage);
     }
 
     public function getRoute()
     {
-        return redirect(route('tasks.upsert', [$this->task_id]));
+        return redirect(route('task-shows', [$this->task_id]));
     }
 
     public function render()
     {
-        $this->getJobList();
-        $this->getModuleList();
-        return view('devops::task-show')->with(['list' => $this->getList(), 'users' => DB::table('users')->where('users.tenant_id', session()->get('tenant_id'))->get(),]);
+        return view('devops::task-show')->with([
+            'list' => $this->getList(),
+            'users' => DB::table('users')->where('users.tenant_id', session('tenant_id'))->get(),]);
     }
 }
