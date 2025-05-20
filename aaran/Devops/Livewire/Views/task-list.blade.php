@@ -119,6 +119,50 @@
                     <x-Ui::input.error-text wire:model="plan_id"/>
                 </div>
 
+
+                <div>
+                    <!-- Image  ---------------------------------------------------------------------------------------->
+
+                    <label class="w-[10rem] text-zinc-500 tracking-wide py-2"></label>
+
+                    <div class="flex flex-row flex-shrink-0 h-46 w-full gap-2">
+                        Photo Preview:
+                        @if($images)
+                            @foreach($images as $index => $image)
+                                <div class="flex gap-3">
+                                    <img class="lg:max-h-32 w-auto bg-cover"
+                                         src="{{$isUploaded? $image->temporaryUrl() : URL(\Illuminate\Support\Facades\Storage::url('images/'.$image)) }}"
+                                         alt="{{$image}}">
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                    <div class="relative">
+                        <div>
+                            <label for="bg_image"
+                                   class="text-gray-500 font-semibold text-base rounded flex flex-col items-center
+                                   justify-center cursor-pointer border-2 border-gray-300 border-dashed p-2
+                                   mx-auto font-[sans-serif]">
+                                <x-Ui::icons.icon icon="cloud-upload" class="w-8 h-auto block text-gray-400"/>
+                                Upload Photo
+                                <input type="file" id='bg_image' wire:model="images" multiple wire:change.debounce="taskImage()" class="hidden"/>
+                                <p class="text-xs font-light text-gray-400 mt-2">PNG and JPG are
+                                    Allowed.</p>
+                            </label>
+                        </div>
+
+                        <div wire:loading wire:target="images" class="z-10 absolute top-6 left-12">
+                            <div class="w-14 h-14 rounded-full animate-spin
+                                                        border-y-4 border-dashed border-green-500 border-t-transparent"></div>
+                        </div>
+                    </div>
+
+{{--                    <div>--}}
+{{--                        <input type="file" wire:model="images" multiple wire:change.debounce="taskImage()">--}}
+{{--                        <button wire:click.prevent="saveImage"></button>--}}
+{{--                    </div>--}}
+                </div>
+
                 <div class="flex flex-row justify-between z-10 gap-5">
                     <div class="w-full">
                         <div>
@@ -127,7 +171,7 @@
                                 label="Priority"
                                 id="priority_id"
                                 :options="$priorities"
-                                placeholder="Choose a .."
+                                placeholder=""
                             />
                             <x-Ui::input.error-text wire:model="priority_id"/>
                         </div>
@@ -140,7 +184,7 @@
                                 label="Status"
                                 id="status_id"
                                 :options="$statuses"
-                                placeholder="Choose a .."
+                                placeholder=""
                             />
                             <x-Ui::input.error-text wire:model="status_id"/>
                         </div>

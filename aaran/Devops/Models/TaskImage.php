@@ -11,7 +11,9 @@ class TaskImage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['model','model_id','image_id','path', 'active_id'];
+    protected $guarded = [];
+
+    public $timestamps = false;
 
     public function scopeActive(Builder $query, $status = '1'): Builder
     {

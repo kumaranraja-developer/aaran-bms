@@ -5,19 +5,23 @@ namespace Aaran\Devops\Livewire\Class;
 use Aaran\Assets\Enums\Active;
 use Aaran\Assets\Enums\Priority;
 use Aaran\Assets\Enums\Status;
+use Aaran\Assets\Services\ImageService;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Core\User\Models\User;
 use Aaran\Devops\Models\Task;
+use Aaran\Devops\Models\TaskImage;
+use App\Models\Image;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class TaskList extends Component
 {
 
-    use ComponentStateTrait, TenantAwareTrait;
+    use ComponentStateTrait, TenantAwareTrait, WithFileUploads;
 
     #[Validate]
     public string $job_id = '';
@@ -29,6 +33,10 @@ class TaskList extends Component
     public string $priority_id = '';
     public string $status_id = '';
     public bool $active_id = true;
+
+    public $image;
+    public array $images = [];
+    public bool $isUploaded = false;
 
     public function rules(): array
     {
@@ -76,7 +84,7 @@ class TaskList extends Component
         $this->validate();
         $connection = $this->getTenantConnection();
 
-        Task::on($connection)->updateOrCreate(
+        $obj = Task::on($connection)->updateOrCreate(
             ['id' => $this->vid],
             [
                 'job_id' => $this->job_id,
@@ -91,9 +99,29 @@ class TaskList extends Component
             ],
         );
 
+        $this->saveImage($obj->id, $this->images);
+
         $this->dispatch('notify', ...['type' => 'success', 'body' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
         $this->clearFields();
     }
+
+    public function saveImage($id, $images): void
+    {
+        $imageService = app(ImageService::class);
+
+        foreach ($this->images as $image) {
+            TaskImage::on($this->getTenantConnection())->create([
+                'task_id' => $id,
+                'image' => $imageService->save($image),
+            ]);
+        }
+    }
+
+    public function taskImage(): void
+    {
+        $this->isUploaded = true;
+    }
+
 
     public function clearFields(): void
     {
@@ -107,6 +135,8 @@ class TaskList extends Component
         $this->status_id = '';
         $this->active_id = true;
         $this->searches = '';
+        $this->images = [];
+        $this->isUploaded = false;
     }
 
     public function getObj(int $id): void
@@ -122,6 +152,11 @@ class TaskList extends Component
             $this->priority_id = $obj->priority_id;
             $this->status_id = $obj->status_id;
             $this->active_id = $obj->active_id;
+
+            $data = TaskImage::on($this->getTenantConnection())->where('task_id', $id)->get();
+            foreach ($data as $row) {
+                $this->images[] = $row->image;
+            }
         }
     }
 
