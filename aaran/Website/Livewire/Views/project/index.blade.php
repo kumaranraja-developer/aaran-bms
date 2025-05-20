@@ -18,7 +18,7 @@
 
         <div class="my-15 text-4xl text-center">Upcoming Apps</div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 mx-auto w-[80%] lg:grid-cols-3 gap-4 h-max p-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 mx-auto w-[80%] lg:grid-cols-3 gap-4 h-max p-4 ">
             @foreach($upcoming as $upcomingApps)
                 <x-Ui::web.project.featured-apps
                     :icon="$upcomingApps->icon"
