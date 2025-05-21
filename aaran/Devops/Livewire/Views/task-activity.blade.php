@@ -213,6 +213,8 @@
             @endforelse
         </div>
 
+        <x-Ui::modal.confirm-delete/>
+
         <!-- Create Activity -------------------------------------------------------------------------------------->
 
         <div class="w-full space-y-5 pt-8">
