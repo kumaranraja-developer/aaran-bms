@@ -3,6 +3,7 @@
 namespace Aaran\BMS\Billing\Master\Livewire\Class\Company;
 
 use Aaran\Assets\Enums\MsmeType;
+use Aaran\Assets\Services\ImageService;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\BMS\Billing\Common\Models\City;
@@ -38,8 +39,10 @@ class Index extends Component
     public string $website = '';
     public string $inv_pfx = '';
     public string $iec_no = '';
+
     public $logo = '';
     public $old_logo = '';
+
     public string $pan = '';
     public $bank;
     public $acc_no;
@@ -477,6 +480,7 @@ class Index extends Component
     #region[save]
     public function getSave(): void
     {
+        $imageService = app(ImageService::class);
 
         $this->validate();
 
@@ -508,7 +512,7 @@ class Index extends Component
                 'inv_pfx' => $this->inv_pfx ?: '-',
                 'iec_no' => $this->iec_no ?: '-',
                 'active_id' => $this->active_id,
-                'logo' => 'logo'//$this->save_logo(),
+                'logo' => $imageService->save($this->logo, $this->old_logo, 'logo', $this->vname),
             ],
         );
 
@@ -551,32 +555,6 @@ class Index extends Component
         $this->branch = '';
         $this->logo = '';
         $this->old_logo = '';
-    }
-    #endregion
-
-    #region[logo]
-    public function save_logo()
-    {
-        if ($this->logo) {
-
-            $image = $this->logo;
-            $filename = $this->logo->getClientOriginalName();
-
-            if (Storage::disk('public')->exists(Storage::path('public/images/' . $this->old_logo))) {
-                Storage::disk('public')->delete(Storage::path('public/images/' . $this->old_logo));
-            }
-
-            $image->storeAs('public/images', $filename);
-
-            return $filename;
-
-        } else {
-            if ($this->old_logo) {
-                return $this->old_logo;
-            } else {
-                return 'no_image';
-            }
-        }
     }
     #endregion
 

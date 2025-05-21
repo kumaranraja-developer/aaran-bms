@@ -248,7 +248,7 @@
 
                                             @if(!$logo && isset($logo))
                                                 <img class="h-24 w-full"
-                                                     src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_logo))}}"
+                                                     src="{{URL(\Illuminate\Support\Facades\Storage::url('logo/'.$old_logo))}}"
                                                      alt="">
                                             @else
                                                 <x-Ui::icons.icon :icon="'logo'" class="w-auto h-auto block "/>
