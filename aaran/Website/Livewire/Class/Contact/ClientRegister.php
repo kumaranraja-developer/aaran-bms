@@ -1,11 +1,11 @@
 <?php
 
-namespace Aaran\Website\Livewire\Class\Project;
+namespace Aaran\Website\Livewire\Class\Contact;
 
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-class ClientInfo extends Component
+class ClientRegister extends Component
 {
     public mixed $team;
     public mixed $quotes;
@@ -30,7 +30,7 @@ class ClientInfo extends Component
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {
-        return view('website::project.client-info');
+        return view('website::contact.client-register');
     }
 
 }

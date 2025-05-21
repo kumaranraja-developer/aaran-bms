@@ -56,15 +56,13 @@
                         <x-slot name="content">
 
                             <div class="flex flex-col gap-1">
-                                <li class="hover:tracking-wide hover:font-bold transition hover:bg-orange-200 text-black p-2 cursor-pointer duration-500">
-                                    <a href="{{ route('dashboard') }}" class="menu-text">Dashboard</a>
-                                </li>
+                                <a href="{{ route('dashboard') }}" role="button"
+                                   class="menu-text hover:tracking-wide hover:font-bold transition hover:bg-orange-200 text-black p-2 cursor-pointer duration-500">Dashboard</a>
 
-                                <li class="hover:tracking-wide hover:font-bold transition  hover:bg-orange-200 text-black p-2 cursor-pointer duration-500">
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                       class="menu-text borderpx-3 py-2 rounded-lg">Logout</a>
-                                </li>
+                                <a href="{{ route('logout') }}" role="button"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                   class="menu-text hover:tracking-wide hover:font-bold transition  hover:bg-orange-200 text-black p-2
+                                       cursor-pointer duration-500 px-3 py-2 rounded-lg">Logout</a>
                             </div>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                   class="hidden">@csrf</form>

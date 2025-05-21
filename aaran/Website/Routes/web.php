@@ -10,7 +10,7 @@ Route::get('/web-contacts', Class\Contact\Index::class)->name('web-contacts');
 Route::get('/web-projects', Class\Project\Index::class)->name('web-projects');
 
 
-Route::get('/client-registration', Class\Project\Index::class)->name('client-registration');
+//Route::get('/client-registration', Class\Project\Index::class)->name('client-registration');
 Route::get('/client-plans', Class\Project\Index::class)->name('client-plans');
 
 Route::get('/dev-teams', Class\About\Team::class)->name('dev-teams');
@@ -19,5 +19,12 @@ Route::get('/testimonials', Class\About\TestimonialList::class)->name('testimoni
 
 
 Route::get('/plan-details', Class\Project\Plan::class)->name('plan-details');
-Route::get('/client-info', Class\Project\ClientInfo::class)->name('client-info');
 Route::get('/plan-comparison', Class\Project\PlanComparison::class)->name('plan-comparison');
+
+
+Route::get('/client-registration', Class\Contact\ClientRegister::class)->name('client-registration');
+
+
+Route::view('terms', 'website-blade::terms')->name('terms');
+
+Route::view('policy', 'website-blade::policy')->name('policy');

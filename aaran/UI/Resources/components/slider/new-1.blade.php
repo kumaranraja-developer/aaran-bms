@@ -131,7 +131,7 @@
 
                         <div class="mt-10 flex justify-center gap-x-6" data-animatable>
                             <a class="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900"
-                               href="/register">Get {{Aaran\Assets\Config\Application::AppTrialPeriod}} free</a>
+                               href="/{{ route('client-registration') }}">Get {{Aaran\Assets\Config\Application::AppTrialPeriod}} free</a>
                             <a class="group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-hidden ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300"
                                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
                                 <svg aria-hidden="true"
