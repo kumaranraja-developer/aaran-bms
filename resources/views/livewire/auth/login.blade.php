@@ -1,8 +1,8 @@
-<div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
-
-    <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
+
+<div class="flex flex-col gap-6 rounded-2xl border shadow-2xl shadow-blue-500 p-10">
+{{--    <x-auth-header :title="__('')" :description="__('')" />--}}
+    <!-- Session Status -->
 
     <form wire:submit="login" class="flex flex-col gap-6">
         <!-- Email Address -->
@@ -28,11 +28,11 @@
                 viewable
             />
 
-            @if (Route::has('password.request'))
-                <flux:link class="absolute end-0 top-0 text-sm" :href="route('password.request')" wire:navigate>
-                    {{ __('Forgot your password?') }}
-                </flux:link>
-            @endif
+{{--            @if (Route::has('password.request'))--}}
+{{--                <flux:link class="absolute end-0 top-0 text-sm" :href="route('password.request')" wire:navigate>--}}
+{{--                    {{ __('Forgot your password?') }}--}}
+{{--                </flux:link>--}}
+{{--            @endif--}}
         </div>
 
         <!-- Remember Me -->
