@@ -40,7 +40,7 @@ enum Status : int
     public function getStyle(): string
     {
         return match ($this) {
-            self::NEW => 'text-gray-500 bg-gray-300',
+            self::NEW => 'text-white bg-blue-600',
             self::PENDING => 'text-white bg-gray-600',
             self::ONPROGRESS => 'text-black bg-blue-300',
             self::NOTSTARTED => 'text-gray-100 bg-gray-500',

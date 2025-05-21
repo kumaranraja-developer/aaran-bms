@@ -9,7 +9,7 @@
             <div class="inline-flex 1space-x-2 font-merri">
                 <div class="text-5xl text-gray-700">{{$task->id}}.</div>
 
-                <div class="text-5xl font-bold tracking-wider capitalize text-gray-700">
+                <div class="text-5xl font-bold tracking-wider capitalize text-gray-700 ">
                     {{$task->title}}
                 </div>
             </div>

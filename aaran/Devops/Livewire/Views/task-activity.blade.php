@@ -1,4 +1,4 @@
-<div>
+<div class="px-10 lg:px-40">
     <x-slot name="header">Activity</x-slot>
 
     <x-Ui::forms.m-panel>
@@ -6,9 +6,9 @@
         <div class="max-w-7xl mx-auto space-y-5 font-lex ">
 
             <div class="inline-flex 1space-x-2 font-merri">
-                <div class="text-5xl text-gray-700">{{$task->id}}.</div>
+                <div class="text-5xl text-gray-700 dark:text-dark-9">{{$task->id}}.</div>
 
-                <div class="text-5xl font-bold tracking-wider capitalize text-gray-700">
+                <div class="text-5xl font-bold tracking-wider capitalize text-gray-700 dark:text-dark-9">
                     {{$task->title}}
                 </div>
             </div>
@@ -165,8 +165,8 @@
 
         <div class="w-full space-y-4 font-lex pr-2">
             @forelse($activities as $index=>$row)
-                <div class=" border border-gray-200 rounded-lg">
-                    <div class="flex justify-between items-center p-3 border-b bg-gray-50 ">
+                <div class=" border border-gray-200 rounded-lg dark:bg-dark-4 dark:text-dark-9">
+                    <div class="flex justify-between items-center p-3 rounded-lg border-b bg-gray-50 dark:bg-dark-4 dark:text-dark-9">
                         <div class="flex flex-col items-center">
                             <div class="flex justify-center gap-x-2">
                                 <div
@@ -179,11 +179,11 @@
                                     <div class="text-indigo-600">
                                         {{\Aaran\Core\User\Models\User::getName($row->user_id)}}</div> &nbsp;&nbsp;|&nbsp;&nbsp;
                                     <div
-                                        class="text-gray-600 text-xs my-0.5"> {{ \Carbon\Carbon::parse($row->created_at)->diffForHumans() }}  </div>
+                                        class="text-gray-600 text-xs my-0.5 dark:text-dark-9"> {{ \Carbon\Carbon::parse($row->created_at)->diffForHumans() }}  </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex justify-center items-center gap-3 self-center">
+                        <div class="flex justify-center items-center gap-3 self-center ">
                             <x-Ui::button.edit wire:click="editActivity({{$row->id}})"/>
                             <x-Ui::button.danger-x wire:click="getDelete({{$row->id}})"/>
                         </div>
@@ -194,12 +194,12 @@
                             {{--                                <img src="{{$row->user->profile_photo_url}}" alt="">--}}
                         </div>
                         <div
-                            class="text-slate-700 text-sm bg-white capitalize"> {!! $row->vname !!} </div>
+                            class="text-slate-700 text-sm bg-white capitalize dark:bg-dark-4 dark:text-dark-9"> {!! $row->vname !!} </div>
                     </div>
                 </div>
             @empty
                 <div class="flex-col flex justify-start items-center border rounded-md">
-                    <div class="w-full bg-gray-100 p-2 ">No Activities yet</div>
+                    <div class="w-full bg-gray-100 p-2 dark:bg-dark-4 dark:text-dark-9 rounded-md">No Activities yet</div>
                     <div class="w-full px-2 py-4">Empty Remarks</div>
                 </div>
             @endforelse
@@ -210,7 +210,7 @@
         <div class="w-full space-y-5 pt-8">
             <span class="my-2">Activity</span>
 
-            <div class="bg-gray-200 p-1 rounded-md">
+            <div class="bg-gray-200 rounded-lg border border-gray-700  dark:text-dark-9">
                 <x-Ui::input.textarea :label="'comments'" type="textarea" wire:model="vname"/>
             </div>
 
