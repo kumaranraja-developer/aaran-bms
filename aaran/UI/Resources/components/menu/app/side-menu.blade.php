@@ -28,8 +28,8 @@
             x-data="{selected:null}">
 
 
-            <x-Ui::menu.app.sub.tenant/>
-            <x-Ui::menu.app.sub.task/>
+{{--            <x-Ui::menu.app.sub.tenant/>--}}
+{{--            <x-Ui::menu.app.sub.task/>--}}
 
             <x-Ui::menu.app.sub.entries/>
             <x-Ui::menu.app.sub.transaction/>

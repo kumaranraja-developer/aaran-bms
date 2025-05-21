@@ -2,7 +2,7 @@
     $menuItems = [
         'home' => 'Home',
         'abouts' => 'About',
-        'blogs' => 'Blog',
+//        'blogs' => 'Blog',
         'web-projects' => 'Products',
         'web-contacts' => 'Contact',
     ];
