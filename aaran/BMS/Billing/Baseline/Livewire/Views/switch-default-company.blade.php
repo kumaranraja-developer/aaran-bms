@@ -31,7 +31,8 @@
                 <x-Ui::table.header-text sortIcon="none" center> Ac Year</x-Ui::table.header-text>
                 <x-Ui::table.header-text sortIcon="none" center> Default</x-Ui::table.header-text>
 
-                <x-Ui::table.header-action/>
+                <x-Ui::table.header-text sortIcon="none" center>&nbsp;</x-Ui::table.header-text>
+
             </x-slot:table_header>
 
             <x-slot:table_body>
