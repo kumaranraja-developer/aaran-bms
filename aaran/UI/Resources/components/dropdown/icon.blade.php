@@ -7,7 +7,7 @@
         </svg>
     </button>
     <!-- Dropdown Menu -->
-    <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition x-trap="openedWithKeyboard" @click.outside="isOpen = false, openedWithKeyboard = false" @keydown.down.prevent="$focus.wrap().next()" @keydown.up.prevent="$focus.wrap().previous()" class="absolute z-10 flex flex-col p-1 space-y-2 overflow-hidden bg-white border rounded-md -bottom-12 right-6 max-w-max shadow-md shadow-gray-300" role="menu">
+    <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition x-trap="openedWithKeyboard" @click.outside="isOpen = false, openedWithKeyboard = false" @keydown.down.prevent="$focus.wrap().next()" @keydown.up.prevent="$focus.wrap().previous()" class="absolute z-10 flex flex-col p-1 space-y-2 overflow-hidden bg-white border rounded-md -bottom-12 right-6 max-w-max shadow-md shadow-gray-300 dark:text-dark-9" role="menu">
         <div class="">
             {{$slot}}
         </div>
