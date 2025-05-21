@@ -20,7 +20,7 @@
                         <a class="font-bold text-xl break-words line-clamp-1" href="{{$link}}">
                             {{ $card->title }}
                         </a>
-                        <x-Ui::button.edit :id="$card->id" class="text-blue-500" wire:click="create"/>
+                        <x-Ui::button.edit :id="$card->id" class="text-blue-500" wire:click="edit({{$card->id}})"/>
 
                     </div>
                     <a href="{{$link}}" class="text-justify break-words line-clamp-3 text-sm dark:text-dark-8">
@@ -42,7 +42,8 @@
                                 @endif
                             </h2>
                         </div>
-                        <x-Ui::button.delete :id="$card->id" class="text-red-500"/>
+
+                        <x-Ui::button.delete wire:click="confirmDelete({{$card->id}})" class="text-red-500"/>
                     </div>
 
                 </div>
@@ -50,6 +51,11 @@
         @endforeach
 
     </div>
+
+    <!-- Delete Modal --------------------------------------------------------------------------------------------->
+    <x-Ui::modal.confirm-delete/>
+
+    <div class="pt-5">{{ $list->links() }}</div>
 
     <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
 
@@ -65,6 +71,12 @@
                 <x-Ui::input.rich-text wire:model="content" label="Job Description"/>
                 <x-Ui::input.error-text wire:model="content"/>
             </div>
+
+
+            {{--                <div>--}}
+            {{--                    <x-Ui::input.floating wire:model="status" label="Status"/>--}}
+            {{--                    <x-Ui::input.error-text wire:model="status"/>--}}
+            {{--                </div>--}}
 
         </div>
 
