@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center cursor-default"><!-- Wrapper for shutter animation -->
 
         <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-8 pt-10 text-center transition duration-700 ease-in-out transform hover:scale-105 ">
-            Try India’s easiest GST billing platform
+            Try India’s easiest Business Management Software
         </h2>
 
 
