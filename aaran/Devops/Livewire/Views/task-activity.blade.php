@@ -31,7 +31,7 @@
                         <div
                             class="text-gray-600 my-0.5">Job :
                             <span
-                                class="text-blue-500">{{ $task->job_id}}</span>
+                                class="text-blue-500">{{ $task ->title}}</span>
                         </div>
 
                         <div
@@ -39,7 +39,7 @@
                             Module :
                             <span
                                 class="text-blue-500">
-{{--                                {{ $task->module->vname }}--}}
+                                {{ $task->vname }}
                             </span>
                         </div>
                     </div>
@@ -132,14 +132,14 @@
                 <div>Created By : <span
                         class="text-red-600">{{ \Aaran\Core\User\Models\User::getName($task->reporter_id)}}</span>
                 </div>
-{{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
+                {{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
 
                 <div class="text-gray-600">  {{$task->created_at}}</div>
-{{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
+                {{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
                 <div> Allocated To : <span
                         class="text-indigo-600">{{ \Aaran\Core\User\Models\User::getName($task->allocated_id)}}</span>
                 </div>
-{{--                <div class="border-l-2  h-5 border-gray-400"></div>--}}
+                {{--                <div class="border-l-2  h-5 border-gray-400"></div>--}}
 
 
                 <div class="flex gap-2">
@@ -151,7 +151,7 @@
                         {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getName() }}</div>
                 </div>
 
-{{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
+                {{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
 
                 <div class="flex gap-2">
                     <div> Status :</div>
@@ -173,7 +173,8 @@
         <div class="w-full space-y-4 font-lex pr-2">
             @forelse($activities as $index=>$row)
                 <div class=" border border-gray-200 rounded-lg dark:bg-dark-4 dark:text-dark-9">
-                    <div class="flex justify-between items-center p-3 rounded-lg border-b bg-gray-50 dark:bg-dark-4 dark:text-dark-9">
+                    <div
+                        class="flex justify-between items-center p-3 rounded-lg border-b bg-gray-50 dark:bg-dark-4 dark:text-dark-9">
                         <div class="flex flex-col items-center">
                             <div class="flex justify-center gap-x-2">
                                 <div
@@ -192,9 +193,11 @@
                         </div>
                         <div class="flex justify-center items-center gap-3 self-center ">
                             <x-Ui::button.edit wire:click="editActivity({{$row->id}})"/>
-                            <x-Ui::button.danger-x wire:click="getDelete({{$row->id}})"/>
+                            <x-Ui::button.danger-x wire:click="confirmDelete({{$row->id}})"/>
                         </div>
                     </div>
+
+                    <x-Ui::modal.confirm-delete/>
 
                     <div class="flex flex-row p-3 text-justify ml-8 gap-x-3">
                         <div class="w-6 h-6 rounded-full overflow-hidden">
@@ -206,7 +209,8 @@
                 </div>
             @empty
                 <div class="flex-col flex justify-start items-center border rounded-md">
-                    <div class="w-full bg-gray-100 p-2 dark:bg-dark-4 dark:text-dark-9 rounded-md">No Activities yet</div>
+                    <div class="w-full bg-gray-100 p-2 dark:bg-dark-4 dark:text-dark-9 rounded-md">No Activities yet
+                    </div>
                     <div class="w-full px-2 py-4">Empty Remarks</div>
                 </div>
             @endforelse
@@ -256,10 +260,6 @@
     </x-Ui::forms.m-panel>
 
 
-
-
-
-
     <!--Create Record ------------------------------------------------------------------------------------------------->
 
     <x-Ui::forms.create :id="$vid" :max-width="'6xl'">
@@ -302,7 +302,7 @@
                         :options="$users"
                         placeholder="Choose a .."
                     />
-                    <x-Ui::input.error-text wire:model="allocated_id"/>
+                    <x-Ui::input.error-text wire:model="plan_id"/>
                 </div>
 
                 <div>
@@ -351,7 +351,7 @@
                                                     alt="">
                                                 <div class="flex justify-center items-center">
                                                     <x-Ui::button.delete
-{{--                                                        wire:click="DeleteImage({{$old_image['id']}})"--}}
+                                                        wire:click="DeleteImage({{$old_image['id']}})"
                                                     />
                                                 </div>
                                             </div>
@@ -383,6 +383,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </x-Ui::forms.create>
