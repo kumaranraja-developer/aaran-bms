@@ -14,6 +14,7 @@ use Aaran\Devops\Models\TaskImage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -151,6 +152,7 @@ class TaskList extends Component
         $this->searches = '';
         $this->images = [];
         $this->isUploaded = false;
+        $this->dispatch('refresh-modules-lookup', '');
     }
 
     public function getObj(int $id): void
@@ -174,6 +176,8 @@ class TaskList extends Component
                 ->get(['id', 'image'])
                 ->toArray();
         }
+        $this->dispatch('refresh-modules-lookup', $obj->module->vname);
+
     }
 
     public function DeleteImage($id)
@@ -217,6 +221,12 @@ class TaskList extends Component
         if ($obj) {
             $obj->delete();
         }
+    }
+
+    #[On('refresh-modules')]
+    public function refreshTransport($v): void
+    {
+        $this->module_id = $v;
     }
 
     public function render()
