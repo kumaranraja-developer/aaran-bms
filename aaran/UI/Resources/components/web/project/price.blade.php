@@ -139,7 +139,7 @@
                             <div x-show="billing === 'yearly'">
                                 <div
                                     class="text-xl line-through ">{{ Aaran\Assets\Helper\ConvertTo::rupeesFormat((floatval($plan['price'])*12)) }}</div>
-                                <div>{{ Aaran\Assets\Helper\ConvertTo::rupeesFormat((floatval($plan['price'])*12)-(floatval($plan['price']) * 12 * 0.12)) }}</div>
+                                <div>{{ Aaran\Assets\Helper\ConvertTo::rupeesFormat((floatval($plan['price'])*12)-(floatval($plan['price']) * 12 * 0.20)) }}</div>
                             </div>
 
                             @if($plan['price'] ==='Custom price')

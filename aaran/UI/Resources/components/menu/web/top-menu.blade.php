@@ -29,19 +29,54 @@
         @endforeach
 
         @auth
-            <li class="hover:tracking-wide hover:font-bold transition duration-500">
-                <a href="{{ route('dashboard') }}" class="menu-text">Dashboard</a>
-            </li>
 
-            <li class="hover:tracking-wide hover:font-bold transition duration-500">
-                <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                   class="menu-text">Logout</a>
-            </li>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
+            <div class="md:flex items-center hidden ">
+                <!-- Settings Dropdown -->
+                <div class="ml-3 relative ">
+                    <x-Ui::jet.dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            @auth
+                                <span class="inline-flex rounded-md">
+                                    <button type="button"
+                                            class="inline-flex items-center sm:px-3 px-1 sm:py-2 py-1 border border-gray-300 sm:text-sm text-xs
+                                            leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition dark:text-dark-9 dark:bg-dark-4 dark:hover:text-primary">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+     class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round"
+        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
+</svg>
+
+
+                                    </button>
+                                </span>
+                            @endauth
+                        </x-slot>
+
+
+                        <x-slot name="content">
+
+                            <div class="flex flex-col gap-1">
+                                <li class="hover:tracking-wide hover:font-bold transition hover:bg-orange-200 text-black p-2 cursor-pointer duration-500">
+                                    <a href="{{ route('dashboard') }}" class="menu-text">Dashboard</a>
+                                </li>
+
+                                <li class="hover:tracking-wide hover:font-bold transition  hover:bg-orange-200 text-black p-2 cursor-pointer duration-500">
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                       class="menu-text borderpx-3 py-2 rounded-lg">Logout</a>
+                                </li>
+                            </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  class="hidden">@csrf</form>
+                        </x-slot>
+                    </x-Ui::jet.dropdown>
+                </div>
+            </div>
+
         @else
             <li class="hover:tracking-wide hover:font-bold transition duration-500">
-                <a href="{{ route('login') }}" class="menu-text">Login</a>
+                <a href="{{ route('login') }}" class="menu-text border border-primary hover:bg-primary
+                px-3 py-2 rounded-lg text-primary hover:text-white">Login</a>
             </li>
         @endauth
     </ul>
@@ -80,14 +115,16 @@
         @endforeach
 
         @auth
-            <li class="py-2 dark:text-dark-9"><a href="{{ route('dashboard') }}" class="menu-text-mobile Customize Toolbar…">Dashboard</a>
+            <li class="py-2 dark:text-dark-9"><a href="{{ route('dashboard') }}"
+                                                 class="menu-text-mobile Customize Toolbar…">Dashboard</a>
             </li>
             <li class="py-2">
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                    class="menu-text-mobile dark:text-dark-9">Logout</a>
             </li>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden Customize Toolbar…">@csrf</form>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                  class="hidden Customize Toolbar…">@csrf</form>
         @else
             <li class="py-2 dark:text-dark-9"><a href="{{ route('login') }}" class="menu-text-mobile">Login</a></li>
         @endauth
@@ -102,7 +139,7 @@
         const menuText = document.querySelectorAll(".menu-text");
         if (document.documentElement.scrollTop > 100) {
             navBar.classList.add("sticky-header");
-            menuText.forEach(el => el.classList.add("text-black","scroll-text-color"));
+            menuText.forEach(el => el.classList.add("text-black", "scroll-text-color"));
         } else {
             navBar.classList.remove("sticky-header");
             menuText.forEach(el => el.classList.remove("text-black"));
@@ -124,7 +161,8 @@
             background-color: #464646 !important; /* dark:bg-dark-4 */
             color: #faf9f9 !important; /* dark:text-dark-9 */
         }
-        .scroll-text-color{
+
+        .scroll-text-color {
             color: white;
         }
     }
