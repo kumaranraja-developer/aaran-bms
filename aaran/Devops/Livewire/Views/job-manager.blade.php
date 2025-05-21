@@ -16,7 +16,8 @@
                 $link = route('task-managers',[$card->id])
             @endphp
 
-            <div class="bg-white border border-gray-50 dark:border-gray-500 dark:bg-dark-4 dark:text-dark-9 text-black p-6 flex flex-col h-full rounded-lg gap-3 hover:scale-103 shadow-lg hover:shadow-xl transition duration-300">
+            <div
+                class="bg-white border border-gray-50 dark:border-gray-500 dark:bg-dark-4 dark:text-dark-9 text-black p-6 flex flex-col h-full rounded-lg gap-3 hover:scale-103 shadow-lg hover:shadow-xl transition duration-300">
                 <div class="flex-grow flex flex-col gap-y-2">
                     <div class="flex justify-between items-center">
                         <a class="font-bold text-xl break-words line-clamp-1" href="{{$link}}">
@@ -32,13 +33,17 @@
 
                 <div class="pt-2 flex flex-col gap-y-4 items-center">
 
-                    <img src="{{ asset('images/home/wp1.webp') }}" alt="" class="w-full h-full" />
+                    <img class="h-24 w-full"
+                         src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$card->image))}}"
+                         alt="">
 
                     <div class="flex justify-between items-center">
 
-                        <div class="inline-flex items-center px-3 py-1 rounded-xl gap-x-2 @if($card->active===1)bg-emerald-100/60 @else bg-red-100/60 @endif ">
+                        <div
+                            class="inline-flex items-center px-3 py-1 rounded-xl gap-x-2 @if($card->active===1)bg-emerald-100/60 @else bg-red-100/60 @endif ">
 
-                            <span class="h-1.5 w-1.5  rounded-full @if($card->active===1) bg-emerald-500 @else bg-red-500 @endif"></span>
+                            <span
+                                class="h-1.5 w-1.5  rounded-full @if($card->active===1) bg-emerald-500 @else bg-red-500 @endif"></span>
 
                             <h2 class=" font-normal @if($card->active===1) text-emerald-500 @else text-red-500 @endif">@if($card->active===1)
                                     Active
