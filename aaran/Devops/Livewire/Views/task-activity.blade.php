@@ -132,14 +132,14 @@
                 <div>Created By : <span
                         class="text-red-600">{{ \Aaran\Core\User\Models\User::getName($task->reporter_id)}}</span>
                 </div>
-{{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
+                {{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
 
                 <div class="text-gray-600">  {{$task->created_at}}</div>
-{{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
+                {{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
                 <div> Allocated To : <span
                         class="text-indigo-600">{{ \Aaran\Core\User\Models\User::getName($task->allocated_id)}}</span>
                 </div>
-{{--                <div class="border-l-2  h-5 border-gray-400"></div>--}}
+                {{--                <div class="border-l-2  h-5 border-gray-400"></div>--}}
 
 
                 <div class="flex gap-2">
@@ -151,7 +151,7 @@
                         {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getName() }}</div>
                 </div>
 
-{{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
+                {{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
 
                 <div class="flex gap-2">
                     <div> Status :</div>
@@ -173,42 +173,41 @@
         <div class="w-full space-y-4 font-lex pr-2">
             @forelse($activities as $index=>$row)
                 <div class=" border border-gray-200 rounded-lg dark:bg-dark-4 dark:text-dark-9">
-                    <div class="flex justify-between items-center p-3 rounded-lg border-b bg-gray-50 dark:bg-dark-4 dark:text-dark-9">
-                        <div class="flex flex-col items-center">
-                            <div class="flex justify-center gap-x-2">
-                                <div
-                                    class="text-xs px-2 py-1 rounded-full mx-1
-                                        {{ \Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getStyle() }}">
-                                    {{  \Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getName() }}</div>
+                    <div>
+                        <div class="text-slate-700 text-sm bg-white capitalize rounded-lg dark:bg-dark-4 p-3 dark:text-dark-9">
+                            {!! $row->vname !!}
+                        </div>
 
-
-                                <div class="flex-row flex text-sm space-x-2 mt-0.5">
-                                    <div class="text-indigo-600">
-                                        {{\Aaran\Core\User\Models\User::getName($row->user_id)}}</div> &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <div class="flex justify-between items-center p-3 rounded-lg dark:bg-dark-4 dark:text-dark-9">
+                            <div class="flex flex-col items-center">
+                                <div class="flex justify-center gap-x-2">
                                     <div
-                                        class="text-gray-600 text-xs my-0.5 dark:text-dark-9"> {{ \Carbon\Carbon::parse($row->created_at)->diffForHumans() }}  </div>
+                                        class="text-xs px-2 py-1 rounded-full mx-1
+                                        {{ \Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getStyle() }}">
+                                        {{  \Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getName() }}</div>
+
+
+                                    <div class="flex-row flex text-sm space-x-2 mt-0.5">
+                                        <div class="text-indigo-600">
+                                            {{\Aaran\Core\User\Models\User::getName($row->user_id)}}</div> &nbsp;&nbsp;|&nbsp;&nbsp;
+                                        <div
+                                            class="text-gray-600 text-xs my-0.5 dark:text-dark-9"> {{ \Carbon\Carbon::parse($row->created_at)->diffForHumans() }}  </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="flex justify-center items-center gap-3 self-center ">
-                            <x-Ui::button.edit wire:click="editActivity({{$row->id}})"/>
-                            <x-Ui::button.danger-x wire:click="confirmDelete({{$row->id}})"/>
+                            <div class="flex justify-center items-center gap-3 self-center ">
+                                <x-Ui::button.edit wire:click="editActivity({{$row->id}})" class="text-blue-500"/>
+                                <x-Ui::button.delete wire:click="confirmDelete({{$row->id}})" class="text-red-500"/>
+
+                            </div>
                         </div>
                     </div>
 
-                    <x-Ui::modal.confirm-delete/>
-
-                    <div class="flex flex-row p-3 text-justify ml-8 gap-x-3">
-                        <div class="w-6 h-6 rounded-full overflow-hidden">
-                            {{--                                <img src="{{$row->user->profile_photo_url}}" alt="">--}}
-                        </div>
-                        <div
-                            class="text-slate-700 text-sm bg-white capitalize dark:bg-dark-4 dark:text-dark-9"> {!! $row->vname !!} </div>
-                    </div>
                 </div>
             @empty
                 <div class="flex-col flex justify-start items-center border rounded-md">
-                    <div class="w-full bg-gray-100 p-2 dark:bg-dark-4 dark:text-dark-9 rounded-md">No Activities yet</div>
+                    <div class="w-full bg-gray-100 p-2 dark:bg-dark-4 dark:text-dark-9 rounded-md">No Activities yet
+                    </div>
                     <div class="w-full px-2 py-4">Empty Remarks</div>
                 </div>
             @endforelse
