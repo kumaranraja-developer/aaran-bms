@@ -48,7 +48,7 @@ class AaranMigrateCommand extends Command
             'aaran/Dashboard/Database/Migrations',
             'aaran/Blog/Database/Migrations',
             'aaran/Neot/Database/Migrations',
-            'aaran/Core/User/Database/Migrations',
+//            'aaran/Core/User/Database/Migrations',
         ];
 
         foreach ($paths as $row) {
