@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('task_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreignId('task_id')->references('id')->on('tasks');
             $table->longText('image')->nullable();
             $table->timestamps();
         });

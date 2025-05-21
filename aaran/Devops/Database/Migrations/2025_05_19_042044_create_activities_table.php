@@ -9,7 +9,7 @@ return new class extends Migration {
     {
             Schema::create('activities', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('task_id')->references('id')->on('tasks')->onDelete('cascade');
+                $table->foreignId('task_id')->references('id')->on('tasks');
                 $table->text('vname');
                 $table->string('start_on')->nullable();
                 $table->string('end_on')->nullable();

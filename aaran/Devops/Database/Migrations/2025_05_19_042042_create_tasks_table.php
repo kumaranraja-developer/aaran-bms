@@ -10,12 +10,12 @@ return new class extends Migration {
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('job_id')->references('id')->on('jobs')->cascadeOnDelete();
+            $table->foreignId('job_id')->references('id')->on('jobs');
             $table->string('title');
             $table->text('body')->nullable();
             $table->date('start_at')->nullable();
             $table->date('due_date')->nullable();
-            $table->foreignId('module_id')->references('id')->on('modules')->cascadeOnDelete();
+            $table->foreignId('module_id')->references('id')->on('modules');
             $table->foreignId('allocated_id')->nullable();
             $table->foreignId('reporter_id')->nullable();
             $table->smallInteger('priority_id')->nullable();

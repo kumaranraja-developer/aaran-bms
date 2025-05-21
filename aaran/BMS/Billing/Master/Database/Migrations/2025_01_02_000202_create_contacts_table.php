@@ -31,7 +31,7 @@ return new class extends Migration {
 
             Schema::create('contact_addresses', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('contact_id')->references('id')->on('contacts')->cascadeOnDelete();
+                $table->foreignId('contact_id')->references('id')->on('contacts');
                 $table->string('address_type')->nullable();
                 $table->string('address_1')->nullable();
                 $table->string('address_2')->nullable();
@@ -44,7 +44,7 @@ return new class extends Migration {
 
             Schema::create('contact_banks', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('contact_id')->references('id')->on('contacts')->cascadeOnDelete();
+                $table->foreignId('contact_id')->references('id')->on('contacts');
                 $table->string('bank_type')->nullable();
                 $table->string('acc_no')->nullable();
                 $table->string('ifsc_code')->nullable();
