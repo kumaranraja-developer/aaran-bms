@@ -2,6 +2,7 @@
 
 namespace Aaran\Core\User\Providers;
 
+use Aaran\Core\User\Livewire\Class;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -17,7 +18,8 @@ class UserServiceProvider extends ServiceProvider
         $this->registerMigrations();
         $this->registerViews();
 
-        // Livewire::component('user::tenant-setup', TenantSetupWizard::class);
+         Livewire::component('user::user-list', Class\UserList::class);
+         Livewire::component('user::user-detail', Class\UserDetailShow::class);
     }
 
     private function registerMigrations()
