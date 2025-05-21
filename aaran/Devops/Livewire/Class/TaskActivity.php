@@ -74,7 +74,7 @@ class TaskActivity extends Component
                 ->first();
 
             $this->taskImage = TaskImage::on($this->getTenantConnection())->where('task_id', $id)->get()->toarray();
-            $this->activities = $this->getActivities($id);
+
 
             $this->statuses = collect(Status::cases())->mapWithKeys(fn($case) => [$case->value => $case->getname()])->toArray();
 
@@ -85,10 +85,10 @@ class TaskActivity extends Component
     }
 
 
-    public function getActivities($id)
+    public function getActivities()
     {
         return DB::connection($this->getTenantConnection())->table('activities')
-            ->where('task_id', $id)->get();
+            ->where('task_id', $this->task->id)->get();
     }
 
 
@@ -225,6 +225,8 @@ class TaskActivity extends Component
 
     public function render()
     {
+        $this->activities = $this->getActivities();
+
         return view('devops::task-activity');
     }
 

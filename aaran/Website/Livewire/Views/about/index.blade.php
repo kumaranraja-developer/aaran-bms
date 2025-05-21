@@ -11,7 +11,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 text-black p-10 lg:p-20 gap-10 ">
                 <img src="{{asset('/images/web/home/office_1.jpg')}}" alt=""
                      class="h-[70vh] rounded-2xl md:block m-auto hidden"/>
-                <div >
+                <div>
                     <p class="my-3 text-primary text-xl font-semibold">Who We Are</p>
                     <p class="my-3 text-justify indent-5 tracking-wide text-body-color dark:text-dark-8">With over a
                         decade of experience
@@ -124,7 +124,8 @@
     </section>
 
 
-    <section class="text-gray-600 body-font bg-white h-[80vh] flex items-center justify-center dark:bg-dark cursor-default">
+    <section
+        class="text-gray-600 body-font bg-white h-[80vh] flex items-center justify-center dark:bg-dark cursor-default">
         <div class="container px-5 mx-auto">
             <div id="customCarousel" class="carousel">
                 @foreach($quotes as $index => $quote)
@@ -176,9 +177,12 @@
                     demo.</p>
             </div>
             <div class="flex flex-col mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
-                <a href="#" class="px-4 py-2 border border-blue-800 bg-primary text-white  hover:bg-orange-500">Start
-                    free trial</a>
-                <a href="#" class="border bg-white text-black hover:text-white hover:bg-dark-2 px-4 py-2">Book a demo</a>
+                <a href="{{route('client-registration')}}"
+                   class="px-4 py-2 border border-blue-800 bg-primary text-white  hover:bg-orange-500">
+                    Start free trial
+                </a>
+                <a href="{{route('web-contacts')}}"
+                   class="border bg-white text-black hover:text-white hover:bg-dark-2 px-4 py-2">Book a demo</a>
             </div>
         </div>
     </section>
