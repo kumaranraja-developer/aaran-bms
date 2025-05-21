@@ -15,54 +15,52 @@
 
         <!--Top Controls ---------------------------------------------------------------------------------------------->
 
-        <div class="flex sm:flex-row sm:justify-between sm:items-center flex-col gap-6 py-4 print:hidden">
-            <div class="w-2/4 flex items-center space-x-2">
-
+        <div class="flex md:flex-row md:justify-between md:items-center flex-col gap-6 py-4 print:hidden">
+            <div class="flex items-center space-x-2">
                 <x-Ui::input.search-bar wire:model.live="getListForm.searches"
                                         wire:keydown.escape="$set('getListForm.searches', '')" label="Search"/>
                 <x-Ui::input.toggle-filter :show-filters="$showFilters"/>
             </div>
 
-            <div class="w-80 ">
-                <x-Ui::input.model-select wire:model.live="jobFilter" :label="'Job'">
-                    <option value="">Select Job</option>
-                    @foreach($jobCollection as $job)
-                        <option value="{{ $job->id }}">{{ $job->vname }}</option>
-                    @endforeach
-                </x-Ui::input.model-select>
-            </div>
-
-            <div class="flex sm:justify-center justify-between">
+            <div class="flex md:justify-center">
+                <div class="w-max block my-auto">
+                    <x-Ui::input.model-select wire:model.live="jobFilter" :label="'Job'">
+                        <option value="">Select Job</option>
+                        @foreach($jobCollection as $job)
+                            <option value="{{ $job->id }}">{{ $job->vname }}</option>
+                        @endforeach
+                    </x-Ui::input.model-select>
+                </div>
                 <x-Ui::forms.per-page/>
-                <div class="self-end">
+                <div class="self-end block m-auto">
                     <x-Ui::button.new-x wire:click="create"/>
                 </div>
             </div>
         </div>
 
-        <div class="w-9/12 mx-auto flex-col flex gap-y-10 py-16">
+        <div class="w-full lg:p-40 mx-auto flex-col flex gap-y-10 py-16">
 
             @foreach($list as $index=>$row)
 
-                <div class=" flex overflow-hidden border rounded-md font-lex">
-                    <div class="w-2/4 h-60 p-3">
+                <div class=" grid grid-cols-[40%_60%] lg:grid-cols-[30%_70%] overflow-hidden border rounded-md font-lex">
+                    <div class="lg:h-60 p-3">
                         <div x-data=" {
-            slides: [
-                @foreach (\Aaran\Devops\Livewire\Class\TaskList::getTaskImage($row->id) as $slide)
-                    {
-                        imgSrc: '{{ $slide['imgSrc'] }}',
-                        imgAlt: '{{ $slide['imgSrc'] }}',
-                    },
-                @endforeach
-            ],
-            currentSlideIndex: 1,
-            previous() {
-                this.currentSlideIndex = this.currentSlideIndex > 1 ? this.currentSlideIndex - 1 : this.slides.length;
-            },
-            next() {
-                this.currentSlideIndex = this.currentSlideIndex < this.slides.length ? this.currentSlideIndex + 1 : 1;
-            },
-        }" class="relative w-full rounded-md">
+                            slides: [
+                                @foreach (\Aaran\Devops\Livewire\Class\TaskList::getTaskImage($row->id) as $slide)
+                                    {
+                                        imgSrc: '{{ $slide['imgSrc'] }}',
+                                        imgAlt: '{{ $slide['imgSrc'] }}',
+                                    },
+                                @endforeach
+                            ],
+                            currentSlideIndex: 1,
+                            previous() {
+                                this.currentSlideIndex = this.currentSlideIndex > 1 ? this.currentSlideIndex - 1 : this.slides.length;
+                            },
+                            next() {
+                                this.currentSlideIndex = this.currentSlideIndex < this.slides.length ? this.currentSlideIndex + 1 : 1;
+                            },
+                        }" class="relative w-full rounded-md">
 
                             <!-- Previous button ---------------------------------------------------------------------->
 
@@ -93,7 +91,7 @@
 
                             <!-- Slides ------------------------------------------------------------------------------->
 
-                            <div class="relative h-full w-full rounded-md">
+                            <div class="relative w-full rounded-md">
                                 <template x-for="(slide, index) in slides">
                                     <div x-cloak x-show="currentSlideIndex == index + 1" class=" inset-0 w-full h-full "
                                          x-transition.opacity.duration.300ms>
@@ -108,13 +106,13 @@
 
                     <!-- Top Panel ------------------------------------------------------------------------------------>
 
-                    <div class="bg-gray-100 w-full h-60 rounded-r-md gap-y-5">
+                    <div class="bg-gray-100 w-full lg:h-60 rounded-r-md gap-y-5 dark:text-dark-9 dark:bg-dark-4">
                         <div class="flex justify-between items-center pt-3">
-                            <div class="w-11/12 line-clamp-1 text-lg uppercase  font-semibold indent-7 ">{{$row->id}}
+                            <div class="w-11/12 line-clamp-1 text-lg uppercase  font-semibold indent-7 dark:text-dark-9 dark:bg-dark-4">{{$row->id}}
                                 . {!!  $row->title !!}</div>
-                            <div class="w-1/12 flex justify-end">
+                            <div class="w-1/12 flex justify-end dark:text-dark-9 dark:bg-dark-4">
                                 <x-Ui::dropdown.icon>
-                                    <div class="bg-white w-20 h-auto flex-col flex gap-y-1 justify-center items-center">
+                                    <div class="bg-white w-20 h-auto flex-col flex gap-y-1 justify-center items-center dark:text-dark-9 dark:bg-dark-4">
                                         <button wire:click="edit({{$row->id}})"
                                                 class="w-full text-xs inline-flex items-center gap-x-2 text-gray-700 hover:bg-blue-100 p-1 hover:text-blue-600">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -122,7 +120,7 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                       d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
                                             </svg>
-                                            <span>Edit</span>
+                                            <span class="dark:text-dark-9 ">Edit</span>
                                         </button>
 
                                         <button wire:click="confirmDelete({{$row->id}})"
@@ -132,30 +130,26 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                       d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/>
                                             </svg>
-                                            <span>Delete</span>
+                                            <span class="dark:text-dark-9">Delete</span>
                                         </button>
                                     </div>
                                 </x-Ui::dropdown.icon>
                             </div>
                         </div>
 
-                        <div class="flex justify-between items-center border-l px-5 pb-3">
+                        <div class="block md:flex justify-between items-center border-l px-5 pb-3">
                             <div class="inline-flex items-center gap-x-3">
                                 <div class="flex items-center gap-x-2 font-semibold">
-                                    {{--                                    <div--}}
-                                    {{--                                        class="rounded-full bg-white overflow-hidden w-6 h-6 flex justify-center items-center border border-blue-400">--}}
-                                    {{--                                        <span> <img src="{{$row->reporter->profile_photo_url}}" alt=""></span>--}}
-                                    {{--                                    </div>--}}
                                     <div
-                                        class="text-xs">{{\Aaran\Core\User\Models\User::getName($row->reporter_id)}}</div>
+                                        class="text-xs dark:text-dark-9">{{\Aaran\Core\User\Models\User::getName($row->reporter_id)}}</div>
                                 </div>
-                                <div class="text-xs text-gray-600 px-4">{{$row->created_at->diffForHumans()}} ...
+                                <div class="text-xs text-gray-600 px-4 dark:text-dark-8">{{$row->created_at->diffForHumans()}} ...
                                 </div>
                             </div>
 
 
                             <div
-                                class="rounded-full text-sm inline-flex items-center gap-x-2 fill-white px-3 py-1
+                                class="mt-2 md:mt-0 text-sm inline-flex items-center gap-x-2 fill-white px-3 py-1
                                 {{\Aaran\Assets\Enums\Priority::tryFrom($row->priority_id)->getStyle()}}">
                                 <svg fill="" width="" height="" viewBox="0 0 1920 1920"
                                      xmlns="http://www.w3.org/2000/svg"
@@ -171,10 +165,10 @@
 
                         <!-- Description ------------------------------------------------------------------------------>
 
-                        <div class="bg-white border-t border-l h-40 p-3 space-y-2 flex-col flex justify-between">
+                        <div class="bg-white border-t border-l h-40 p-3 space-y-2 flex-col flex justify-between dark:text-dark-9 dark:bg-dark-4">
 
                             <div
-                                class="w-9/12 self-start h-[60px] overflow-hidden text-xs  text-gray-700 font-semibold
+                                class="w-9/12 self-start h-[60px] overflow-hidden text-xs dark:text-dark-9  text-gray-700 font-semibold
                                 line-clamp-3 leading-relaxed flex-col justify-start items-center">
                                 {!! $row->body !!}
                             </div>
@@ -183,7 +177,7 @@
                                 <div class=" flex justify-between items-center ">
                                     <div class="inline-flex items-center gap-x-2 text-red-600 font-semibold ">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                             class="size-3 fill-gray-700">
+                                             class="size-3 fill-gray-700 dark:fill-dark-9">
                                             <path fill-rule="evenodd"
                                                   d="M10 2.5c-1.31 0-2.526.386-3.546 1.051a.75.75 0 0 1-.82-1.256A8 8 0 0 1 18 9a22.47 22.47 0 0 1-1.228 7.351.75.75 0 1 1-1.417-.49A20.97 20.97 0 0 0 16.5 9 6.5 6.5 0 0 0 10 2.5ZM4.333 4.416a.75.75 0 0 1 .218 1.038A6.466 6.466 0 0 0 3.5 9a7.966 7.966 0 0 1-1.293 4.362.75.75 0 0 1-1.257-.819A6.466 6.466 0 0 0 2 9c0-1.61.476-3.11 1.295-4.365a.75.75 0 0 1 1.038-.219ZM10 6.12a3 3 0 0 0-3.001 3.041 11.455 11.455 0 0 1-2.697 7.24.75.75 0 0 1-1.148-.965A9.957 9.957 0 0 0 5.5 9c0-.028.002-.055.004-.082a4.5 4.5 0 0 1 8.996.084V9.15l-.005.297a.75.75 0 1 1-1.5-.034c.003-.11.004-.219.005-.328a3 3 0 0 0-3-2.965Zm0 2.13a.75.75 0 0 1 .75.75c0 3.51-1.187 6.745-3.181 9.323a.75.75 0 1 1-1.186-.918A13.687 13.687 0 0 0 9.25 9a.75.75 0 0 1 .75-.75Zm3.529 3.698a.75.75 0 0 1 .584.885 18.883 18.883 0 0 1-2.257 5.84.75.75 0 1 1-1.29-.764 17.386 17.386 0 0 0 2.078-5.377.75.75 0 0 1 .885-.584Z"
                                                   clip-rule="evenodd"/>
@@ -191,29 +185,25 @@
                                         {{--                                        <span class="text-sm">{{$row->allocated->name}}</span>--}}
 
                                         <div
-                                            class="text-gray-600 text-xs px-2">
+                                            class="text-gray-600 text-xs px-2 dark:text-dark-8">
                                             <span class="text-blue-500">Edited :</span>
                                             {{  $row->updated_at->diffForHumans() }}</div>
                                     </div>
-                                    <div class="text-xs space-x-3 capitalize">
-                                        {{--                                        <span>{{  \Aaran\Taskmanager\Models\Task::common($row->job_id) }}</span>--}}
-                                        <span>|</span>
-                                        {{--                                        <span>{{  \Aaran\Taskmanager\Models\Task::common($row->module_id) }}</span>--}}
-                                    </div>
+
                                 </div>
 
-                                <div class=" left-4 w-full flex justify-between items-center self-end  ">
+                                <div class=" left-4 w-full flex justify-between items-center self-end mt-2">
                                     <a href="{{route('task-shows',[$row->id])}}" type="button"
-                                       class="bg-blue-600 p-1 text-white rounded-md px-3 py-1 text-xs hover:bg-blue-500 transition-all duration-300 ease-in-out inline-flex items-center gap-x-2">
+                                       class="bg-blue-600 p-1 text-white px-3 py-1 text-xs hover:bg-blue-500 transition-all duration-300 ease-in-out inline-flex items-center gap-x-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                             class="size-3">
+                                             class="size-2">
                                             <path
                                                 d="M3.105 2.288a.75.75 0 0 0-.826.95l1.414 4.926A1.5 1.5 0 0 0 5.135 9.25h6.115a.75.75 0 0 1 0 1.5H5.135a1.5 1.5 0 0 0-1.442 1.086l-1.414 4.926a.75.75 0 0 0 .826.95 28.897 28.897 0 0 0 15.293-7.155.75.75 0 0 0 0-1.114A28.897 28.897 0 0 0 3.105 2.288Z"/>
                                         </svg>
 
-                                        <span>Read More ...</span></a>
+                                        <span>Read More</span></a>
                                     <div
-                                        class="text-xs px-3 py-1 rounded-full text-center {{\Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getStyle()}}">
+                                        class="text-xs px-3 py-1 text-center {{\Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getStyle()}}">
                                         {{\Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getName()}}
                                     </div>
                                 </div>
