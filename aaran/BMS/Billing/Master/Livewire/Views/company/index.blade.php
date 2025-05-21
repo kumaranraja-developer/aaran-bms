@@ -53,7 +53,9 @@
                             />
                         </x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->address_1}}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-action id="{{$row->id}}"/>
+
+                        <x-Ui::table.cell-action id="{{$row->id}}" disable-delete="{{$index == 0}}"/>
+
                     </x-Ui::table.row>
                 @endforeach
 
@@ -142,7 +144,8 @@
                                                     </x-Ui::dropdown.option>
                                                 @empty
                                                     <x-Ui::dropdown.create
-                                                        wire:click.prevent="citySave('{{$city_name}}')" label="City"/>
+                                                            wire:click.prevent="citySave('{{$city_name}}')"
+                                                            label="City"/>
                                                 @endforelse
                                             @endif
                                         </x-Ui::dropdown.select>
@@ -168,8 +171,8 @@
                                                     </x-Ui::dropdown.option>
                                                 @empty
                                                     <x-Ui::dropdown.create
-                                                        wire:click.prevent="stateSave('{{ $state_name }}')"
-                                                        label="State"/>
+                                                            wire:click.prevent="stateSave('{{ $state_name }}')"
+                                                            label="State"/>
                                                 @endforelse
                                             @endif
                                         </x-Ui::dropdown.select>
@@ -195,8 +198,8 @@
                                                     </x-Ui::dropdown.option>
                                                 @empty
                                                     <x-Ui::dropdown.create
-                                                        wire:click.prevent="pincodeSave('{{$pincode_name}}')"
-                                                        label="Pincode"/>
+                                                            wire:click.prevent="pincodeSave('{{$pincode_name}}')"
+                                                            label="Pincode"/>
                                                 @endforelse
                                             @endif
                                         </x-Ui::dropdown.select>
@@ -221,8 +224,8 @@
                                                     </x-Ui::dropdown.option>
                                                 @empty
                                                     <x-Ui::dropdown.create
-                                                        wire:click.prevent="countrySave('{{$country_name}}')"
-                                                        label="Country"/>
+                                                            wire:click.prevent="countrySave('{{$country_name}}')"
+                                                            label="Country"/>
                                                 @endforelse
                                             @endif
                                         </x-Ui::dropdown.select>
@@ -245,11 +248,11 @@
                                         <div>
                                             @if($logo)
                                                 <div
-                                                    class=" flex-shrink-0 bg-blue-100 p-1 rounded-lg overflow-hidden">
+                                                        class=" flex-shrink-0 bg-blue-100 p-1 rounded-lg overflow-hidden">
                                                     <img
-                                                        class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
-                                                        src="{{ $logo->temporaryUrl() }}"
-                                                        alt="{{$logo?:''}}"/>
+                                                            class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
+                                                            src="{{ $logo->temporaryUrl() }}"
+                                                            alt="{{$logo?:''}}"/>
                                                 </div>
                                             @endif
 
@@ -324,8 +327,8 @@
                                             @if($msmeTypeCollection)
                                                 @foreach ($msmeTypeCollection as $msmeType)
                                                     <x-Ui::dropdown.option
-                                                        :highlight="$highlightMsmeType === $loop->index"
-                                                        wire:click.prevent="setMsmeType('{{ $msmeType['id'] }}')">
+                                                            :highlight="$highlightMsmeType === $loop->index"
+                                                            wire:click.prevent="setMsmeType('{{ $msmeType['id'] }}')">
                                                         {{ $msmeType['vname'] }}
                                                     </x-Ui::dropdown.option>
                                                 @endforeach
