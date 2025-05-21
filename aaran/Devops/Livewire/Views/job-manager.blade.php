@@ -37,19 +37,16 @@
                          src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$card->image))}}"
                          alt="">
 
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between w-full gap-3 items-center">
 
                         <div
-                            class="inline-flex items-center px-3 py-1 rounded-xl gap-x-2 @if($card->active===1)bg-emerald-100/60 @else bg-red-100/60 @endif ">
+                            class="inline-flex items-center w-full px-3 py-1 rounded-xl gap-x-2 {{$card->active_id===1 ? 'bg-emerald-100/60' : 'bg-red-100/60' }} ">
 
                             <span
-                                class="h-1.5 w-1.5  rounded-full @if($card->active===1) bg-emerald-500 @else bg-red-500 @endif"></span>
+                                class="h-1.5 w-1.5  rounded-full {{$card->active_id===1 ? 'bg-emerald-500' : 'bg-red-500' }}"></span>
 
-                            <h2 class=" font-normal @if($card->active===1) text-emerald-500 @else text-red-500 @endif">@if($card->active===1)
-                                    Active
-                                @else
-                                    In-Active
-                                @endif
+                            <h2 class="font-normal">
+                                {{$card->active_id===1 ? 'Active' : 'In-Active' }}
                             </h2>
                         </div>
 
