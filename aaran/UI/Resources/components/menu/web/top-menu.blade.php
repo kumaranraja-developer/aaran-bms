@@ -28,6 +28,10 @@
             </li>
         @endforeach
 
+    </ul>
+
+    <div>
+
         @auth
 
             <div class="md:flex items-center hidden ">
@@ -72,12 +76,12 @@
             </div>
 
         @else
-            <li class="hover:tracking-wide hover:font-bold transition duration-500">
+            <div class="hover:tracking-wide hover:font-bold transition duration-500">
                 <a href="{{ route('login') }}" class="menu-text border border-primary hover:bg-primary
                 px-3 py-2 rounded-lg text-primary hover:text-white">Login</a>
-            </li>
+            </div>
         @endauth
-    </ul>
+    </div>
 
     <!-- Mobile Menu Button -->
     <button @click="mobileMenuIsOpen = !mobileMenuIsOpen" :aria-expanded="mobileMenuIsOpen"
