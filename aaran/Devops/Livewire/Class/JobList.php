@@ -101,7 +101,7 @@ class JobList extends Component
 
     public function render()
     {
-        return view('devops::job-list', [
+        return view('devops::job-manager', [
             'list' => $this->getList()
         ]);
     }
