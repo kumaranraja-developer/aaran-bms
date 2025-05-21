@@ -34,6 +34,8 @@ class Index extends Component
     public mixed $msme_no = '';
     public string $address_1 = '';
     public string $address_2 = '';
+    public string $company_code = '';
+
     public string $display_name = '';
     public string $landline = '';
     public string $website = '';
@@ -71,6 +73,7 @@ class Index extends Component
             'state_name' => 'required',
             'pincode_name' => 'required',
             'country_name' => 'required',
+            'company_code' => 'required'. ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.companies,vname"),
         ];
     }
 
@@ -87,6 +90,7 @@ class Index extends Component
             'state_name.required' => ' :attribute  is required.',
             'pincode_name.required' => ' :attribute  is required.',
             'country_name.required' => ' :attribute  is required.',
+            'company_code.required' => ' :attribute  is required.',
         ];
     }
 
@@ -101,6 +105,7 @@ class Index extends Component
             'state_name' => 'State',
             'pincode_name' => 'Pincode',
             'country_name' => 'Country',
+            'company_code' => 'Company Code',
         ];
     }
     #endregion
@@ -513,6 +518,7 @@ class Index extends Component
                 'iec_no' => $this->iec_no ?: '-',
                 'active_id' => $this->active_id,
                 'logo' => $imageService->save($this->logo, $this->old_logo, 'logo', $this->vname),
+                'company_code' => $this->company_code,
             ],
         );
 
@@ -555,6 +561,7 @@ class Index extends Component
         $this->branch = '';
         $this->logo = '';
         $this->old_logo = '';
+        $this->company_code = '';
     }
     #endregion
 
@@ -593,6 +600,7 @@ class Index extends Component
             $this->iec_no = $obj->iec_no;
             $this->active_id = $obj->active_id;
             $this->old_logo = $obj->logo;
+            $this->company_code = $obj->company_code;
             return $obj;
         }
         return null;

@@ -33,7 +33,8 @@ class CompanySeeder extends Seeder
             'msme_no'=>'-',
             'msme_type_id' => '1',
             'active_id' => true,
-            'logo' => 'no_image'
+            'logo' => 'no_image',
+            'company_code' => '11111',
         ]);
     }
 }

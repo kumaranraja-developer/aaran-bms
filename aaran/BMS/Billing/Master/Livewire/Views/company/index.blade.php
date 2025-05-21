@@ -21,6 +21,8 @@
 
                 <x-Ui::table.header-serial width="20%"/>
 
+                <x-Ui::table.header-text sortIcon="none">Company Code</x-Ui::table.header-text>
+
                 <x-Ui::table.header-text wire:click.prevent="sortBy('vname')" sortIcon="{{$sortAsc}}">
                     Company&nbsp;Name
                 </x-Ui::table.header-text>
@@ -44,6 +46,7 @@
                 @foreach($list as $index=>$row)
                     <x-Ui::table.row>
                         <x-Ui::table.cell-text>{{$index+1}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text>{{$row->company_code}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->vname}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text>{{$row->gstin}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text>{{$row->mobile}}</x-Ui::table.cell-text>
@@ -108,6 +111,7 @@
                                 <x-Ui::input.floating wire:model="pan" label="Pan"/>
                                 <x-Ui::input.floating wire:model="email" label="Email"/>
                                 <x-Ui::input.floating wire:model="website" label="Website"/>
+                                <x-Ui::input.floating wire:model="company_code" label="Company Code"/>
                             </div>
                         </x-Ui::tabs.content>
 

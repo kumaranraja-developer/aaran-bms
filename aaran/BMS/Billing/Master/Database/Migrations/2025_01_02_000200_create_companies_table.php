@@ -33,6 +33,7 @@ return new class extends Migration {
                 $table->string('inv_pfx')->nullable();
                 $table->string('iec_no')->nullable();
                 $table->string('msme_no')->nullable();
+                $table->string('company_code')->unique();
                 $table->foreignId('msme_type_id')->nullable();
                 $table->tinyInteger('active_id')->nullable();
                 $table->longText('logo')->nullable();
