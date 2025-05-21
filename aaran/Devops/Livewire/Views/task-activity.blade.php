@@ -128,31 +128,38 @@
 
             <!--User Data ------------------------------------------------------------------------------------------------>
 
-            <div class="flex  items-center font-semibold text-sm font-lex gap-x-5">
+            <div class="grid grid-cols-3 gap-y-3 lg:grid-cols-5 items-center font-semibold text-sm font-lex gap-x-5">
                 <div>Created By : <span
                         class="text-red-600">{{ \Aaran\Core\User\Models\User::getName($task->reporter_id)}}</span>
                 </div>
-                <div class="border-l-2 h-5 border-gray-400"></div>
+{{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
 
                 <div class="text-gray-600">  {{$task->created_at}}</div>
-                <div class="border-l-2 h-5 border-gray-400"></div>
+{{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
                 <div> Allocated To : <span
                         class="text-indigo-600">{{ \Aaran\Core\User\Models\User::getName($task->allocated_id)}}</span>
                 </div>
-                <div class="border-l-2  h-5 border-gray-400"></div>
+{{--                <div class="border-l-2  h-5 border-gray-400"></div>--}}
 
-                <div> Priority To :</div>
-                <div
-                    class="text-xs px-2 rounded-full py-0.5
+
+                <div class="flex gap-2">
+                    <div> Priority To :</div>
+
+                    <div
+                        class="text-xs px-4 h-max w-max block my-auto rounded-full py-1
                     {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getStyle() }}">
-                    {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getName() }}</div>
-                <div class="border-l-2 h-5 border-gray-400"></div>
+                        {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getName() }}</div>
+                </div>
 
-                <div> Status :</div>
-                <div
-                    class="text-xs px-2 rounded-full py-0.5
+{{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
+
+                <div class="flex gap-2">
+                    <div> Status :</div>
+                    <div
+                        class="text-xs px-4 w-max rounded-full py-1
                     {{ \Aaran\Assets\Enums\Status::tryFrom($task->status_id)->getStyle()}}">
-                    {{ \Aaran\Assets\Enums\Status::tryFrom($task->status_id)->getName() }}</div>
+                        {{ \Aaran\Assets\Enums\Status::tryFrom($task->status_id)->getName() }}</div>
+                </div>
             </div>
 
             <div class="text-sm text-justify leading-loose ">{!! $task->body !!}</div>

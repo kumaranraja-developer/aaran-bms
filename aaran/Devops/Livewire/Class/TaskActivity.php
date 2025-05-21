@@ -94,6 +94,13 @@ class TaskActivity extends Component
         $this->dispatch('notify', ...['type' => 'success', 'body' => ('Actives updated Successfully')]);
 
     }
+    public function getDelete($id){
+        $obj = Activities::on($this->getTenantConnection())->find($id);
+        if($obj){
+            $obj->delete();
+        }
+        $this->activities = $this->getActivities($obj->task_id);
+    }
 
     protected function clearActivity(): void
     {
