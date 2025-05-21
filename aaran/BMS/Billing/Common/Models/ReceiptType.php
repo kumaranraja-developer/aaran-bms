@@ -11,8 +11,8 @@ class ReceiptType extends Model
 {
     use HasFactory;
 
+    protected $table = "receipt_types";
 
-    protected $table = "gst_percents";
     protected $guarded = [];
 
     public $timestamps = false;
@@ -26,7 +26,6 @@ class ReceiptType extends Model
     {
         return $query->where('vname', 'like', "%$search%");
     }
-
 
     protected static function newFactory(): ReceipttypeFactory
     {
