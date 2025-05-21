@@ -9,11 +9,13 @@
         {{$list->count()}}
     </x-Ui::table.caption>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5 p-5">
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5 p-5 ">
+
         @foreach($list as $card)
             @php
                 $link = route('task-managers',[$card->id])
             @endphp
+
             <div class="bg-white border border-gray-50 dark:border-gray-500 dark:bg-dark-4 dark:text-dark-9 text-black p-6 flex flex-col h-full rounded-lg gap-3 hover:scale-103 shadow-lg hover:shadow-xl transition duration-300">
                 <div class="flex-grow flex flex-col gap-y-2">
                     <div class="flex justify-between items-center">
@@ -28,9 +30,12 @@
                     </a>
                 </div>
 
-                <div class="pt-2 flex flex-col gap-y-4">
-                    <img src="{{ asset('images/home/wp1.webp') }}" alt="Card Image" class="w-[200px]" />
+                <div class="pt-2 flex flex-col gap-y-4 items-center">
+
+                    <img src="{{ asset('images/home/wp1.webp') }}" alt="" class="w-full h-full" />
+
                     <div class="flex justify-between items-center">
+
                         <div class="inline-flex items-center px-3 py-1 rounded-xl gap-x-2 @if($card->active===1)bg-emerald-100/60 @else bg-red-100/60 @endif ">
 
                             <span class="h-1.5 w-1.5  rounded-full @if($card->active===1) bg-emerald-500 @else bg-red-500 @endif"></span>
@@ -72,11 +77,54 @@
                 <x-Ui::input.error-text wire:model="content"/>
             </div>
 
+            <div class="flex flex-col py-2">
+                <label for="bg_image"
+                       class="w-full text-zinc-500 tracking-wide pb-4 px-2">Image</label>
 
-            {{--                <div>--}}
-            {{--                    <x-Ui::input.floating wire:model="status" label="Status"/>--}}
-            {{--                    <x-Ui::input.error-text wire:model="status"/>--}}
-            {{--                </div>--}}
+                <div class="flex flex-wrap sm:gap-6 gap-2">
+                    <div class="flex-shrink-0">
+                        <div>
+                            @if($image)
+                                <div
+                                    class=" flex-shrink-0 bg-blue-100 p-1 rounded-lg overflow-hidden">
+                                    <img
+                                        class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
+                                        src="{{ $image->temporaryUrl() }}"
+                                        alt="{{$image?:''}}"/>
+                                </div>
+                            @endif
+
+                            @if(!$image && isset($image))
+                                <img class="h-24 w-full"
+                                     src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_image))}}"
+                                     alt="">
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div>
+                            <label for="bg_image"
+                                   class="text-gray-500 font-semibold text-base rounded flex flex-col items-center
+                                   justify-center cursor-pointer border-2 border-gray-300 border-dashed p-2
+                                   mx-auto font-[sans-serif]">
+                                <x-Ui::icons.icon icon="cloud-upload" class="w-8 h-auto block text-gray-400"/>
+                                Upload Photo
+                                <input type="file" id='bg_image' wire:model="image" class="hidden"/>
+                                <p class="text-xs font-light text-gray-400 mt-2">PNG and JPG are
+                                    Allowed.</p>
+                            </label>
+                        </div>
+
+                        <div wire:loading wire:target="image" class="z-10 absolute top-6 left-12">
+                            <div class="w-14 h-14 rounded-full animate-spin
+                                                        border-y-4 border-dashed border-green-500 border-t-transparent"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
 
         </div>
 

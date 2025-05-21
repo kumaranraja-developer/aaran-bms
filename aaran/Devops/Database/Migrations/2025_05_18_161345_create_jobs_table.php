@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->text('image')->nullable();
             $table->smallInteger('status')->nullable();
             $table->tinyInteger('active_id')->nullable();
             $table->timestamps();

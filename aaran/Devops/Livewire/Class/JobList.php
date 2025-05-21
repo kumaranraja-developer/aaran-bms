@@ -17,6 +17,8 @@ class JobList extends Component
     #[Validate]
     public string $title = '';
     public string $content = '';
+    public string $image = '';
+    public string $old_image = '';
     public string $status = '';
     public bool $active_id = true;
 
@@ -51,6 +53,7 @@ class JobList extends Component
             [
                 'title' => Str::ucfirst($this->title),
                 'content' => $this->content,
+                'image' => $this->image,
                 'status' => $this->status,
                 'active_id' => $this->active_id
             ],
