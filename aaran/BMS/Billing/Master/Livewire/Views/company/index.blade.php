@@ -29,6 +29,8 @@
 
                 <x-Ui::table.header-text sortIcon="none">Mobile</x-Ui::table.header-text>
 
+                <x-Ui::table.header-text sortIcon="none">Logo</x-Ui::table.header-text>
+
                 <x-Ui::table.header-text sortIcon="none">Address</x-Ui::table.header-text>
 
 
@@ -45,6 +47,11 @@
                         <x-Ui::table.cell-text left>{{$row->vname}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text>{{$row->gstin}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text>{{$row->mobile}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text center>
+                            <x-Ui::image.lightbox-image :image="$row->logo" location="logo"
+                                                        thumb-size="h-22 w-auto"
+                            />
+                        </x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->address_1}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-action id="{{$row->id}}"/>
                     </x-Ui::table.row>
