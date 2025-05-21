@@ -1,13 +1,14 @@
 <div>
     <x-Ui::menu.web.top-banner
-        description="Apps"
-        slogan="All the software you need to run your business."
+        description="Test it! Trust it! then Decide."
+        slogan="Sign up Today and explore all features absolutely free for {{\Aaran\Assets\Config\Application::AppTrialPeriod}}."
     />
 
     <div class="bg-white dark:bg-dark scrollbar-hide">
 
-        <div class="bg-gray-200 text-black dark:bg-dark dark:text-dark-9">
+        <div class="bg-stone-100 text-black dark:bg-dark dark:text-dark-9">
             <div class="grid grid-cols-1 lg:grid-cols-2 py-10 sm:py-25">
+
                 <section
                     class="text-gray-600 body-font bg-white h-[80vh] hidden lg:flex items-center justify-center dark:bg-dark">
                     <div class="container px-5 mx-auto">
@@ -34,8 +35,8 @@
 
                 <div class="flex flex-col gap-3">
                     <div
-                        class="text-2xl md:text-3xl block my-5 mx-auto text-center font-bold w-[80%] sm:w-[50%] lg:w-[70%]">
-                        Experience Subscription plan For 7 Days
+                        class="text-xl md:text-3xl block my-5 mx-auto text-center font-bold w-[80%] sm:w-[50%] lg:w-[70%]">
+                        {{\Aaran\Assets\Config\Application::AppTrialPeriod}}. All Features. Zero cost.
                     </div>
                     <div class="block mx-auto text-start w-[80%] sm:w-[50%] lg:w-[70%]">
                         <p class="w-full py-2">Company Name</p>
@@ -77,23 +78,24 @@
                         </div>
                     </div>
                     <button
-                        class="bg-green-500 w-[80%] sm:w-[50%] lg:w-[70%] p-2 my-3 text-white rounded-sm block mx-auto">
+                        class="bg-green-500 w-[80%] sm:w-[50%] lg:w-[70%] p-2 my-2 text-white rounded-sm block mx-auto">
                         Create My Account
                     </button>
-                    <hr class="border-t block m-auto border-gray-300 my-4 w-[80%] sm:w-[50%] lg:w-[70%]"/>
-                    <div class=" flex items-center justify-center">
-                        <div class="flex justify-between w-full max-w-[300px]">
-                            <img src="/images/authentication/google.png" width="30"/>
-                            <img src="/images/authentication/twitter.png" width="30"/>
-                            <img src="/images/authentication/linkedin.png" width="30"/>
-                            <img src="/images/authentication/facebook.png" width="30"/>
-                        </div>
-                    </div>
-                    <h1 class="text-center mt-3">Already have an account?
+                    <hr class="border-t block m-auto border-gray-300 my-2 w-[80%] sm:w-[50%] lg:w-[70%]"/>
+                    {{--                    <div class=" flex items-center justify-center">--}}
+                    {{--                        <div class="flex justify-between w-full max-w-[300px]">--}}
+                    {{--                            <img src="/images/authentication/google.png" width="30"/>--}}
+                    {{--                            <img src="/images/authentication/twitter.png" width="30"/>--}}
+                    {{--                            <img src="/images/authentication/linkedin.png" width="30"/>--}}
+                    {{--                            <img src="/images/authentication/facebook.png" width="30"/>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    <h1 class="text-center">Already have an account?
                         <a href="{{ route('login') }}" class="text-blue-500 ">Log in</a>
                     </h1>
 
                 </div>
+
             </div>
         </div>
 
