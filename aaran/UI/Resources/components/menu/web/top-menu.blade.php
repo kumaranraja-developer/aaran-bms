@@ -76,7 +76,7 @@
             </div>
 
         @else
-            <div class="hover:tracking-wide hover:font-bold transition duration-500">
+            <div class="hover:tracking-wide hover:font-bold transition duration-500 hidden md:block">
                 <a href="{{ route('login') }}" class="menu-text border border-primary hover:bg-primary
                 px-3 py-2 rounded-lg text-primary hover:text-white">Login</a>
             </div>
