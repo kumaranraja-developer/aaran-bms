@@ -61,12 +61,12 @@
 
                             <div class="flex flex-col gap-1">
                                 <a href="{{ route('dashboard') }}" role="button"
-                                   class="menu-text hover:tracking-wide hover:font-bold transition hover:bg-orange-200 text-black p-2 cursor-pointer duration-500">Dashboard</a>
+                                   class="menu-text hover:tracking-wide hover:font-bold transition hover:bg-orange-50 dark:hover:bg-dark-5  text-black dark:text-dark-9 py-2 px-3 cursor-pointer duration-500">Dashboard</a>
 
                                 <a href="{{ route('logout') }}" role="button"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                   class="menu-text hover:tracking-wide hover:font-bold transition  hover:bg-orange-200 text-black p-2
-                                       cursor-pointer duration-500 px-3 py-2 rounded-lg">Logout</a>
+                                   class="menu-text hover:tracking-wide hover:font-bold transition  hover:bg-orange-50  text-black dark:text-dark-9 p-2
+                                       cursor-pointer duration-500 px-3 py-2 dark:hover:bg-dark-5">Logout</a>
                             </div>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                   class="hidden">@csrf</form>
@@ -76,7 +76,7 @@
             </div>
 
         @else
-            <div class="hover:tracking-wide hover:font-bold transition duration-500">
+            <div class="hover:tracking-wide hover:font-bold transition duration-500 hidden md:block">
                 <a href="{{ route('login') }}" class="menu-text border border-primary hover:bg-primary
                 px-3 py-2 rounded-lg text-primary hover:text-white">Login</a>
             </div>
@@ -88,12 +88,12 @@
             :class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-50' : null" type="button"
             class="flex  text-neutral-600 dark:text-dark-9 md:hidden" aria-label="mobile menu">
         <svg x-cloak x-show="!mobileMenuIsOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
-             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
         </svg>
         <svg x-cloak x-show="mobileMenuIsOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
-             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6 dark:text-white">
+             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8 dark:text-white">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M6 18 18 6M6 6l12 12"/>
         </svg>
@@ -108,7 +108,7 @@
         x-transition:leave-start="translate-y-0"
         x-transition:leave-end="-translate-y-full"
         id="mobileMenu"
-        class="absolute w-[300px] h-[100vh] justify-evenly right-0 top-0 z-20 flex flex-col divide-y divide-neutral-300 border-b border-neutral-300 bg-neutral-50 px-6 pb-6 pt-10 dark:divide-dark-7 dark:border-dark-8 dark:bg-dark-4 dark:text-dark-9 md:hidden">
+        class="fixed w-[300px] h-full justify-evenly right-0 top-0 z-20 flex flex-col divide-y divide-neutral-300 border-b border-neutral-300 bg-neutral-50 px-6 pb-6 pt-10 dark:divide-dark-7 dark:border-dark-8 dark:bg-dark-4 dark:text-dark-9 md:hidden">
 
         @foreach ($menuItems as $route => $label)
             <li class="py-2">
@@ -117,20 +117,22 @@
         @endforeach
 
         @auth
-            <li class="py-2 dark:text-dark-9"><a href="{{ route('dashboard') }}"
-                                                 class="menu-text-mobile Customize Toolbar…">Dashboard</a>
+            <li class="py-2 dark:text-dark-9">
+                <a href="{{ route('dashboard') }}" class="menu-text-mobile">Dashboard</a>
             </li>
             <li class="py-2">
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                    class="menu-text-mobile dark:text-dark-9">Logout</a>
             </li>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                  class="hidden Customize Toolbar…">@csrf</form>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
         @else
-            <li class="py-2 dark:text-dark-9"><a href="{{ route('login') }}" class="menu-text-mobile">Login</a></li>
+            <li class="py-2 dark:text-dark-9">
+                <a href="{{ route('login') }}" class="menu-text-mobile">Login</a>
+            </li>
         @endauth
     </ul>
+
 </nav>
 
 

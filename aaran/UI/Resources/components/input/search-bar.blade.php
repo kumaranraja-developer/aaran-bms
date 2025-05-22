@@ -1,14 +1,14 @@
 @props([
     'label' => '',
 ])
-<div class="w-full grid grid-cols-[10%_90%] sm:flex flex-row space-x-4 group ">
+<div class="w-full grid grid-cols-[10%_90%] sm:flex flex-row space-x-4  gap-x-2 group ">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
              aria-hidden="true"
              class=" size-6 text-gray-400 block my-auto focus:text-blue-600">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
         </svg>
-        <div class="relative w-full md:w-max ">
+        <div class="relative w-full md:w-max">
             <input {{$attributes}} type="Search" id="floating_outlined"
                    class="block px-2.5 pb-2.5 pt-4  w-[100%] md:w-[300px] lg:w-[450px] text-sm text-gray-900 dark:bg-dark dark:text-dark-9 bg-transparent rounded-lg border-1 border-gray-300 appearance-none
                 focus:outline-none focus:ring-0 focus:border-blue-600 peer "

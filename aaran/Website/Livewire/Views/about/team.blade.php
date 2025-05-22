@@ -44,7 +44,7 @@
                                  alt="">
                             {{$row->photo}}
                         </x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left>{{$row->about}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left class="line-clamp-5">{{$row->about}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->mail}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->mobile}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->fb}}</x-Ui::table.cell-text>
