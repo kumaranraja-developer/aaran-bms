@@ -21,7 +21,7 @@
                         <x-Ui::tabs.content>
 
                             <div class="space-y-5 py-3">
-                                <div class="w-full flex gap-5 ">
+                                <div class="w-full sm:flex-row flex-col flex gap-5 ">
 
                                     <div class="w-full space-y-5">
 
@@ -95,53 +95,52 @@
                                     class="px-4 pb-4  text-lg font-merri tracking-wider text-orange-600 underline underline-offset-4 underline-orange-500">
                                     Purchase Items
                                 </div>
-                                <div class="w-full flex  gap-x-1 pb-4">
+                                <div class="w-full flex sm:flex-row gap-3 flex-col gap-x-1 pb-4">
 
                                     @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
-                                        <div class="">
+                                        <div class="w-full">
                                             <x-Ui::input.floating id="qty" wire:model="purchaseItems.po_no" label="Po No"/>
                                         </div>
                                     @endif
                                     @if(\Aaran\Assets\Features\SaleEntry::hasDc_no())
-                                        <div class="">
+                                        <div class="w-full">
                                             <x-Ui::input.floating id="dc" wire:model="purchaseItems.dc_no" label="DC No."/>
                                         </div>
                                     @endif
 
-                                    <div class="w-[30%]">
+                                    <div class="w-full">
                                         @livewire('master::product.lookup',['initId' => $purchaseItems->product_id])
-
                                     </div>
 
                                     @if(\Aaran\Assets\Features\SaleEntry::hasProductDescription())
-                                        <div class="w-[20%]">
+                                        <div class="w-full">
                                             <x-Ui::input.floating id="description" wire:model="purchaseItems.description"
                                                                   label="description"/>
                                         </div>
                                     @endif
                                     @if(\Aaran\Assets\Features\SaleEntry::hasColour())
-                                        <div class="w-[15%]">
+                                        <div class="w-full">
                                             @livewire('common::lookup.colour',['initId' => $purchaseItems->colour_id])
                                         </div>
                                     @endif
                                     @if(\Aaran\Assets\Features\SaleEntry::hasSize())
-                                        <div class="w-[15%]">
+                                        <div class="w-full">
                                             @livewire('common::lookup.size',['initId' => $purchaseItems->size_id])
                                         </div>
                                     @endif
                                     @if(\Aaran\Assets\Features\SaleEntry::hasNo_of_roll())
-                                        <div class="w-[10%]">
+                                        <div class="w-full">
                                             <x-Ui::input.floating id="no_of_roll" wire:model="purchaseItems.no_of_roll"
                                                                   label="No of Roll"/>
                                         </div>
                                     @endif
-                                    <div class="w-[10%]">
+                                    <div class="w-full">
                                         <x-Ui::input.floating id="qty" wire:model="purchaseItems.qty" label="Quantity"/>
                                     </div>
-                                    <div class="w-[10%]">
+                                    <div class="w-full">
                                         <x-Ui::input.floating id="price" wire:model="purchaseItems.price" label="Price"/>
                                     </div>
-                                    <x-Ui::button.add wire:click.prevent="addItems"/>
+                                    <x-Ui::button.add class="w-full" wire:click.prevent="addItems"/>
                                 </div>
 
 
@@ -149,85 +148,85 @@
 
 
                                 <div class="max-w-7xl mx-auto">
-                                    <div class="w-full border rounded-lg overflow-hidden">
-                                        <table class="w-full text-xs ">
+                                    <div class="w-full border rounded-lg overflow-hidden overflow-x-auto">
+                                        <table class="table-auto min-w-full text-xs whitespace-nowrap">
                                             <tr class="bg-neutral-50  text-neutral-400 border-b font-medium font-sans tracking-wider dark:bg-dark-3 dark:text-dark-9">
-                                                <th class="py-4 border-r">#</th>
+                                                <th class="py-4 border-r min-w-[50px]">#</th>
                                                 @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
-                                                    <th class="border-r">PO</th>
+                                                    <th class="border-r min-w-[100px]">PO</th>
                                                 @endif
                                                 @if(\Aaran\Assets\Features\SaleEntry::hasDc_no())
-                                                    <th class="border-r">DC</th>
+                                                    <th class="border-r min-w-[100px]">DC</th>
                                                 @endif
 
-                                                <th class="border-r">Items</th>
+                                                <th class="border-r max-w-[150px] truncate">Items</th>
 
                                                 @if(\Aaran\Assets\Features\SaleEntry::hasColour())
-                                                    <th width="5%" class="border-r">Color</th>
+                                                    <th class="border-r min-w-[100px]">Color</th>
                                                 @endif
                                                 @if(\Aaran\Assets\Features\SaleEntry::hasSize())
-                                                    <th width="4%" class="border-r">Size</th>
+                                                    <th class="border-r min-w-[100px]">Size</th>
                                                 @endif
                                                 @if(\Aaran\Assets\Features\SaleEntry::hasNo_of_roll())
-                                                    <th width="5%" class="border-r">No 0f Rolls</th>
+                                                    <th class="border-r min-w-[100px]">No 0f Rolls</th>
                                                 @endif
-                                                <th width="8%" class="border-r">Quantity</th>
-                                                <th width="8%" class="border-r">Rate</th>
-                                                <th width="8%" class="border-r">Taxable</th>
-                                                <th width="4%" class="border-r">GST Percent</th>
-                                                <th width="8%" class="border-r">GST</th>
-                                                <th width="8%" class="border-r">Sub Total</th>
-                                                <th width="4%">Action</th>
+                                                <th class="border-r min-w-[100px]">Quantity</th>
+                                                <th class="border-r min-w-[100px]">Rate</th>
+                                                <th class="border-r min-w-[100px]">Taxable</th>
+                                                <th class="border-r min-w-[80px]">GST Percent</th>
+                                                <th class="border-r min-w-[100px]">GST</th>
+                                                <th class="border-r min-w-[150px]">Sub Total</th>
+                                                <th >Action</th>
                                             </tr>
                                             @if ($purchase->itemList)
                                                 @foreach($purchase->itemList as $index => $row)
                                                     <tr class="text-center border-b font-lex tracking-wider hover:bg-amber-50 dark:hover:bg-dark-4 dark:bg-dark-3 dark:text-dark-9">
-                                                        <td class="py-2 border-r"
+                                                        <td class="py-2 border-r min-w-[100px]"
                                                             wire:click.prevent="changeItems({{$index}})">{{(int)$index+1}}</td>
                                                         @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
-                                                            <td class="py-2 border-r"
+                                                            <td class="py-2 border-r min-w-[100px]"
                                                                 wire:click.prevent="changeItems({{$index}})">{{$row['po_no']}}</td>
                                                         @endif
                                                         @if(\Aaran\Assets\Features\SaleEntry::hasDc_no())
-                                                            <td class="py-2 border-r"
+                                                            <td class="py-2 border-r min-w-[100px]"
                                                                 wire:click.prevent="changeItems({{$index}})">{{$row['dc_no']}}</td>
                                                         @endif
 
-                                                        <td class="py-2 border-r text-left px-2"
+                                                        <td class="py-2 border-r text-left px-2 w-[150px] truncate"
                                                             wire:click.prevent="changeItems({{$index}})">
-                                                            <div class="line-clamp-1">{{$row['product_name']}}
+                                                            <div class="line-clamp-1  w-[150px] truncate">{{$row['product_name']}}
                                                                 @if(\Aaran\Assets\Features\SaleEntry::hasProductDescription() && !empty($row['description']))
                                                                     &nbsp;-&nbsp; {{ $row['description'] }}
                                                                 @endif
                                                             </div>
                                                         </td>
                                                         @if(\Aaran\Assets\Features\SaleEntry::hasColour())
-                                                            <td class="py-2 border-r"
+                                                            <td class="py-2 border-r min-w-[100px]"
                                                                 wire:click.prevent="changeItems({{$index}})">{{$row['colour_name']}}</td>
                                                         @endif
                                                         @if(\Aaran\Assets\Features\SaleEntry::hasSize())
-                                                            <td class="py-2 border-r"
+                                                            <td class="py-2 border-r min-w-[100px]"
                                                                 wire:click.prevent="changeItems({{$index}})">{{$row['size_name']}}</td>
                                                         @endif
 
                                                         @if(\Aaran\Assets\Features\SaleEntry::hasNo_of_roll())
-                                                            <td class="py-2 border-r"
+                                                            <td class="py-2 border-r min-w-[100px]"
                                                                 wire:click.prevent="changeItems({{$index}})">{{$row['no_of_roll']}}</td>
                                                         @endif
 
-                                                        <td class="py-2 border-r"
+                                                        <td class="py-2 border-r min-w-[100px]"
                                                             wire:click.prevent="changeItems({{$index}})">{{$row['qty']}}</td>
-                                                        <td class="py-2 border-r"
+                                                        <td class="py-2 border-r min-w-[100px]"
                                                             wire:click.prevent="changeItems({{$index}})">{{$row['price']}}</td>
-                                                        <td class="py-2 border-r"
+                                                        <td class="py-2 border-r min-w-[100px]"
                                                             wire:click.prevent="changeItems({{$index}})">{{ \Aaran\Assets\Helper\Format::Decimal($row['taxable'])}}</td>
-                                                        <td class="py-2 border-r"
+                                                        <td class="py-2 border-r min-w-[100px]"
                                                             wire:click.prevent="changeItems({{$index}})">{{$row['gst_percent']}}</td>
-                                                        <td class="py-2 border-r"
+                                                        <td class="py-2 border-r min-w-[100px]"
                                                             wire:click.prevent="changeItems({{$index}})">{{\Aaran\Assets\Helper\Format::Decimal($row['gst_amount'])}}</td>
-                                                        <td class="py-2 border-r"
+                                                        <td class="py-2 border-r min-w-[100px]"
                                                             wire:click.prevent="changeItems({{$index}})">{{\Aaran\Assets\Helper\Format::Decimal($row['subtotal'])}}</td>
-                                                        <td class="py-2 border-r"
+                                                        <td class="py-2 border-r min-w-[150px]"
                                                             wire:click.prevent="changeItems({{$index}})">
                                                             <x-Ui::button.delete
                                                                 wire:click.prevent="removeItems({{$index}})"/>
@@ -265,50 +264,49 @@
 
                             <!--  Bottom Total ------------------------------------------------------------------------------------------------->
 
-                            <div class="max-w-6xl mx-auto flex justify-between items-start gap-5 py-10">
-                                <div class="w-2/3">
+                            <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start gap-5 py-10 px-4">
+                                <div class="w-full sm:w-2/3">
                                     @if(isset($e_invoiceDetails->id))
-                                        <div class="sm:w-full w-[300px] flex flex-col items-center justify-center ">
-                                            <img class="w-[200px]"
+                                        <div class="w-full flex flex-col items-center justify-center">
+                                            <img class="w-[200px] mx-auto"
                                                  src="{{\App\Helper\qrcoder::generate($e_invoiceDetails->signed_qrcode,22)}}"
                                                  alt="{{$e_invoiceDetails->signed_qrcode}}">
-                                            <div class="sm:w-full w-[300px]">Irn No
-                                                : {{$e_invoiceDetails->irn}}</div>
+                                            <div class="w-full text-center">Irn No: {{$e_invoiceDetails->irn}}</div>
                                             @if(isset($e_wayDetails))
-                                                <div class="sm:w-full w-[300px] ">E-way Bill
-                                                    NO: {{$e_wayDetails->ewbno}}</div>
+                                                <div class="w-full text-center">E-way Bill NO: {{$e_wayDetails->ewbno}}</div>
                                             @endif
                                         </div>
                                     @endif
                                 </div>
-                                <div class="w-1/3 flex text-xs text-400 px-4">
-                                    <div class="w-2/4 space-y-4 text-gray-400 font-merri tracking-wider">
+
+                                <div class="w-full sm:w-1/3 flex text-xs text-400 px-2 sm:px-4">
+                                    <div class="w-1/2 space-y-4 text-gray-400 font-merri tracking-wider">
                                         <div>Taxable No</div>
                                         <div>GST</div>
                                         <div>Round off</div>
                                         <div class="font-semibold">Grand Total</div>
                                     </div>
-                                    <div class="w-1/4 text-center space-y-4 ">
+                                    <div class="w-1/6 text-center space-y-4">
                                         <div>:</div>
                                         <div>:</div>
                                         <div>:</div>
                                         <div>:</div>
                                     </div>
-                                    <div class="w-1/4 text-end space-y-4 tracking-wider font-lex">
+                                    <div class="w-1/3 text-end space-y-4 tracking-wider font-lex">
                                         <div>{{$purchase->total_taxable ? \Aaran\Assets\Helper\Format::Decimal($purchase->total_taxable):'-'}}</div>
                                         <div>{{$purchase->total_gst ? \Aaran\Assets\Helper\Format::Decimal($purchase->total_gst):'-'}}</div>
                                         <div>{{ ($purchase->round_off == 0 || is_null($purchase->round_off)) ? '-' : $purchase->round_off }}</div>
-                                        <div
-                                            class="font-semibold">{{$purchase->grand_total ? \Aaran\Assets\Helper\Format::Decimal($purchase->grand_total):''}}</div>
+                                        <div class="font-semibold">{{$purchase->grand_total ? \Aaran\Assets\Helper\Format::Decimal($purchase->grand_total):''}}</div>
                                     </div>
                                 </div>
                             </div>
+
                         </x-Ui::tabs.content>
 
                         <!--  TAB 2 - Address ------------------------------------------------------------------------------------------------->
 
                         <x-Ui::tabs.content>
-                            <div class="w-1/2 space-y-8 h-52 pt-3">
+                            <div class="sm:w-1/2 space-y-5 h-52 pt-3">
                                 <div>
                                     @if(\Aaran\Assets\Features\SaleEntry::hasBillingAddress())
                                         @livewire('master::contact.billing-address', ['initId' => $purchase->billing_id])
@@ -329,9 +327,9 @@
 
                         <x-Ui::tabs.content>
                             <div>
-                                <div class="flex justify-between gap-5 pt-3">
+                                <div class="flex sm:flex-row flex-col justify-between sm:gap-5 pt-3">
 
-                                    <div class="w-full space-y-8 ">
+                                    <div class="w-full space-y-5 ">
 
                                         @if(\Aaran\Assets\Features\SaleEntry::hasTransport())
                                             @livewire('common::lookup.transport',['initId' => $purchase->trans_id])
@@ -354,7 +352,7 @@
 
                                     </div>
 
-                                    <div class="w-full space-y-8">
+                                    <div class="w-full space-y-5">
                                         <div>
                                             <x-Ui::input.floating wire:model.live="purchase.distance" label="Distance"/>
                                             <x-Ui::input.error-text wire:model="purchase.distance"/>
@@ -384,7 +382,7 @@
                         <!--  TAB 4 - Additional ------------------------------------------------------------------------------------------------->
 
                         <x-Ui::tabs.content>
-                            <div class="w-1/2 space-y-8 h-52 pt-3">
+                            <div class="sm:w-1/2 space-y-5 h-52 pt-3">
                                 <!-- Ledger ----------------------------------------------------------------------------------->
 
                                 @livewire('books::lookup.ledger',['initId' => $purchase->ledger_id])
@@ -401,7 +399,7 @@
                         <!--  TAB 5 - Terms ------------------------------------------------------------------------------------------------->
 
                         <x-Ui::tabs.content>
-                            <div class="w-1/2">
+                            <div class="sm:w-1/2">
                                 <x-Ui::input.rich-text wire:model="purchase.term" placeholder="Terms & Conditions"/>
                             </div>
                         </x-Ui::tabs.content>

@@ -2,9 +2,10 @@
 
 namespace Aaran\Core\User\Livewire\Class;
 
+use Aaran\Assets\Services\ImageService;
 use Aaran\Assets\Traits\ComponentStateTrait;
-use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Core\User\Models\UserDetail;
+use Aaran\Devops\Models\TaskImage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -12,17 +13,37 @@ use Livewire\Component;
 class UserDetailShow extends Component
 {
 
-    use ComponentStateTrait, TenantAwareTrait;
+    use ComponentStateTrait;
 
     #[Validate]
     public string $vname = '';
+    public string $email = '';
+
+    public string $dob = '';
+    public string $gender = '';
+    public string $marital_status = '';
+    public string $nationality = '';
+    public string $images = '';
+    public string $mobile_number = '';
+    public string $alter_mobile_number = '';
+    public string $residential_address = '';
+    public string $city = '';
+    public string $state = '';
+    public string $country = '';
+    public string $pin_code = '';
+    public string $professional_details = '';
+    public string $highest_qualification = '';
+    public string $occupation = '';
+    public string $company_name = '';
+    public string $industry_type = '';
+    public string $experience = '';
     public bool $active_id = true;
 
     public function rules(): array
     {
         return [
-            'vname' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.cities,vname"),
-        ];
+            'vname' => 'required'
+            ];
     }
 
     public function messages(): array
@@ -43,13 +64,31 @@ class UserDetailShow extends Component
     public function getSave(): void
     {
         $this->validate();
-        $connection = $this->getTenantConnection();
 
-        UserDetail::on($connection)->updateOrCreate(
+
+        UserDetail::updateOrCreate(
             ['id' => $this->vid],
             [
                 'vname' => Str::ucfirst($this->vname),
-                'active_id' => $this->active_id
+                'email' => $this->email,
+                'dob' => $this->dob,
+                'gender' => $this->gender,
+                'marital_status' => $this->marital_status,
+                'nationality' => $this->nationality,
+                'images' => $this->images,
+                'mobile_number' => $this->mobile_number,
+                'alter_mobile_number' => $this->alter_mobile_number,
+                'residential_address' => $this->residential_address,
+                'city' => $this->city,
+                'state' => $this->state,
+                'country' => $this->country,
+                'pin_code' => $this->pin_code,
+                'professional_details' => $this->professional_details,
+                'highest_qualification' => $this->highest_qualification,
+                'occupation' => $this->occupation,
+                'company_name' => $this->company_name,
+                'industry_type' => $this->industry_type,
+                'experience' => $this->experience,
             ],
         );
 
@@ -60,23 +99,60 @@ class UserDetailShow extends Component
     {
         $this->vid = null;
         $this->vname = '';
+        $this->email = '';
+        $this->dob = '';
+        $this->gender = '';
+        $this->marital_status = '';
+        $this->nationality = '';
+        $this->images = '';
+        $this->mobile_number = '';
+        $this->alter_mobile_number = '';
+        $this->residential_address = '';
+        $this->city = '';
+        $this->state = '';
+        $this->country = '';
+        $this->pin_code = '';
+        $this->professional_details = '';
+        $this->highest_qualification = '';
+        $this->occupation = '';
+        $this->company_name = '';
+        $this->industry_type = '';
+        $this->experience = '';
         $this->active_id = true;
         $this->searches = '';
     }
 
     public function getObj(int $id): void
     {
-        if ($obj = UserDetail::on($this->getTenantConnection())->find($id)) {
+        if ($obj = UserDetail::find($id)) {
             $this->vid = $obj->id;
             $this->vname = $obj->vname;
+            $this->email = $obj->email;
+            $this->gender = $obj->gender;
+            $this->images = $obj->images;
+            $this->dob = $obj->dob;
+            $this->marital_status = $obj->marital_status;
+            $this->nationality = $obj->nationality;
+            $this->mobile_number = $obj->mobile_number;
+            $this->alter_mobile_number = $obj->alter_mobile_number;
+            $this->residential_address = $obj->residential_address;
+            $this->city = $obj->city;
+            $this->state = $obj->state;
+            $this->country = $obj->country;
+            $this->pin_code = $obj->pin_code;
+            $this->professional_details = $obj->professional_details;
+            $this->highest_qualification = $obj->highest_qualification;
+            $this->occupation = $obj->occupation;
+            $this->company_name = $obj->company_name;
+            $this->industry_type = $obj->industry_type;
+            $this->experience = $obj->experience;
             $this->active_id = $obj->active_id;
         }
     }
 
     public function getList()
     {
-        return UserDetail::on($this->getTenantConnection())
-            ->active($this->activeRecord)
+        return UserDetail::active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
@@ -86,15 +162,26 @@ class UserDetailShow extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = UserDetail::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = UserDetail::find($this->deleteId);
         if ($obj) {
             $obj->delete();
+        }
+    }
+    public function saveImage($id, $images): void
+    {
+        $imageService = app(ImageService::class);
+
+        foreach ($this->images as $image) {
+            TaskImage::on($this->getTenantConnection())->create([
+                'task_id' => $id,
+                'image' => $imageService->save($image),
+            ]);
         }
     }
 
     public function render()
     {
-        return view('common::user_details-list', [
+        return view('user::user-details-list', [
             'list' => $this->getList()
         ]);
     }
