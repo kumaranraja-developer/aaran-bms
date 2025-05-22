@@ -22,7 +22,7 @@
                         individuals and businesses manage their accounting with ease. Whether it’s tracking profits and
                         losses, generating bills, or analyzing real-time sales and income through live graphs, our
                         software empowers users to gain full control over their financial operations.</p>
-                    <div class="grid grid-cols-2 gap-5 mt-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-5 mt-8">
                         <div class="flex flex-col gap-3">
                             <div class="bg-primary rounded-xl p-3 w-20 flex items-center">
                                 <svg viewBox="0 0 24 24" class="w-16 h-auto text-white">
@@ -138,8 +138,8 @@
                             </svg>
                             <p class="leading-relaxed text-lg dark:text-dark-8">{{$quote['quote']}}</p>
                             <span class="inline-block h-1 w-10 rounded bg-primary mt-8 mb-6"></span>
-                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm dark:text-dark-8">{{$quote['name']}}</h2>
-                            <p class="text-gray-500 dark:text-dark-8">{{$quote['job']}}</p>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-xl dark:text-dark-8">{{$quote['name']}}</h2>
+                            <p class="text-gray-500 text-sm dark:text-dark-8">{{$quote['job']}}</p>
                             <p class="text-gray-500 dark:text-dark-8">{{$quote['location']}}</p>
                         </div>
                     </div>
@@ -164,28 +164,30 @@
         })();
     </script>
 
-
     <section class="text-blue-300 bg-blue-800 cursor-default">
-        <div
-            class="flex flex-col items-stretch justify-between px-4 py-20 mx-auto max-w-7xl lg:flex-row sm:items-center">
-            <div>
-                <h2 class="mb-1 text-xl font-semibold text-left py-4 sm:text-2xl sm:text-center lg:text-left  text-white">
-                    Built for
-                    companies of all sizes</h2>
-                <p class="mb-6 text-lg font-normal text-left text-blue-300 sm:text-xl lg:mb-0 sm:text-center lg:text-left  ">
-                    Start your {{Aaran\Assets\Config\Application::AppTrialPeriod}} free trial or book a personal
-                    demo.</p>
+        <div class="flex flex-col items-center justify-between px-4 py-20 mx-auto max-w-7xl lg:flex-row">
+            <div class="text-center lg:text-left">
+                <h2 class="mb-1 text-xl font-semibold py-4 sm:text-2xl text-white">
+                    Built for companies of all sizes
+                </h2>
+                <p class="mb-6 text-lg font-normal text-blue-300 sm:text-xl">
+                    Start your {{ Aaran\Assets\Config\Application::AppTrialPeriod }} free trial or book a personal demo.
+                </p>
             </div>
-            <div class="flex flex-col mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
-                <a href="{{route('client-registration')}}"
-                   class="px-4 py-2 border border-blue-800 bg-primary text-white  hover:bg-orange-500">
+
+            <div class="flex flex-row justify-center items-center space-x-2">
+                <a href="{{ route('client-registration') }}"
+                   class="px-4 py-2 border border-blue-800 bg-primary text-white hover:bg-orange-500">
                     Start free trial
                 </a>
-                <a href="{{route('web-contacts')}}"
-                   class="border bg-white text-black hover:text-white hover:bg-dark-2 px-4 py-2">Book a demo</a>
+                <a href="{{ route('web-contacts') }}"
+                   class="px-4 py-2 border bg-white text-black hover:text-white hover:bg-dark-2">
+                    Book a demo
+                </a>
             </div>
         </div>
     </section>
+
 
 
     <x-Ui::web.common.footer-address/>

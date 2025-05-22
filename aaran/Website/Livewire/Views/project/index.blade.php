@@ -4,9 +4,9 @@
         slogan="All the software you need to run your business."
     />
 
-    <div class="bg-white dark:bg-dark scrollbar-hide">
+    <div class="bg-white pt-10 dark:bg-dark scrollbar-hide">
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[80%] h-max mx-auto gap-4 p-4 items-stretch">
+        <div class="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 w-[80%] h-max mx-auto gap-4 p-4 items-stretch">
             @foreach($featured as $featuredApps)
                 <x-Ui::web.project.featured-apps
                     :icon="$featuredApps->icon"
@@ -18,7 +18,7 @@
 
         <div class="my-15 text-4xl text-center">Upcoming Apps</div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 mx-auto w-[80%] lg:grid-cols-3 gap-4 h-max p-4 pointer-events-none">
+        <div class="grid grid-cols-1 pb-10 sm:grid-cols-2 mx-auto w-[80%] lg:grid-cols-3 gap-4 h-max p-4 pointer-events-none">
             @foreach($upcoming as $upcomingApps)
                 <x-Ui::web.project.featured-apps
                     :icon="$upcomingApps->icon"

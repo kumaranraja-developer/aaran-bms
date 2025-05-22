@@ -4,13 +4,13 @@
         slogan="Sign up Today and explore all features absolutely free for {{\Aaran\Assets\Config\Application::AppTrialPeriod}}."
     />
 
-    <div class="bg-white dark:bg-dark scrollbar-hide">
+    <div class="bg-stone-100 dark:bg-dark scrollbar-hide">
 
         <div class="bg-stone-100 text-black dark:bg-dark dark:text-dark-9">
             <div class="grid grid-cols-1 lg:grid-cols-2 py-10 sm:py-25">
 
                 <section
-                    class="text-gray-600 body-font bg-white h-[80vh] hidden lg:flex items-center justify-center dark:bg-dark">
+                    class="text-gray-600 body-font bg-stone-100 h-[80vh] hidden lg:flex items-center justify-center dark:bg-dark">
                     <div class="container px-5 mx-auto">
                         <div id="customCarousel" class="carousel">
                             @foreach($quotes as $index => $quote)
@@ -24,8 +24,10 @@
                                         </svg>
                                         <p class="leading-relaxed text-lg dark:text-dark-8">{{$quote['quote']}}</p>
                                         <span class="inline-block h-1 w-10 rounded bg-primary mt-8 mb-6"></span>
-                                        <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm dark:text-dark-8">{{$quote['name']}}</h2>
-                                        <p class="text-gray-500 dark:text-dark-8">{{$quote['job']}}</p>
+                                        <h2 class="text-gray-900 font-medium title-font tracking-wider text-xl dark:text-dark-8">{{$quote['name']}}</h2>
+                                        <p class="text-gray-500 text-sm dark:text-dark-8">{{$quote['job']}}</p>
+                                        <p class="text-gray-500 dark:text-dark-8">{{$quote['location']}}</p>
+
                                     </div>
                                 </div>
                             @endforeach

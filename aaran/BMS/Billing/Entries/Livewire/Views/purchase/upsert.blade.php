@@ -110,7 +110,6 @@
 
                                     <div class="w-full">
                                         @livewire('master::product.lookup',['initId' => $purchaseItems->product_id])
-
                                     </div>
 
                                     @if(\Aaran\Assets\Features\SaleEntry::hasProductDescription())
