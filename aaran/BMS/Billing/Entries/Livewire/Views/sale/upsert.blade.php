@@ -169,7 +169,7 @@
                                             </tr>
                                             @if ($sale->itemList)
                                                 @foreach($sale->itemList as $index => $row)
-                                                    <tr class="text-center border-b  font-lex tracking-wider hover:bg-amber-50">
+                                                    <tr class="text-center border-b  font-lex tracking-wider hover:bg-amber-50 dark:hover:bg-dark-4">
                                                         <td class="py-2 border-r w-[100px]"
                                                             wire:click.prevent="changeItems({{$index}})">{{(int)$index+1}}</td>
                                                         @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
