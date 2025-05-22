@@ -4,7 +4,7 @@
 
 <div class="relative ">
     <select id="floating_outlined"
-            {{ $attributes->merge([ 'class' => 'block dark:bg-dark dark:text-dark-9 px-4 py-2 text-gray-900 bg-white rounded-lg
+            {{ $attributes->merge([ 'class' => 'block dark:bg-dark dark:text-dark-9 px-4 py-2 w-full text-gray-900 bg-white rounded-lg
              border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer'])}}
             placeholder=" ">
         {{$slot}}

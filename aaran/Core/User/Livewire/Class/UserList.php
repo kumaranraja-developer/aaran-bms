@@ -12,16 +12,19 @@ use Livewire\Component;
 class UserList extends Component
 {
 
-    use ComponentStateTrait, TenantAwareTrait;
+    use ComponentStateTrait;
 
     #[Validate]
     public string $vname = '';
+    public string $email = '';
+    public string $tenant_id = '';
     public bool $active_id = true;
 
     public function rules(): array
     {
         return [
-            'vname' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.cities,vname"),
+            'vname' => 'required',
+            'email' => 'required | email'
         ];
     }
 
@@ -30,6 +33,8 @@ class UserList extends Component
         return [
             'vname.required' => ':attribute is missing.',
             'vname.unique' => 'This :attribute is already created.',
+            'email.required' => ':attribute is missing.',
+
         ];
     }
 
@@ -37,18 +42,21 @@ class UserList extends Component
     {
         return [
             'vname' => 'UserDetail name',
+            'email' => 'User Email',
         ];
     }
 
     public function getSave(): void
     {
         $this->validate();
-        $connection = $this->getTenantConnection();
 
-        UserDetail::on($connection)->updateOrCreate(
+
+        UserDetail::updateOrCreate(
             ['id' => $this->vid],
             [
                 'vname' => Str::ucfirst($this->vname),
+                'email' => $this->email,
+                'tenant_id'=>$this->tenant_id,
                 'active_id' => $this->active_id
             ],
         );
@@ -60,23 +68,24 @@ class UserList extends Component
     {
         $this->vid = null;
         $this->vname = '';
+        $this->email = '';
         $this->active_id = true;
         $this->searches = '';
     }
 
     public function getObj(int $id): void
     {
-        if ($obj = UserDetail::on($this->getTenantConnection())->find($id)) {
+        if ($obj = UserDetail::find($id)) {
             $this->vid = $obj->id;
             $this->vname = $obj->vname;
+            $this->email = $obj->email;
             $this->active_id = $obj->active_id;
         }
     }
 
     public function getList()
     {
-        return UserDetail::on($this->getTenantConnection())
-            ->active($this->activeRecord)
+        return UserDetail::active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
@@ -86,7 +95,7 @@ class UserList extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = UserDetail::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = UserDetail::find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }
@@ -94,7 +103,7 @@ class UserList extends Component
 
     public function render()
     {
-        return view('common::user_details-list', [
+        return view('user::user-list', [
             'list' => $this->getList()
         ]);
     }
