@@ -1,4 +1,4 @@
-<div class="px-10 lg:px-40">
+<div class="px-5 sm:px-10 lg:px-40">
     <x-slot name="header">Activity</x-slot>
 
     <x-Ui::forms.m-panel>
@@ -50,99 +50,90 @@
                 </div>
             </div>
 
-            <div class="w-full shadow-md shadow-gray-700 rounded-lg overflow-hidden">
-                @if($taskImage)
+            <div class="w-56 h-56 md:w-72 md:h-72 shadow-md shadow-gray-700 rounded-lg overflow-hidden mx-auto">
 
-                    <div class="w-full h-[40rem] md:h-[40rem] overflow-hidden ">
+            @if($taskImage)
+                    <div class="w-full h-full overflow-hidden">
                         <div x-data="{
-            slides: [
-                @foreach($taskImage as $row)
-                                {
-                                    imgSrc: '{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$row['image']))}}',
-                                    imgAlt: '{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$row['image']))}}',
-                                },
-                 @endforeach
-                                ],
-                                currentSlideIndex: 1,
-                                previous() {
-                                    if (this.currentSlideIndex > 1) {
-                                        this.currentSlideIndex = this.currentSlideIndex - 1
-                                    } else {
-                                        // If it's the first slide, go to the last slide
-                                        this.currentSlideIndex = this.slides.length
-                                    }
-                                },
-                                next() {
-                                    if (this.currentSlideIndex < this.slides.length) {
-                                        this.currentSlideIndex = this.currentSlideIndex + 1
-                                    } else {
-                                        // If it's the last slide, go to the first slide
-                                        this.currentSlideIndex = 1
-                                    }
-                                },
-                            }" class="relative w-full overflow-hidden ">
+                slides: [
+                    @foreach($taskImage as $row)
+                    {
+                        imgSrc: '{{ URL(\Illuminate\Support\Facades\Storage::url('images/'.$row['image'])) }}',
+                        imgAlt: '{{ URL(\Illuminate\Support\Facades\Storage::url('images/'.$row['image'])) }}',
+                    },
+                    @endforeach
+                ],
+                currentSlideIndex: 1,
+                previous() {
+                    this.currentSlideIndex = this.currentSlideIndex > 1
+                        ? this.currentSlideIndex - 1
+                        : this.slides.length;
+                },
+                next() {
+                    this.currentSlideIndex = this.currentSlideIndex < this.slides.length
+                        ? this.currentSlideIndex + 1
+                        : 1;
+                },
+            }" class="relative w-full h-full">
 
-                            <!-- previous button -->
+                            <!-- Previous Button -->
                             <button type="button"
-                                    class="absolute left-5 top-1/2 z-20 flex rounded-full -translate-y-1/2 items-center justify-center bg-white/40 p-2 text-slate-700 transition hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:outline-offset-0 dark:bg-slate-900/40 dark:text-slate-300 dark:hover:bg-slate-900/60 dark:focus-visible:outline-blue-600"
-                                    aria-label="previous slide" x-on:click="previous()">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"
-                                     fill="none" stroke-width="3" class="size-5 md:size-6 pr-0.5" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                          d="M15.75 19.5 8.25 12l7.5-7.5"/>
+                                    class="absolute left-2 top-1/2 z-20 -translate-y-1/2 bg-white/40 p-1.5 rounded-full text-gray-800 hover:bg-white/60"
+                                    x-on:click="previous()">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor" stroke-width="3" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/>
                                 </svg>
                             </button>
 
-                            <!-- next button -->
+                            <!-- Next Button -->
                             <button type="button"
-                                    class="absolute right-5 top-1/2 z-20 flex rounded-full -translate-y-1/2 items-center justify-center bg-white/40 p-2 text-slate-700 transition hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:outline-offset-0 dark:bg-slate-900/40 dark:text-slate-300 dark:hover:bg-slate-900/60 dark:focus-visible:outline-blue-600"
-                                    aria-label="next slide" x-on:click="next()">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"
-                                     fill="none" stroke-width="3" class="size-5 md:size-6 pl-0.5" aria-hidden="true">
+                                    class="absolute right-2 top-1/2 z-20 -translate-y-1/2 bg-white/40 p-1.5 rounded-full text-gray-800 hover:bg-white/60"
+                                    x-on:click="next()">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor" stroke-width="3" class="w-4 h-4">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
                                 </svg>
                             </button>
 
-                            <!-- slides -->
-                            <div class="relative h-[40rem] md:h-[40rem] w-full overflow-hidden ">
-                                <template x-for="(slide, index) in slides" class="">
-                                    <div x-cloak x-show="currentSlideIndex == index + 1" class="absolute inset-0"
-                                         x-transition.opacity.duration.300ms>
-                                        <img
-                                            class="absolute w-full h-full inset-0 text-slate-700 dark:text-slate-300 "
-                                            x-bind:src="slide.imgSrc" x-bind:alt="slide.imgAlt"/>
+                            <!-- Slides -->
+                            <div class="relative w-full h-full overflow-hidden">
+                                <template x-for="(slide, index) in slides">
+                                    <div x-cloak x-show="currentSlideIndex === index + 1"
+                                         class="absolute inset-0" x-transition.opacity.duration.300ms>
+                                        <img :src="slide.imgSrc" :alt="slide.imgAlt"
+                                             class="w-full h-full object-cover rounded-lg"/>
                                     </div>
                                 </template>
                             </div>
 
                         </div>
                     </div>
-
                 @else
                     <img
                         src="https://grcviewpoint.com/wp-content/uploads/2022/11/Time-to-Correct-A-Long-standing-Curriculum-Coding-Error-Say-Experts-GRCviewpoint.jpg"
-                        class="w-full h-[45rem] object-cover rounded-lg"
-                        alt="view of a coastal Mediterranean village on a hillside, with small boats in the water."/>
+                        class="w-56 h-56 md:w-72 md:h-72 object-cover rounded-lg"
+                        alt="Default image"/>
                 @endif
             </div>
 
             <!--User Data ------------------------------------------------------------------------------------------------>
 
-            <div class="grid grid-cols-3 gap-y-3 lg:grid-cols-5 items-center font-semibold text-sm font-lex gap-x-5">
-                <div>Created By : <span
-                        class="text-red-600">{{ \Aaran\Core\User\Models\User::getName($task->reporter_id)}}</span>
+            <div class="flex flex-col sm:grid grid-cols-3 gap-y-3 lg:grid-cols-5 font-semibold text-sm font-lex gap-x-5">
+                <div class="w-[80%] flex justify-between items-center">
+                    <span>Created By:</span>
+                    <span class="text-red-600">{{ \Aaran\Core\User\Models\User::getName($task->reporter_id) }}</span>
                 </div>
-                {{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
 
                 <div class="text-gray-600">  {{$task->created_at}}</div>
-                {{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
-                <div> Allocated To : <span
+
+                <div class="w-[80%] flex justify-between items-center">
+                    <span>Allocated To :</span>
+                    <span
                         class="text-indigo-600">{{ \Aaran\Core\User\Models\User::getName($task->allocated_id)}}</span>
                 </div>
-                {{--                <div class="border-l-2  h-5 border-gray-400"></div>--}}
 
-
-                <div class="flex gap-2">
+                <div class="w-[80%] flex justify-between items-center">
                     <div> Priority To :</div>
 
                     <div
@@ -151,9 +142,7 @@
                         {{ \Aaran\Assets\Enums\Priority::tryFrom($task->priority_id)->getName() }}</div>
                 </div>
 
-                {{--                <div class="border-l-2 h-5 border-gray-400"></div>--}}
-
-                <div class="flex gap-2">
+                <div class="w-[80%] flex justify-between items-center">
                     <div> Status :</div>
                     <div
                         class="text-xs px-4 w-max rounded-full py-1
@@ -224,7 +213,7 @@
                 <x-Ui::input.textarea :label="'comments'" type="textarea" wire:model="vname"/>
             </div>
 
-            <div class="w-full flex justify-between gap-4">
+            <div class="w-full flex sm:flex-row flex-col justify-between gap-4">
                 <x-Ui::input.floating wire:model="start_on" :label="'Start_On'" type="date"/>
 
                 <x-Ui::input.floating wire:model="end_on" :label="'End_On'" type="date"/>
@@ -232,7 +221,7 @@
 
 
             <div class="w-full items-center justify-between">
-                <div class="w-3/12">
+                <div class="w-full">
 
                     <x-Ui::input.floating-dropdown
                         wire:model="status_id"
@@ -244,7 +233,7 @@
 
                 </div>
 
-                <div class="w-full flex items-center justify-end ">
+                <div class="w-full mt-4 flex items-center justify-end ">
                     <button wire:click.prevent="getSaveActivity"
                             class="bg-green-600 text-white px-4 py-2 rounded-md">
                         Post Activity
@@ -264,7 +253,7 @@
     <x-Ui::forms.create :id="$vid" :max-width="'6xl'">
 
         <!--Left Side ------------------------------------------------------------------------------------------------->
-        <div class="flex flex-row space-x-5 w-full">
+        <div class="flex flex-col sm:flex-row gap-y-3 space-x-5 w-full">
             <div class="flex flex-col space-y-5 w-full">
 
                 <div>
@@ -322,45 +311,7 @@
                            class="w-full text-zinc-500 tracking-wide pb-4 px-2">Image</label>
 
                     <div class="flex flex-wrap gap-2">
-                        <div class="flex-shrink-0">
-                            <div>
-                                @if($images)
-                                    <div class="flex gap-5">
-                                        @foreach($images as $image)
-                                            <div
-                                                class=" flex-shrink-0 border-2 border-dashed border-gray-300 p-1 rounded-lg overflow-hidden">
-                                                <img
-                                                    class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
-                                                    src="{{ $image->temporaryUrl() }}"
-                                                    alt="{{$image?:''}}"/>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                @endif
 
-                                @if(isset($old_images))
-                                    <div class="flex gap-5">
-                                        @foreach($old_images as $old_image)
-
-                                            <div
-                                                class=" flex-shrink-0 border-2 border-dashed border-gray-300 p-1 rounded-lg overflow-hidden">
-                                                <img
-                                                    class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
-                                                    src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_image['image']))}}"
-                                                    alt="">
-                                                <div class="flex justify-center items-center">
-                                                    <x-Ui::button.delete
-                                                        wire:click="DeleteImage({{$old_image['id']}})"
-                                                    />
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                @else
-                                    <x-Ui::icons.icon :icon="'logo'" class="w-auto h-auto block "/>
-                                @endif
-                            </div>
-                        </div>
                         <div class="relative">
                             <div>
                                 <label for="bg_image"
@@ -382,6 +333,45 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="flex-shrink-0 mt-4 w-full overflow-auto">
+            <div>
+                @if($images)
+                    <div class="flex gap-5">
+                        @foreach($images as $image)
+                            <div
+                                class=" flex-shrink-0 border-2 border-dashed border-gray-300 p-1 rounded-lg overflow-auto">
+                                <img
+                                    class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
+                                    src="{{ $image->temporaryUrl() }}"
+                                    alt="{{$image?:''}}"/>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+
+                @if(isset($old_images))
+                    <div class="flex gap-5 mt-10">
+                        @foreach($old_images as $old_image)
+
+                            <div
+                                class=" flex-shrink-0 border-2 border-dashed border-gray-300 p-1 rounded-lg overflow-hidden">
+                                <img
+                                    class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
+                                    src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_image['image']))}}"
+                                    alt="">
+                                <div class="flex justify-center items-center">
+                                    <x-Ui::button.delete
+                                        wire:click="DeleteImage({{$old_image['id']}})"
+                                    />
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @else
+                    <x-Ui::icons.icon :icon="'logo'" class="w-auto h-auto block "/>
+                @endif
             </div>
         </div>
     </x-Ui::forms.create>

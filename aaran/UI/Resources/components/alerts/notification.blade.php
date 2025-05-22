@@ -10,9 +10,8 @@
         messages.push(message);
         setTimeout(() => { remove(message) }, 3500)
     "
-    class="z-50 fixed inset-0 flex flex-col items-end justify-start px-4 py-6 pointer-events-none sm:justify-center sm:p-6 space-y-4"
+    class="z-50 fixed top-4 right-4 flex flex-col items-end space-y-4 pointer-events-none sm:top-6 sm:right-6"
 >
-
 
 <template x-for="(message, messageIndex) in messages" :key="messageIndex" hidden>
         <div
