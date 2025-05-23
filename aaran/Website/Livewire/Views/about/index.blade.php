@@ -188,8 +188,6 @@
         </div>
     </section>
 
-
-
     <x-Ui::web.common.footer-address/>
     <x-Ui::web.common.copyright/>
 </div>
