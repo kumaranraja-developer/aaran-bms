@@ -37,7 +37,7 @@
 
                             <div class="bg-gray-100  rounded-b-lg px-4 py-3 flex gap-3 justify-end dark:bg-dark dark:text-dark-9">
 
-                                <div class=" gap-3">
+                                <div class="w-full flex justify-between gap-3">
                                     <div class="py-2">
                                         <label for="active_id"
                                                class="inline-flex relative items-center cursor-pointer">

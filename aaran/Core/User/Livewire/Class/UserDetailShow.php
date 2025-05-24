@@ -28,10 +28,10 @@ class UserDetailShow extends Component
     public string $mobile_number = '';
     public string $alter_mobile_number = '';
     public string $residential_address = '';
-    public string $city = '';
-    public string $state = '';
-    public string $country = '';
-    public string $pin_code = '';
+    public string $city_id = '';
+    public string $state_id = '';
+    public string $country_id = '';
+    public string $pincode_id = '';
     public string $professional_details = '';
     public string $highest_qualification = '';
     public string $occupation = '';
@@ -70,26 +70,27 @@ class UserDetailShow extends Component
         UserDetail::updateOrCreate(
             ['id' => $this->vid],
             [
+                'user_id' => auth()->id(),
                 'vname' => Str::ucfirst($this->vname),
                 'email' => $this->email,
-                'dob' => $this->dob,
-                'gender' => $this->gender,
-                'marital_status' => $this->marital_status,
-                'nationality' => $this->nationality,
                 'photo' => $this->photo,
                 'mobile_number' => $this->mobile_number,
                 'alter_mobile_number' => $this->alter_mobile_number,
+                'gender' => $this->gender,
+                'dob' => $this->dob,
+                'marital_status' => $this->marital_status,
+                'nationality' => $this->nationality,
                 'residential_address' => $this->residential_address,
-                'city_id' => $this->city,
-                'state_id' => $this->state,
-                'country_id' => $this->country,
-                'pincode_id' => $this->pin_code,
+                'city_id' => $this->city_id,
+                'state_id' => $this->state_id,
+                'pincode_id' => $this->pincode_id,
+                'country_id' => $this->country_id,
                 'professional_details' => $this->professional_details,
                 'highest_qualification' => $this->highest_qualification,
                 'occupation' => $this->occupation,
                 'company_name' => $this->company_name,
                 'industry_type' => $this->industry_type,
-                'experience' => $this->experience,
+                'active_id' => $this->active_id,
             ],
         );
 
@@ -109,10 +110,10 @@ class UserDetailShow extends Component
         $this->mobile_number = '';
         $this->alter_mobile_number = '';
         $this->residential_address = '';
-        $this->city = '';
-        $this->state = '';
-        $this->country = '';
-        $this->pin_code = '';
+        $this->city_id = '';
+        $this->state_id = '';
+        $this->country_id = '';
+        $this->pincode_id = '';
         $this->professional_details = '';
         $this->highest_qualification = '';
         $this->occupation = '';
@@ -137,10 +138,10 @@ class UserDetailShow extends Component
             $this->mobile_number = $obj->mobile_number;
             $this->alter_mobile_number = $obj->alter_mobile_number;
             $this->residential_address = $obj->residential_address;
-            $this->city = $obj->city;
-            $this->state = $obj->state;
-            $this->country = $obj->country;
-            $this->pin_code = $obj->pin_code;
+            $this->city_id = $obj->city_id;
+            $this->state_id = $obj->state_id;
+            $this->pincode_id = $obj->pincode_id;
+            $this->country_id = $obj->country_id;
             $this->professional_details = $obj->professional_details;
             $this->highest_qualification = $obj->highest_qualification;
             $this->occupation = $obj->occupation;

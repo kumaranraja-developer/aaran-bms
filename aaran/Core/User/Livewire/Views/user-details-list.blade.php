@@ -190,23 +190,23 @@
 
                 <div class="flex flex-row gap-2 w-full">
                     <div class="w-1/2">
-                        <x-Ui::input.floating wire:model="city" label="City"/>
-                        <x-Ui::input.error-text wire:model="city"/>
+                        <x-Ui::input.floating wire:model="city_id" label="City"/>
+                        <x-Ui::input.error-text wire:model="city_id"/>
                     </div>
                     <div class="w-1/2">
-                        <x-Ui::input.floating wire:model="state" label="State"/>
-                        <x-Ui::input.error-text wire:model="state"/>
+                        <x-Ui::input.floating wire:model="state_id" label="State"/>
+                        <x-Ui::input.error-text wire:model="state_id"/>
                     </div>
                 </div>
 
                 <div class="flex flex-row gap-2 w-full">
                     <div class="w-1/2">
-                        <x-Ui::input.floating wire:model="country" label="Country"/>
-                        <x-Ui::input.error-text wire:model="country"/>
+                        <x-Ui::input.floating wire:model="country_id" label="Country"/>
+                        <x-Ui::input.error-text wire:model="country_id"/>
                     </div>
                     <div class="w-1/2">
-                        <x-Ui::input.floating wire:model="pin_code" label="Pin Code"/>
-                        <x-Ui::input.error-text wire:model="pin_code"/>
+                        <x-Ui::input.floating wire:model="pincode_id" label="Pin Code"/>
+                        <x-Ui::input.error-text wire:model="pincode_id"/>
                     </div>
                 </div>
 
