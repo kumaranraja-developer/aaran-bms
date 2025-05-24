@@ -7,7 +7,7 @@
     <input {{$attributes}} type="text" id="floating_outlined"
            class="block px-2.5 pb-2.5 pt-3 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1
            border-gray-300 appearance-none tracking-wide dark:bg-dark dark:text-dark-9
-           focus:outline-none focus:ring-1 focus:ring-cyan-50 focus:border-blue-400 peer"
+           focus:outline-none focus:ring-1 focus:ring-cyan-50 focus:border-blue-400 peer "
            placeholder=" " autocomplete="off"
            @if($autofocus) autofocus @endif />
 
