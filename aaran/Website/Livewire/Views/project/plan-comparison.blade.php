@@ -6,10 +6,10 @@
 
     <div class="bg-white dark:text-dark-9 dark:bg-dark scrollbar-hide">
 
-        <div class="text-black dark:text-dark-9">
-            <div class="m-15 py-5 flex justify-center">
+        <div class="text-white dark:text-dark-9">
+            <div class="lg:m-15 m-2 py-5 flex justify-center">
                 <div class="overflow-x-auto">
-                    <div class="min-w-[800px] inline-block">
+                    <div class="min-w-[800px] inline-block p-2">
                         <table class="w-full border border-gray-300 border-collapse">
                             <thead class="border border-gray-300 dark:bg-purple-900 dark:text-white text-white bg-red-500 border-collapse">
                             <tr>
@@ -29,8 +29,8 @@
                                             id="priceToggle"
                                             onclick="handlePrice()"
                                         >
-                                        <div class="w-12 h-7 bg-black rounded-full peer peer-checked:bg-black transition-colors duration-300"></div>
-                                        <div class="absolute left-1 top-1 w-5 h-5 bg-blue-700 rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+                                        <div class="w-12 h-7 bg-dark-2 rounded-full peer border dark:border-orange-600 border-purple-800  transition-colors duration-300"></div>
+                                        <div class="absolute left-1 top-1 w-5 h-5 bg-purple-800 dark:bg-orange-600 rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
                                     </label>
                                     <span>Yearly</span>
                                 </th>
@@ -50,7 +50,7 @@
                             </thead>
                             <tbody>
                             @foreach($table as $data)
-                                <tr  class="even:dark:bg-dark-3 even:bg-gray-100 hover:bg-yellow-100 dark:hover:bg-dark-4">
+                                <tr  class="even:dark:bg-dark-3 text-black dark:text-white even:bg-gray-100 hover:bg-yellow-100 dark:hover:bg-dark-4">
                                     <td class="border border-gray-300 border-collapse p-2 text-md text-center">{{$data['col1']}}</td>
                                     <td class="border border-gray-300 border-collapse p-2 text-md text-center">{{$data['col2']}}</td>
                                     <td class="border border-gray-300 border-collapse p-2 text-md text-center">{{$data['col3']}}</td>
@@ -97,4 +97,5 @@
 </script>
 
 
-
+git config user.email "kumaranraja46248@gmail.com"
+git config user.name "kumaranraja"
