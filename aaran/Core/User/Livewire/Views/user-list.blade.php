@@ -1,5 +1,6 @@
 <div>
-    <x-slot name="header">UserDetail</x-slot>
+    <x-slot name="header">User List</x-slot>
+
     <x-Ui::forms.m-panel>
         <x-Ui::alerts.notification/>
 
@@ -7,7 +8,7 @@
         <x-Ui::forms.top-controls :show-filters="$showFilters"/>
 
         <!-- Table Caption -------------------------------------------------------------------------------------------->
-        <x-Ui::table.caption :caption="'UserDetail'">
+        <x-Ui::table.caption :caption="'User'">
             {{$list->count()}}
         </x-Ui::table.caption>
 
