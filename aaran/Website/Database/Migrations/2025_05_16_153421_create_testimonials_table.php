@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('photo')->nullable();
             $table->longText('testimonial')->nullable();
             $table->longText('address')->nullable();
+            $table->string('cities')->nullable();
             $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });

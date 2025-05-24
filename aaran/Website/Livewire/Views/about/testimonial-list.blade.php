@@ -29,9 +29,13 @@
                 <x-Ui::table.header-text  sortIcon="none" :center="true">
                     Address
                 </x-Ui::table.header-text>
+{{--                <x-Ui::table.header-text    sortIcon="none" :center="true">--}}
+{{--                    District--}}
+{{--                </x-Ui::table.header-text>--}}
                 <x-Ui::table.header-text    sortIcon="none" :center="true">
                     Testimonial
                 </x-Ui::table.header-text>
+
 
                 <x-Ui::table.header-status/>
                 <x-Ui::table.header-action/>
@@ -50,8 +54,9 @@
                                 N/A
                             @endif
                         </x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text class="line-clamp-2" left>{!! $row->address !!}</x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text  left>{{$row->testimonial}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>{!! $row->address !!}</x-Ui::table.cell-text>
+{{--                        <x-Ui::table.cell-text left>{{$row->cities}}</x-Ui::table.cell-text>--}}
+                        <x-Ui::table.cell-text class="line-clamp-2"  left>{{$row->testimonial}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-status active="{{$row->active_id}}"/>
                         <x-Ui::table.cell-action id="{{$row->id}}"/>
                     </x-Ui::table.row>
@@ -116,9 +121,13 @@
 
                 <!-- Address -->
                 <x-Ui::input.floating-textarea wire:model="address" label="Address"/>
+                <!--city -->
+                <x-Ui::input.floating wire:model="cities" label="city"/>
 
                 <!-- Testimonial -->
                 <x-Ui::input.floating-textarea wire:model="testimonial" label="Testimonial" />
+
+
 
             </div>
 
