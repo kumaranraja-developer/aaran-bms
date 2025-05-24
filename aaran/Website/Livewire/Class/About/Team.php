@@ -12,7 +12,7 @@ use Livewire\WithFileUploads;
 
 class Team extends Component
 {
-    use ComponentStateTrait,WithFileUploads;
+    use ComponentStateTrait, WithFileUploads;
 
     #[Validate]
     public string $vname = '';
@@ -61,7 +61,7 @@ class Team extends Component
                 'vname' => Str::ucfirst($this->vname),
                 'designation' => $this->designation,
                 'role' => $this->role,
-                'photo' =>  $imageService->save($this->photo, $this->old_photo),
+                'photo' => $imageService->save($this->photo, $this->old_photo, 'images/teams', Str::of($this->vname)->slug('_')),
                 'bio' => $this->bio,
                 'mail' => $this->mail,
                 'mobile' => $this->mobile,
@@ -75,6 +75,7 @@ class Team extends Component
         $this->dispatch('notify', ...['type' => 'success', 'content' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
         $this->clearFields();
     }
+
     public function clearFields(): void
     {
         $this->vid = null;

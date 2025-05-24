@@ -39,7 +39,7 @@
                         <x-Ui::table.cell-text left>{{$row->vname}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->role}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>
-                            <x-Ui::image.lightbox-image :image="$row->photo"
+                            <x-Ui::image.lightbox-image :image="$row->photo" location="images/teams"
                                                         thumb-size="h-22 w-auto"
                             />
                         </x-Ui::table.cell-text>
@@ -85,7 +85,7 @@
 
                                 @if(!$photo && isset($photo))
                                     <img class="h-24 w-full"
-                                         src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_photo))}}"
+                                         src="{{URL(\Illuminate\Support\Facades\Storage::url('images/teams/'.$old_photo))}}"
                                          alt="">
                                 @endif
                             </div>
