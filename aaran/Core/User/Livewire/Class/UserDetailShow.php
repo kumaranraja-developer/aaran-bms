@@ -9,11 +9,12 @@ use Aaran\Devops\Models\TaskImage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class UserDetailShow extends Component
 {
 
-    use ComponentStateTrait;
+    use ComponentStateTrait, WithFileUploads;
 
     #[Validate]
     public string $vname = '';
@@ -23,7 +24,7 @@ class UserDetailShow extends Component
     public string $gender = '';
     public string $marital_status = '';
     public string $nationality = '';
-    public string $images = '';
+    public mixed $photo;
     public string $mobile_number = '';
     public string $alter_mobile_number = '';
     public string $residential_address = '';
@@ -75,14 +76,14 @@ class UserDetailShow extends Component
                 'gender' => $this->gender,
                 'marital_status' => $this->marital_status,
                 'nationality' => $this->nationality,
-                'images' => $this->images,
+                'photo' => $this->photo,
                 'mobile_number' => $this->mobile_number,
                 'alter_mobile_number' => $this->alter_mobile_number,
                 'residential_address' => $this->residential_address,
-                'city' => $this->city,
-                'state' => $this->state,
-                'country' => $this->country,
-                'pin_code' => $this->pin_code,
+                'city_id' => $this->city,
+                'state_id' => $this->state,
+                'country_id' => $this->country,
+                'pincode_id' => $this->pin_code,
                 'professional_details' => $this->professional_details,
                 'highest_qualification' => $this->highest_qualification,
                 'occupation' => $this->occupation,
@@ -104,7 +105,7 @@ class UserDetailShow extends Component
         $this->gender = '';
         $this->marital_status = '';
         $this->nationality = '';
-        $this->images = '';
+        $this->photo = '';
         $this->mobile_number = '';
         $this->alter_mobile_number = '';
         $this->residential_address = '';
@@ -129,7 +130,7 @@ class UserDetailShow extends Component
             $this->vname = $obj->vname;
             $this->email = $obj->email;
             $this->gender = $obj->gender;
-            $this->images = $obj->images;
+            $this->photo = $obj->photo;
             $this->dob = $obj->dob;
             $this->marital_status = $obj->marital_status;
             $this->nationality = $obj->nationality;
@@ -167,11 +168,11 @@ class UserDetailShow extends Component
             $obj->delete();
         }
     }
-    public function saveImage($id, $images): void
+    public function saveImage($id, $photo): void
     {
         $imageService = app(ImageService::class);
 
-        foreach ($this->images as $image) {
+        foreach ($this->photo as $image) {
             TaskImage::on($this->getTenantConnection())->create([
                 'task_id' => $id,
                 'image' => $imageService->save($image),
