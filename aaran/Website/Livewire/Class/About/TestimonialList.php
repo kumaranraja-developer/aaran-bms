@@ -20,6 +20,7 @@ class TestimonialList extends Component
     #[validate('image|max:1024')]
     public $photo;
     public string $testimonial = '';
+    public string $address = '';
 
     public bool $active_id = true;
 
@@ -58,6 +59,7 @@ class TestimonialList extends Component
                 'company' => $this->company,
                 'photo' => $photoPath ? basename($photoPath) : $this->photo,
                 'testimonial' => $this->testimonial,
+                'address' => $this->address,
                 'active_id' => $this->active_id
             ],
         );
@@ -72,6 +74,7 @@ class TestimonialList extends Component
         $this->company = '';
         $this->photo = '';
         $this->testimonial = '';
+        $this->address = '';
         $this->active_id = true;
         $this->searches = '';
     }
@@ -84,6 +87,7 @@ class TestimonialList extends Component
             $this->company = $obj->company;
             $this->photo = $obj->photo;
             $this->testimonial = $obj->testimonial;
+            $this->address = $obj->address;
             $this->active_id = $obj->active_id;
         }
     }
