@@ -10,7 +10,7 @@
         <div class="bg-white dark:bg-dark ">
             <div class="grid grid-cols-1 md:grid-cols-2 text-black p-10 lg:p-20 gap-10 ">
                 <img src="{{asset('/images/web/home/office_1.jpg')}}" alt=""
-                     class="h-[70vh] rounded-2xl md:block m-auto hidden"/>
+                     class="md:h-[70vh] rounded-2xl md:block m-auto"/>
                 <div>
                     <p class="my-3 text-primary text-xl font-semibold">Who We Are</p>
                     <p class="my-3 text-justify indent-5 tracking-wide text-body-color dark:text-dark-8">With over a
@@ -176,19 +176,17 @@
             </div>
 
             <div class="flex flex-row justify-center items-center space-x-2">
-                <a href="{{ route('client-registration') }}"
-                   class="px-4 py-2 border border-blue-800 bg-primary text-white hover:bg-orange-500">
-                    Start free trial
-                </a>
+{{--                <a href="{{ route('client-registration') }}"--}}
+{{--                   class="px-4 py-2 border border-blue-800 bg-primary text-white hover:bg-orange-500">--}}
+{{--                    Start free trial--}}
+{{--                </a>--}}
                 <a href="{{ route('web-contacts') }}"
-                   class="px-4 py-2 border bg-white text-black hover:text-white hover:bg-dark-2">
+                   class="px-4 py-2 border bg-white text-black hover:text-white border-blue-900 hover:bg-dark-2 shadow-black shadow-lg">
                     Book a demo
                 </a>
             </div>
         </div>
     </section>
-
-
 
     <x-Ui::web.common.footer-address/>
     <x-Ui::web.common.copyright/>

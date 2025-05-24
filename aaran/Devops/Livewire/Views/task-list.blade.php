@@ -227,7 +227,7 @@
     <x-Ui::forms.create :id="$vid" :max-width="'6xl'">
 
         <!--Left Side ------------------------------------------------------------------------------------------------->
-        <div class="flex flex-row space-x-5 w-full">
+        <div class="flex flex-col sm:flex-row gap-y-3 space-x-5 w-full">
             <div class="flex flex-col space-y-5 w-full">
 
                 <div>
@@ -285,45 +285,7 @@
                            class="w-full text-zinc-500 tracking-wide pb-4 px-2">Image</label>
 
                     <div class="flex flex-wrap gap-2">
-                        <div class="flex-shrink-0">
-                            <div>
-                                @if($images)
-                                    <div class="flex gap-5">
-                                        @foreach($images as $image)
-                                            <div
-                                                class=" flex-shrink-0 border-2 border-dashed border-gray-300 p-1 rounded-lg overflow-hidden">
-                                                <img
-                                                    class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
-                                                    src="{{ $image->temporaryUrl() }}"
-                                                    alt="{{$image?:''}}"/>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                @endif
 
-                                @if(isset($old_images))
-                                    <div class="flex gap-5">
-                                        @foreach($old_images as $old_image)
-
-                                            <div
-                                                class=" flex-shrink-0 border-2 border-dashed border-gray-300 p-1 rounded-lg overflow-hidden">
-                                                <img
-                                                    class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
-                                                    src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_image['image']))}}"
-                                                    alt="">
-                                                <div class="flex justify-center items-center">
-                                                    <x-Ui::button.delete
-                                                        wire:click="DeleteImage({{$old_image['id']}})"
-                                                    />
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                @else
-                                    <x-Ui::icons.icon :icon="'logo'" class="w-auto h-auto block "/>
-                                @endif
-                            </div>
-                        </div>
                         <div class="relative">
                             <div>
                                 <label for="bg_image"
@@ -345,8 +307,45 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="flex-shrink-0 mt-4 w-full overflow-auto">
+            <div>
+                @if($images)
+                    <div class="flex gap-5">
+                        @foreach($images as $image)
+                            <div
+                                class=" flex-shrink-0 border-2 border-dashed border-gray-300 p-1 rounded-lg overflow-auto">
+                                <img
+                                    class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
+                                    src="{{ $image->temporaryUrl() }}"
+                                    alt="{{$image?:''}}"/>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
 
+                @if(isset($old_images))
+                    <div class="flex gap-5 mt-10">
+                        @foreach($old_images as $old_image)
 
+                            <div
+                                class=" flex-shrink-0 border-2 border-dashed border-gray-300 p-1 rounded-lg overflow-hidden">
+                                <img
+                                    class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
+                                    src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_image['image']))}}"
+                                    alt="">
+                                <div class="flex justify-center items-center">
+                                    <x-Ui::button.delete
+                                        wire:click="DeleteImage({{$old_image['id']}})"
+                                    />
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @else
+                    <x-Ui::icons.icon :icon="'logo'" class="w-auto h-auto block "/>
+                @endif
             </div>
         </div>
     </x-Ui::forms.create>

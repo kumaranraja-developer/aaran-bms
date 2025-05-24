@@ -80,29 +80,10 @@
             </div>
 
             <div class="flex flex-col py-2">
-                <label for="bg_image"
-                       class="w-full text-zinc-500 tracking-wide pb-4 px-2">Image</label>
+
 
                 <div class="flex flex-wrap sm:gap-6 gap-2">
-                    <div class="flex-shrink-0">
-                        <div>
-                            @if($image)
-                                <div
-                                    class=" flex-shrink-0 bg-blue-100 p-1 rounded-lg overflow-hidden">
-                                    <img
-                                        class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
-                                        src="{{ $image->temporaryUrl() }}"
-                                        alt="{{$image?:''}}"/>
-                                </div>
-                            @endif
 
-                            @if(!$image && isset($image))
-                                <img class="h-24 w-full"
-                                     src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_image))}}"
-                                     alt="">
-                            @endif
-                        </div>
-                    </div>
 
                     <div class="relative">
                         <div>
@@ -125,10 +106,32 @@
                     </div>
 
                 </div>
+                <label for="bg_image"
+                       class="w-full text-zinc-500 tracking-wide pb-4 px-2">Image</label>
+                <div class="flex-shrink-0">
+                    <div>
+                        @if($image)
+                            <div
+                                class=" flex-shrink-0 bg-blue-100 p-1 rounded-lg overflow-hidden">
+                                <img
+                                    class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
+                                    src="{{ $image->temporaryUrl() }}"
+                                    alt="{{$image?:''}}"/>
+                            </div>
+                        @endif
+
+                        @if(!$image && isset($image))
+                            <img class="h-24 w-full"
+                                 src="{{URL(\Illuminate\Support\Facades\Storage::url('images/'.$old_image))}}"
+                                 alt="">
+                        @endif
+                    </div>
+                </div>
             </div>
 
 
         </div>
 
     </x-Ui::forms.create>
+
 </div>
