@@ -95,6 +95,8 @@
                                     class="px-4 pb-4  text-lg font-merri tracking-wider text-orange-600 underline underline-offset-4 underline-orange-500">
                                     Purchase Items
                                 </div>
+
+                                <div class="bg-white border-2 rounded-2xl border-green-300 md:border-0 p-3 md:p-0 ">
                                 <div class="w-full flex sm:flex-row gap-3 flex-col gap-x-1 pb-4">
 
                                     @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
@@ -142,7 +144,7 @@
                                     </div>
                                     <x-Ui::button.add class="w-full" wire:click.prevent="addItems"/>
                                 </div>
-
+                                </div>
 
                                 <!--  purchase item table ------------------------------------------------------------------------------------------------->
 

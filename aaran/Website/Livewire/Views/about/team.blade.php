@@ -39,10 +39,9 @@
                         <x-Ui::table.cell-text left>{{$row->vname}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->role}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>
-                            <img class="h-24 w-full"
-                                 src="{{asset('images/teams/'.$row->photo)}}"
-                                 alt="">
-                            {{$row->photo}}
+                            <x-Ui::image.lightbox-image :image="$row->photo" location="images/teams"
+                                                        thumb-size="h-22 w-auto"
+                            />
                         </x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left class="line-clamp-5">{{$row->about}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->mail}}</x-Ui::table.cell-text>
@@ -67,14 +66,60 @@
         <x-Ui::forms.create :id="$vid">
             <div class="flex flex-col gap-3">
 
+                <div class="flex flex-col py-2">
+                    <label for="bg_image"
+                           class="w-full text-zinc-500 tracking-wide pb-4 px-2">photo</label>
+
+                    <div class="flex flex-wrap sm:gap-6 gap-2">
+                        <div class="flex-shrink-0">
+                            <div>
+                                @if($photo)
+                                    <div
+                                        class=" flex-shrink-0 bg-blue-100 p-1 rounded-lg overflow-hidden">
+                                        <img
+                                            class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
+                                            src="{{ $photo->temporaryUrl() }}"
+                                            alt="{{$photo?:''}}"/>
+                                    </div>
+                                @endif
+
+                                @if(!$photo && isset($photo))
+                                    <img class="h-24 w-full"
+                                         src="{{URL(\Illuminate\Support\Facades\Storage::url('images/teams/'.$old_photo))}}"
+                                         alt="">
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div>
+                                <label for="bg_image"
+                                       class="text-gray-500 font-semibold text-base rounded flex flex-col items-center
+                                   justify-center cursor-pointer border-2 border-gray-300 border-dashed p-2
+                                   mx-auto font-[sans-serif]">
+                                    <x-Ui::icons.icon icon="cloud-upload" class="w-8 h-auto block text-gray-400"/>
+                                    Upload Photo
+                                    <input type="file" id='bg_image' wire:model="photo" class="hidden"/>
+                                    <p class="text-xs font-light text-gray-400 mt-2">PNG and JPG are
+                                        Allowed.</p>
+                                </label>
+                            </div>
+
+                            <div wire:loading wire:target="photo" class="z-10 absolute top-6 left-12">
+                                <div class="w-14 h-14 rounded-full animate-spin
+                                                        border-y-4 border-dashed border-green-500 border-t-transparent"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
                 <div>
                     <x-Ui::input.floating wire:model="vname" label="Name"/>
                     <x-Ui::input.error-text wire:model="vname"/>
                 </div>
 
                 <x-Ui::input.floating wire:model="role" label="Role"/>
-
-                <x-Ui::input.floating wire:model="photo" label="Photo"/>
 
                 <x-Ui::input.floating wire:model="about" label="About"/>
 

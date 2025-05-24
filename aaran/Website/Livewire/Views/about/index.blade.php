@@ -83,11 +83,12 @@
                                 class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left dark:text-dark-8">
                                 <img alt="team"
                                      class="flex-shrink-0 object-fill b rounded-lg w-48 h-48  object-center sm:mb-0 mb-4"
-                                     src="{{asset('images/teams/'.$member->photo)}}">
+                                     src="{{URL(\Illuminate\Support\Facades\Storage::url('images/teams/'.$member->photo))}}"
+                                >
                                 <div class="flex-grow sm:pl-8">
                                     <h2 class="title-font font-medium text-lg mb-2 text-gray-900 dark:text-dark-9">{{$member->vname}}</h2>
                                     <h3 class="text-gray-500 mb-3  dark:text-dark-8">{{$member->role}}</h3>
-                                    <p class="mb-4 text-justify xl:pr-5">{{$member->about}}</p>
+                                    <p class="mb-4 text-justify xl:pr-5">{{$member->bio}}</p>
                                     <span class="inline-flex">
                                     <a class="text-gray-500" href="{{$member->fb}}">
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round"

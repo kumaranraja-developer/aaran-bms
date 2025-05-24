@@ -2,21 +2,25 @@
 
 namespace Aaran\Website\Livewire\Class\About;
 
+use Aaran\Assets\Services\ImageService;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Website\Models\DevTeam;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Team extends Component
 {
-    use ComponentStateTrait;
+    use ComponentStateTrait, WithFileUploads;
 
     #[Validate]
     public string $vname = '';
+    public string $designation = '';
     public string $role = '';
     public mixed $photo;
-    public mixed $about = '';
+    public mixed $old_photo;
+    public mixed $bio = '';
     public string $mail = '';
     public string $mobile = '';
     public string $fb = '';
@@ -47,15 +51,18 @@ class Team extends Component
 
     public function getSave(): void
     {
+        $imageService = app(ImageService::class);
+
         $this->validate();
 
         DevTeam::updateOrCreate(
             ['id' => $this->vid],
             [
                 'vname' => Str::ucfirst($this->vname),
+                'designation' => $this->designation,
                 'role' => $this->role,
-                'photo' => $this->photo,
-                'about' => $this->about,
+                'photo' => $imageService->save($this->photo, $this->old_photo, 'images/teams', Str::of($this->vname)->slug('_')),
+                'bio' => $this->bio,
                 'mail' => $this->mail,
                 'mobile' => $this->mobile,
                 'fb' => $this->fb,
@@ -68,13 +75,16 @@ class Team extends Component
         $this->dispatch('notify', ...['type' => 'success', 'content' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
         $this->clearFields();
     }
+
     public function clearFields(): void
     {
         $this->vid = null;
         $this->vname = '';
+        $this->designation = '';
         $this->role = '';
         $this->photo = '';
-        $this->about = '';
+        $this->old_photo = '';
+        $this->bio = '';
         $this->mail = '';
         $this->mobile = '';
         $this->fb = '';
@@ -89,9 +99,10 @@ class Team extends Component
         if ($obj = DevTeam::find($id)) {
             $this->vid = $obj->id;
             $this->vname = $obj->vname;
+            $this->designation = $obj->designation;
             $this->role = $obj->role;
-            $this->photo = $obj->photo;
-            $this->about = $obj->about;
+            $this->old_photo = $obj->photo;
+            $this->bio = $obj->bio;
             $this->mail = $obj->mail;
             $this->mobile = $obj->mobile;
             $this->fb = $obj->fb;

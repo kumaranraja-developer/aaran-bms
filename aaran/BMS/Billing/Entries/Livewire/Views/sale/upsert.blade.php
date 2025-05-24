@@ -85,7 +85,9 @@
                                     class="px-4 pb-4  text-lg font-merri tracking-wider text-orange-600 underline underline-offset-4 underline-orange-500">
                                     Sales Items
                                 </div>
-                                <div class="w-full gap-y-3 flex md:flex-row flex-col gap-x-1 pb-4 dark:bg-dark dark:text-dark-9">
+
+                                <div class="bg-white border-2 rounded-2xl  border-green-300 md:border-0 p-3 md:p-0 ">
+                                <div class="w-full gap-y-3 flex  md:flex-row flex-col gap-x-1 pb-4 dark:bg-dark dark:text-dark-9">
 
                                     @if(\Aaran\Assets\Features\SaleEntry::hasPo_no())
                                         <div class="w-full">
@@ -133,7 +135,7 @@
                                     </div>
                                     <x-Ui::button.add class="w-full" wire:click.prevent="addItems"/>
                                 </div>
-
+                                </div>
 
                                 <!--  sales item table ------------------------------------------------------------------------------------------------->
 

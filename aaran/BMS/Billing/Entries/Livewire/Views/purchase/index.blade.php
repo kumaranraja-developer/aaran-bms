@@ -46,7 +46,6 @@
                     <x-Ui::table.header-text sortIcon="none" class="w-28">E-Generate</x-Ui::table.header-text>
                 @endif
 
-                <x-Ui::table.header-text sortIcon="none">Print</x-Ui::table.header-text>
                 <x-Ui::table.header-action/>
             </x-slot:table_header>
 
@@ -147,16 +146,12 @@
                             </x-Ui::table.cell-text>
                         @endif
 
-                        <x-Ui::table.cell-text>
-                            {{--                            <x-Ui::button.print-pdf routes="{{route('purchase.print', [$row->id])}}"/>--}}
-                        </x-Ui::table.cell-text>
-
                         <td class="max-w-max print:hidden">
                             <div class="flex justify-center items-center">
-                                <a href="{{route('purchases.upsert',[$row->id])}}" class="pt-1 px-1.5 text-white">
+                                <a href="{{route('purchases.upsert',[$row->id])}}" class="pt-1 px-2.5 ">
                                     <x-Ui::button.edit/>
                                 </a>
-                                <x-Ui::button.delete wire:click="confirmDelete({{$row->id}})" class="pt-1 px-1.5 text-white"/>
+                                <x-Ui::button.delete wire:click="confirmDelete({{$row->id}})"/>
 
                             </div>
                         </td>

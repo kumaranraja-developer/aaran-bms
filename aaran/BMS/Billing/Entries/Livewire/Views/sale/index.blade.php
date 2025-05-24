@@ -142,13 +142,14 @@
 
                         <td class="max-w-max print:hidden">
                             <div class="flex justify-center items-center">
-                                <a href="{{route('sales.upsert',[$row->id])}}" class="pt-1 px-1.5 text-white">
+                                <a href="{{route('sales.upsert',[$row->id])}}" class="pt-1 px-2.5 ">
                                     <x-Ui::button.edit/>
                                 </a>
-                                <x-Ui::button.delete wire:click="confirmDelete({{$row->id}})" class="pt-1 px-1.5 text-white"/>
+                                <x-Ui::button.delete wire:click="confirmDelete({{$row->id}})"/>
 
                             </div>
                         </td>
+
 
                         {{--                        <x-table.cell-text>--}}
                         {{--                            <div class="flex items-center justify-center w-full print:hidden">--}}
