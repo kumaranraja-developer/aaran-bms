@@ -22,12 +22,12 @@ class UserServiceProvider extends ServiceProvider
          Livewire::component('user::user-detail', Class\UserDetailShow::class);
     }
 
-    private function registerMigrations()
+    private function registerMigrations(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
-    private function registerViews()
+    private function registerViews(): void
     {
         $this->loadViewsFrom(__DIR__ . '/../Livewire/Views', 'user');
     }

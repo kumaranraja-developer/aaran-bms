@@ -11,7 +11,7 @@ class UserDetail extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['vname','email','dob','gender','marital_status','nationality','images','mobile_number','alter_mobile_number','residential_address','city','state','country','pin_code','professional_details','highest_qualification','occupation','company_name','industry_type','experience', 'active_id'];
+    protected $guarded = [];
 
     public function scopeActive(Builder $query, $status = '1'): Builder
     {
