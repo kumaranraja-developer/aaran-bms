@@ -19,6 +19,7 @@ class Team extends Component
     public string $designation = '';
     public string $role = '';
     public mixed $photo;
+    public string $address = '';
     public mixed $old_photo;
     public mixed $bio = '';
     public string $mail = '';
@@ -63,6 +64,7 @@ class Team extends Component
                 'role' => $this->role,
                 'photo' => $imageService->save($this->photo, $this->old_photo, 'images/teams', Str::of($this->vname)->slug('_')),
                 'bio' => $this->bio,
+                'address' => $this->address,
                 'mail' => $this->mail,
                 'mobile' => $this->mobile,
                 'fb' => $this->fb,
@@ -85,6 +87,7 @@ class Team extends Component
         $this->photo = '';
         $this->old_photo = '';
         $this->bio = '';
+        $this->address = '';
         $this->mail = '';
         $this->mobile = '';
         $this->fb = '';
@@ -103,6 +106,7 @@ class Team extends Component
             $this->role = $obj->role;
             $this->old_photo = $obj->photo;
             $this->bio = $obj->bio;
+            $this->address = $obj->address;
             $this->mail = $obj->mail;
             $this->mobile = $obj->mobile;
             $this->fb = $obj->fb;

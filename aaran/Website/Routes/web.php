@@ -14,6 +14,7 @@ Route::get('/web-projects', Class\Project\Index::class)->name('web-projects');
 Route::get('/client-plans', Class\Project\Index::class)->name('client-plans');
 
 Route::get('/dev-teams', Class\About\Team::class)->name('dev-teams');
+Route::get('/user-profile-view/{id}', Class\About\UserProfileView::class)->name('user-profile-view');
 Route::get('/testimonials', Class\About\TestimonialList::class)->name('testimonials');
 Route::get('/faq', Class\Home\Faq::class)->name('faq');
 

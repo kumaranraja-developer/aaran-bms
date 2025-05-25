@@ -23,6 +23,7 @@
                 <x-Ui::table.header-text sortIcon="none">Role</x-Ui::table.header-text>
                 <x-Ui::table.header-text sortIcon="none">Photo</x-Ui::table.header-text>
                 <x-Ui::table.header-text sortIcon="none">About</x-Ui::table.header-text>
+                <x-Ui::table.header-text sortIcon="none">Address</x-Ui::table.header-text>
                 <x-Ui::table.header-text sortIcon="none">Mail</x-Ui::table.header-text>
                 <x-Ui::table.header-text sortIcon="none">Mobile</x-Ui::table.header-text>
                 <x-Ui::table.header-text sortIcon="none">FB</x-Ui::table.header-text>
@@ -34,7 +35,7 @@
 
             <x-slot:table_body>
                 @foreach($list as $index=>$row)
-                    <x-Ui::table.row>
+                    <x-Ui::table.row onclick="window.location='{{ route('user-profile-view', ['id' => $row->id]) }}'" class="cursor-pointer">
                         <x-Ui::table.cell-text>{{$index+1}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->vname}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->role}}</x-Ui::table.cell-text>
@@ -43,7 +44,8 @@
                                                         thumb-size="h-22 w-auto"
                             />
                         </x-Ui::table.cell-text>
-                        <x-Ui::table.cell-text left class="line-clamp-5">{{$row->about}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left class="line-clamp-5">{{$row->bio}}</x-Ui::table.cell-text>
+                        <x-Ui::table.cell-text left>{{$row->address}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->mail}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->mobile}}</x-Ui::table.cell-text>
                         <x-Ui::table.cell-text left>{{$row->fb}}</x-Ui::table.cell-text>
@@ -121,7 +123,9 @@
 
                 <x-Ui::input.floating wire:model="role" label="Role"/>
 
-                <x-Ui::input.floating wire:model="about" label="About"/>
+                <x-Ui::input.floating wire:model="bio" label="About"/>
+
+                <x-Ui::input.floating wire:model="address" label="Address"/>
 
                 <x-Ui::input.floating wire:model="mail" label="Mail"/>
 

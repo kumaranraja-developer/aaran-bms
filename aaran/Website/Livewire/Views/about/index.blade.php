@@ -182,7 +182,7 @@
 {{--                    Start free trial--}}
 {{--                </a>--}}
                 <a href="{{ route('web-contacts') }}"
-                   class="px-4 py-2 border bg-white text-black hover:text-white border-blue-900 hover:bg-dark-2 shadow-black shadow-lg">
+                   class="px-4 py-2 border bg-white text-black hover:text-white border-blue-900 active:scale-[0.9] hover:bg-dark-2 hover:shadow-[inset_0_-100px_0_0_red]   shadow-black shadow-lg">
                     Book a demo
                 </a>
             </div>

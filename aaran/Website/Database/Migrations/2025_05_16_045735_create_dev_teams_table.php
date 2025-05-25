@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('role')->nullable();
             $table->text('photo')->nullable();
             $table->text('bio')->nullable();
+            $table->text('address')->nullable();
             $table->string('mail')->nullable();
             $table->string('mobile')->nullable();
             $table->string('fb')->nullable();
