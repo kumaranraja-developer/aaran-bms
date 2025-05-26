@@ -24,7 +24,7 @@
             title="Aaran"
             :links="[
                 ['label' => 'About', 'href' => route('abouts')],
-                ['label' => 'Contact Us', 'href' => route('web-projects')],
+                ['label' => 'Contact Us', 'href' => route('web-contacts')],
                 ['label' => 'Blog', 'href' => route('abouts')],
                 ['label' => 'Careers', 'href' => route('abouts')],
                 ['label' => 'Partners', 'href' => route('abouts')],
@@ -39,7 +39,7 @@
                 ['label' => 'Gst Invoice', 'href' => route('web-contacts')],
                 ['label' => 'CRM', 'href' => route('web-contacts')],
                 ['label' => 'LMS', 'href' => route('web-contacts')],
-                ['label' => 'Erp', 'href' => route('web-contacts')],
+                ['label' => 'ERP', 'href' => route('web-contacts')],
                 ['label' => 'WebSite', 'href' => route('web-contacts')],
                 ['label' => 'E Commerce', 'href' => route('web-contacts')],
             ]"
@@ -49,9 +49,9 @@
             title="Helpful Links"
             :links="[
                 ['label' => 'Contact', 'href' => route('web-contacts')],
-                ['label' => 'FAQ', 'href' => route('abouts')],
+                ['label' => 'FAQ', 'href' => route('faq')],
                 ['label' => 'Live Chat', 'href' => route('abouts')],
-                ['label' => 'Pricing', 'href' => route('web-projects')],
+                ['label' => 'Pricing', 'href' => route('plan-comparison')],
                 ['label' => 'Feed back', 'href' => route('abouts')],
                 ['label' => 'Help', 'href' => route('web-contacts')],
             ]"
@@ -131,7 +131,7 @@
                 <x-Ui::web.common.footer-column
                     :links="[
                 ['label' => 'About', 'href' => route('abouts')],
-                ['label' => 'Contact Us', 'href' => route('web-projects')],
+                ['label' => 'Contact Us', 'href' => route('web-contacts')],
                 ['label' => 'Blog', 'href' => route('abouts')],
                 ['label' => 'Careers', 'href' => route('abouts')],
                 ['label' => 'Partners', 'href' => route('abouts')],
@@ -165,7 +165,7 @@
                 ['label' => 'Gst Invoice', 'href' => route('web-contacts')],
                 ['label' => 'CRM', 'href' => route('web-contacts')],
                 ['label' => 'LMS', 'href' => route('web-contacts')],
-                ['label' => 'Erp', 'href' => route('web-contacts')],
+                ['label' => 'ERP', 'href' => route('web-contacts')],
                 ['label' => 'WebSite', 'href' => route('web-contacts')],
                 ['label' => 'E Commerce', 'href' => route('web-contacts')],
             ]"
@@ -192,9 +192,9 @@
                 <x-Ui::web.common.footer-column
                     :links="[
                 ['label' => 'Contact', 'href' => route('web-contacts')],
-                ['label' => 'FAQ', 'href' => route('abouts')],
+                ['label' => 'FAQ', 'href' => route('faq')],
                 ['label' => 'Live Chat', 'href' => route('abouts')],
-                ['label' => 'Pricing', 'href' => route('web-projects')],
+                ['label' => 'Pricing', 'href' => route('plan-comparison')],
                 ['label' => 'Feed back', 'href' => route('abouts')],
                 ['label' => 'Help', 'href' => route('web-contacts')],
             ]"

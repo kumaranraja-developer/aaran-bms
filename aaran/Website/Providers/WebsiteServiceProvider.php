@@ -24,6 +24,7 @@ class WebsiteServiceProvider extends ServiceProvider
         Livewire::component('contact-form', \Aaran\Website\Livewire\Class\Contact\Index::class);
 
         Livewire::component('website::about.team', About\Team::class);
+        Livewire::component('website::about.user-profile-view', About\UserProfileView::class);
 
         Livewire::component('website::client-register', Contact\ClientRegister::class);
     }
