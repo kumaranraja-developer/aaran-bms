@@ -4,11 +4,19 @@ namespace Aaran\Website\Livewire\Class\About;
 
 use Aaran\Assets\Enums\Active;
 use Aaran\Website\Models\DevTeam;
+use Aaran\Website\Models\Testimonial;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 class Index extends Component
 {
+
+    public $testimonials;
+
+    public function __construct(){
+        $this->testimonials = Testimonial::latest()->take(5)->get();
+    }
+
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {

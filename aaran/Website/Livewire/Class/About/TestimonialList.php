@@ -4,6 +4,7 @@ namespace Aaran\Website\Livewire\Class\About;
 
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Website\Models\Testimonial;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -21,6 +22,7 @@ class TestimonialList extends Component
     public $photo;
     public string $testimonial = '';
     public string $address = '';
+    public string $cities = '';
 
     public bool $active_id = true;
 
@@ -60,6 +62,7 @@ class TestimonialList extends Component
                 'photo' => $photoPath ? basename($photoPath) : $this->photo,
                 'testimonial' => $this->testimonial,
                 'address' => $this->address,
+                'cities' => $this->cities,
                 'active_id' => $this->active_id
             ],
         );
@@ -75,6 +78,7 @@ class TestimonialList extends Component
         $this->photo = '';
         $this->testimonial = '';
         $this->address = '';
+        $this->cities = '';
         $this->active_id = true;
         $this->searches = '';
     }
@@ -88,6 +92,7 @@ class TestimonialList extends Component
             $this->photo = $obj->photo;
             $this->testimonial = $obj->testimonial;
             $this->address = $obj->address;
+            $this->cities = $obj->cities;
             $this->active_id = $obj->active_id;
         }
     }
@@ -109,6 +114,8 @@ class TestimonialList extends Component
             $obj->delete();
         }
     }
+
+
 
     public function render()
     {
