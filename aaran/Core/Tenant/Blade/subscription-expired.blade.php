@@ -18,7 +18,7 @@
 
             <div class="text-center mt-6">
                 <p class="text-sm text-gray-600">
-                    Need help? <a href="{{ route('contacts') }}" class="text-blue-600 hover:text-blue-700">Contact
+                    Need help? <a href="{{ route('web-contacts') }}" class="text-blue-600 hover:text-blue-700">Contact
                         support</a>
                 </p>
             </div>

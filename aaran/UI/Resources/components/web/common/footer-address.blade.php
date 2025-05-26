@@ -4,9 +4,9 @@
         {{-- Company Info --}}
         <div class="flex flex-col my-6">
             <div
-                class="lg:text-red-500 lg:text-xl text-lg text-red-500">{{Aaran\Assets\Config\Application::AppCompanyName}}</div>
+                class="lg:text-red-500 lg:text-xl text-lg  cursor-default text-red-500">{{Aaran\Assets\Config\Application::AppCompanyName}}</div>
             <div class="mt-3">
-                <div class="lg:text-sm text-xs font-roboto text-white leading-relaxed tracking-wider">
+                <div class="lg:text-sm text-xs font-roboto  cursor-default text-white leading-relaxed tracking-wider">
                     {{Aaran\Assets\Config\Application::AppCompanyAddress_1}},<br>
                     {{Aaran\Assets\Config\Application::AppCompanyAddress_2}},<br>
                     {{Aaran\Assets\Config\Application::AppCompanyAddress_3}},<br>
@@ -98,7 +98,7 @@
                 class=" w-full rounded-md px-4 shadow-lg bg-[#0d0d0d] ring-1 ring-black ring-opacity-5 z-50 pattern"
             >
                 <div class="my-3">
-                    <div class="lg:text-sm text-xs font-roboto text-white leading-relaxed tracking-wider">
+                    <div class="lg:text-sm text-xs font-roboto text-white cursor-default leading-relaxed tracking-wider">
                         {{Aaran\Assets\Config\Application::AppCompanyAddress_1}},<br>
                         {{Aaran\Assets\Config\Application::AppCompanyAddress_2}},<br>
                         {{Aaran\Assets\Config\Application::AppCompanyAddress_3}},<br>

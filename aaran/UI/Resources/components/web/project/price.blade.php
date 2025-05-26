@@ -13,6 +13,7 @@
                 'Export up to 3 reports',
             ],
             'highlighted' => false,
+            'customized' => false,
         ],
         [
             'id' => 'medium',
@@ -27,6 +28,7 @@
                 'Export up to 10 reports',
             ],
             'highlighted' => true,
+            'customized' => false,
         ],
         [
             'id' => 'enterprise',
@@ -41,6 +43,7 @@
                 'Unlimited reporting & analytics',
             ],
             'highlighted' => false,
+            'customized' => false,
         ],
         [
             'id' => 'elite',
@@ -56,6 +59,7 @@
                 'Unlimited reporting & analytics',
             ],
             'highlighted' => false,
+            'customized' => true,
         ],
     ];
 @endphp
@@ -112,9 +116,12 @@
                         $containerClasses = $plan['highlighted']
                             ? 'bg-gradient-to-br from-indigo-700 to-indigo-900 ring-2 ring-indigo-500 shadow-2xl text-white'
                             : 'bg-slate-800 text-slate-100';
+                          $customizedcontainerClasses = $plan['customized']
+                                ? 'bg-gradient-to-br from-pink-700 to-red-500 ring-2 ring-red-500 shadow-2xl text-white'
+                                : 'bg-slate-800 text-slate-100';
                     @endphp
 
-                    <section class="flex flex-col rounded-3xl p-6 {{ $containerClasses }}">
+                    <section class="flex flex-col rounded-3xl p-6 {{ $containerClasses }} {{$customizedcontainerClasses}}">
                         @if ($plan['highlighted'])
                             <span
                                 class="mb-3 inline-block self-start rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-indigo-200">
