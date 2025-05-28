@@ -67,11 +67,20 @@ class TaskActivity extends Component
         if ($id) {
 
             $this->task = DB::connection($this->getTenantConnection())->table('tasks')
-                ->select('tasks.*', 'modules.*', 'jobs.*')
                 ->join('jobs', 'jobs.id', '=', 'tasks.job_id')
                 ->join('modules', 'modules.id', '=', 'tasks.module_id')
+                ->select(
+                    'tasks.id as task_id',
+                    'tasks.title',
+                    'tasks.*',
+                    'jobs.id as job_id',
+                    'modules.id as module_id',
+                    'jobs.title as job_title',
+                    'modules.vname as module_name'
+                )
                 ->where('tasks.id', $id)
                 ->first();
+
 
             $this->taskImage = TaskImage::on($this->getTenantConnection())->where('task_id', $id)->get()->toarray();
 
