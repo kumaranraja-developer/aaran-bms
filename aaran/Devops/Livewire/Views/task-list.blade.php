@@ -193,7 +193,7 @@
                                 </div>
 
                                 <div class=" left-4 w-full flex justify-between items-center self-end mt-2">
-                                    <a href="{{route('task-shows',[$row->id])}}" type="button"
+                                    <a href="{{route('task-shows',$row->id)}}" type="button"
                                        class="bg-blue-600 p-1 text-white px-3 py-1 text-xs hover:bg-blue-500 transition-all duration-300 ease-in-out inline-flex items-center gap-x-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                              class="size-2">
