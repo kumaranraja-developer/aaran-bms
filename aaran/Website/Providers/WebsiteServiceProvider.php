@@ -27,6 +27,7 @@ class WebsiteServiceProvider extends ServiceProvider
         Livewire::component('website::about.user-profile-view', About\UserProfileView::class);
 
         Livewire::component('website::client-register', Contact\ClientRegister::class);
+        Livewire::component('website::project.plan-overview', Aaran\Website\Livewire\Class\Project\PlanOverview::class);
     }
 
     private function registerViews()

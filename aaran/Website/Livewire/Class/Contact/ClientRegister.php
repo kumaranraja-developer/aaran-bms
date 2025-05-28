@@ -2,6 +2,7 @@
 
 namespace Aaran\Website\Livewire\Class\Contact;
 
+use Aaran\Website\Models\Testimonial;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -13,6 +14,12 @@ class ClientRegister extends Component
 //    {
 //
 //    }
+ public $testimonials;
+
+    public function __construct(){
+        $this->testimonials = Testimonial::latest()->take(5)->get();
+    }
+
 
     #[Layout('Ui::components.layouts.web')]
     public function render()
