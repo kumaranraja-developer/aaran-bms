@@ -1,8 +1,8 @@
+@php
+    $confirmation_msg=true;
+@endphp
 <div>
-{{--    <x-Ui::menu.web.top-banner--}}
-{{--        description="Test it! Trust it! then Decide."--}}
-{{--        slogan="Sign up Today and explore all features absolutely free for {{\Aaran\Assets\Config\Application::AppTrialPeriod}}."--}}
-{{--    />--}}
+
 
     <div class="bg-stone-100 dark:bg-dark scrollbar-hide">
 
@@ -42,31 +42,35 @@
 
                     <!-- Company Name -->
                     <div class="w-full max-w-xl mx-auto">
-                        <label class="block text-sm font-medium mb-2">Company Name</label>
-                        <input type="text" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
+                        <label class="block text-sm font-medium mb-2">Name</label>
+                        <input type="text" wire:model="vname" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
+                        <x-Ui::input.error-text wire:model="vname"/>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="w-full max-w-xl mx-auto">
+                        <label class="block text-sm font-medium mb-2">Phone Number</label>
+                        <input type="number" wire:model="phone" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
+                        <x-Ui::input.error-text wire:model="phone"/>
                     </div>
 
                     <!-- Email -->
                     <div class="w-full max-w-xl mx-auto">
                         <label class="block text-sm font-medium mb-2">Email Address</label>
-                        <input type="email" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
+                        <input type="email" wire:model="email" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
+                        <x-Ui::input.error-text wire:model="email"/>
                     </div>
 
                     <!-- Password -->
                     <div class="w-full max-w-xl mx-auto">
                         <label class="block text-sm font-medium mb-2">Password</label>
-                        <input type="password" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
-                    </div>
-
-                    <!-- Confirm Password -->
-                    <div class="w-full max-w-xl mx-auto">
-                        <label class="block text-sm font-medium mb-2">Confirm Password</label>
-                        <input type="password" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
+                        <input type="password" wire:model="password" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
+                        <x-Ui::input.error-text wire:model="password"/>
                     </div>
 
                     <!-- Terms Checkbox -->
                     <div class="flex items-start gap-2 w-full max-w-xl mx-auto">
-                        <input type="checkbox" class="mt-1" />
+                        <input type="checkbox" class="mt-1" wire:model="agreed"/>
                         <label class="text-sm leading-relaxed">
                             I agree to the
                             <a href="{{route('terms')}}" class="text-blue-500 underline">Terms of Service</a>
@@ -74,9 +78,11 @@
                             <a href="{{route('policy')}}" class="text-blue-500 underline">Privacy Policy</a>.
                         </label>
                     </div>
+                    <x-Ui::input.error-text wire:model="agreed"/>
+
 
                     <!-- Submit Button -->
-                    <button class="bg-green-600 hover:bg-green-700 text-white font-medium py-3 rounded-lg w-full max-w-xl mx-auto">
+                    <button wire:click="getSave"  class="bg-green-600 hover:bg-green-700 text-white font-medium py-3 rounded-lg w-full max-w-xl mx-auto">
                         Create My Account
                     </button>
 
@@ -92,6 +98,31 @@
             </div>
 
         </div>
+        @if(!empty($showDialog))
+            <div
+                class="fixed inset-0 bg-black/60  flex items-center justify-center z-50 {{ $confirmation_msg ? 'flex' : 'hidden' }}">
+                <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg transform transition-all scale-100">
+                    <div class="flex items-center justify-center mb-6">
+                        <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                             viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-center text-green-700 mb-4">Account Create Confirmation</h2>
+                    <p class="text-center text-gray-600 mb-6">Your Trial Account created Successfully!!! </p>
+
+                    <div class="mt-6 text-center">
+                        <a href="{{ route('dashboard') }}" @click="showDialog = false"
+                           class="inline-block bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
+                            OK
+                        </a>
+                    </div>
+                </div>
+            </div>
+        @endif
+
 
         <x-Ui::web.common.footer-address/>
         <x-Ui::web.common.copyright/>
