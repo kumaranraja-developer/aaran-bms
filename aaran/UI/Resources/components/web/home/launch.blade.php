@@ -790,7 +790,7 @@
             </p>
             <div class="flex justify-center lg:justify-start gap-4">
                 <a
-                    href="{{route('client-registration')}}"
+                    href="{{route('plan-details')}}"
                    class="bg-primary hover:bg-orange-500  text-white px-6 py-3 rounded font-semibold text-sm cursor-pointer">
                     SIGN UP FOR FREE
                 </a>

@@ -2,59 +2,102 @@
 
 namespace Aaran\Website\Livewire\Class\Contact;
 
+use Aaran\BMS\Billing\Common\Models\City;
+use Aaran\Website\Models\ClientRegisterModel;
 use Aaran\Website\Models\Testimonial;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class ClientRegister extends Component
 {
-//    public mixed $team;
-//    public mixed $quotes;
-//    public function mount()
-//    {
-//
-//    }
- public $testimonials;
+    public $testimonials;
+    public string $vname = '';
+    public string $phone = '';
+    public string $email = '';
+    public string $password = '';
+    public string $plan = '';
+    public bool $trial = false;
+    public $active_id = 1;
+    public bool $agreed = false;
+    public bool $showDialog = false;
 
-    public function __construct(){
+    public function mount($id, $plan)
+    {
+        $this->plan = $plan;
+
+        if ($id === 'trial') {
+            $this->trial = true;
+        }
+
         $this->testimonials = Testimonial::latest()->take(5)->get();
     }
 
+    public function rules(): array
+    {
+        return [
+            'vname' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+            'agreed' => 'accepted'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'vname.required' => 'Name is required.',
+            'phone.required' => 'Phone is required.',
+            'email.required' => 'Email is required.',
+            'password.required' => 'Password is required.',
+            'agreed.accepted' => 'You must accept the Terms and Privacy Policy.',
+        ];
+    }
+
+    public function getSave()
+    {
+        $this->validate();
+
+        // Check if phone already exists
+        if (ClientRegisterModel::where('phone', $this->phone)->exists()) {
+            $this->addError('phone', 'Phone number already exists.');
+            return;
+        }
+
+        // Check if email already exists
+        if (ClientRegisterModel::where('email', $this->email)->exists()) {
+            $this->addError('email', 'Email already exists.');
+            return;
+        }
+
+        ClientRegisterModel::create([
+            'vname' => Str::ucfirst($this->vname),
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'password' => Hash::make($this->password),
+            'trial' => $this->trial,
+            'plan' => $this->plan,
+            'active_id' => $this->active_id,
+        ]);
+        $this->showDialog = true;
+        $this->dispatch('notify', ['type' => 'success', 'content' => 'Saved Successfully']);
+        $this->clearFields();
+    }
+
+    public function clearFields()
+    {
+        $this->vname = '';
+        $this->phone = '';
+        $this->email = '';
+        $this->password = '';
+    }
 
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {
-
-        $quotes = [
-            ['quote' => "Your GST billing software has made a real difference in how we manage our accounts. It's simple to use, accurate, and has helped us save a lot of time on paperwork. Highly recommend it for any manufacturing business looking for a reliable solution.",
-                'name' => 'Mr.S.Sivasubramaniyan',
-                'job' => 'UPVC Manufacturing Company',
-                'location' => 'Chennai'],
-
-            ['quote' => "We were looking for a streamlined CRM and billing tool, and this software exceeded our expectations. The team was supportive during setup, and the live sales tracking feature gives us clear visibility on our daily performance. Excellent for businesses that value efficiency.",
-                'name' => 'Mr.Vijayanand',
-                'job' => 'Tech Media Retail (Computer Hardware store)',
-                'location' => 'Tiruppur'],
-
-            ['quote' => "I was impressed by how well the software fits even a printing business like ours. Invoices, customer records, and reports are all organized in one place now. Very user-friendly and tailored to real business needs.",
-                'name' => 'Mrs.Kala Rani',
-                'job' => 'SK Printers',
-                'location' => 'Tiruppur'],
-
-
-//            ['quote' => "I was impressed by how well the software fits even a printing business like ours. Invoices, customer records, and reports are all organized in one place now. Very user-friendly and tailored to real business needs.",
-//                'name' => 'Mr. M.Sathishkumar',
-//                'job' => 'Sri Gapathi Printers',
-//                'location' => 'Tiruppur'],
-
-            ['quote' => "Billing was always a hassle at our store, especially with GST. Since using this software, things have become smooth and error-free. The customer support team is also very responsive. It's been a great help to our small business.",
-                'name' => 'Veera',
-                'job' => 'Veera Enterprises (Painting Shop)',
-                'location' => 'Shengottai'],
-
-
-        ];
-        return view('website::contact.client-register',compact('quotes'));
+        return view('website::contact.client-register');
     }
-
 }
