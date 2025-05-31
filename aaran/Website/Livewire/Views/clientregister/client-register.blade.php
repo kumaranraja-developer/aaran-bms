@@ -89,7 +89,7 @@
 
 
                     <!-- Submit Button -->
-                    <button wire:click="getSave"  class="bg-green-600 hover:bg-green-700 text-white font-medium py-3 rounded-lg w-full max-w-xl mx-auto">
+                    <button wire:click="getSave"  class="bg-green-600 hover:bg-green-700 text-white font-medium py-3 rounded-lg w-full max-w-xl mx-auto cursor-pointer">
                         Create My Account
                     </button>
 

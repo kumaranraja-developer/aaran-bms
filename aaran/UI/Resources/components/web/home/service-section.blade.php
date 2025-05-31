@@ -46,8 +46,3 @@
         </div>
     </div>
 </div>
-
-
-<!-- resources/views/service-section.blade.php -->
-
-
