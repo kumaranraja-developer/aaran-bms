@@ -25,7 +25,7 @@ class SubscriptionPlanDetails
             [
                 'id' => 'basic',
                 'title' => 'Basic',
-                'price' => '750',
+                'price' => '1',
                 'description' => 'For freelancers & beginners. Simple GST billing to get you started.',
                 'btn_text' => 'Subscribe Now',
                 'features' => [

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('trial')->default(false);
             $table->string('plan');
+            $table->string('payment_status')->default('pending');
+            $table->string('payment_id')->nullable();
             $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });

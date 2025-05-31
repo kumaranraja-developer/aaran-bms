@@ -43,17 +43,25 @@ class SubscriptionPayment extends Component
 
         $this->razorpayKey = config('razorpay.razorpay.key');
     }
-    protected $listeners = ['paymentSuccess' => 'handlePaymentSuccess'];
+    protected $listeners = ['paymentSuccess' => 'handlePaymentSuccess','paymentFailed' => 'handlePaymentFailed',];
 
-    public function handlePaymentSuccess($paymentId)
+    public function handlePaymentSuccess($paymentId, $email)
     {
-        // Update client_register table here
-        DB::table('client_registers')
-            ->where('email', $this->userEmail)
+        DB::table('client_register')
+            ->where('email', $email)
             ->update(['payment_status' => 'completed', 'payment_id' => $paymentId]);
 
         session()->flash('status', 'Payment successful!');
     }
+    public function handlePaymentFailed($paymentId, $email)
+    {
+        DB::table('client_register')
+            ->where('email', $email)
+            ->update(['payment_status' => 'failed', 'payment_id' => $paymentId]);
+
+        \Log::warning('Payment verification failed for email: ' . $email);
+    }
+
 
     public function render()
     {
