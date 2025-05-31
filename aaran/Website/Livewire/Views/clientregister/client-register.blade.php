@@ -36,9 +36,16 @@
 
                 <!-- Right Section - Form -->
                 <div class="flex flex-col gap-5 bg-white text-black dark:bg-dark-3 dark:text-dark-9 mx-5 lg:mx-10 p-10 rounded-3xl shadow-md">
-                    <div class="text-2xl md:text-3xl font-bold text-center w-full max-w-xl mx-auto">
-                        {{\Aaran\Assets\Config\Application::AppTrialPeriod}}. All Features. Zero cost.
-                    </div>
+                    @if($trial)
+                        <div class="text-2xl md:text-3xl font-bold text-center w-full max-w-xl mx-auto">
+                            {{\Aaran\Assets\Config\Application::AppTrialPeriod}}. All Features. Zero cost.
+                        </div>
+                    @else
+                        <div class="text-2xl md:text-3xl font-bold text-center w-full max-w-xl mx-auto">
+                            Register Now !
+                        </div>
+                    @endif
+
 
                     <!-- Company Name -->
                     <div class="w-full max-w-xl mx-auto">
@@ -50,7 +57,7 @@
                     <!-- Phone Number -->
                     <div class="w-full max-w-xl mx-auto">
                         <label class="block text-sm font-medium mb-2">Phone Number</label>
-                        <input type="number" wire:model="phone" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
+                        <input type="phone" wire:model="phone" class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-dark-4"/>
                         <x-Ui::input.error-text wire:model="phone"/>
                     </div>
 
@@ -112,9 +119,18 @@
 
                     <h2 class="text-2xl font-bold text-center text-green-700 mb-4">Account Create Confirmation</h2>
                     <p class="text-center text-gray-600 mb-6">Your Trial Account created Successfully!!! </p>
-
+                   <div class="text-black md:px-15">
+                       <div class="flex justify-between">
+                           <p>Trial user Id</p>
+                           <p>demo@demo.com</p>
+                       </div>
+                       <div  class="flex justify-between mt-2">
+                           <p>password</p>
+                           <p>123456789</p>
+                       </div>
+                   </div>
                     <div class="mt-6 text-center">
-                        <a href="{{ route('dashboard') }}" @click="showDialog = false"
+                        <a href="{{route('login',['email'=>'demo@demo.com','password'=>'123456789'])}}" @click="showDialog = false"
                            class="inline-block bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
                             OK
                         </a>
@@ -123,7 +139,52 @@
             </div>
         @endif
 
+        @php
+            use Aaran\Assets\Helper\SubscriptionPlanDetails;
+            $PlanDetails = SubscriptionPlanDetails::getById($id);
+            if($duration=='monthly'){
+                 $amount=$PlanDetails['price'];
+            }else{
+                 $amount= $PlanDetails['price'] *12 *0.8;
+            }
 
+        @endphp
+        @if(!empty($showConfirmPayment))
+            <div class="w-screen h-screen bg-black flex items-center justify-center  fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
+                    <h2 class="text-2xl font-bold text-center text-green-600 mb-4">Start Your Subscription</h2>
+
+                    <p class="text-center text-lg text-gray-700 mb-6">
+                        Your Plan Details
+                    </p>
+                    <div class="text-black flex flex-col items-center mx-auto">
+                        <div class="flex justify-between w-[300px]">
+                            <p>Chosen Plan</p>
+                            <p>{{ $PlanDetails['title'] }}</p>
+                        </div>
+                        <div class="flex justify-between w-[300px]">
+                            <p>Plan Price</p>
+                            <p>₹{{ $amount }}</p>
+                        </div>
+                        <div class="flex justify-between w-[300px]">
+                            <p>Plan Duration</p>
+                            <p>{{ $duration === 'yearly' ? 'Yearly (billed annually)' : 'Monthly' }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="text-center mt-4">
+                        <a href="{{ route('subscription.pay',['plan'=> $PlanDetails['title'],'amount'=>$amount,'tenant_id'=>'1']) }}"
+                           class="inline-block px-6 py-2 bg-blue-600 text-white rounded-full text-lg hover:bg-blue-700 transition duration-300">
+                            Pay Now
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+
+        @endif
         <x-Ui::web.common.footer-address/>
         <x-Ui::web.common.copyright/>
     </div>

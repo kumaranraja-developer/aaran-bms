@@ -40,6 +40,7 @@
 
                         const result = await verifyResponse.json();
                         if (result.success) {
+                            Livewire.emit('paymentSuccess', response.razorpay_payment_id);
                             window.location.href = '{{ route('payment.success') }}';
                         } else {
                             alert('Payment verification failed!');

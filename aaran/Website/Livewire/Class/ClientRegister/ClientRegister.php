@@ -1,15 +1,13 @@
 <?php
 
-namespace Aaran\Website\Livewire\Class\Contact;
+namespace Aaran\Website\Livewire\Class\ClientRegister;
 
-use Aaran\BMS\Billing\Common\Models\City;
 use Aaran\Website\Models\ClientRegisterModel;
 use Aaran\Website\Models\Testimonial;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
-use phpDocumentor\Reflection\Types\Boolean;
 
 class ClientRegister extends Component
 {
@@ -23,15 +21,18 @@ class ClientRegister extends Component
     public $active_id = 1;
     public bool $agreed = false;
     public bool $showDialog = false;
-
-    public function mount($id, $plan)
+    public $id;
+    public bool $showConfirmPayment = false;
+    public $duration = 'yearly';
+    public function mount($id, $plan, $duration)
     {
+        $this->id = $id;
         $this->plan = $plan;
 
         if ($id === 'trial') {
             $this->trial = true;
         }
-
+        $this->duration = $duration;
         $this->testimonials = Testimonial::latest()->take(5)->get();
     }
 
@@ -82,7 +83,14 @@ class ClientRegister extends Component
             'plan' => $this->plan,
             'active_id' => $this->active_id,
         ]);
-        $this->showDialog = true;
+        if($this->trial){
+            $this->showDialog = true;
+        }else{
+            $this->showConfirmPayment = true;
+        }
+
+        session()->put('new_user_name', $this->vname);
+        session()->put('new_user_email', $this->email);
         $this->dispatch('notify', ['type' => 'success', 'content' => 'Saved Successfully']);
         $this->clearFields();
     }
@@ -93,11 +101,12 @@ class ClientRegister extends Component
         $this->phone = '';
         $this->email = '';
         $this->password = '';
+        $this->agreed = false;
     }
 
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {
-        return view('website::contact.client-register');
+        return view('website::clientregister.client-register');
     }
 }

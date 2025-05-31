@@ -103,7 +103,7 @@
                         <div class="mt-5 text-lg font-semibold">{{ $plan['title'] }}</div>
                         <p class="mt-2 text-base text-slate-300">{{ $plan['description'] }}</p>
 
-                        <a href="{{route('plan-overview',$plan['id'])}}"
+                        <a   :href="`{{ route('plan-overview', $plan['id']) }}?billing=${billing}`"
                            class="mt-8 inline-flex items-center justify-center rounded-full border {{$plan['highlighted']?'bg-white text-gray-900 hover:text-white ':' '}}  border-white py-2 px-4 text-sm hover:bg-white/10">
                             Start my free trial
                         </a>

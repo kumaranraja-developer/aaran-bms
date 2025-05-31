@@ -3,7 +3,6 @@
 namespace Aaran\Website\Providers;
 
 use Aaran\Website\Livewire\Class\About;
-use Aaran\Website\Livewire\Class\Contact;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -26,7 +25,7 @@ class WebsiteServiceProvider extends ServiceProvider
         Livewire::component('website::about.team', About\Team::class);
         Livewire::component('website::about.user-profile-view', About\UserProfileView::class);
 
-        Livewire::component('website::client-register', Contact\ClientRegister::class);
+        Livewire::component('website::client-register', \Aaran\Website\Livewire\Class\ClientRegister\ClientRegister::class);
         Livewire::component('website::project.plan-overview', Aaran\Website\Livewire\Class\Project\PlanOverview::class);
     }
 
