@@ -9,30 +9,30 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div x-data="{ billing: 'monthly' }" class="text-center mb-6">
-            <div class="inline-flex rounded-lg overflow-hidden border border-slate-600">
-                <button
-                    :class="billing === 'monthly' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400'"
-                    class="px-4 py-2"
-                    @click="billing = 'monthly'"
-                >
-                    Pay monthly
-                </button>
-                <button
-                    :class="billing === 'yearly' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400'"
-                    class="px-4 py-2"
-                    @click="billing = 'yearly'"
-                >
-                    Pay yearly
-                </button>
-            </div>
+{{--            <div class="inline-flex rounded-lg overflow-hidden border border-slate-600">--}}
+{{--                <button--}}
+{{--                    :class="billing === 'monthly' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400'"--}}
+{{--                    class="px-4 py-2"--}}
+{{--                    @click="billing = 'monthly'"--}}
+{{--                >--}}
+{{--                    Pay monthly--}}
+{{--                </button>--}}
+{{--                <button--}}
+{{--                    :class="billing === 'yearly' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400'"--}}
+{{--                    class="px-4 py-2"--}}
+{{--                    @click="billing = 'yearly'"--}}
+{{--                >--}}
+{{--                    Pay yearly--}}
+{{--                </button>--}}
+{{--            </div>--}}
 
-            <p x-show="billing === 'monthly'" class="mt-2 text-primary text-sm font-medium">
-                &nbsp;
-            </p>
+{{--            <p x-show="billing === 'monthly'" class="mt-2 text-primary text-sm font-medium">--}}
+{{--                &nbsp;--}}
+{{--            </p>--}}
 
-            <p x-show="billing === 'yearly'" class="mt-2 text-primary text-sm font-medium">
-                Save up to 20% with yearly
-            </p>
+{{--            <p x-show="billing === 'yearly'" class="mt-2 text-primary text-sm font-medium">--}}
+{{--                Save up to 20% with yearly--}}
+{{--            </p>--}}
 
 
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 px-6 sm:px-8 lg:py-8">
@@ -62,27 +62,39 @@
 
                             <div class="mt-5 text-lg font-semibold">{{ $plan['title'] }}</div>
 
-                        <div class="text-3xl h-20  tracking-tight">
+                        <div class="text-3xl h-20 tracking-tight">
                             @if($plan['price'] === 'Custom price')
                                 <div>Custom Price</div>
                             @else
-                                <div x-show="billing === 'monthly'">
-                                    <div>{{ Aaran\Assets\Helper\ConvertTo::rupeesFormat(floatval($plan['price'])) }}</div>
-                                </div>
-                                <div x-show="billing === 'yearly'">
-                                    <div class="text-xl line-through">
-                                        {{ Aaran\Assets\Helper\ConvertTo::rupeesFormat(floatval($plan['price']) * 12) }}
-                                    </div>
+                                @php
+                                    $monthlyPrice = floatval($plan['price']);
+                                    $yearlyOriginal = $monthlyPrice * 12;
+                                    $yearlyDiscounted = $yearlyOriginal * 0.8;
+                                    $yearlyPerMonth = $yearlyDiscounted;
+                                @endphp
+
+                                @if($billing === 'monthly')
                                     <div>
-                                        {{ Aaran\Assets\Helper\ConvertTo::rupeesFormat(floatval($plan['price']) * 12 * 0.8) }}
+                                        <div>{{ Aaran\Assets\Helper\ConvertTo::rupeesFormat($monthlyPrice) }} {{$isSecond ? '/ Month':''}} </div>
                                     </div>
-                                </div>
+                                @else
+                                    <div>
+
+                                        <div class="text-gray-900 text-md line-through">
+                                            {{ Aaran\Assets\Helper\ConvertTo::rupeesFormat($yearlyOriginal) }}
+                                        </div>
+                                        <div class="text-white font-semibold">
+                                            {{ Aaran\Assets\Helper\ConvertTo::rupeesFormat($yearlyPerMonth) }} {{$isSecond ? '/ Yearly':''}}
+                                        </div>
+                                    </div>
+                                @endif
                             @endif
                         </div>
 
+
                         <p class="mt-2 text-base text-slate-300">{{ $plan['description'] }}</p>
 
-                        <a  href="{{route('client-registration',['id' => $plan['id'], 'plan' => $selectedPlanId])}}"
+                        <a  href="{{route('client-registration',['id' => $plan['id'], 'plan' => $selectedPlanId,'duration'=>$billing])}}"
                            class="mt-8 inline-flex items-center justify-center rounded-full border {{ $plan['highlighted'] ? 'bg-white text-gray-900 hover:text-white' : '' }} border-white py-2 px-4 text-sm hover:bg-white/10">
                             {{$plan['btn_text']}}
                         </a>

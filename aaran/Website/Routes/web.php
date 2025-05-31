@@ -21,11 +21,11 @@ Route::get('/faq', Class\Home\Faq::class)->name('faq');
 Route::get('/plan-details', Class\Project\Plan::class)->name('plan-details');
 Route::get('/plan-overview/{id}', Class\Project\PlanOverview::class)->name('plan-overview');
 Route::get('/plan-comparison', Class\Project\PlanComparison::class)->name('plan-comparison');
+//Route::get('/plan-overview/{id}', [Class\Project\PlanOverview::class, 'show'])->name('plan-overview');
 
 
 //Route::get('/client-registration', Class\Contact\ClientRegister::class)->name('client-registration');
-Route::get('/client-registration/{id}/{plan}', Class\Contact\ClientRegister::class)->name('client-registration');
-
+Route::get('/client-registration/{id}/{plan}/{duration}', Class\ClientRegister\ClientRegister::class)->name('client-registration');
 
 Route::view('terms', 'website-blade::terms')->name('terms');
 

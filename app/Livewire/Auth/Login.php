@@ -24,6 +24,12 @@ class Login extends Component
 
     public bool $remember = false;
 
+    public function mount()
+    {
+        $this->email = request()->query('email', '');
+        $this->password = request()->query('password', '');
+    }
+
     /**
      * Handle an incoming authentication request.
      */

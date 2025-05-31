@@ -3,6 +3,7 @@
 namespace Aaran\ExternalPartners\Razorpay\Livewire\Class;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class SubscriptionPayment extends Component
@@ -20,11 +21,38 @@ class SubscriptionPayment extends Component
         $this->plan = $request->get('plan', 'default-plan'); // or any default string
 
         $this->amount = (int)$request->get('amount');
-        $this->tenantId = $request->get('tenant_id', session('tenant_id'));
+//        $this->tenantId = $request->get('tenant_id', session('tenant_id'));
+//
+//        $this->razorpayKey = config('razorpay.razorpay.key');
+//        $this->userName = auth()->user()->name;
+//        $this->userEmail = auth()->user()->email;
+        // Handle both new and authenticated users
+        $user = auth()->user();
+
+        if ($user) {
+            // Existing user: get values from auth and session
+            $this->userName = $user->name;
+            $this->userEmail = $user->email;
+            $this->tenantId = $request->get('tenant_id', session('tenant_id'));
+        } else {
+            // New user: fall back to request input
+            $this->userName = $request->get('name', session('new_user_name'));
+            $this->userEmail = $request->get('email',  session('new_user_email'));
+            $this->tenantId = $request->get('tenant_id', '');
+        }
 
         $this->razorpayKey = config('razorpay.razorpay.key');
-        $this->userName = auth()->user()->name;
-        $this->userEmail = auth()->user()->email;
+    }
+    protected $listeners = ['paymentSuccess' => 'handlePaymentSuccess'];
+
+    public function handlePaymentSuccess($paymentId)
+    {
+        // Update client_register table here
+        DB::table('client_registers')
+            ->where('email', $this->userEmail)
+            ->update(['payment_status' => 'completed', 'payment_id' => $paymentId]);
+
+        session()->flash('status', 'Payment successful!');
     }
 
     public function render()
