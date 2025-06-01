@@ -18,10 +18,15 @@
                class="bg-white p-2 border border-gray rounded-lg hover:-translate-y-2">
                 <div class="border border-gray-200  bg-gray-100 rounded-lg  overflow-hidden">
                     <div class="relative w-full group">
+                        <!-- Image -->
+{{--                        <img--}}
+{{--                            class="h-[200px] w-full object-cover"--}}
+{{--                            src="{{asset('images/home/wall1.webp')}}"--}}
+{{--                        />--}}
                         <div class="w-full h-full overflow-hidden">
                             @if($data->image)
                                 <img
-                                    src="{{ asset('storage/images/' . $data->image) }}"
+                                    src="{{ Storage::url('images/' . $data->image) }}"
                                     alt="Task Image"
                                     class="h-[200px] w-full object-cover"
                                 />
@@ -32,7 +37,6 @@
                                     alt="Default image"
                                 />
                             @endif
-
                         </div>
 
                     </div>

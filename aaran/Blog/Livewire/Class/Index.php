@@ -104,25 +104,24 @@ class Index extends Component
         if ($this->image) {
 
             $image = $this->image;
-            $filename = $image->getClientOriginalName();
+            $filename = $this->image->getClientOriginalName();
 
-            // Correct deletion
-            if ($this->old_image && Storage::exists('public/images/' . $this->old_image)) {
-                Storage::delete('public/images/' . $this->old_image);
+            if (Storage::disk('public')->exists(Storage::path('public/images/' . $this->old_image))) {
+                Storage::disk('public')->delete(Storage::path('public/images/' . $this->old_image));
             }
 
-            // Store image in public disk
             $image->storeAs('public/images', $filename);
 
             return $filename;
 
-        } elseif ($this->old_image) {
-            return $this->old_image;
+        } else {
+            if ($this->old_image) {
+                return $this->old_image;
+            } else {
+                return 'no image';
+            }
         }
-
-        return null;
     }
-
     #endregion
 
     #region[blogCategory]
