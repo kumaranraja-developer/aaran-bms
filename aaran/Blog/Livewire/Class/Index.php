@@ -10,6 +10,7 @@ use Aaran\Blog\Models\BlogTag;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -318,6 +319,8 @@ class Index extends Component
             ->paginate($this->perPage);
     }
     #endregion
+
+    #[Layout('Ui::components.layouts.web')]
     public function render()
     {
         $this->getBlogcategoryList();
