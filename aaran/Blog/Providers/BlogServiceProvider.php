@@ -19,6 +19,8 @@ class BlogServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        $this->registerMigrations();
+
         // Register Livewire components
         Livewire::component('blog::index', Class\Index::class);
         Livewire::component('blog::category', Class\Category::class);
@@ -26,6 +28,12 @@ class BlogServiceProvider extends ServiceProvider
         Livewire::component('blog::blog-show', Class\Show::class);
 
     }
+
+    private function registerMigrations(): void
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+    }
+
 
     protected function loadViews(): void
     {

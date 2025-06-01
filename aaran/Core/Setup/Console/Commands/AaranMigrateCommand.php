@@ -46,7 +46,7 @@ class AaranMigrateCommand extends Command
 
             'aaran/Devops/Database/Migrations',
             'aaran/Dashboard/Database/Migrations',
-            'aaran/Blog/Database/Migrations',
+//            'aaran/Blog/Database/Migrations',
             'aaran/Neot/Database/Migrations',
 //            'aaran/Core/User/Database/Migrations',
         ];
