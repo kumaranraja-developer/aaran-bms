@@ -15,7 +15,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[70%] gap-5 gap-y-10 mt-10 mx-auto mb-20">
         @foreach ($firstPost as $data)
             <a href="{{ route('posts.show', ['id' => $data->id]) }}"
-               class="bg-white p-2 border border-gray rounded-lg hover:-translate-y-2">
+               class="bg-white p-2 border border-gray rounded-lg hover:-translate-y-2 transform duration-500 ">
                 <div class="border border-gray-200  bg-gray-100 rounded-lg  overflow-hidden">
                     <div class="relative w-full group">
                         <!-- Image -->

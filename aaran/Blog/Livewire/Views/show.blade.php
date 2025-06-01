@@ -7,22 +7,29 @@
     <div class="grid lg:grid-cols-[80%_20%] mb-10">
         <div class="w-[80%] block m-auto mt-5">
 
-            <div class="flex gap-1">
-                <div class="w-7">
-                    <svg viewBox="0 0 1024.00 1024.00" fill="#000000" class="icon dark:stroke-dark-7" version="1.1"
-                         xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="43.007999999999996">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
-                                fill=""></path>
-                        </g>
-                    </svg>
+            <div class="flex justify-between">
+                <div class="flex gap-1">
+                    <div class="w-7">
+                        <svg viewBox="0 0 1024.00 1024.00" fill="#000000" class="icon dark:stroke-dark-7" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="43.007999999999996">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z"
+                                    fill=""></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="dark:text-dark-7 block my-auto">back</div>
                 </div>
-                <div class="dark:text-dark-7 block my-auto">back</div>
+                <div class="flex gap-4">
+                    <x-Ui::button.edit :id="$post->id" class="text-blue-500" wire:click="edit({{$post->id}})"/>
+                    <x-Ui::button.delete wire:click="confirmDelete({{$post->id}})" class="text-red-500"/>
+                </div>
+
             </div>
-            <div class="flex justify-between  mt-5">
+            <div class="flex justify-between mt-5">
                 <div class="flex gap-5">
                     <div class="flex gap-2">
                         <div class="text-dark-7 flex items-center">Published by</div>
@@ -71,7 +78,7 @@
                 <!-- Image -->
                 <img
                     class="w-full h-[80vh] object-cover shadow-inner group-hover:brightness-80"
-                    src="{{asset('images/home/wall1.webp')}}"
+                    src="{{ Storage::url('images/' . $post->image) }}"
                 />
 
             </div>
@@ -98,7 +105,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[100%] gap-5 gap-y-10 mt-10 mx-auto mb-20">
                 @foreach ($firstPost as $data)
                     <a href="{{ route('posts.show', ['id' => $data->id]) }}"
-                       class="bg-white p-2 border border-gray rounded-lg hover:-translate-y-2">
+                       class="bg-white p-2 border border-gray rounded-lg transform duration-500 hover:-translate-y-2">
                         <div class="border border-gray-200  bg-gray-100 rounded-lg  overflow-hidden">
                             <div class="relative w-full group">
                                 <!-- Image -->
@@ -408,4 +415,119 @@
     </div>
     <x-Ui::web.common.footer-address/>
     <x-Ui::web.common.copyright/>
+    <x-Ui::forms.create :id="$vid" :max-width="'xl'">
+        <div class="flex flex-col gap-4">
+
+            {{--                        <x-Ui::inputmodel-text wire:model="common.vname" :label="'Name'"/> --}}
+
+            <div>
+                <input type="checkbox" wire:model="visibility">
+                <label for="">Public</label>
+            </div>
+
+
+            <x-Ui::input.floating wire:model="vname" label="Name"/>
+
+            <x-Ui::input.textarea wire:model="body" label="Description"/>
+
+            <x-Ui::dropdown.wrapper label="Blog Category" type="blogcategoryTyped">
+                <div class="relative ">
+                    <x-Ui::dropdown.input label="Blog Category" id="blog_category_name"
+                                          wire:model.live="blog_category_name"
+                                          wire:keydown.arrow-up="decrementBlogcategory"
+                                          wire:keydown.arrow-down="incrementBlogcategory"
+                                          wire:keydown.enter="enterBlogcategory"/>
+                    <x-Ui::dropdown.select>
+                        @if ($blogcategoryCollection)
+                            @forelse ($blogcategoryCollection as $i => $blogcategory)
+                                <x-Ui::dropdown.option highlight="{{ $highlightBlogCategory === $i }}"
+                                                       wire:click.prevent="setBlogcategory('{{ $blogcategory->vname }}','{{ $blogcategory->id }}')">
+                                    {{ $blogcategory->vname }}
+                                </x-Ui::dropdown.option>
+                            @empty
+                                <button wire:click.prevent="blogcategorySave('{{ $blog_category_name }}')"
+                                        class="w-full text-center text-white bg-green-500">
+                                    create
+                                </button>
+                            @endforelse
+                        @endif
+                    </x-Ui::dropdown.select>
+                </div>
+            </x-Ui::dropdown.wrapper>
+
+            <x-Ui::dropdown.wrapper label="Blog Tag" type="blogtagTyped">
+                <div class="relative ">
+                    <x-Ui::dropdown.input label="Blog Tag" id="blog_tag_name" wire:model.live="blog_tag_name"
+                                          wire:keydown.arrow-up="decrementBlogtag"
+                                          wire:keydown.arrow-down="incrementBlogtag"
+                                          wire:keydown.enter="enterBlogtag"/>
+                    <x-Ui::dropdown.select>
+                        @if ($blogtagCollection)
+                            @forelse ($blogtagCollection as $i => $blogtag)
+                                <x-Ui::dropdown.option highlight="{{ $highlightBlogCategory === $i }}"
+                                                       wire:click.prevent="setBlogTag('{{ $blogtag->vname }}','{{ $blogtag->id }}')">
+                                    {{ $blogtag->vname }}
+                                </x-Ui::dropdown.option>
+                            @empty
+                                <button wire:click.prevent="blogtagSave('{{ $blog_tag_name }}')"
+                                        class="w-full text-center text-blue-600 bg-blue-100  hover:font-bold">
+                                    create
+                                </button>
+                            @endforelse
+                        @endif
+                    </x-Ui::dropdown.select>
+                </div>
+            </x-Ui::dropdown.wrapper>
+
+            <!-- Image  ----------------------------------------------------------------------------------------------->
+
+            <div class="flex flex-col py-2">
+                <label for="bg_image" class="w-full px-2 pb-4 tracking-wide text-zinc-500">Image</label>
+                <div class="flex flex-wrap gap-2">
+                    <div class="flex-shrink-0">
+                        <div>
+                            @if ($image)
+                                <div
+                                    class="flex-shrink-0 p-1 overflow-hidden border-2 border-gray-300 border-dashed rounded-lg ">
+                                    <img
+                                        class="w-[156px] h-[89px] rounded-lg hover:brightness-110 hover:scale-105 duration-300 transition-all ease-out"
+                                        src="{{ $image->temporaryUrl() }}" alt="{{ $image ?: '' }}"/>
+                                </div>
+                            @endif
+
+                            @if (!$image && isset($image))
+                                <img class="w-full h-24"
+                                     src="{{ URL(\Illuminate\Support\Facades\Storage::url('images/' . $old_image)) }}"
+                                     alt="">
+                            @else
+                                <x-Ui::icons.icon :icon="'logo'" class="block w-auto h-auto "/>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div>
+                            <label for="bg_image"
+                                   class="text-gray-500 font-semibold text-base rounded flex flex-col items-center
+                                   justify-center cursor-pointer border-2 border-gray-300 border-dashed p-2
+                                   mx-auto font-[sans-serif]">
+                                <x-Ui::icons.icon icon="cloud-upload" class="block w-8 h-auto text-gray-400"/>
+                                Upload Photo
+                                <input type="file" id='bg_image' wire:model="image" class="hidden"/>
+                                <p class="mt-2 text-xs font-light text-gray-400">PNG and JPG are
+                                    Allowed.</p>
+                            </label>
+                        </div>
+
+                        <div wire:loading wire:target="image" class="absolute z-10 top-6 left-12">
+                            <div
+                                class="border-green-500 border-dashed rounded-full w-14 h-14 animate-spin border-y-4 border-t-transparent">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </x-Ui::forms.create>
 </div>
