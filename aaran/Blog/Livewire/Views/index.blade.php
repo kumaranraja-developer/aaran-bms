@@ -7,14 +7,14 @@
         slogan="Everything that's going on at Enfold is collected here"
     />
     <div class="flex justify-center">
-        <div class="w-[70%] my-4">
-            <x-Ui::button.new-x wire:click="$set('showEditModal', true)"/>
-
+        <div class="w-[70%] my-4 flex justify-end">
+            <x-Ui::button.new-x wire:click="$set('showEditModal', true)" />
         </div>
     </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[70%] gap-5 gap-y-10 mt-10 mx-auto mb-20">
         @foreach ($firstPost as $data)
-            <a href="{{ route('posts.show', ['id' => 1]) }}"
+            <a href="{{ route('posts.show', ['id' => $data->id]) }}"
                class="bg-white p-2 border border-gray rounded-lg hover:-translate-y-2">
                 <div class="border border-gray-200  bg-gray-100 rounded-lg  overflow-hidden">
                     <div class="relative w-full group">

@@ -37,7 +37,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <div class="text-dark-7 cursor-pointer block my-auto">username</div>
+                        <div class="text-dark-7 cursor-pointer block my-auto">{{$post->vname}}</div>
                     </div>
                     <div class="flex gap-1">
                         <div class="w-4 flex items-center">
@@ -53,15 +53,16 @@
                                 </g>
                             </svg>
                         </div>
-                        <div class="text-sm text-dark-7 block my-auto">date</div>
+                        <div class="text-sm text-dark-7 block my-auto">{{$post->created_at->format('d-m-Y')}}</div>
                     </div>
                 </div>
                 <!-- Include Alpine.js if not already -->
 
                 <div class="md:flex gap-5 hidden">
 
-                    <div class="text-dark-7">Tag :</div>
-                    <div class="text-dark-7">Category :</div>
+                    <div class="text-dark-7">Tag : {{ $blog_tag_name }}</div>
+                    <div class="text-dark-7">Category : {{ $blog_category_name }}</div>
+
                 </div>
 
             </div>
@@ -77,26 +78,9 @@
 
             <div class="mt-10">
                 <div class="text-sm">
-                    Praesent nec magna ac pede. Mauris tooltip mauris. Nam quis erat id tortor. Phasellus at nibh nulla
-                    nulla, egestas quam eu tortor orci, id eros. Mauris neque. Pellentesque dolor. Mauris in est.
-                    Vivamus lacus sed justo. Aenean ac dignissim nibh. Suspendisse sapien.
-                    Lorem ipsum dolor sit amet augue. Sed eu sem urna elit, non odio. Aenean lacus tellus quis ante.
-                    Fusce enim. Aliquam ultricies porta. Aenean ac eros sed arcu. Mauris nunc posuere cubilia Curae,
-                    Nullam et ipsum. Aliquam quis elit. Pellentesque habitant morbi tristique commodo. Suspendisse vitae
-                    lectus varius quis, tellus.Donec ullamcorper in, dapibus quam hendrerit eget, bibendum a, bibendum
-                    tempus. Pellentesque ac ipsum.
+                    {{$post->body}}
                 </div>
-                <div class="font-bold text-2xl my-4">Heading</div>
-                <div class="text-sm">
-                    Praesent nec magna ac pede. Mauris tooltip mauris. Nam quis erat id tortor. Phasellus at nibh nulla
-                    nulla, egestas quam eu tortor orci, id eros. Mauris neque. Pellentesque dolor. Mauris in est.
-                    Vivamus lacus sed justo. Aenean ac dignissim nibh. Suspendisse sapien.
-                    Lorem ipsum dolor sit amet augue. Sed eu sem urna elit, non odio. Aenean lacus tellus quis ante.
-                    Fusce enim. Aliquam ultricies porta. Aenean ac eros sed arcu. Mauris nunc posuere cubilia Curae,
-                    Nullam et ipsum. Aliquam quis elit. Pellentesque habitant morbi tristique commodo. Suspendisse vitae
-                    lectus varius quis, tellus.Donec ullamcorper in, dapibus quam hendrerit eget, bibendum a, bibendum
-                    tempus. Pellentesque ac ipsum.
-                </div>
+
             </div>
             <hr class="border-gray-300 my-10"/>
             <div class="text-lg">Leave a Reply</div>
@@ -112,145 +96,159 @@
             <div class="text-lg">Related Posts</div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[100%] gap-5 gap-y-10 mt-10 mx-auto mb-20">
-                <a href="{{ route('posts.show', ['id' => 1]) }}"
-                   class="bg-white p-2 border border-gray rounded-lg hover:-translate-y-2">
-                    <div class="border border-gray-200  bg-gray-100 rounded-lg  overflow-hidden">
-                        <div class="relative w-full group">
-                            <!-- Image -->
-                            <img
-                                class="h-[200px] w-full object-cover"
-                                src="{{asset('images/home/wall1.webp')}}"
-                            />
-                        </div>
+                @foreach ($firstPost as $data)
+                    <a href="{{ route('posts.show', ['id' => $data->id]) }}"
+                       class="bg-white p-2 border border-gray rounded-lg hover:-translate-y-2">
+                        <div class="border border-gray-200  bg-gray-100 rounded-lg  overflow-hidden">
+                            <div class="relative w-full group">
+                                <!-- Image -->
+                                {{--                        <img--}}
+                                {{--                            class="h-[200px] w-full object-cover"--}}
+                                {{--                            src="{{asset('images/home/wall1.webp')}}"--}}
+                                {{--                        />--}}
+                                <div class="w-full h-full overflow-hidden">
+                                    @if($data->image)
+                                        <img
+                                            src="{{ Storage::url('images/' . $data->image) }}"
+                                            alt="Task Image"
+                                            class="h-[200px] w-full object-cover"
+                                        />
+                                    @else
+                                        <img
+                                            src="https://grcviewpoint.com/wp-content/uploads/2022/11/Time-to-Correct-A-Long-standing-Curriculum-Coding-Error-Say-Experts-GRCviewpoint.jpg"
+                                            class="h-[200px] w-full object-cover"
+                                            alt="Default image"
+                                        />
+                                    @endif
+                                </div>
 
-                        <div class="mx-3">
-                            <div class="flex justify-between  mt-3">
-                                <div class="flex gap-1">
-                                    <div class="w-4 flex items-center">
-                                        <svg class="text-dark-7 " fill="currentColor" viewBox="-32 0 512 512"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                               stroke-linejoin="round"></g>
-                                            <g id="SVGRepo_iconCarrier">
-                                                <path
-                                                    d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z"></path>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <div class="text-dark-7 cursor-pointer">username</div>
-                                </div>
-                                <div class="flex gap-1">
-                                    <div class="w-4 flex items-center">
-                                        <svg class="text-dark-7 stroke-dark-7" viewBox="0 0 24 24" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                               stroke-linejoin="round"></g>
-                                            <g id="SVGRepo_iconCarrier">
-                                                <path
-                                                    d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                                                    class="text-dark-7 stroke-dark-7" stroke-width="2"
-                                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <div class="text-sm text-dark-7">date</div>
-                                </div>
                             </div>
 
-                            <div class="font-bold text-xl my-2 cursor-pointer text-dark-4">Post Name</div>
-                            <div class="line-clamp-3 text-sm leading-relaxed text-dark-7">Penatibus et magnis dis
-                                parturient montes, nascetur ridiculus mus. Etiam ultrices metus ut enim biben dum, vitae
-                                fringilla. Penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam
-                                ultrices metus ut enim biben dum, vitae fringilla.
-                            </div>
-                            <div class="flex justify-between mt-4 pb-2">
-                                <div class="flex gap-1">
-                                    <div class="w-4 flex items-center b cursor-pointer">
-                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                             stroke="#190aeb">
-                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"
-                                               stroke="#CCCCCC" stroke-width="0.144"></g>
-                                            <g id="SVGRepo_iconCarrier">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                      d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
-                                                      class="stroke-pink-600" stroke-width="2" stroke-linecap="round"
-                                                      stroke-linejoin="round"></path>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <div class="text-sm text-dark-7">1000</div>
-                                </div>
-                                <div class="flex">
-                                    <div class=" border border-l-black mr-2 dark:border-l-gray-50"></div>
-                                    <div class="flex gap-1 mr-3">
-                                        <div class="w-5 flex items-center">
-                                            <svg class="cursor-pointer stroke-blue-500" viewBox="0 -0.5 25 25"
-                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="SVGRepo_iconCarrier">
-                                                    <path
-                                                        fill-rule="evenodd"
-                                                        clip-rule="evenodd"
-                                                        d="M9.1631 5H15.8381C17.8757 5.01541 19.5151 6.67943 19.5001 8.717V13.23C19.5073 14.2087 19.1254 15.1501 18.4384 15.8472C17.7515 16.5442 16.8158 16.9399 15.8371 16.947H9.1631L5.5001 19V8.717C5.49291 7.73834 5.8748 6.79692 6.56175 6.09984C7.24871 5.40276 8.18444 5.00713 9.1631 5Z"
-                                                        class="stroke-blue-500"
-                                                        stroke-width="1.5"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                    ></path>
-                                                    <path
-                                                        fill-rule="evenodd"
-                                                        clip-rule="evenodd"
-                                                        d="M7.50009 11C7.50009 10.4477 7.94781 10 8.50009 10C9.05238 10 9.50009 10.4477 9.50009 11C9.50009 11.5523 9.05238 12 8.50009 12C8.23488 12 7.98052 11.8946 7.79298 11.7071C7.60545 11.5196 7.50009 11.2652 7.50009 11Z"
-                                                        class="stroke-blue-500"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                    ></path>
-                                                    <path
-                                                        fill-rule="evenodd"
-                                                        clip-rule="evenodd"
-                                                        d="M11.5001 11C11.5001 10.4477 11.9478 10 12.5001 10C13.0524 10 13.5001 10.4477 13.5001 11C13.5001 11.5523 13.0524 12 12.5001 12C11.9478 12 11.5001 11.5523 11.5001 11Z"
-                                                        class="stroke-blue-500"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                    ></path>
-                                                    <path
-                                                        fill-rule="evenodd"
-                                                        clip-rule="evenodd"
-                                                        d="M15.5001 11C15.5001 10.4477 15.9478 10 16.5001 10C17.0524 10 17.5001 10.4477 17.5001 11C17.5001 11.5523 17.0524 12 16.5001 12C15.9478 12 15.5001 11.5523 15.5001 11Z"
-                                                        class="stroke-blue-500"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                    ></path>
-                                                </g>
-                                            </svg>
-                                        </div>
-
-                                        <div class="text-sm text-dark-7">100</div>
-                                    </div>
+                            <div class="mx-3">
+                                <div class="flex justify-between  mt-3">
                                     <div class="flex gap-1">
-                                        <div class="w-4 flex items-center cursor-pointer">
-                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <div class="w-4 flex items-center">
+                                            <svg class="text-dark-7 " fill="currentColor" viewBox="-32 0 512 512"
+                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
                                                    stroke-linejoin="round"></g>
                                                 <g id="SVGRepo_iconCarrier">
                                                     <path
-                                                        d="M9 3V5M12 3V5M15 3V5M13 9H9M15 13H9M8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V7.2C19 6.0799 19 5.51984 18.782 5.09202C18.5903 4.71569 18.2843 4.40973 17.908 4.21799C17.4802 4 16.9201 4 15.8 4H8.2C7.0799 4 6.51984 4 6.09202 4.21799C5.71569 4.40973 5.40973 4.71569 5.21799 5.09202C5 5.51984 5 6.07989 5 7.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21Z"
-                                                        class="stroke-blue-500" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"></path>
+                                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z"></path>
                                                 </g>
                                             </svg>
                                         </div>
-                                        <div class="text-sm text-blue-500">Read more</div>
+                                        <div class="text-dark-7 cursor-pointer">{{$data->vname}}</div>
+                                    </div>
+                                    <div class="flex gap-1">
+                                        <div class="w-4 flex items-center">
+                                            <svg class="text-dark-7 stroke-dark-7" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                   stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                                        class="text-dark-7 stroke-dark-7" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="text-sm text-dark-7">   {{ $data->created_at->format('d-m-Y') }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="font-bold text-xl my-2 cursor-pointer text-dark-4">{{$data->vname}}</div>
+                                <div class="line-clamp-3 text-sm leading-relaxed text-dark-7 h-18">{{$data->body}}</div>
+                                <div class="flex justify-between mt-4 pb-2">
+                                    <div class="flex gap-1">
+                                        <div class="w-4 flex items-center b cursor-pointer">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                 stroke="#190aeb">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"
+                                                   stroke="#CCCCCC" stroke-width="0.144"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                          d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
+                                                          class="stroke-pink-600" stroke-width="2" stroke-linecap="round"
+                                                          stroke-linejoin="round"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="text-sm text-dark-7">1000</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class=" border border-l-black mr-2 dark:border-l-gray-50"></div>
+                                        <div class="flex gap-1 mr-3">
+                                            <div class="w-5 flex items-center">
+                                                <svg class="cursor-pointer stroke-blue-500" viewBox="0 -0.5 25 25" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path
+                                                            fill-rule="evenodd"
+                                                            clip-rule="evenodd"
+                                                            d="M9.1631 5H15.8381C17.8757 5.01541 19.5151 6.67943 19.5001 8.717V13.23C19.5073 14.2087 19.1254 15.1501 18.4384 15.8472C17.7515 16.5442 16.8158 16.9399 15.8371 16.947H9.1631L5.5001 19V8.717C5.49291 7.73834 5.8748 6.79692 6.56175 6.09984C7.24871 5.40276 8.18444 5.00713 9.1631 5Z"
+                                                            class="stroke-blue-500"
+                                                            stroke-width="1.5"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                        ></path>
+                                                        <path
+                                                            fill-rule="evenodd"
+                                                            clip-rule="evenodd"
+                                                            d="M7.50009 11C7.50009 10.4477 7.94781 10 8.50009 10C9.05238 10 9.50009 10.4477 9.50009 11C9.50009 11.5523 9.05238 12 8.50009 12C8.23488 12 7.98052 11.8946 7.79298 11.7071C7.60545 11.5196 7.50009 11.2652 7.50009 11Z"
+                                                            class="stroke-blue-500"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                        ></path>
+                                                        <path
+                                                            fill-rule="evenodd"
+                                                            clip-rule="evenodd"
+                                                            d="M11.5001 11C11.5001 10.4477 11.9478 10 12.5001 10C13.0524 10 13.5001 10.4477 13.5001 11C13.5001 11.5523 13.0524 12 12.5001 12C11.9478 12 11.5001 11.5523 11.5001 11Z"
+                                                            class="stroke-blue-500"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                        ></path>
+                                                        <path
+                                                            fill-rule="evenodd"
+                                                            clip-rule="evenodd"
+                                                            d="M15.5001 11C15.5001 10.4477 15.9478 10 16.5001 10C17.0524 10 17.5001 10.4477 17.5001 11C17.5001 11.5523 17.0524 12 16.5001 12C15.9478 12 15.5001 11.5523 15.5001 11Z"
+                                                            class="stroke-blue-500"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                        ></path>
+                                                    </g>
+                                                </svg>
+                                            </div>
+
+                                            <div class="text-sm text-dark-7">100</div>
+                                        </div>
+                                        <div class="flex gap-1">
+                                            <div class="w-4 flex items-center cursor-pointer">
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                       stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path
+                                                            d="M9 3V5M12 3V5M15 3V5M13 9H9M15 13H9M8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V7.2C19 6.0799 19 5.51984 18.782 5.09202C18.5903 4.71569 18.2843 4.40973 17.908 4.21799C17.4802 4 16.9201 4 15.8 4H8.2C7.0799 4 6.51984 4 6.09202 4.21799C5.71569 4.40973 5.40973 4.71569 5.21799 5.09202C5 5.51984 5 6.07989 5 7.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21Z"
+                                                            class="stroke-blue-500" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="text-sm text-blue-500">Read more</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </a>
+                    </a>
+                @endforeach
 
             </div>
         </div>
@@ -295,24 +293,41 @@
 
             <hr class="border-gray-300 my-4"/>
 
-            <div>Tags</div>
-            <div class="mt-2">
-                <div>#blog</div>
+            <div class="mb-2">Tags</div>
+            <div class="flex gap-2.5 flex-wrap">
+                @if ($tags)
+                    @foreach ($tags as $tag)
+                        <span class="text-gray-500 capitalize">
+                                <button wire:click="getFilter({{ $tag->id }})" class="hover:text-blue-600 cursor-pointer">
+                                   #{{ $tag->vname }}
+                                </button>
+
+                            </span>
+                    @endforeach
+                @endif
             </div>
 
             <hr class="border-gray-300 my-4"/>
 
             <div>Categories</div>
 
-            <div class="mt-2">
-                <div>tech</div>
+            <div class=" flex flex-wrap gap-2.5 mt-2">
+                @foreach ($BlogCategories as $blogcategory)
+                    <span class="text-gray-400">
+                            <button wire:click="getCategory_id({{ $blogcategory->id }})" class="px-4 py-2 border border-gray-800 cursor-pointer hover:bg-dark-4">
+                                {{ $blogcategory->vname }}
+                            </button></span>
+                @endforeach
+
             </div>
+
 
             <hr class="border-gray-300 my-4"/>
 
             <div class="flex gap-3 my-3">
                 <div>Share</div>
-                <div class="w-4 block my-auto">
+                <div class="w-4 hover:w-6 block my-auto">
+                    <a href="https://www.facebook.com/" target="_blank">
                     <svg class="text-dark-7 stroke-dark-7" fill="currentColor" viewBox="-5 0 20 20" version="1.1"
                          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -332,8 +347,11 @@
                             </g>
                         </g>
                     </svg>
+                    </a>
                 </div>
-                <div class="w-4 block my-auto">
+                <div class="w-4 hover:w-6 block my-auto">
+                    <a href="https://x.com/"  target="_blank">
+
                     <svg class="text-dark-7 stroke-dark-7" viewBox="0 0 24 24" fill="currentColor"
                          xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -344,8 +362,11 @@
                                   class="text-dark-7 stroke-dark-7"></path>
                         </g>
                     </svg>
+                </a>
                 </div>
-                <div class="w-4 block my-auto">
+
+                <div class="w-4 hover:w-6 block my-auto">
+                    <a href="https://in.linkedin.com/"  target="_blank">
                     <svg class="text-dark-7 stroke-dark-7" fill="currentColor" viewBox="0 0 20 20" version="1.1"
                          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -365,8 +386,10 @@
                             </g>
                         </g>
                     </svg>
+                    </a>
                 </div>
-                <div class="w-4 block my-auto">
+                <div class="w-4 hover:w-6 block my-auto">
+                    <a href="https://www.pinterest.com/" target="_blank">
                     <svg class="text-dark-7 stroke-dark-7" fill="currentColor" viewBox="0 0 1920 1920"
                          xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -377,6 +400,7 @@
                                 fill-rule="evenodd" class="text-dark-7 stroke-dark-7"></path>
                         </g>
                     </svg>
+                    </a>
                 </div>
             </div>
             <hr class="border-gray-300 my-4"/>
