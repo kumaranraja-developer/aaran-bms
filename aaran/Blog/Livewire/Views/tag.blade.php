@@ -87,64 +87,6 @@
                     </div>
                 </x-Ui::dropdown.wrapper>
 
-
-                {{--                <div class="flex flex-row py-3 gap-3">--}}
-                {{--                    <div class="xl:flex w-full gap-2">--}}
-                {{--                        <label for="blogcategory_name"--}}
-                {{--                               class="w-[10rem] text-zinc-500 tracking-wide py-2">Blog Category</label>--}}
-                {{--                        <div x-data="{isTyped: @entangle('blogcategoryTyped')}" @click.away="isTyped = false"--}}
-                {{--                             class="w-full relative">--}}
-                {{--                            <div>--}}
-                {{--                                <input--}}
-                {{--                                    id="blogcategory_name"--}}
-                {{--                                    type="search"--}}
-                {{--                                    wire:model.live="blogcategory_name"--}}
-                {{--                                    autocomplete="off"--}}
-                {{--                                    placeholder="Blog Category Name.."--}}
-                {{--                                    @focus="isTyped = true"--}}
-                {{--                                    @keydown.escape.window="isTyped = false"--}}
-                {{--                                    @keydown.tab.window="isTyped = false"--}}
-                {{--                                    @keydown.enter.prevent="isTyped = false"--}}
-
-                {{--                                    class="block w-full rounded-lg"--}}
-                {{--                                />--}}
-
-                {{--                                <!-- HSN Code Dropdown -->--}}
-                {{--                                <div x-show="isTyped"--}}
-                {{--                                     x-transition:leave="transition ease-in duration-100"--}}
-                {{--                                     x-transition:leave-start="opacity-100"--}}
-                {{--                                     x-transition:leave-end="opacity-0"--}}
-                {{--                                     x-cloak--}}
-                {{--                                >--}}
-                {{--                                    <div class="absolute z-20 w-full mt-2">--}}
-                {{--                                        <div class="block py-1 shadow-md w-full rounded-lg border-transparent flex-1 appearance-none border--}}
-                {{--                             bg-white text-gray-800 ring-1 ring-purple-600">--}}
-                {{--                                            <ul class="overflow-y-scroll h-20">--}}
-                {{--                                                @if($blogcategoryCollection)--}}
-                {{--                                                    @forelse ($blogcategoryCollection as $i => $blogcategory)--}}
-                {{--                                                        <li class="cursor-pointer px-3 py-1 hover:font-bold hover:bg-yellow-100 border-b border-gray-300 h-8--}}
-                {{--                                            {{ $highlightBlogCategory === $i ? 'bg-yellow-100' : '' }}"--}}
-                {{--                                                            wire:click.prevent="setBlogcategory('{{$blogcategory->vname}}','{{$blogcategory->id}}')"--}}
-                {{--                                                            x-on:click="isTyped = false">--}}
-                {{--                                                            {{ $blogcategory->vname }}--}}
-                {{--                                                        </li>--}}
-                {{--                                                    @empty--}}
-                {{--                                                        <button--}}
-                {{--                                                            wire:click.prevent="blogcategorySave('{{$blogcategory_name}}')"--}}
-                {{--                                                            class="text-white bg-green-500 text-center w-full">--}}
-                {{--                                                            create--}}
-                {{--                                                        </button>--}}
-                {{--                                                    @endforelse--}}
-                {{--                                                @endif--}}
-                {{--                                            </ul>--}}
-                {{--                                        </div>--}}
-                {{--                                    </div>--}}
-                {{--                                </div>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
-
             </div>
         </x-Ui::forms.create>
      </x-Ui::forms.m-panel>

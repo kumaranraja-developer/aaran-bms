@@ -16,7 +16,7 @@ use Livewire\WithFileUploads;
 
 class Index extends Component
 {
-    use ComponentStateTrait, TenantAwareTrait;
+    use ComponentStateTrait;
 
     use WithFileUploads;
 
@@ -33,18 +33,18 @@ class Index extends Component
     public $visibility = false;
     public $active_id = true;
     #endregion
+    public bool $showForm = false;
 
     public function mount()
     {
-        $this->BlogCategories = BlogCategory::on($this->getTenantConnection())->get();
+        $this->BlogCategories = BlogCategory::get();
     }
 
     #region[Get-Save]
     public function getSave(): void
     {
-        $connection = $this->getTenantConnection();
 
-        BlogPost::on($connection)->updateOrCreate(
+        BlogPost::updateOrCreate(
             ['id' => $this->vid],
         [
             'vname' => $this->vname,
@@ -64,14 +64,14 @@ class Index extends Component
     public function getObj($id)
     {
         if ($id) {
-            $obj = BlogPost::on($this->getTenantConnection())->find($id);
+            $obj = BlogPost::find($id);
             $this->vid = $obj->id;
             $this->vname = $obj->vname;
             $this->body = $obj->body;
             $this->blog_category_id = $obj->blogcategory_id;
-            $this->blog_category_name = $obj->blogcategory_id?BlogCategory::on($this->getTenantConnection())->find($obj->blogcategory_id)->vname:'';
+            $this->blog_category_name = $obj->blogcategory_id?BlogCategory::find($obj->blogcategory_id)->vname:'';
             $this->blog_tag_id = $obj->blogtag_id;
-            $this->blog_tag_name = $obj->blogtag_id?BlogTag::on($this->getTenantConnection())->find($obj->blogtag_id)->vname:'';
+            $this->blog_tag_name = $obj->blogtag_id?BlogTag::find($obj->blogtag_id)->vname:'';
             $this->active_id = $obj->active_id;
             $this->old_image = $obj->image;
             $this->visibility = $obj->visibility;
@@ -104,24 +104,25 @@ class Index extends Component
         if ($this->image) {
 
             $image = $this->image;
-            $filename = $this->image->getClientOriginalName();
+            $filename = $image->getClientOriginalName();
 
-            if (Storage::disk('public')->exists(Storage::path('public/images/' . $this->old_image))) {
-                Storage::disk('public')->delete(Storage::path('public/images/' . $this->old_image));
+            // Correct deletion
+            if ($this->old_image && Storage::exists('public/images/' . $this->old_image)) {
+                Storage::delete('public/images/' . $this->old_image);
             }
 
+            // Store image in public disk
             $image->storeAs('public/images', $filename);
 
             return $filename;
 
-        } else {
-            if ($this->old_image) {
-                return $this->old_image;
-            } else {
-                return 'no image';
-            }
+        } elseif ($this->old_image) {
+            return $this->old_image;
         }
+
+        return null;
     }
+
     #endregion
 
     #region[blogCategory]
@@ -177,7 +178,7 @@ class Index extends Component
 
     public function blogcategorySave($name)
     {
-        $obj = BlogCategory::on($this->getTenantConnection())->create([
+        $obj = BlogCategory::create([
             'vname' => $name,
             'active_id' => '1'
         ]);
@@ -187,12 +188,8 @@ class Index extends Component
 
     public function getBlogcategoryList(): void
     {
-        if (!$this->getTenantConnection()) {
-            return; // Prevent execution if tenant is not set
-        }
 
-        $this->blogcategoryCollection = DB::connection($this->getTenantConnection())
-            ->table('blog_categories')
+        $this->blogcategoryCollection = DB::table('blog_categories')
             ->when($this->blog_category_name, fn($query) => $query->where('vname', 'like',  "%{$this->blog_category_name}%"))
             ->get();
     }
@@ -252,7 +249,7 @@ class Index extends Component
 
     public function blogtagSave($name)
     {
-        $obj = BlogTag::on($this->getTenantConnection())->create([
+        $obj = BlogTag::create([
             'blog_category_id' => $this->blog_category_id,
             'vname' => $name,
             'active_id' => '1'
@@ -263,12 +260,8 @@ class Index extends Component
 
     public function getBlogTagList(): void
     {
-        if (!$this->getTenantConnection()) {
-            return; // Prevent execution if tenant is not set
-        }
 
-        $this->blogtagCollection = DB::connection($this->getTenantConnection())
-            ->table('blog_tags')
+        $this->blogtagCollection = DB::table('blog_tags')
             ->when($this->blog_tag_name, fn($query) => $query->where('vname', 'like', "%{$this->blog_tag_name}%"))
             ->get();
     }
@@ -283,7 +276,7 @@ class Index extends Component
 
     public function gettags()
     {
-        $this->tags = BlogTag::on($this->getTenantConnection())->where('blog_category_id', '=', $this->category_id)->get();
+        $this->tags = BlogTag::where('blog_category_id', '=', $this->category_id)->get();
     }
 
     public function getFilter($id)
@@ -312,8 +305,7 @@ class Index extends Component
     #region[getList]
     public function getList()
     {
-        return BlogPost::on($this->getTenantConnection())
-            ->active($this->activeRecord)
+        return BlogPost::active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
@@ -328,9 +320,8 @@ class Index extends Component
 
         return view('blog::index', [
             'list' => $this->getList(),
-            'firstPost' => BlogPost::on($this->getTenantConnection())
-                ->latest()
-                ->take(5)
+            'firstPost' => BlogPost::latest()
+                ->take(6)
                 ->when($this->tagfilter, function ($query, $tagfilter) {
                     return $query->whereIn('blog_tag_id', $tagfilter);
                 })

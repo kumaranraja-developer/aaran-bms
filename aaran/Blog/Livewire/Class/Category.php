@@ -21,7 +21,7 @@ class Category extends Component
     public function rules(): array
     {
         return [
-            'vname' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.blog_categories,vname"),
+            'vname' => 'required' . ($this->vid ? '' : "|unique:blog_categories,vname"),
         ];
     }
 
@@ -46,9 +46,8 @@ class Category extends Component
     public function getSave(): void
     {
         $this->validate();
-        $connection = $this->getTenantConnection();
 
-        BlogCategory::on($connection)->updateOrCreate(
+        BlogCategory::updateOrCreate(
         ['id' => $this->vid],
         [
             'vname' => Str::ucfirst($this->vname),
@@ -75,7 +74,7 @@ class Category extends Component
     public function getObj($id): void
     {
         if ($id) {
-            $obj = BlogCategory::on($this->getTenantConnection())->find($id);
+            $obj = BlogCategory::find($id);
             $this->vid = $obj->id;
             $this->vname = $obj->vname;
             $this->active_id = $obj->active_id;
@@ -86,8 +85,7 @@ class Category extends Component
     #region[getList]
     public function getList()
     {
-        return BlogCategory::on($this->getTenantConnection())
-            ->active($this->activeRecord)
+        return BlogCategory::active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
@@ -99,7 +97,7 @@ class Category extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = BlogCategory::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = BlogCategory::find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }

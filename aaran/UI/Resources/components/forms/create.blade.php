@@ -15,14 +15,14 @@
             x-trap.inert.noscroll="showEditModal"
             class="absolute z-20">
 
-            <div class="relative" role="dialog">
+            <div class="relative " role="dialog">
 
                 <div class="fixed inset-0 bg-gray-800/75"></div>
 
                 <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-                    <div
-                        class="flex min-h-full justify-center items-center">
-                        <div class="relative sm:w-full sm:max-w-4xl sm:mx-auto">
+                    <div class="flex min-h-full justify-center items-center py-20 px-4 sm:px-6 lg:px-8">
+
+                    <div class="relative sm:w-full sm:max-w-4xl sm:mx-auto">
 
                             <div class="bg-white dark:bg-dark dark:text-dark-9 rounded-t-lg px-2 pb-2">
 
