@@ -267,13 +267,11 @@ class Index extends Component
         unset($this->tagFilter[$id]);
     }
 
-    #region[Render]
     public function getRoute()
     {
         return route('posts');
     }
 
-    #region[getList]
     public function getList()
     {
         return BlogPost::active($this->activeRecord)
@@ -281,7 +279,6 @@ class Index extends Component
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
     }
-    #endregion
 
     #[Layout('Ui::components.layouts.web')]
     public function render()
