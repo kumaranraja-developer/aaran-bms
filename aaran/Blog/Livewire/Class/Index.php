@@ -2,11 +2,13 @@
 
 namespace Aaran\Blog\Livewire\Class;
 
+use Aaran\Assets\Services\ImageService;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Blog\Models\BlogCategory;
 use Aaran\Blog\Models\BlogPost;
 use Aaran\Blog\Models\BlogTag;
+use Aaran\Devops\Models\TaskImage;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +31,7 @@ class Index extends Component
     public $BlogCategories;
     public $category_id;
     public $tags;
-    public $tagfilter = [];
+    public $tagFilter = [];
     public $visibility = false;
     public $active_id = true;
     #endregion
@@ -40,9 +42,9 @@ class Index extends Component
         $this->BlogCategories = BlogCategory::get();
     }
 
-    #region[Get-Save]
     public function getSave(): void
     {
+        $imageService = app(ImageService::class);
 
         BlogPost::updateOrCreate(
             ['id' => $this->vid],
@@ -51,16 +53,14 @@ class Index extends Component
             'body' => $this->body,
             'blog_category_id' => $this->blog_category_id,
             'blog_tag_id' => $this->blog_tag_id,
-            'image' => $this->saveImage(),
+            'image' => $imageService->save($this->image, $this->old_image),
             'visibility' => $this->visibility,
             'active_id' => $this->active_id,
         ]);
         $this->dispatch('notify', ...['type' => 'success', 'content' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
         $this->clearFields();
         }
-    #endregion
 
-    #region[Get-Obj]
     public function getObj($id)
     {
         if ($id) {
@@ -96,35 +96,7 @@ class Index extends Component
         $this->image = '';
         $this->visibility = false;
     }
-    #endregion
 
-    #region[Image]
-    public function saveImage()
-    {
-        if ($this->image) {
-
-            $image = $this->image;
-            $filename = $this->image->getClientOriginalName();
-
-            if (Storage::disk('public')->exists(Storage::path('public/images/' . $this->old_image))) {
-                Storage::disk('public')->delete(Storage::path('public/images/' . $this->old_image));
-            }
-
-            $image->storeAs('public/images', $filename);
-
-            return $filename;
-
-        } else {
-            if ($this->old_image) {
-                return $this->old_image;
-            } else {
-                return 'no image';
-            }
-        }
-    }
-    #endregion
-
-    #region[blogCategory]
     public $blog_category_id = '';
     public $blog_category_name = '';
     public $blogcategoryCollection;
@@ -280,19 +252,19 @@ class Index extends Component
 
     public function getFilter($id)
     {
-        if (!in_array($id,$this->tagfilter,true)) {
-            return array_push($this->tagfilter, $id);
+        if (!in_array($id,$this->tagFilter,true)) {
+            return array_push($this->tagFilter, $id);
         }
     }
 
     public function clearFilter()
     {
-        $this->tagfilter=[];
+        $this->tagFilter=[];
     }
 
     public function removeFilter($id)
     {
-        unset($this->tagfilter[$id]);
+        unset($this->tagFilter[$id]);
     }
 
     #region[Render]
@@ -321,8 +293,8 @@ class Index extends Component
             'list' => $this->getList(),
             'firstPost' => BlogPost::latest()
                 ->take(6)
-                ->when($this->tagfilter, function ($query, $tagfilter) {
-                    return $query->whereIn('blog_tag_id', $tagfilter);
+                ->when($this->tagFilter, function ($query, $tagFilter) {
+                    return $query->whereIn('blog_tag_id', $tagFilter);
                 })
                 ->get(),
         ]);
