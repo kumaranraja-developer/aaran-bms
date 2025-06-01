@@ -79,7 +79,7 @@
                         </div>
 
                         <div class="font-bold text-xl my-2 cursor-pointer text-dark-4">{{$data->vname}}</div>
-                        <div class="line-clamp-3 text-sm leading-relaxed text-dark-7 h-18">{{$data->body}}</div>
+                        <div class="line-clamp-3 text-sm leading-relaxed text-dark-7 h-18">{!! $data->body !!}</div>
                         <div class="flex justify-between mt-4 pb-2">
                             <div class="flex gap-1">
                                 <div class="w-4 flex items-center b cursor-pointer">
@@ -185,7 +185,7 @@
 
             <x-Ui::input.floating wire:model="vname" label="Name"/>
 
-            <x-Ui::input.textarea wire:model="body" label="Description"/>
+            <x-Ui::input.rich-text wire:model="body" label="Description"/>
 
             <x-Ui::dropdown.wrapper label="Blog Category" type="blogcategoryTyped">
                 <div class="relative ">

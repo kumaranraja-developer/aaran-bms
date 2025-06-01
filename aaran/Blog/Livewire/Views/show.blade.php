@@ -10,7 +10,7 @@
         description="Blog"
         slogan="Everything that's going on at Enfold is collected here"
     />
-    <div class="grid lg:grid-cols-[80%_20%] mb-10">
+    <div class="grid lg:grid-cols-[80%_20%] mb-10 cursor-default">
         <div class="w-[80%] block m-auto mt-5">
 
             <div class="flex justify-between">
@@ -29,52 +29,9 @@
                 </div>
 
             </div>
-            <div class="flex justify-between mt-5">
-                <div class="flex gap-5">
-                    <div class="flex gap-2">
-                        <div class="text-dark-7 flex items-center">Post by</div>
-                        <div class="w-4 flex items-center">
-                            <svg class="text-dark-7 " fill="currentColor" viewBox="-32 0 512 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path
-                                        d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z"></path>
-                                </g>
-                            </svg>
-                        </div>
-                        <div class="text-dark-7 cursor-pointer block my-auto">{{$post->vname}}</div>
-                    </div>
-                    <div class="flex gap-1">
-                        <div class="w-4 flex items-center">
-                            <svg class="text-dark-7 stroke-dark-7" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path
-                                        d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                                        class="text-dark-7 stroke-dark-7" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"></path>
-                                </g>
-                            </svg>
-                        </div>
-                        <div class="text-sm text-dark-7 block my-auto">{{$post->created_at->diffForHumans()}}</div>
-                    </div>
-                </div>
-                <!-- Include Alpine.js if not already -->
-
-                <div class="md:flex gap-5 hidden">
-
-                    <div class="text-dark-7">Tag : {{ $blog_tag_name }}</div>
-                    <div class="text-dark-7">Category : {{ $blog_category_name }}</div>
-
-                </div>
-
-            </div>
-
-            <div class="relative w-full group mt-10">
+            <div
+                class="text-dark-7 cursor-pointer block mt-2 my-auto text-2xl font-bold capitalize">{{$post->vname}}</div>
+            <div class="relative w-full group mt-5">
                 <!-- Image -->
                 <img alt=""
                      class="w-full h-[80vh] object-cover shadow-inner group-hover:brightness-80"
@@ -83,18 +40,92 @@
 
             </div>
 
-            <div class="mt-10">
-                <div class="text-sm">
-                    {{$post->body}}
+            <div class="flex justify-between mt-5">
+                <div class="flex gap-5">
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <div class="flex gap-1">
+                            <div class="w-8 flex items-center b cursor-pointer">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                     stroke="#190aeb">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                       stroke-linejoin="round"
+                                       stroke="#CCCCCC" stroke-width="0.144"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
+                                              class="stroke-pink-600" stroke-width="2"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="text-dark-7 text-lg block my-auto">1000</div>
+                        </div>
+                        <div class="flex justify-between w-full">
+                            <div class="flex gap-2 mr-3">
+                                <div class="text-dark-7 flex items-center">Post by</div>
+                                <div class="w-4 flex items-center">
+                                    <svg class="text-dark-7 " fill="currentColor" viewBox="-32 0 512 512"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="text-dark-7 cursor-pointer block my-auto">{{$post->vname}}</div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="w-4 flex items-center">
+                                    <svg class="text-dark-7 stroke-dark-7" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                                class="text-dark-7 stroke-dark-7" stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div
+                                    class="text-sm text-dark-7 block my-auto">{{$post->created_at->diffForHumans()}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Include Alpine.js if not already -->
+
+                <div class="sm:flex gap-5 hidden">
+
+                    <div class="text-dark-7">Tag : {{ $blog_tag_name }}</div>
+                    <div class="text-dark-7">Category : {{ $blog_category_name }}</div>
+
                 </div>
 
             </div>
+
+            <div class="mt-10">
+                <div class="text-sm">
+                    {!! $post->body !!}
+                </div>
+            </div>
+
             <hr class="border-gray-300 my-10"/>
             <div class="text-lg">Leave a Reply</div>
             <div class="mt-3 mb-1 text-xs">Comment *</div>
             <textarea class="h-[200px] p-2 w-full border-1 border-gray-300 rounded-sm"
                       placeholder="Text here..."></textarea>
-            <button class="bg-primary py-2 mt-2 px-4 rounded-lg text-sm text-white">Post Comment</button>
+            <button class="bg-primary py-2 mt-2 px-4 rounded-lg text-sm text-white cursor-pointer">Post Comment</button>
 
             <hr class="border-gray-300 my-10"/>
 
@@ -108,15 +139,9 @@
                     @if($data->id != $post->id)
 
                         <a href="{{ route('posts.show', ['id' => $data->id]) }}"
-
                            class="bg-white p-2 border border-gray rounded-lg transform duration-500 hover:-translate-y-2">
                             <div class="border border-gray-200  bg-gray-100 rounded-lg  overflow-hidden">
                                 <div class="relative w-full group">
-                                    <!-- Image -->
-                                    {{--                        <img--}}
-                                    {{--                            class="h-[200px] w-full object-cover"--}}
-                                    {{--                            src="{{asset('images/home/wall1.webp')}}"--}}
-                                    {{--                        />--}}
                                     <div class="w-full h-full overflow-hidden">
                                         @if($data->image)
                                             <img
@@ -175,7 +200,7 @@
                                     <div
                                         class="font-bold text-xl my-2 cursor-pointer text-dark-4">{{$data->vname}}</div>
                                     <div
-                                        class="line-clamp-3 text-sm leading-relaxed text-dark-7 h-18">{{$data->body}}</div>
+                                        class="line-clamp-3 text-sm leading-relaxed text-dark-7 h-18">{!! $data->body !!}</div>
                                     <div class="flex justify-between mt-4 pb-2">
                                         <div class="flex gap-1">
                                             <div class="w-4 flex items-center b cursor-pointer">
@@ -445,7 +470,7 @@
 
             <x-Ui::input.floating wire:model="vname" label="Name"/>
 
-            <x-Ui::input.textarea wire:model="body" label="Description"/>
+            <x-Ui::input.rich-text wire:model="body" label="Description"/>
 
             <x-Ui::dropdown.wrapper label="Blog Category" type="blogcategoryTyped">
                 <div class="relative ">
