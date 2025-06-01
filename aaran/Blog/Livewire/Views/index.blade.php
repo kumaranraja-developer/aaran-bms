@@ -6,11 +6,12 @@
         description="Blog"
         slogan="Everything that's going on at Enfold is collected here"
     />
-    <div class="flex justify-center">
-        <div class="w-[70%] my-4 flex justify-end">
-            <x-Ui::button.new-x wire:click="$set('showEditModal', true)" />
+
+    @auth
+        <div class="w-full py-4 px-6 sm:px-32 flex justify-end">
+            <x-Ui::button.new-x wire:click="$set('showEditModal', true)"/>
         </div>
-    </div>
+    @endauth
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[70%] gap-5 gap-y-10 mt-10 mx-auto mb-20">
         @foreach ($firstPost as $data)
@@ -19,10 +20,10 @@
                 <div class="border border-gray-200  bg-gray-100 rounded-lg  overflow-hidden">
                     <div class="relative w-full group">
                         <!-- Image -->
-{{--                        <img--}}
-{{--                            class="h-[200px] w-full object-cover"--}}
-{{--                            src="{{asset('images/home/wall1.webp')}}"--}}
-{{--                        />--}}
+                        {{--                        <img--}}
+                        {{--                            class="h-[200px] w-full object-cover"--}}
+                        {{--                            src="{{asset('images/home/wall1.webp')}}"--}}
+                        {{--                        />--}}
                         <div class="w-full h-full overflow-hidden">
                             @if($data->image)
                                 <img

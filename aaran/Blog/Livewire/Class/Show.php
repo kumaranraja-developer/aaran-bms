@@ -63,7 +63,7 @@ class Show extends Component
     {
         $imageService = app(ImageService::class);
 
-        BlogPost::updateOrCreate(
+        $this->post = BlogPost::updateOrCreate(
             ['id' => $this->vid],
             [
                 'vname' => $this->vname,

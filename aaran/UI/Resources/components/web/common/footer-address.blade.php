@@ -25,7 +25,7 @@
             :links="[
                 ['label' => 'About', 'href' => route('abouts')],
                 ['label' => 'Contact Us', 'href' => route('web-contacts')],
-                ['label' => 'Blog', 'href' => route('abouts')],
+                ['label' => 'Blogs', 'href' => route('posts')],
                 ['label' => 'Careers', 'href' => route('abouts')],
                 ['label' => 'Partners', 'href' => route('abouts')],
 
