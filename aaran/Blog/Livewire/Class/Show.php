@@ -15,6 +15,7 @@ use Aaran\Devops\Models\TaskImage;
 use Livewire\WithFileUploads;
 
 use Aaran\Assets\Services\ImageService;
+
 class Show extends Component
 {
     use ComponentStateTrait, TenantAwareTrait, WithFileUploads;
@@ -41,6 +42,7 @@ class Show extends Component
     public $highlightBlogCategory = 0;
     public $blogcategoryTyped = false;
     public $blogtagCollection;
+
     public function mount($id): void
     {
         $this->post = BlogPost::findOrFail($id);
@@ -75,6 +77,7 @@ class Show extends Component
         $this->dispatch('notify', ...['type' => 'success', 'content' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
         $this->clearFields();
     }
+
     public function getObj($id)
     {
         if ($id) {
@@ -83,9 +86,9 @@ class Show extends Component
             $this->vname = $obj->vname;
             $this->body = $obj->body;
             $this->blog_category_id = $obj->blogcategory_id;
-            $this->blog_category_name = $obj->blogcategory_id?BlogCategory::find($obj->blogcategory_id)->vname:'';
+            $this->blog_category_name = $obj->blogcategory_id ? BlogCategory::find($obj->blogcategory_id)->vname : '';
             $this->blog_tag_id = $obj->blogtag_id;
-            $this->blog_tag_name = $obj->blogtag_id?BlogTag::find($obj->blogtag_id)->vname:'';
+            $this->blog_tag_name = $obj->blogtag_id ? BlogTag::find($obj->blogtag_id)->vname : '';
             $this->active_id = $obj->active_id;
             $this->old_image = $obj->image;
             $this->visibility = $obj->visibility;
@@ -108,6 +111,7 @@ class Show extends Component
         $this->image = '';
         $this->visibility = false;
     }
+
     public function decrementBlogcategory(): void
     {
         if ($this->highlightBlogCategory === 0) {
@@ -125,6 +129,7 @@ class Show extends Component
         }
         $this->highlightBlogCategory++;
     }
+
     public function getList()
     {
         return BlogPost::active($this->activeRecord)
@@ -151,6 +156,7 @@ class Show extends Component
         $this->blog_category_name = $obj['vname'] ?? '';
         $this->blog_category_id = $obj['id'] ?? '';
     }
+
     public function refreshBlogcategory($v): void
     {
         $this->blog_category_id = $v['id'];
@@ -167,13 +173,15 @@ class Show extends Component
         $v = ['name' => $name, 'id' => $obj->id];
         $this->refreshBlogcategory($v);
     }
+
     public function getBlogcategoryList(): void
     {
 
         $this->blogcategoryCollection = DB::table('blog_categories')
-            ->when($this->blog_category_name, fn($query) => $query->where('vname', 'like',  "%{$this->blog_category_name}%"))
+            ->when($this->blog_category_name, fn($query) => $query->where('vname', 'like', "%{$this->blog_category_name}%"))
             ->get();
     }
+
     public function decrementBlogtag(): void
     {
         if ($this->highlightBlogtag === 0) {
@@ -199,6 +207,7 @@ class Show extends Component
             ->when($this->blog_tag_name, fn($query) => $query->where('vname', 'like', "%{$this->blog_tag_name}%"))
             ->get();
     }
+
     public function setBlogTag($name, $id): void
     {
         $this->blog_tag_name = $name;
@@ -240,6 +249,7 @@ class Show extends Component
         $v = ['name' => $name, 'id' => $obj->id];
         $this->refreshBlogTag($v);
     }
+
     #endregion
 
     public function getCategory_id($id)
@@ -250,16 +260,15 @@ class Show extends Component
 
     public function getFilter($id)
     {
-        if (!in_array($id,$this->tagFilter,true)) {
+        if (!in_array($id, $this->tagFilter, true)) {
             return array_push($this->tagFilter, $id);
         }
     }
 
 
-
     public function clearFilter()
     {
-        $this->tagFilter=[];
+        $this->tagFilter = [];
     }
 
 
@@ -267,6 +276,7 @@ class Show extends Component
     {
         unset($this->tagFilter[$id]);
     }
+
     public function getRoute()
     {
         return route('posts');
@@ -278,7 +288,8 @@ class Show extends Component
         if ($obj) {
             $obj->delete();
         }
-        $this->blogpost = $this->getActivities($obj->task_id);
+
+        $this->redirect(route('posts'), navigate: true);
     }
 
     #[Layout('Ui::components.layouts.web')]

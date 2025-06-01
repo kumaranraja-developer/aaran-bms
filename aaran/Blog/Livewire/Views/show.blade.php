@@ -1,5 +1,11 @@
 <div>
     <x-slot name="header">Blog</x-slot>
+
+    <x-Ui::alerts.notification />
+
+    <!-- Delete Modal --------------------------------------------------------------------------------------------->
+    <x-Ui::modal.confirm-delete/>
+
     <x-Ui::menu.web.top-banner
         description="Blog"
         slogan="Everything that's going on at Enfold is collected here"
