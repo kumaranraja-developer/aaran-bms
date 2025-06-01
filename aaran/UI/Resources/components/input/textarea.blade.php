@@ -5,7 +5,8 @@
 
 <div class="w-full space-y-5 ">
     <div class="relative">
-    <textarea id="hs-floating-textarea" class="peer p-4 block w-full h-{{$height}} border-gray-200 rounded-lg text-sm
+    <textarea id="hs-floating-textarea" class="peer p-4 block w-full h-{{$height}} border-2
+     border-gray-300 rounded-lg text-sm
     placeholder:text-transparent focus:border-none focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
     dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:ring-neutral-600
     focus:pt-8

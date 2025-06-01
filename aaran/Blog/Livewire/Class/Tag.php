@@ -24,7 +24,7 @@ class Tag extends Component
     public function rules(): array
     {
         return [
-            'vname' => 'required' . ($this->vid ? '' : "|unique:{$this->getTenantConnection()}.blog_tags,vname"),
+            'vname' => 'required' . ($this->vid ? '' : "|unique:blog_tags,vname"),
             'blog_category_id' => 'required',
         ];
     }
@@ -51,9 +51,8 @@ class Tag extends Component
     public function getSave()
     {
         $this->validate();
-        $connection = $this->getTenantConnection();
 
-        BlogTag::on($connection)->updateOrCreate(
+        BlogTag::updateOrCreate(
             ['id' => $this->vid],
             [
                 'vname' => $this->vname,
@@ -118,7 +117,7 @@ class Tag extends Component
 
     public function blogcategorySave($name)
     {
-        $obj = BlogCategory::on($this->getTenantConnection())->create([
+        $obj = BlogCategory::create([
             'vname' => $name,
             'active_id' => 1
         ]);
@@ -128,12 +127,8 @@ class Tag extends Component
 
     public function getBlogcategoryList(): void
     {
-        if (!$this->getTenantConnection()) {
-            return; // Prevent execution if tenant is not set
-        }
 
-        $this->blogcategoryCollection = DB::connection($this->getTenantConnection())
-            ->table('blog_categories')
+        $this->blogcategoryCollection = DB::table('blog_categories')
             ->when($this->blog_category_name, fn($query) => $query->where('vname', 'like',  "%{$this->blog_category_name}%"))
             ->get();
     }
@@ -143,7 +138,7 @@ class Tag extends Component
     public function getObj($id)
     {
         if ($id) {
-            $BlogTag = BlogTag::on($this->getTenantConnection())->find($id);
+            $BlogTag = BlogTag::find($id);
             $this->vid = $BlogTag->id;
             $this->vname = $BlogTag->vname;
             $this->active_id = $BlogTag->active_id;
@@ -167,8 +162,7 @@ class Tag extends Component
     #region[getList]
     public function getList()
     {
-        return BlogTag::on($this->getTenantConnection())
-            ->active($this->activeRecord)
+        return BlogTag::active($this->activeRecord)
             ->when($this->searches, fn($query) => $query->searchByName($this->searches))
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
@@ -180,7 +174,7 @@ class Tag extends Component
     {
         if (!$this->deleteId) return;
 
-        $obj = BlogTag::on($this->getTenantConnection())->find($this->deleteId);
+        $obj = BlogTag::find($this->deleteId);
         if ($obj) {
             $obj->delete();
         }
@@ -194,8 +188,7 @@ class Tag extends Component
 
         return view('blog::tag')->with([
             'list' => $this->getList(),
-            BlogTag::on($this->getTenantConnection())
-            ->when( function ($query) {
+            BlogTag::when( function ($query) {
                 return $query->where('id', '>', '');
             })
         ]);
