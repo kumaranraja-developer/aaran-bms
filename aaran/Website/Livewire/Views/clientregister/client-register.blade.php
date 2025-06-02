@@ -16,7 +16,7 @@
                         <div id="customCarousel" class="carousel space-y-10">
                             @foreach($testimonials as $index => $data)
                                 <div class="carousel-item  {{ $index === 0 ? 'active' : '' }}">
-                                    <div class="w-[80%] mx-auto text-center bg-white dark:bg-dark-4 shadow-lg rounded-xl p-8">
+                                    <div class="w-[80%] mx-auto text-center p-8">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                              class="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
                                             <path
