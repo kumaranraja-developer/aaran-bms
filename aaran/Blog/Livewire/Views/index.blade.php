@@ -8,7 +8,21 @@
 
     @auth
         <div class="w-full py-4 px-6 flex justify-center">
-            <div class="flex w-[70%] justify-end">
+            <div class="flex w-[70%] gap-3 justify-end">
+                <select wire:model="selectedTag" class="mr-2 border-1 border-gray-400 px-3 text-black dark:text-dark-9 dark:bg-dark">
+                    <option value="">All Tags</option>
+                    @foreach($blogtagCollection as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->vname }}</option>
+                    @endforeach
+                </select>
+
+                <select wire:model="selectedCategory" class="border-1 border-gray-400 px-3 text-black dark:text-dark-9 dark:bg-dark">
+                    <option value="">All Categories</option>
+                    @foreach($blogcategoryCollection as $category)
+                        <option value="{{ $category->id }}">{{ $category->vname }}</option>
+                    @endforeach
+                </select>
+
                 <x-Ui::button.new-x wire:click="$set('showEditModal', true)"/>
             </div>
         </div>
