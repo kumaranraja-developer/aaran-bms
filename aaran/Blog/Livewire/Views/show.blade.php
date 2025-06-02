@@ -30,11 +30,11 @@
 
             </div>
             <div
-                class="text-dark-7 cursor-pointer block mt-2 my-auto text-2xl font-bold capitalize">{{$post->vname}}</div>
+                class="text-dark-5 cursor-pointer block mt-2 my-auto text-2xl font-bold capitalize">{{$post->vname}}</div>
             <div class="relative w-full group mt-5">
                 <!-- Image -->
                 <img alt=""
-                     class="w-full h-[80vh] object-cover shadow-inner group-hover:brightness-80"
+                     class="w-full h-[80vh] object-cover"
                      src="{{ Storage::url('images/' . $post->image) }}"
                 />
 
@@ -126,7 +126,7 @@
             <div class="mb-4">Comments</div>
             @forelse ($comments as $comment)
                 <div class="border border-gray-200 rounded-lg dark:bg-dark-4 dark:text-dark-9 mb-2 p-2">
-                    <div class="text-sm text-dark-9 pb-3">{{ $comment->body }}</div>
+                    <div class="text-sm pb-3">{{ $comment->body }}</div>
                     <div class="flex justify-between">
                         <div class="text-xs text-dark-8">{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</div>
                         <div class="flex items-center gap-3 self-center ">
