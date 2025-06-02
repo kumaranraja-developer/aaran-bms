@@ -7,8 +7,10 @@
     />
 
     @auth
-        <div class="w-full py-4 px-6 sm:px-32 flex justify-end">
-            <x-Ui::button.new-x wire:click="$set('showEditModal', true)"/>
+        <div class="w-full py-4 px-6 flex justify-center">
+            <div class="flex w-[70%] justify-end">
+                <x-Ui::button.new-x wire:click="$set('showEditModal', true)"/>
+            </div>
         </div>
     @endauth
 
@@ -47,7 +49,7 @@
                                             d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z"></path>
                                     </svg>
                                 </div>
-                                <div class="text-dark-7 cursor-pointer">{{$data->vname}}</div>
+                                <div class="text-dark-7 cursor-pointer">{{ $data->user?->name }}</div>
                             </div>
                             <div class="flex gap-1">
                                 <div class="w-4 flex items-center">
@@ -68,7 +70,7 @@
                             </div>
                         </div>
 
-                        <div class="font-bold text-xl my-2 cursor-pointer text-dark-4">{{$data->vname}}</div>
+                        <div class="font-bold text-xl my-2 cursor-pointer text-dark-2 dark:text-dark-9">{{$data->vname}}</div>
                         <div class="line-clamp-3 text-sm leading-relaxed text-dark-7 h-18">{!! $data->body !!}</div>
                         <div class="flex justify-between mt-4 pb-2">
                             <div class="flex gap-1">
@@ -86,7 +88,7 @@
                                         </g>
                                     </svg>
                                 </div>
-                                <div class="text-sm text-dark-7">1000</div>
+                                <div class="text-sm text-dark-7">{{ $data->likes()->count() }}</div>
                             </div>
                             <div class="flex">
                                 <div class=" border border-l-black mr-2 dark:border-l-gray-50"></div>
@@ -132,7 +134,8 @@
                                         </svg>
                                     </div>
 
-                                    <div class="text-sm text-dark-7">100</div>
+                                    <div class="text-sm text-dark-7">{{ $data->comments()->count() }}
+                                    </div>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-4 flex items-center cursor-pointer">

@@ -44,7 +44,7 @@
                 <div class="flex gap-5">
                     <div class="flex flex-col sm:flex-row gap-2">
                         <div class="flex gap-1">
-                            <div x-data="{ liked: false }" @click="liked = !liked" class="cursor-pointer block my-auto">
+                            <div wire:click="updateLike({{ $post->id }})" class="cursor-pointer block my-auto">
                                 <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                      :fill="liked ? '#ef4444' : 'none'" stroke="#ef4444" class="w-6 h-6">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -55,7 +55,7 @@
                                 </svg>
                             </div>
 
-                            <div class="text-dark-7 text-lg block my-auto">1000</div>
+                            <div class="text-dark-7 text-lg block my-auto">{{ $likeCount }}</div>
                         </div>
                         <div class="flex justify-between w-full">
                             <div class="flex gap-2 mr-3">
@@ -72,7 +72,7 @@
                                         </g>
                                     </svg>
                                 </div>
-                                <div class="text-dark-7 cursor-pointer block my-auto">{{$post->vname}}</div>
+                                <div class="text-dark-7 cursor-pointer block my-auto">{{ $post->user?->name }}</div>
                             </div>
                             <div class="flex gap-1">
                                 <div class="w-4 flex items-center">
@@ -123,7 +123,11 @@
                 <div class="border border-gray-200 rounded-lg dark:bg-dark-4 dark:text-dark-9 mb-2 p-2">
                     <div class="text-sm pb-3">{{ $comment->body }}</div>
                     <div class="flex justify-between">
-                        <div class="text-xs text-dark-8">{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</div>
+                       <div class="flex">
+                           <div class="text-sm text-green-500 mr-2">{{$post->user?->name}}</div>
+                           <div class="border border-l-gray-500"></div>
+                           <div class="text-xs block my-auto text-dark-8 ml-2">{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</div>
+                       </div>
                         <div class="flex items-center gap-3 self-center ">
                             <x-Ui::button.edit wire:click="editActivity({{$comment->id}})" class="text-blue-500"/>
                             <x-Ui::button.delete wire:click="deleteComment({{$comment->id}})" class="text-red-500"/>
@@ -195,7 +199,7 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <div class="text-dark-7 cursor-pointer">{{$data->vname}}</div>
+                                            <div class="text-dark-7 cursor-pointer">{{ $post->user?->name }}</div>
                                         </div>
                                         <div class="flex gap-1">
                                             <div class="w-4 flex items-center">
@@ -239,7 +243,7 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <div class="text-sm text-dark-7">1000</div>
+                                            <div class="text-sm text-dark-7">{{$data->likes()->count()}}</div>
                                         </div>
                                         <div class="flex">
                                             <div class=" border border-l-black mr-2 dark:border-l-gray-50"></div>
@@ -286,7 +290,8 @@
                                                     </svg>
                                                 </div>
 
-                                                <div class="text-sm text-dark-7">100</div>
+                                                <div class="text-sm text-dark-7">{{ $data->comments()->count() }}
+                                                </div>
                                             </div>
                                             <div class="flex gap-1">
                                                 <div class="w-4 flex items-center cursor-pointer">
@@ -322,39 +327,35 @@
 
         {{--    Recent Right view    --}}
         <div class="hidden lg:block mt-10 pr-5">
-            <div class="flex gap-3 pr-4">
-                <x-Ui::icons.search-new/>
-            </div>
+{{--            <div class="flex gap-3 pr-4">--}}
+{{--                <x-Ui::icons.search-new/>--}}
+{{--            </div>--}}
 
-            <div class="mt-5 mb-1">Recent</div>
+            <div class="mt-5 text-lg mb-1">Recent</div>
             <div class="flex flex-col gap-3 pr-4">
+                @foreach ($firstPost as $data)
                 <div class="flex flex-row gap-x-2 mt-4">
-                    <div class="w-16 ">
-                        <img src='/../../../images/blog/modern.jpg' alt=""
-                             class="w-full md:h-12 h-12 border border-gray-200 p-0.5">
-                    </div>
-
+                    @if($data->image)
+                        <div class="w-16 ">
+                            <img src="{{ Storage::url('images/' . $data->image) }}" alt=""
+                                 class="w-full md:h-12 h-12 border border-gray-200 p-0.5">
+                        </div>
+                    @else
+                        <img
+                            src="https://grcviewpoint.com/wp-content/uploads/2022/11/Time-to-Correct-A-Long-standing-Curriculum-Coding-Error-Say-Experts-GRCviewpoint.jpg"
+                            class="h-[200px] w-full object-cover"
+                            alt="Default image"
+                        />
+                    @endif
                     <div class="flex flex-col gap-y-1">
-                        <span class="line-clamp-1">Modern Single Entry sfdggeer etetyt ertertert ertertert</span>
+                        <span class="line-clamp-1">{{$data->vname}}</span>
                         <span class="text-gray-400 line-clamp-1">
-                                JUl.14,2024 - 3.16pm.
-                            </span>
+                                {{$data->created_at}}
+                        </span>
                     </div>
                 </div>
 
-                <div class="flex flex-row gap-x-2 mt-4">
-                    <div class="w-16 ">
-                        <img src='/../../../images/blog/modern.jpg' alt=""
-                             class="w-full md:h-12 h-12 border border-gray-200 p-0.5">
-                    </div>
-
-                    <div class="flex flex-col gap-y-1">
-                        <span class="line-clamp-1">Modern Single Entry sfdggeer etetyt ertertert ertertert</span>
-                        <span class="text-gray-400 line-clamp-1">
-                                JUl.14,2024 - 3.16pm.
-                            </span>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
 

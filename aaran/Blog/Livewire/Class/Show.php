@@ -5,6 +5,7 @@ namespace Aaran\Blog\Livewire\Class;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Blog\Models\BlogCategory;
+use Aaran\Blog\Models\BlogLike;
 use Aaran\Blog\Models\BlogTag;
 use Aaran\Blog\Models\BlogComment;
 use Aaran\Blog\Models\BlogPost;
@@ -46,29 +47,42 @@ class Show extends Component
     public $commentMsg;
     public int $highlightBlogTag = 0;
     public bool $blogtagTyped = false;
+    public $likeCount = 0;
+    public $userLiked = false;
 
     public function mount($id): void
     {
+        $userId = auth()->id();
+
         $this->post = BlogPost::findOrFail($id);
 
-        $this->comments = $this->getComments();
+        $existingLike = BlogLike::where('blog_post_id', $id)
+            ->where('user_id', $userId)
+            ->first();
 
+        if ($existingLike) {
+            $this->userLiked = true;
+        } else {
+            $this->userLiked = false;
+        }
+
+        $this->likeCount = BlogLike::where('blog_post_id', $id)->count();
+
+        // Other initialization logic...
+        $this->comments = $this->getComments();
         $this->BlogCategories = BlogCategory::get();
         $this->tags = BlogTag::get();
-
         $this->blog_category_name = $this->post->blog_category_id
             ? BlogCategory::find($this->post->blog_category_id)?->vname
             : '';
-
         $this->blog_tag_name = $this->post->blog_tag_id
             ? BlogTag::find($this->post->blog_tag_id)?->vname
             : '';
-
         $this->blogcategoryCollection = BlogCategory::get();
         $this->blogtagCollection = BlogTag::get();
-
         $this->updateHighlights();
     }
+
 
     public function getSave(): void
     {
@@ -79,6 +93,7 @@ class Show extends Component
             [
                 'vname' => $this->vname,
                 'body' => $this->body,
+                'user_id' => auth()->id(),
                 'blog_category_id' => $this->blog_category_id,
                 'blog_tag_id' => $this->blog_tag_id,
                 'image' => $imageService->save($this->image, $this->old_image),
@@ -267,6 +282,7 @@ class Show extends Component
             [
                 'blog_post_id' => $this->post->id,
                 'body' => $this->commentMsg,
+                'user_id' => auth()->id(),
             ],
         );
 
@@ -305,17 +321,53 @@ class Show extends Component
         }) ?? 0;
     }
 
+    public function editActivity($id)
+    {
+        $comment = BlogComment::find($id);
+        if ($comment) {
+            $this->vid = $comment->id;
+            $this->commentMsg = $comment->body;
+        }
+    }
+
+    public function updateLike($postId): void
+    {
+        $userId = auth()->id();
+
+        $existingLike = BlogLike::where('blog_post_id', $postId)
+            ->where('user_id', $userId)
+            ->first();
+
+        if ($existingLike) {
+            // User already liked it, so unlike
+            $existingLike->delete();
+            $this->userLiked = false;
+        } else {
+            // User hasn't liked it yet, so like
+            BlogLike::create([
+                'blog_post_id' => $postId,
+                'user_id' => $userId,
+            ]);
+            $this->userLiked = true;
+        }
+
+        // Update like count
+        $this->likeCount = BlogLike::where('blog_post_id', $postId)->count();
+    }
+
+
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {
+        $commonQuery = BlogPost::with('user')->latest()
+            ->when($this->tagFilter, function ($query, $tagFilter) {
+                return $query->whereIn('blog_tag_id', $tagFilter);
+            });
+
         return view('blog::show', [
             'list' => $this->getList(),
-            'firstPost' => BlogPost::latest()
-                ->take(3)
-                ->when($this->tagFilter, function ($query, $tagFilter) {
-                    return $query->whereIn('blog_tag_id', $tagFilter);
-                })
-                ->get(),
+            'firstPost' => (clone $commonQuery)->take(3)->get(),
+            'recentPost' => (clone $commonQuery)->take(5)->get(),
         ]);
     }
 }
