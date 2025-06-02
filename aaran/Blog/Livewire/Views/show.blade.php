@@ -22,15 +22,15 @@
                 </a>
 
                 <div class="flex gap-4">
-                    <x-Ui::button.edit :id="$post->id" class="text-blue-200 cursor-pointer hover:text-blue-500"
+                    <x-Ui::button.edit :id="$post->id" class="text-blue-300 cursor-pointer hover:text-blue-600"
                                        wire:click="edit({{$post->id}})"/>
                     <x-Ui::button.delete wire:click="confirmDelete({{$post->id}})"
-                                         class="text-red-200 cursor-pointer hover:text-red-500"/>
+                                         class="text-red-400 cursor-pointer hover:text-red-600"/>
                 </div>
 
             </div>
             <div
-                class="text-dark-5 cursor-pointer block mt-2 my-auto text-2xl font-bold capitalize">{{$post->vname}}</div>
+                class="dark:text-dark-9 text-black cursor-pointer block mt-2 my-auto text-2xl font-bold capitalize">{{$post->vname}}</div>
             <div class="relative w-full group mt-5">
                 <!-- Image -->
                 <img alt=""
@@ -44,22 +44,17 @@
                 <div class="flex gap-5">
                     <div class="flex flex-col sm:flex-row gap-2">
                         <div class="flex gap-1">
-                            <div class="w-8 flex items-center b cursor-pointer">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                     stroke="#190aeb">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                       stroke-linejoin="round"
-                                       stroke="#CCCCCC" stroke-width="0.144"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
-                                              class="stroke-pink-600 active:bg-pink-600" stroke-width="2"
-                                              stroke-linecap="round"
-                                              stroke-linejoin="round"></path>
-                                    </g>
+                            <div x-data="{ liked: false }" @click="liked = !liked" class="cursor-pointer block my-auto">
+                                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                     :fill="liked ? '#ef4444' : 'none'" stroke="#ef4444" class="w-6 h-6">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
+                                          stroke-width="2"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"/>
                                 </svg>
                             </div>
+
                             <div class="text-dark-7 text-lg block my-auto">1000</div>
                         </div>
                         <div class="flex justify-between w-full">
@@ -130,6 +125,7 @@
                     <div class="flex justify-between">
                         <div class="text-xs text-dark-8">{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</div>
                         <div class="flex items-center gap-3 self-center ">
+                            <x-Ui::button.edit wire:click="editActivity({{$comment->id}})" class="text-blue-500"/>
                             <x-Ui::button.delete wire:click="deleteComment({{$comment->id}})" class="text-red-500"/>
                         </div>
                     </div>
@@ -368,7 +364,7 @@
             <div class="flex gap-2.5 flex-wrap">
                 @if ($tags)
                     @foreach ($tags as $tag)
-                        <span class="text-gray-500 capitalize">
+                        <span class="text-gray-500 capitalize  line-clamp-2">
                                 <button wire:click="getFilter({{ $tag->id }})"
                                         class="hover:text-blue-600 cursor-pointer">
                                    #{{ $tag->vname }}
@@ -383,7 +379,7 @@
 
             <div>Categories</div>
 
-            <div class=" flex flex-wrap gap-2.5 mt-2">
+            <div class=" flex flex-wrap gap-2.5 mt-2 line-clamp-2">
                 @foreach ($BlogCategories as $blogcategory)
                     <span class="text-gray-400">
                             <button wire:click="getCategory_id({{ $blogcategory->id }})"
@@ -479,9 +475,6 @@
 
     <x-Ui::forms.create :id="$vid" :max-width="'xl'">
         <div class="flex flex-col gap-4">
-
-            {{--                        <x-Ui::inputmodel-text wire:model="common.vname" :label="'Name'"/> --}}
-
             <div>
                 <input type="checkbox" wire:model="visibility">
                 <label for="">Public</label>
@@ -493,29 +486,37 @@
             <x-Ui::input.rich-text wire:model="body" label="Description"/>
 
             <x-Ui::dropdown.wrapper label="Blog Category" type="blogcategoryTyped">
-                <div class="relative ">
-                    <x-Ui::dropdown.input label="Blog Category" id="blog_category_name"
-                                          wire:model.live="blog_category_name"
-                                          wire:keydown.arrow-up="decrementBlogcategory"
-                                          wire:keydown.arrow-down="incrementBlogcategory"
-                                          wire:keydown.enter="enterBlogcategory"/>
+                <div class="relative">
+                    <x-Ui::dropdown.input
+                        label="Blog Category"
+                        id="blog_category_name"
+                        wire:model.live="blog_category_name"
+                        wire:keydown.arrow-up="decrementBlogcategory"
+                        wire:keydown.arrow-down="incrementBlogcategory"
+                        wire:keydown.enter="enterBlogcategory"
+                    />
                     <x-Ui::dropdown.select>
                         @if ($blogcategoryCollection)
                             @forelse ($blogcategoryCollection as $i => $blogcategory)
-                                <x-Ui::dropdown.option highlight="{{ $highlightBlogCategory === $i }}"
-                                                       wire:click.prevent="setBlogcategory('{{ $blogcategory->vname }}','{{ $blogcategory->id }}')">
+                                <x-Ui::dropdown.option
+                                    highlight="{{ $highlightBlogCategory === $i }}"
+                                    wire:click.prevent="setBlogcategory('{{ $blogcategory->vname }}','{{ $blogcategory->id }}')"
+                                >
                                     {{ $blogcategory->vname }}
                                 </x-Ui::dropdown.option>
                             @empty
-                                <button wire:click.prevent="blogcategorySave('{{ $blog_category_name }}')"
-                                        class="w-full text-center text-white bg-green-500">
-                                    create
+                                <button
+                                    wire:click.prevent="blogcategorySave('{{ $blog_category_name }}')"
+                                    class="w-full text-center text-white bg-green-500"
+                                >
+                                    Create
                                 </button>
                             @endforelse
                         @endif
                     </x-Ui::dropdown.select>
                 </div>
             </x-Ui::dropdown.wrapper>
+
 
             <x-Ui::dropdown.wrapper label="Blog Tag" type="blogtagTyped">
                 <div class="relative ">
@@ -526,7 +527,7 @@
                     <x-Ui::dropdown.select>
                         @if ($blogtagCollection)
                             @forelse ($blogtagCollection as $i => $blogtag)
-                                <x-Ui::dropdown.option highlight="{{ $highlightBlogCategory === $i }}"
+                                <x-Ui::dropdown.option highlight="{{ $highlightBlogTag === $i }}"
                                                        wire:click.prevent="setBlogTag('{{ $blogtag->vname }}','{{ $blogtag->id }}')">
                                     {{ $blogtag->vname }}
                                 </x-Ui::dropdown.option>
@@ -540,6 +541,8 @@
                     </x-Ui::dropdown.select>
                 </div>
             </x-Ui::dropdown.wrapper>
+
+
 
             <!-- Image  ----------------------------------------------------------------------------------------------->
 

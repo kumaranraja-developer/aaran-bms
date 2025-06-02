@@ -16,7 +16,10 @@ class BlogPost extends Model
     {
         return $query->where('active_id', $status);
     }
-
+    public function comments()
+    {
+        return $this->hasMany(BlogComment::class);
+    }
     public function scopeSearchByName(Builder $query, string $search): Builder
     {
         return $query->where('vname', 'like', "%$search%");
