@@ -215,7 +215,6 @@
 
             <div class="w-full flex sm:flex-row flex-col justify-between gap-4">
                 <x-Ui::input.floating wire:model="start_on" :label="'Start_On'" type="date"/>
-
                 <x-Ui::input.floating wire:model="end_on" :label="'End_On'" type="date"/>
             </div>
 

@@ -43,8 +43,15 @@ class Show extends Component
     public $blogcategoryTyped = false;
     public $blogtagCollection;
 
+    public $comments;
+    public $commentMsg;
     public function mount($id): void
     {
+        $this->comments = DB::table('blog_comments')
+            ->select('id', 'body', 'created_at')
+            ->where('blog_post_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->get();
         $this->post = BlogPost::findOrFail($id);
         $this->BlogCategories = BlogCategory::get();
         $this->tags = BlogTag::get();
@@ -287,11 +294,40 @@ class Show extends Component
         $obj = BlogPost::find($id);
         if ($obj) {
             $obj->delete();
+            $this->redirect(route('posts'), navigate: true);
         }
 
-        $this->redirect(route('posts'), navigate: true);
+
+        $obj2 = BlogComment::find($id);
+        if ($obj2) {
+            $obj2->delete();
+        }
     }
 
+    public function getComments()
+    {
+        return DB::connection($this->getTenantConnection())->table('blog_comments')
+            ->where('blog_post_id', $this->post->id)->get();
+    }
+
+
+    public function getSaveComment()
+    {
+
+        $obj = BlogComment::updateOrCreate(
+            ['id' => $this->vid],
+            [
+                'blog_post_id' => $this->post->id,
+                'body' => $this->commentMsg,
+
+            ],
+        );
+
+        $this->blogcomment = $this->getComments($obj->blog_post_id);
+
+        $this->dispatch('notify', ...['type' => 'success', 'body' => ('Actives updated Successfully')]);
+
+    }
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {
