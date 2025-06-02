@@ -22,7 +22,7 @@ class BaseSeeder extends Seeder
             FeatureSeeder::class,
             PlanFeatureSeeder::class,
             SubscriptionSeeder::class,
-//            DevTeamSeeder::class,
+            DevTeamSeeder::class,
 
         ]);
     }

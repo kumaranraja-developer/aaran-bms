@@ -24,7 +24,7 @@ class SlideQuotes
                 'color' => ['bg' => 'bg-red-50','text' => 'text-red-500', 'fill' => 'fill-red-400/70'],
             ],
             [
-                'h1' => 'One-stop Solution Workflow <keyword>Management</keyword>.',
+                'h1' => 'One-stop Solution Workflow <keyword>Management</keyword>',
                 'p' => [
                     'Streamline operations, enhance customer experience,',
                     'and share information securely in seconds.',
