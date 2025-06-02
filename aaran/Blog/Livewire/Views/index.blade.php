@@ -1,7 +1,6 @@
 <div>
     <x-slot name="header">Blog</x-slot>
 
-
     <x-Ui::menu.web.top-banner
         description="Blog"
         slogan="Everything that's going on at Enfold is collected here"
@@ -14,16 +13,13 @@
     @endauth
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[70%] gap-5 gap-y-10 mt-10 mx-auto mb-20">
+
         @foreach ($firstPost as $data)
             <a href="{{ route('posts.show', ['id' => $data->id]) }}"
-               class="bg-white p-2 border border-gray rounded-lg hover:-translate-y-2 transform duration-500 ">
-                <div class="border border-gray-200  bg-gray-100 rounded-lg  overflow-hidden">
+               class="p-2 border border-neutral-200 rounded-lg hover:-translate-y-2 transform duration-500 ">
+
+                <div class="border border-neutral-100  rounded-lg  overflow-hidden">
                     <div class="relative w-full group">
-                        <!-- Image -->
-                        {{--                        <img--}}
-                        {{--                            class="h-[200px] w-full object-cover"--}}
-                        {{--                            src="{{asset('images/home/wall1.webp')}}"--}}
-                        {{--                        />--}}
                         <div class="w-full h-full overflow-hidden">
                             @if($data->image)
                                 <img
@@ -46,15 +42,9 @@
                         <div class="flex justify-between  mt-3">
                             <div class="flex gap-1">
                                 <div class="w-4 flex items-center">
-                                    <svg class="text-dark-7 " fill="currentColor" viewBox="-32 0 512 512"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                           stroke-linejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier">
-                                            <path
-                                                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z"></path>
-                                        </g>
+                                    <svg class="text-dark-7 " fill="currentColor" viewBox="-32 0 512 512">
+                                        <path
+                                            d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm95.8 32.6L272 480l-32-136 32-56h-96l32 56-32 136-47.8-191.4C56.9 292 0 350.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-72.1-56.9-130.4-128.2-133.8z"></path>
                                     </svg>
                                 </div>
                                 <div class="text-dark-7 cursor-pointer">{{$data->vname}}</div>
@@ -172,6 +162,7 @@
 
     <x-Ui::web.common.footer-address/>
     <x-Ui::web.common.copyright/>
+
     <x-Ui::forms.create :id="$vid" :max-width="'xl'">
         <div class="flex flex-col gap-4">
 
