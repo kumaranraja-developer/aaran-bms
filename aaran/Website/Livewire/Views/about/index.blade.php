@@ -154,27 +154,18 @@
         })();
     </script>
 
-    <section class="text-blue-300 bg-blue-800 cursor-default">
+    <section class="text-blue-300 bg-[#0060B4] cursor-default">
         <div class="flex flex-col items-center justify-between px-4 py-20 mx-auto max-w-7xl lg:flex-row">
             <div class="text-center lg:text-left">
-                <h2 class="mb-1 text-xl font-semibold py-4 sm:text-2xl text-white">
-                    Built for companies of all sizes
+                <h2 class="mb-1 text-xl font-semibold py-4 sm:text-4xl text-white">
+                    Built for Companies of all sizes
                 </h2>
                 <p class="mb-6 text-lg font-normal text-blue-300 sm:text-xl">
                     Start your {{ Aaran\Assets\Config\Application::AppTrialPeriod }} free trial or book a personal demo.
                 </p>
             </div>
 
-            <div class="flex flex-row justify-center items-center space-x-2">
-                {{--                <a href="{{ route('client-registration') }}"--}}
-                {{--                   class="px-4 py-2 border border-blue-800 bg-primary text-white hover:bg-orange-500">--}}
-                {{--                    Start free trial--}}
-                {{--                </a>--}}
-                <a href="{{ route('web-contacts') }}"
-                   class="px-4 py-2 border bg-white text-black hover:text-white border-blue-900 active:scale-[0.9] hover:bg-dark-2 hover:shadow-[inset_0_-100px_0_0_red]   shadow-black shadow-lg">
-                    Book a demo
-                </a>
-            </div>
+            <x-Ui::button.new.link-y href="{{ route('web-contacts') }}" class="rounded-2xl"/>
         </div>
     </section>
 
