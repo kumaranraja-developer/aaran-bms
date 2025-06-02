@@ -130,7 +130,7 @@
                     <div class="flex justify-between">
                         <div class="text-xs text-dark-8">{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</div>
                         <div class="flex items-center gap-3 self-center ">
-                            <x-Ui::button.delete wire:click="confirmDelete({{$comment->id}})" class="text-red-500"/>
+                            <x-Ui::button.delete wire:click="deleteComment({{$comment->id}})" class="text-red-500"/>
                         </div>
                     </div>
 
@@ -472,8 +472,11 @@
             <hr class="border-gray-300 my-4"/>
         </div>
     </div>
+
     <x-Ui::web.common.footer-address/>
+
     <x-Ui::web.common.copyright/>
+
     <x-Ui::forms.create :id="$vid" :max-width="'xl'">
         <div class="flex flex-col gap-4">
 
@@ -589,4 +592,5 @@
         </div>
 
     </x-Ui::forms.create>
+
 </div>

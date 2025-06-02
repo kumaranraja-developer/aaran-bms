@@ -45,14 +45,13 @@ class Show extends Component
 
     public $comments;
     public $commentMsg;
+
     public function mount($id): void
     {
-        $this->comments = DB::table('blog_comments')
-            ->select('id', 'body', 'created_at')
-            ->where('blog_post_id', $id)
-            ->orderBy('created_at', 'desc')
-            ->get();
         $this->post = BlogPost::findOrFail($id);
+
+        $this->comments = $this->getComments();
+
         $this->BlogCategories = BlogCategory::get();
         $this->tags = BlogTag::get();
         $this->blog_category_name = $this->post->blog_category_id
@@ -289,7 +288,7 @@ class Show extends Component
         return route('posts');
     }
 
-    public function deleteFunction($id)
+    public function deleteFunction($id): void
     {
         $obj = BlogPost::find($id);
         if ($obj) {
@@ -297,24 +296,42 @@ class Show extends Component
             $this->redirect(route('posts'), navigate: true);
         }
 
-
         $obj2 = BlogComment::find($id);
         if ($obj2) {
             $obj2->delete();
         }
     }
 
+    public function deleteComment($id): void
+    {
+        $obj = BlogComment::find($id);
+        if ($obj) {
+            $obj->delete();
+        }
+
+       $this->comments = $this->getComments();
+
+        $this->dispatch('notify', ...['type' => 'error', 'content' => 'Comments removed Successfully']);
+
+    }
+
+
+
+
     public function getComments()
     {
-        return DB::connection($this->getTenantConnection())->table('blog_comments')
-            ->where('blog_post_id', $this->post->id)->get();
+        return DB::table('blog_comments')
+            ->select('id', 'body', 'created_at')
+            ->where('blog_post_id', $this->post->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
     }
 
 
     public function getSaveComment()
     {
-
-        $obj = BlogComment::updateOrCreate(
+        BlogComment::updateOrCreate(
             ['id' => $this->vid],
             [
                 'blog_post_id' => $this->post->id,
@@ -323,11 +340,14 @@ class Show extends Component
             ],
         );
 
-        $this->blogcomment = $this->getComments($obj->blog_post_id);
+        $this->comments = $this->getComments();
 
-        $this->dispatch('notify', ...['type' => 'success', 'body' => ('Actives updated Successfully')]);
+        $this->commentMsg = null;
+
+        $this->dispatch('notify', ...['type' => 'success', 'content' => 'Comments Added Successfully']);
 
     }
+
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {
