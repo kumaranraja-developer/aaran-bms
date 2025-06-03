@@ -23,16 +23,7 @@ class Task extends Model
 //    {
 //        return $query->where('vname', 'like', "%$search%");
 //    }
-    public function activities()
-    {
-        return $this->hasMany(Activities::class);
-    }
 
-    // Helper to get latest activity
-    public function latestActivity()
-    {
-        return $this->hasOne(Activities::class)->latestOfMany();
-    }
     public function job(): BelongsTo
     {
         return $this->belongsTo(Job::class);
