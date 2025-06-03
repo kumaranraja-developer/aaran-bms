@@ -49,18 +49,4 @@
             <flux:link :href="route('register')" wire:navigate>{{ __('Sign up') }}</flux:link>
         </div>
     @endif
-    <script>
-        window.onload = () => {
-            setTimeout(() => {
-                const email = @this.get('email');
-                const password = @this.get('password');
-
-                if (email && password) {
-                    @this.call('login');
-                }
-            }, 300); // small delay to ensure Livewire has populated inputs
-        };
-    </script>
-
-
 </div>
