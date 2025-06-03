@@ -16,15 +16,18 @@ class BlogPost extends Model
     {
         return $query->where('active_id', $status);
     }
-
+    public function comments()
+    {
+        return $this->hasMany(BlogComment::class);
+    }
     public function scopeSearchByName(Builder $query, string $search): Builder
     {
         return $query->where('vname', 'like', "%$search%");
     }
-//    public function user(): BelongsTo
-//    {
-//        return $this->belongsTo(User::class);
-//    }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function category(): BelongsTo
     {
@@ -41,6 +44,10 @@ class BlogPost extends Model
         return BlogCategory::find($id)->vname ?? 'Unknown';
     }
 
+    public function likes()
+    {
+        return $this->hasMany(BlogLike::class, 'blog_post_id');
+    }
 
     public static function tagName($str)
     {

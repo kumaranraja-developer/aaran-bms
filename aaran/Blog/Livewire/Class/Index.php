@@ -6,6 +6,7 @@ use Aaran\Assets\Services\ImageService;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Blog\Models\BlogCategory;
+use Aaran\Blog\Models\BlogLike;
 use Aaran\Blog\Models\BlogPost;
 use Aaran\Blog\Models\BlogTag;
 use Aaran\Devops\Models\TaskImage;
@@ -36,10 +37,14 @@ class Index extends Component
     public $active_id = true;
     #endregion
     public bool $showForm = false;
-
+    public $currentUser;
+    public int $likeCount = 0;
+    public ?int $currentPostId = null;
     public function mount()
     {
         $this->BlogCategories = BlogCategory::get();
+        $this->currentUser = auth()->id();
+        $this->likeCount = 0;
     }
 
     public function getSave(): void
@@ -51,6 +56,7 @@ class Index extends Component
         [
             'vname' => $this->vname,
             'body' => $this->body,
+            'user_id' => auth()->id(),
             'blog_category_id' => $this->blog_category_id,
             'blog_tag_id' => $this->blog_tag_id,
             'image' => $imageService->save($this->image, $this->old_image),
@@ -75,6 +81,9 @@ class Index extends Component
             $this->active_id = $obj->active_id;
             $this->old_image = $obj->image;
             $this->visibility = $obj->visibility;
+
+            $this->likeCount = BlogLike::where('blog_post_id', $id)->count();
+
             return $obj;
         }
         return null;
@@ -279,6 +288,19 @@ class Index extends Component
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
     }
+    public function getLikeCount(int $postId): int
+    {
+        return BlogLike::where('blog_post_id', $postId)->count();
+    }
+
+    public function loadPost(int $postId)
+    {
+        $this->currentPostId = $postId;
+        $this->likeCount = $this->getLikeCount($postId);
+    }
+
+
+
 
     #[Layout('Ui::components.layouts.web')]
     public function render()

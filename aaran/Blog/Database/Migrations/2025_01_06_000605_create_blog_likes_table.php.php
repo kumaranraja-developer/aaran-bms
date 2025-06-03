@@ -12,10 +12,10 @@ return new class extends Migration {
             Schema::create('blog_likes', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('blog_post_id')->references('id')->on('blog_posts');
+                $table->foreignId('user_id')->references('id')->on('users');
                 $table->tinyInteger('like')->default(0);
                 $table->timestamps();
             });
-
         }
     }
 
