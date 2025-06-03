@@ -134,7 +134,7 @@
                             <a class="group inline-flex items-center justify-center rounded-full py-3 px-6 text-lg font-semibold focus:outline-hidden focus-visible:outline-2
                             focus-visible:outline-offset-2 bg-primary
                              text-white hover:bg-orange-400 hover:text-slate-100 active:bg-orange-800 active:text-slate-300 focus-visible:outline-orange-900"
-                               href="{{ route('client-registration') }}">
+                               href="{{ route('plan-details') }}">
                                 Get {{Aaran\Assets\Config\Application::AppTrialPeriod}} free
                             </a>
 

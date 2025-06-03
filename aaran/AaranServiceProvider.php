@@ -3,6 +3,7 @@
 namespace Aaran;
 
 use Aaran\Assets\Providers\AssetsServiceProvider;
+use Aaran\Blog\Providers\BlogServiceProvider;
 use Aaran\BMS\Billing\Baseline\Providers\BaselineServiceProvider;
 use Aaran\BMS\Billing\Books\Providers\BooksServiceProvider;
 use Aaran\BMS\Billing\Common\Providers\CommonServiceProvider;
@@ -15,6 +16,8 @@ use Aaran\Core\Setup\Providers\SetupServiceProvider;
 use Aaran\Core\Tenant\Providers\TenantServiceProvider;
 use Aaran\Core\User\Providers\UserServiceProvider;
 use Aaran\Devops\Providers\DevopsServiceProvider;
+use Aaran\ExternalPartners\Razorpay\Providers\RazorpayServiceProvider;
+use Aaran\MasterGst\Providers\MasterGstServiceProvider;
 use Aaran\Website\Providers\WebsiteServiceProvider;
 use Aaran\UI\Providers\UIServiceProvider;
 use Illuminate\Support\ServiceProvider;
@@ -50,9 +53,14 @@ class AaranServiceProvider extends ServiceProvider
         $this->app->register(ReportsServiceProvider::class);
 
         $this->app->register(TransactionServiceProvider::class);
-        
+
         $this->app->register(DevopsServiceProvider::class);
 
+        $this->app->register(RazorpayServiceProvider::class);
+
+        $this->app->register(MasterGstServiceProvider::class);
+
+        $this->app->register(BlogServiceProvider::class);
 
     }
 

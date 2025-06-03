@@ -1,65 +1,8 @@
 @php
-    $plans = [
-        [
-            'id' => 'basic',
-            'title' => 'Basic',
-            'price' => '750',
-            'description' => 'For freelancers & beginners.Simple GST billing to get you started.',
-            'features' => [
-                'Send 10 quotes and invoices',
-                'Connect up to 2 bank accounts',
-                'Track up to 15 expenses per month',
-                'Manual payroll support',
-                'Export up to 3 reports',
-            ],
-            'highlighted' => false,
-        ],
-        [
-            'id' => 'medium',
-            'title' => 'Small Business',
-            'price' => '1500',
-            'description' => 'For growing businesses.More users, smart reports, and inventory tools.',
-            'features' => [
-                'Send 50 quotes and invoices',
-                'Connect up to 5 bank accounts',
-                'Track unlimited expenses',
-                'Automated payroll support',
-                'Export up to 10 reports',
-            ],
-            'highlighted' => true,
-        ],
-        [
-            'id' => 'enterprise',
-            'title' => 'Enterprise',
-            'price' => '3000',
-            'description' => 'For power users.Full features, advanced insights, and payroll.',
-            'features' => [
-                'Unlimited quotes and invoices',
-                'Unlimited bank connections',
-                'Advanced expense tracking',
-                'Full payroll automation',
-                'Unlimited reporting & analytics',
-            ],
-            'highlighted' => false,
-        ],
-        [
-            'id' => 'elite',
-            'title' => 'Elite',
-            'price' => 'Custom price',
-            'description' => 'For unique needs.Tailored tools, custom access, and support.',
-            'features' => [
-                'Full Customizable',
-                'Unlimited quotes and invoices',
-                'Unlimited bank connections',
-                'Advanced expense tracking',
-                'Full payroll automation',
-                'Unlimited reporting & analytics',
-            ],
-            'highlighted' => false,
-        ],
-    ];
+    use Aaran\Assets\Helper\SubscriptionPlanDetails;
+    $selectedPlanId = request()->route('id');
+    $filteredPlans = SubscriptionPlanDetails::getWithoutTrial();
 @endphp
-
 <section id="pricing" aria-label="Pricing" class="bg-slate-900 py-12 sm:py-22">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="md:text-center">
@@ -107,14 +50,17 @@
 
 
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 px-6 sm:px-8 lg:py-8">
-                @foreach ($plans as $plan)
+                @foreach ($filteredPlans as $plan)
                     @php
                         $containerClasses = $plan['highlighted']
                             ? 'bg-gradient-to-br from-indigo-700 to-indigo-900 ring-2 ring-indigo-500 shadow-2xl text-white'
                             : 'bg-slate-800 text-slate-100';
+                          $customizedcontainerClasses = $plan['customized']
+                                ? 'bg-gradient-to-br from-pink-700 to-red-500 ring-2 ring-red-500 shadow-2xl text-white'
+                                : 'bg-slate-800 text-slate-100';
                     @endphp
 
-                    <section class="flex flex-col rounded-3xl p-6 {{ $containerClasses }}">
+                    <section class="flex flex-col rounded-3xl p-6 {{ $containerClasses }} {{$customizedcontainerClasses}}">
                         @if ($plan['highlighted'])
                             <span
                                 class="mb-3 inline-block self-start rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-indigo-200">
@@ -157,22 +103,37 @@
                         <div class="mt-5 text-lg font-semibold">{{ $plan['title'] }}</div>
                         <p class="mt-2 text-base text-slate-300">{{ $plan['description'] }}</p>
 
-                        <a href="{{route('client-registration',$plan['id'])}}"
+                        <a   :href="`{{ route('plan-overview', $plan['id']) }}?billing=${billing}`"
                            class="mt-8 inline-flex items-center justify-center rounded-full border {{$plan['highlighted']?'bg-white text-gray-900 hover:text-white ':' '}}  border-white py-2 px-4 text-sm hover:bg-white/10">
                             Start my free trial
                         </a>
 
-                        <ul class="mt-10 space-y-3 text-sm">
-                            @foreach ($plan['features'] as $feature)
-                                <li class="flex items-start">
-                                    <svg class="h-6 w-6 flex-none fill-current stroke-current text-slate-400"
-                                         viewBox="0 0 24 24">
-                                        <path d="M9 12l2 2 4-4" stroke-width="2" fill="none" stroke="currentColor"/>
-                                    </svg>
-                                    <span class="ml-1 flex text-left shrink-0 w-full">{{ $feature }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
+                            @php
+                                $featureCount = count($plan['features']);
+                            @endphp
+
+                            <div x-data="{ showAll: false }">
+                                <ul class="mt-10 space-y-3 text-sm">
+                                    @foreach ($plan['features'] as $index => $feature)
+                                        <li class="flex items-start" x-show="showAll || {{ $index }} < 5">
+                                            <svg class="h-6 w-6 flex-none fill-current stroke-current text-slate-400" viewBox="0 0 24 24">
+                                                <path d="M9 12l2 2 4-4" stroke-width="2" fill="none" stroke="currentColor"/>
+                                            </svg>
+                                            <span class="ml-1 flex text-left shrink-0 w-full">{{ $feature }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+
+                                @if ($featureCount > 5)
+                                    <button
+                                        @click="showAll = !showAll"
+                                        class="text-blue-400 hover:underline text-sm mt-2"
+                                    >
+                                        <span x-show="!showAll">Show more</span>
+                                        <span x-show="showAll">Show less</span>
+                                    </button>
+                                @endif
+                            </div>
                     </section>
                 @endforeach
             </div>

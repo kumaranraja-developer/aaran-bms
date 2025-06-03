@@ -6,7 +6,7 @@
         <div class="max-w-7xl mx-auto space-y-5 font-lex ">
 
             <div class="inline-flex 1space-x-2 font-merri">
-                <div class="text-5xl text-gray-700 dark:text-dark-9">{{$task->id}}.</div>
+                <div class="text-5xl text-gray-700 dark:text-dark-9">{{$task->task_id}}.</div>
 
                 <div class="text-5xl font-bold tracking-wider capitalize text-gray-700 dark:text-dark-9">
                     {{$task->title}}
@@ -39,7 +39,7 @@
                             Module :
                             <span
                                 class="text-blue-500">
-                                {{ $task->vname }}
+                                {{ $task->module_name }}
                             </span>
                         </div>
                     </div>
@@ -215,7 +215,6 @@
 
             <div class="w-full flex sm:flex-row flex-col justify-between gap-4">
                 <x-Ui::input.floating wire:model="start_on" :label="'Start_On'" type="date"/>
-
                 <x-Ui::input.floating wire:model="end_on" :label="'End_On'" type="date"/>
             </div>
 

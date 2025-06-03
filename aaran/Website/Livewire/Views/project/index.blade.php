@@ -12,10 +12,10 @@
                     :icon="$featuredApps->icon"
                     :title="$featuredApps->title"
                     :description="$featuredApps->description"
+                    :btn_bg="'bg-orange-600'"
                 />
             @endforeach
         </div>
-
         <div class="my-15 text-4xl text-center">Upcoming Apps</div>
 
         <div class="grid grid-cols-1 pb-10 sm:grid-cols-2 mx-auto w-[80%] lg:grid-cols-3 gap-4 h-max p-4 pointer-events-none">
@@ -25,7 +25,8 @@
                     :title="$upcomingApps->title"
                     :description="$upcomingApps->description"
                     :btn="'text-green-500'"
-                    btn_text="upcoming"
+                    :btn_text="'UPCOMING'"
+                    :btn_bg="'bg-green-600'"
                 />
             @endforeach
         </div>

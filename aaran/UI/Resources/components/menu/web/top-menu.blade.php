@@ -44,11 +44,11 @@
                                     <button type="button"
                                             class="inline-flex items-center sm:px-3 px-1 sm:py-2 py-1 border border-gray-300 sm:text-sm text-xs
                                             leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition dark:text-dark-9 dark:bg-dark-4 dark:hover:text-primary">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-     class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round"
-        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
-</svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                     class="size-6">
+                                                  <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
+                                                </svg>
 
 
                                     </button>
@@ -76,7 +76,9 @@
             </div>
 
         @else
-            <div class="hover:tracking-wide hover:font-bold transition duration-500 hidden md:block">
+            <div>
+                <a href="{{ route('web-contacts') }}" class="menu-text px-3 py-2 text-primary hover:text-black">sign up</a>
+
                 <a href="{{ route('login') }}" class="menu-text border border-primary hover:bg-primary
                 px-3 py-2 rounded-lg text-primary hover:text-white">Login</a>
             </div>

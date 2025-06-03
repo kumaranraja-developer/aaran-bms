@@ -83,35 +83,24 @@
                                 class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left dark:text-dark-8">
                                 <img alt="team"
                                      class="flex-shrink-0 object-fill b rounded-lg w-48 h-48  object-center sm:mb-0 mb-4"
-                                     src="{{URL(\Illuminate\Support\Facades\Storage::url('images/teams/'.$member->photo))}}"
+                                     src="{{URL(asset('images/teams/'.$member->photo))}}"
                                 >
                                 <div class="flex-grow sm:pl-8">
                                     <h2 class="title-font font-medium text-lg mb-2 text-gray-900 dark:text-dark-9">{{$member->vname}}</h2>
-                                    <h3 class="text-gray-500 mb-3  dark:text-dark-8">{{$member->role}}</h3>
-                                    <p class="mb-4 text-justify xl:pr-5">{{$member->bio}}</p>
-                                    <span class="inline-flex">
+                                    <h3 class="text-gray-500 mb-3  dark:text-dark-8">{{$member->designation}}</h3>
+                                    <h3 class="text-gray-500 mb-3 text-xs dark:text-dark-8">{{$member->role}}</h3>
+                                    <p class="mb-4 indent-5 text-justify xl:pr-5">{{$member->bio}}</p>
+
+                                    <span class="inline-flex gap-1">
                                     <a class="text-gray-500" href="{{$member->fb}}">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round" stroke-width="2"
-                                         class="w-5 h-5" viewBox="0 0 24 24">
-                                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                                    </svg>
+                                        <x-Ui::icons.social :brand="'facebook'" class="text-gray-600"/>
                                     </a>
                                     <a class="ml-2 text-gray-500" href="{{$member->twitter}}">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round" stroke-width="2"
-                                         class="w-5 h-5" viewBox="0 0 24 24">
-                                      <path
-                                          d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                                    </svg>
+                                        <x-Ui::icons.social :brand="'x'" class="text-gray-600"/>
+
                                     </a>
                                     <a class="ml-2 text-gray-500" href="{{$member->msg}}">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                         stroke-linejoin="round" stroke-width="2"
-                                         class="w-5 h-5" viewBox="0 0 24 24">
-                                      <path
-                                          d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                                    </svg>
+                                       <x-Ui::icons.social :brand="'whatsapp'" class="text-gray-600"/>
                                     </a>
                                 </span>
                                 </div>
@@ -165,27 +154,18 @@
         })();
     </script>
 
-    <section class="text-blue-300 bg-blue-800 cursor-default">
+    <section class="text-blue-300 bg-[#0060B4] cursor-default">
         <div class="flex flex-col items-center justify-between px-4 py-20 mx-auto max-w-7xl lg:flex-row">
             <div class="text-center lg:text-left">
-                <h2 class="mb-1 text-xl font-semibold py-4 sm:text-2xl text-white">
-                    Built for companies of all sizes
+                <h2 class="mb-1 text-xl font-semibold py-4 sm:text-4xl text-white">
+                    Built for Companies of all sizes
                 </h2>
                 <p class="mb-6 text-lg font-normal text-blue-300 sm:text-xl">
                     Start your {{ Aaran\Assets\Config\Application::AppTrialPeriod }} free trial or book a personal demo.
                 </p>
             </div>
 
-            <div class="flex flex-row justify-center items-center space-x-2">
-{{--                <a href="{{ route('client-registration') }}"--}}
-{{--                   class="px-4 py-2 border border-blue-800 bg-primary text-white hover:bg-orange-500">--}}
-{{--                    Start free trial--}}
-{{--                </a>--}}
-                <a href="{{ route('web-contacts') }}"
-                   class="px-4 py-2 border bg-white text-black hover:text-white border-blue-900 active:scale-[0.9] hover:bg-dark-2 hover:shadow-[inset_0_-100px_0_0_red]   shadow-black shadow-lg">
-                    Book a demo
-                </a>
-            </div>
+            <x-Ui::button.new.link-y href="{{ route('web-contacts') }}" class="rounded-2xl"/>
         </div>
     </section>
 

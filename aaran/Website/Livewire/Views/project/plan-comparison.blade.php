@@ -96,6 +96,3 @@
     }
 </script>
 
-
-git config user.email "kumaranraja46248@gmail.com"
-git config user.name "kumaranraja"
