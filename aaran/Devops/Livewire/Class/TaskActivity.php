@@ -137,7 +137,6 @@ class TaskActivity extends Component
                 'active_id' => $this->active_id ?: '1',
             ],
         );
-
         $this->saveImage($this->task->id, $this->task_images);
 
         $this->dispatch('notify', ...['type' => 'success', 'body' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
@@ -208,6 +207,9 @@ class TaskActivity extends Component
             ],
         );
 
+        Task::on($connection)->where('id', $this->task->id)->update([
+            'status_id' => $this->status_id ?: '1',
+        ]);
         $this->activities = $this->getActivities($obj->task_id);
         $this->clearActivity();
 
