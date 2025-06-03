@@ -74,8 +74,14 @@ class TaskList extends Component
         ];
     }
 
+    public $tasks;
     public function mount($id = null): void
     {
+        $connection = $this->getTenantConnection();
+        $this->tasks = Task::on($connection)->with(['activities' => function ($q) {
+            $q->select('id', 'task_id', 'status_id')->latest();
+        }])->get();
+
         if ($id) {
             $this->job_id = $id;
         }

@@ -141,9 +141,10 @@
                             <div class="inline-flex items-center gap-x-3">
                                 <div class="flex items-center gap-x-2 font-semibold">
                                     <div
-                                        class="text-xs dark:text-dark-9">{{\Aaran\Core\User\Models\User::getName($row->reporter_id)}}</div>
+                                        class="text-blue-600 capitalize">{{\Aaran\Core\User\Models\User::getName($row->allocated_id)}}
+                                    </div>
                                 </div>
-                                <div class="text-xs text-gray-600 px-4 dark:text-dark-8">{{$row->created_at->diffForHumans()}} ...
+                                <div class="text-xs text-gray-600 px-4 dark:text-dark-8">{{$row->created_at->diffForHumans()}}
                                 </div>
                             </div>
 
@@ -202,10 +203,22 @@
                                         </svg>
 
                                         <span>Read More</span></a>
-                                    <div
-                                        class="text-xs px-3 py-1 text-center {{\Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getStyle()}}">
-                                        {{\Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getName()}}
-                                    </div>
+
+                                    @foreach ($tasks as $task)
+                                        <div>
+                                            @if($task->latestActivity)
+                                                <div class="text-xs px-3 py-1 text-center {{ \Aaran\Assets\Enums\Status::tryFrom($task->latestActivity->status_id)?->getStyle() }}">
+                                                    {{ \Aaran\Assets\Enums\Status::tryFrom($task->latestActivity->status_id)?->getName() ?? 'N/A' }}
+                                                </div>
+                                            @else
+                                                <div class="text-xs px-3 py-1 text-center">
+                                                    No activity
+                                                </div>
+                                            @endif
+                                        </div>
+                                    @endforeach
+
+
                                 </div>
                             </div>
                         </div>
