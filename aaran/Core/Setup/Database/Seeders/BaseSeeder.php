@@ -9,6 +9,7 @@ use Aaran\Core\Tenant\Database\Seeders\SubscriptionSeeder;
 use Aaran\Core\Tenant\Database\Seeders\TenantSeeder;
 use Aaran\Core\User\Database\Seeders\UserSeeder;
 use Aaran\Website\Database\Seeders\DevTeamSeeder;
+use Aaran\Website\Database\Seeders\FaqSeeder;
 use Aaran\Website\Database\Seeders\TestimonialSeeder;
 use Illuminate\Database\Seeder;
 
@@ -23,9 +24,9 @@ class BaseSeeder extends Seeder
             FeatureSeeder::class,
             PlanFeatureSeeder::class,
             SubscriptionSeeder::class,
+            FaqSeeder::class,
             DevTeamSeeder::class,
             TestimonialSeeder::class,
-
         ]);
     }
 }

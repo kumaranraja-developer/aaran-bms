@@ -1,6 +1,7 @@
 <?php
 
 use Aaran\Website\Livewire\Class;
+use Aaran\Website\Livewire\Class\Admin\FaqManager;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Class\Home\Index::class)->name('home');
@@ -15,8 +16,12 @@ Route::get('/client-plans', Class\Project\Index::class)->name('client-plans');
 Route::get('/dev-teams', Class\About\Team::class)->name('dev-teams');
 Route::get('/user-profile-view/{id}', Class\About\UserProfileView::class)->name('user-profile-view');
 Route::get('/testimonials', Class\About\TestimonialList::class)->name('testimonials');
-Route::get('/faq', Class\Home\Faq::class)->name('faq');
+Route::get('/faq', Class\Faq\FaqList::class)->name('faq');
+Route::get('/faq-list', Class\Faq\FaqList::class)->name('faq-list');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/faqs', FaqManager::class)->name('admin.faqs');
+});
 
 Route::get('/plan-details', Class\Project\Plan::class)->name('plan-details');
 Route::get('/plan-overview/{id}', Class\Project\PlanOverview::class)->name('plan-overview');
