@@ -38,6 +38,5 @@ class FaqSeeder extends Seeder
                 'is_answered' => $faq['is_answered'],
             ]);
         }
-        $this->command->info('Faqs seeded successfully!');
     }
 }
