@@ -24,9 +24,9 @@ class BaseSeeder extends Seeder
             FeatureSeeder::class,
             PlanFeatureSeeder::class,
             SubscriptionSeeder::class,
-            FaqSeeder::class,
             DevTeamSeeder::class,
             TestimonialSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }
