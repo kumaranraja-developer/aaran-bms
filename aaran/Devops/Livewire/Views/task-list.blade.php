@@ -204,20 +204,10 @@
 
                                         <span>Read More</span></a>
 
-                                    @foreach ($tasks as $task)
-                                        <div>
-                                            @if($task->latestActivity)
-                                                <div class="text-xs px-3 py-1 text-center {{ \Aaran\Assets\Enums\Status::tryFrom($task->latestActivity->status_id)?->getStyle() }}">
-                                                    {{ \Aaran\Assets\Enums\Status::tryFrom($task->latestActivity->status_id)?->getName() ?? 'N/A' }}
-                                                </div>
-                                            @else
-                                                <div class="text-xs px-3 py-1 text-center">
-                                                    No activity
-                                                </div>
-                                            @endif
-                                        </div>
-                                    @endforeach
-
+                                    <div
+                                        class="text-xs px-3 py-1 text-center {{\Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getStyle()}}">
+                                        {{\Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getName()}}
+                                    </div>
 
                                 </div>
                             </div>
