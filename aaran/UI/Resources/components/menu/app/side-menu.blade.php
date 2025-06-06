@@ -36,7 +36,11 @@
             <x-Ui::menu.app.sub.books/>
             <x-Ui::menu.app.sub.master/>
             <x-Ui::menu.app.sub.common/>
-{{--            <x-Ui::menu.app.sub.blog/>--}}
+            <a href="{{ route('user.settings') }}">
+                <x-Ui::menu.app.sub.settings />
+            </a>
+
+            {{--            <x-Ui::menu.app.sub.blog/>--}}
 
             <x-Ui::menu.app.sub.logout/>
 

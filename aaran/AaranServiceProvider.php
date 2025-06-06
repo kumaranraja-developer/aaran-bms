@@ -11,6 +11,7 @@ use Aaran\BMS\Billing\Entries\Providers\EntriesServiceProvider;
 use Aaran\BMS\Billing\Master\Providers\MasterServiceProvider;
 use Aaran\BMS\Billing\Reports\Providers\ReportsServiceProvider;
 use Aaran\BMS\Billing\Transaction\Providers\TransactionServiceProvider;
+use Aaran\Core\Settings\Providers\SettingsServiceProvider;
 use Aaran\Dashboard\Providers\DashboardServiceProvider;
 use Aaran\Core\Setup\Providers\SetupServiceProvider;
 use Aaran\Core\Tenant\Providers\TenantServiceProvider;
@@ -61,6 +62,8 @@ class AaranServiceProvider extends ServiceProvider
         $this->app->register(MasterGstServiceProvider::class);
 
         $this->app->register(BlogServiceProvider::class);
+
+        $this->app->register(SettingsServiceProvider::class);
 
     }
 
