@@ -13,17 +13,17 @@
      {{ Route::currentRouteNamed('home') ? 'transition-colors' : 'bg-white' }}  duration-300">
 
     <!-- Logo -->
-    <a href="#" class="text-3xl flex items-center hover:scale-105 transition duration-500">
+    <a href="#" class="text-3xl min-w-[200px] flex items-center hover:scale-105 transition duration-500">
         <h1 class="hover:tracking-wide text-primary hover:font-semibold">
             CODEX<span class="text-body-color dark:text-dark-9">SUN</span>
         </h1>
     </a>
 
     <!-- Desktop Menu -->
-    <ul class="hidden md:flex items-center gap-16 dark:bg-dark-4">
+    <ul class="hidden lg:flex items-center gap-16 dark:bg-dark-4">
         @foreach ($menuItems as $route => $label)
-            <li class="hover:tracking-wide hover:font-bold transition duration-500 ">
-                <a href="{{ route($route) }}" class="menu-text dark:text-dark-9 dark:hover:text-dark-9"
+            <li class="hover:tracking-wide min-w-[80px]  hover:font-bold transition duration-500 ">
+                <a href="{{ route($route) }}" class="menu-text block w-max mx-auto dark:text-dark-9 dark:hover:text-dark-9"
                 >{{ $label }}</a>
             </li>
         @endforeach
@@ -34,7 +34,7 @@
 
         @auth
 
-            <div class="md:flex items-center hidden ">
+            <div class="lg:flex items-center hidden ">
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative ">
                     <x-Ui::jet.dropdown align="right" width="48">
@@ -76,7 +76,7 @@
             </div>
 
         @else
-            <div>
+            <div class="lg:flex hidden">
                 <a href="{{ route('web-contacts') }}" class="menu-text px-3 py-2 text-primary hover:text-black">sign up</a>
 
                 <a href="{{ route('login') }}" class="menu-text border border-primary hover:bg-primary
@@ -88,7 +88,7 @@
     <!-- Mobile Menu Button -->
     <button @click="mobileMenuIsOpen = !mobileMenuIsOpen" :aria-expanded="mobileMenuIsOpen"
             :class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-50' : null" type="button"
-            class="flex  text-neutral-600 dark:text-dark-9 md:hidden" aria-label="mobile menu">
+            class="flex  text-neutral-600 dark:text-dark-9 lg:hidden" aria-label="mobile menu">
         <svg x-cloak x-show="!mobileMenuIsOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -110,22 +110,22 @@
         x-transition:leave-start="translate-y-0"
         x-transition:leave-end="-translate-y-full"
         id="mobileMenu"
-        class="fixed w-[300px] h-full justify-evenly right-0 top-0 z-20 flex flex-col divide-y divide-neutral-300 border-b border-neutral-300 bg-neutral-50 px-6 pb-6 pt-10 dark:divide-dark-7 dark:border-dark-8 dark:bg-dark-4 dark:text-dark-9 md:hidden">
+        class="fixed w-[300px] h-full justify-evenly right-0 top-0 z-20 flex flex-col divide-y divide-neutral-300 border-b border-neutral-300 bg-neutral-50 px-6 pb-6 pt-10 dark:divide-dark-7 dark:border-dark-8 dark:bg-dark-4 dark:text-dark-9 lg:hidden">
 
         @foreach ($menuItems as $route => $label)
             <li class="py-2">
-                <a href="{{ route($route) }}" class="menu-text-mobile dark:bg-dark-4 dark:text-dark-9">{{ $label }}</a>
+                <a href="{{ route($route) }}" class="menu-text-mobile hover:font-bold dark:bg-dark-4 dark:text-dark-9">{{ $label }}</a>
             </li>
         @endforeach
 
         @auth
             <li class="py-2 dark:text-dark-9">
-                <a href="{{ route('dashboard') }}" class="menu-text-mobile">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="menu-text-mobile hover:font-bold">Dashboard</a>
             </li>
             <li class="py-2">
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                   class="menu-text-mobile dark:text-dark-9">Logout</a>
+                   class="menu-text-mobile hover:font-bold text-red-600">Logout</a>
             </li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
         @else

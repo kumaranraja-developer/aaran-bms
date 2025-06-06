@@ -104,7 +104,7 @@
                         <p class="mt-2 text-base text-slate-300">{{ $plan['description'] }}</p>
 
                         <a   :href="`{{ route('plan-overview', $plan['id']) }}?billing=${billing}`"
-                           class="mt-8 inline-flex items-center justify-center rounded-full border {{$plan['highlighted']?'bg-white text-gray-900 hover:text-white ':' '}}  border-white py-2 px-4 text-sm hover:bg-white/10">
+                           class="mt-8 inline-flex items-center justify-center rounded-full border {{$plan['highlighted']?'bg-white text-gray-900 hover:text-white ':' '}}  border-white py-2 px-4 text-sm hover:bg-white/10 hover:duration-300">
                             Start my free trial
                         </a>
 
@@ -141,7 +141,7 @@
         </div>
     </div>
     <div class="text-center my-4 border py-4 border-x-0 border-y-gray-800 cursor-pointer text-dark-9 hover:bg-gradient-to-r
-           hover:from-indigo-700 hover:to-indigo-900  transition-colors duration-100 delay-100 text-xl"
+           hover:from-indigo-700 hover:to-indigo-900  transition-colors duration-200 delay-100 text-xl"
          href="{{route('plan-comparison')}}" wire:navigate>Explore All plans
     </div>
 </section>
