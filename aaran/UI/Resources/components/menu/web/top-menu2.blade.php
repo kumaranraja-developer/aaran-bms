@@ -1,15 +1,7 @@
 @php
     // Dynamic color configuration
     $colorOptions = [
-        'primary' => [
-            'text' => 'text-green-500',
-            'hover-text' => 'hover:text-green-600',
-            'bg' => 'bg-green-500',
-            'hover-bg' => 'hover:bg-green-600',
-            'border' => 'border-green-500',
-            'fill' => 'fill-green-500',
-        ],
-        'secondary' => [
+        'orange' => [
             'text' => 'text-orange-500',
             'hover-text' => 'hover:text-orange-600',
             'bg' => 'bg-orange-500',
@@ -17,10 +9,18 @@
             'border' => 'border-orange-500',
             'fill' => 'fill-orange-500',
         ],
+        'blue' => [
+            'text' => 'text-blue-500',
+            'hover-text' => 'hover:text-blue-600',
+            'bg' => 'bg-blue-500',
+            'hover-bg' => 'hover:bg-blue-600',
+            'border' => 'border-blue-500',
+            'fill' => 'fill-blue-500',
+        ],
         // Add more color options as needed
     ];
 
-    $color = $colorOptions['secondary']; // Default to primary color
+    $color = $colorOptions['orange']; // Default to primary color
 
     // Full width option
     $fullWidth = true; // Set to false if you don't want full width
@@ -62,8 +62,8 @@
             <div class="flex-shrink-0">
                 <a href="{{ route('home') }}"
                    class="flex items-center gap-2 transition duration-300 transform hover:scale-105">
-                    <x-Ui::logo.cxlogo :icon="'orange'" class="w-5 h-auto fill-primary"/>
-                    <span class="font-semibold text-primary text-2xl transition duration-300">
+                    <x-Ui::logo.cxlogo :icon="'orange'" class="w-5 h-auto {{ $color['fill'] }}"/>
+                    <span class="font-semibold {{ $color['text'] }} text-2xl transition duration-300">
                       CODEX<span class="text-body-color dark:text-dark-9">SUN</span>
                     </span>
                 </a>
@@ -155,7 +155,7 @@
                         Sign Up
                         <span
                             class="absolute bottom-0 left-0 w-0 h-0.5 {{ $color['bg'] }} transition-all duration-300 group-hover:w-full"></span>
-                        @if(request()->routeIs($item['route']))
+                        @if(request()->routeIs('login'))
                             <span class="absolute bottom-0 left-0 w-full h-0.5 {{ $color['bg'] }}"></span>
                         @endif
                     </a>
@@ -165,14 +165,23 @@
                         Login
                     </a>
                 @else
-                    <a href="{{ route('dashboard') }}"
-                       class="text-gray-600 {{ $color['hover-text'] }} transition duration-300 hover:underline hover:underline-offset-4">
+                    <a
+                        href="{{ route('dashboard') }}"
+                        class="relative text-gray-600 {{ $color['hover-text'] }} transition duration-300 group"
+                    >
                         Dashboard
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 {{ $color['bg'] }} transition-all duration-300 group-hover:w-full"></span>
+                        @if(request()->routeIs('dashboard'))
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 {{ $color['bg'] }}"></span>
+                        @endif
                     </a>
+
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit"
-                                class="text-gray-600 {{ $color['hover-text'] }} transition duration-300 hover:underline hover:underline-offset-4">
+                                class="text-gray-600 {{ $color['hover-text'] }} transition duration-300 hover:underline hover:underline-offset-4 cursor-pointer">
                             Logout
                         </button>
                     </form>
@@ -187,7 +196,7 @@
                 >
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              :d="mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'"></path>
+                              :d="mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'" d=""></path>
                     </svg>
                 </button>
             </div>
@@ -246,6 +255,7 @@
                                 <div x-show="mobileDropdownOpen"
                                      x-collapse
                                      class="pl-4 space-y-2 mt-1 transition-all duration-300 origin-top">
+
                                     @foreach($item['items'] as $product)
                                         <a
                                             href="{{ $product['route'] }}"
