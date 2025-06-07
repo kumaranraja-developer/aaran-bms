@@ -1,5 +1,5 @@
 <div>
-    <x-Ui::slider.new-8/>
+    <x-Ui::slider.new-1/>
 {{--    <x-Ui::web.home.hero/>--}}
 {{--    <x-Ui::web.home.testimony/>--}}
     <x-Ui::web.home.service-section/>
