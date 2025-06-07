@@ -14,7 +14,7 @@ class Index extends Component
     public function mount()
     {
         $this->featured = [
-            (object)['icon' => '/images/web/home/gst.svg', 'title' => 'GST Billing software', 'description' => 'Easy GST billing, tax management, and real-time financial tracking for your business.'],
+            (object)['icon' => '/images/web/home/bill-book.svg', 'title' => 'Bill Book', 'description' => 'Easy GST billing, Book Keeping, tax management, and real-time financial tracking for your business.'],
 
         ];
         $this->upcoming = [
@@ -33,7 +33,6 @@ class Index extends Component
     #[Layout('Ui::components.layouts.web')]
     public function render()
     {
-
         return view('website::project.index');
     }
 

@@ -32,10 +32,10 @@
             'label' => 'Products',
             'items' => [
                 [
-                    'name' => 'Product 1',
-                    'route' => '#',
+                    'name' => 'Bill Book',
+                    'route' => 'web-projects',
                     'image' => asset('images/teams/arunesh.jpg'),
-                    'description' => 'Product 1 description'
+                    'description' => 'Billing Software'
                 ],
                 [
                     'name' => 'Product 2',
@@ -109,11 +109,8 @@
                                             class="flex items-start px-4 py-3 hover:{{ $color['bg'] }} hover:bg-opacity-10 transition-all duration-300 group"
                                         >
                                             <div class="flex-shrink-0">
-                                                <img
-                                                    src="{{ $product['image'] }}"
-                                                    alt="{{ $product['name'] }}"
-                                                    class="w-12 h-12 object-cover rounded-lg transition duration-300 group-hover:scale-110"
-                                                >
+                                                <x-Ui::icons.menu icon="book" class="w-16 h-16 block"/>
+
                                             </div>
                                             <div class="ml-3">
                                                 <p class="text-sm font-medium text-gray-900 group-hover:{{ $color['text'] }} transition duration-300">
