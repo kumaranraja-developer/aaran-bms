@@ -29,7 +29,6 @@
 
             <li {{ $attributes->class(['bottom-0 left-0 bg-gray-900 cursor-pointer']) }}>
                 <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); this.closest('form').submit();"
                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4 text-red-400">
                                 </span>
@@ -40,7 +39,6 @@
             </li>
             <li {{ $attributes->class(['bottom-0 left-0 bg-gray-900 cursor-pointer']) }}>
                 <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); this.closest('form').submit();"
                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4 text-red-400">
                                 </span>
@@ -51,7 +49,6 @@
             </li>
             <li {{ $attributes->class(['bottom-0 left-0 bg-gray-900 cursor-pointer']) }}>
                 <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); this.closest('form').submit();"
                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4 text-red-400">
                                 </span>
@@ -62,7 +59,6 @@
             </li>
             <li {{ $attributes->class(['bottom-0 left-0 bg-gray-900 cursor-pointer']) }}>
                 <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); this.closest('form').submit();"
                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4 text-red-400">
                                 </span>
@@ -73,7 +69,6 @@
             </li>
             <li {{ $attributes->class(['bottom-0 left-0 bg-gray-900 cursor-pointer']) }}>
                 <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); this.closest('form').submit();"
                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4 text-red-400">
                                 </span>
@@ -85,7 +80,6 @@
 
             <li {{ $attributes->class(['bottom-0 left-0 bg-gray-900 cursor-pointer']) }}>
                 <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); this.closest('form').submit();"
                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4 text-red-400">
                                 </span>
@@ -96,7 +90,6 @@
             </li>
             <li {{ $attributes->class(['bottom-0 left-0 bg-gray-900 cursor-pointer']) }}>
                 <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); this.closest('form').submit();"
                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4 text-red-400">
                                 </span>
@@ -108,7 +101,6 @@
 
             <li {{ $attributes->class(['bottom-0 left-0 bg-gray-900 cursor-pointer']) }}>
                 <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); this.closest('form').submit();"
                    class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4 text-red-400">
                                 </span>

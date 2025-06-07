@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Settings extends Component
 {
-    #[Layout('Ui::components.layouts.settings-layout')]
+    #[Layout('Ui::components.layouts.app')]
     public function render()
     {
         return view('settings::settings');
