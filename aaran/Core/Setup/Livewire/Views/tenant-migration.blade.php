@@ -10,6 +10,19 @@
     </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="mt-10 max-w-3xl mx-auto bg-white shadow-lg border border-neutral-200 rounded-lg p-6">
         <h2 class="text-2xl font-semibold text-gray-800">Setup to "{{$tenant->t_name}}"</h2>
         <div class="border-b-2 border-orange-400">&nbsp;</div>

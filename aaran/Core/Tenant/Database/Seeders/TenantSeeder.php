@@ -16,27 +16,27 @@ class TenantSeeder extends Seeder
                 't_name' => 'sundar',
                 'email' => 'sundar@sundar.com',
                 'active_id' => true,
-                'software_id' => '100',
+                'software_id' => '1',
             ],
             [
                 'b_name' => 'Aaran Software',
                 't_name' => 'aaran_software',
                 'email' => 'aaran@aaran.org',
                 'active_id' => true,
-                'software_id' => '100',
+                'software_id' => '1',
             ],
             [
                 'b_name' => 'Demo Software',
                 't_name' => 'demo',
                 'email' => 'demo@demo.com',
                 'active_id' => true,
-                'software_id' => '100',
+                'software_id' => '1',
             ],
         ];
 
         foreach ($tenants as $tenant) {
             Tenant::create(array_merge($tenant, [
-                'contact' => '1234567890',
+                'contact' => 'sundar',
                 'phone' => '9876543210',
                 'db_name' => $tenant['t_name'] . '_db',
                 'db_host' => '127.0.0.1',
