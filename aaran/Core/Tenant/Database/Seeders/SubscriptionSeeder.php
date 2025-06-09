@@ -17,5 +17,23 @@ class SubscriptionSeeder extends Seeder
             'started_at' => now(),
             'expires_at' => now()->addYear(),
         ]);
+
+        Subscription::create([
+            'tenant_id' => 2,
+            'user_id' => 1,
+            'plan_id' => '1',
+            'status' => 'active',
+            'started_at' => now(),
+            'expires_at' => now()->addYear(),
+        ]);
+
+        Subscription::create([
+            'tenant_id' => 3,
+            'user_id' => 1,
+            'plan_id' => '1',
+            'status' => 'active',
+            'started_at' => now(),
+            'expires_at' => now()->addYear(),
+        ]);
     }
 }

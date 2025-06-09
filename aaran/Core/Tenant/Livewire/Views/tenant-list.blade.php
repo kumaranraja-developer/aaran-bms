@@ -2,6 +2,7 @@
     <x-slot name="header">Tenant List</x-slot>
 
         <x-Ui::forms.m-panel>
+
             <x-Ui::alerts.notification/>
 
             <!-- Top Controls --------------------------------------------------------------------------------------------->
@@ -98,6 +99,12 @@
                                         <x-Ui::input.floating wire:model="phone" label="Phone"/>
                                         <x-Ui::input.error-text wire:model="phone"/>
                                     </div>
+
+                                    <div>
+                                        <x-Ui::input.floating wire:model="industry_code" label="Industry code"/>
+                                        <x-Ui::input.error-text wire:model="industry_code"/>
+                                    </div>
+
                                 </div>
                             </x-Ui::tabs.content>
 
@@ -122,19 +129,6 @@
                                     </div>
                                 </div>
                             </x-Ui::tabs.content>
-
-                            <!-- Tab 3 ------------------------------------------------------------------------------------>
-
-                            <x-Ui::tabs.content>
-                                <div class="flex flex-col  gap-3">
-
-                                    <div>
-                                        <x-Ui::input.floating wire:model="plan" label="Plan"/>
-                                        <x-Ui::input.error-text wire:model="plan"/>
-                                    </div>
-                                </div>
-                            </x-Ui::tabs.content>
-
 
                         </x-slot>
                     </x-Ui::tabs.tab-panel>

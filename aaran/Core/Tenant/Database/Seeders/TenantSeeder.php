@@ -12,28 +12,25 @@ class TenantSeeder extends Seeder
     {
         $tenants = [
             [
-                'b_name' => 'Tenant One Business',
-                't_name' => 'tenant_1',
-                'email' => 'tenant1@example.com',
-                'storage_limit' => 50.00,
-                'user_limit' => 20,
+                'b_name' => 'Sundar',
+                't_name' => 'sundar',
+                'email' => 'sundar@sundar.com',
                 'active_id' => true,
+                'industry_code' => '1000',
             ],
             [
-                'b_name' => 'Tenant Two Business',
-                't_name' => 'tenant_2',
-                'email' => 'tenant2@example.com',
-                'storage_limit' => 10.00,
-                'user_limit' => 5,
+                'b_name' => 'Aaran Software',
+                't_name' => 'aaran_software',
+                'email' => 'aaran@aaran.org',
                 'active_id' => true,
+                'industry_code' => '1001',
             ],
             [
-                'b_name' => 'Tenant Three Business',
-                't_name' => 'tenant_3',
-                'email' => 'tenant3@example.com',
-                'storage_limit' => 100.00,
-                'user_limit' => 50,
+                'b_name' => 'Demo Software',
+                't_name' => 'demo',
+                'email' => 'demo@demo.com',
                 'active_id' => true,
+                'industry_code' => '1003',
             ],
         ];
 
@@ -46,16 +43,6 @@ class TenantSeeder extends Seeder
                 'db_port' => '3306',
                 'db_user' => 'root',
                 'db_pass' => 'Computer.1', //Crypt::encryptString('password'), --> this would in future
-                'settings' => ['timezone' => 'UTC', 'language' => 'en', 'currency' => 'USD'],
-                'enabled_features' => ['invoice_management' => true, 'multi_user_support' => true],
-                'two_factor_enabled' => false,
-                'api_key' => 'api_key_' . $tenant['t_name'], //Crypt::encryptString('api_key_' . $tenant['t_name']),  //Crypt::encryptString('password'), --> this would in future
-                'whitelisted_ips' => ['192.168.1.1'],
-                'allow_sso' => false,
-                'active_users' => 0,
-                'requests_count' => 0,
-                'disk_usage' => 0.00,
-                'last_active_at' => now(),
             ]));
         }
     }

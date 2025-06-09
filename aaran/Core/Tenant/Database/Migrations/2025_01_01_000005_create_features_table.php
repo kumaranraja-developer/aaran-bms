@@ -10,8 +10,8 @@ return new class extends Migration {
     {
         Schema::create('features', function (Blueprint $table) {
             $table->id();
-            $table->string('vname')->unique();
             $table->string('code')->unique();
+            $table->string('vname')->unique();
             $table->text('description')->nullable();
             $table->boolean('active_id')->default(true);
             $table->timestamps();

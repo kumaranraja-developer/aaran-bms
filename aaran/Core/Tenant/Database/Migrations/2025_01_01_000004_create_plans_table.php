@@ -9,7 +9,8 @@ return new class extends Migration {
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->string('vname');
+            $table->string('vname')->unique();
+            $table->string('tag')->nullable();
             $table->decimal('price', 13, 2);
             $table->enum('billing_cycle', ['monthly', 'yearly']);
             $table->text('description')->nullable();

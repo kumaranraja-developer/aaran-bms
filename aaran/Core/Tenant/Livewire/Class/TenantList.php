@@ -6,15 +6,12 @@ use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Core\Tenant\Models\Tenant;
 use Illuminate\Support\Str;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class TenantList extends Component
 {
     use ComponentStateTrait, TenantAwareTrait;
 
-    #[Validate]
     public string $b_name = '';
     public ?string $t_name = null;
     public ?string $email = null;
@@ -25,22 +22,7 @@ class TenantList extends Component
     public ?string $db_port = null;
     public ?string $db_user = 'root';
     public ?string $db_pass = 'Computer.1';
-    public ?string $plan = null;
-    public mixed $subscription_start = null;
-    public mixed $subscription_end = null;
-    public mixed $storage_limit = '50';
-    public mixed $user_limit = '20';
     public ?string $industry_code = null;
-    public mixed $settings = null;
-    public mixed $enabled_features = null;
-    public mixed $two_factor_enabled = null;
-    public mixed $api_key = null;
-    public mixed $whitelisted_ips = null;
-    public mixed $allow_sso = null;
-    public mixed $active_users = null;
-    public mixed $requests_count = null;
-    public mixed $disk_usage = null;
-    public ?string $last_active_at = null;
     public ?string $migration_status = null;
     public bool $active_id = true;
 
@@ -99,24 +81,9 @@ class TenantList extends Component
                 'db_port' => $this->db_port ?: '3306',
                 'db_user' => $this->db_user ?: 'root',
                 'db_pass' => $this->db_pass ?: 'Computer.1',
-                'plan' => $this->plan ?: 'free',
-                'subscription_start' => $this->subscription_start ?: now(),
-                'subscription_end' => $this->subscription_end ?: now()->addYear(),
-                'storage_limit' => $this->storage_limit ?: '50',
-                'user_limit' => $this->user_limit ?: '5',
-                'active_id' => $this->active_id ?: true,
                 'industry_code' => $this->industry_code,
-                'settings' => $this->settings,
-                'enabled_features' => $this->enabled_features,
-                'two_factor_enabled' => $this->two_factor_enabled ?: false,
-                'api_key' => $this->api_key ?: 'api_key_' . $this->t_name,
-                'whitelisted_ips' => $this->whitelisted_ips ?: ['192.168.1.1'],
-                'allow_sso' => $this->allow_sso ?: false,
-                'active_users' => $this->active_users ?: 0,
-                'requests_count' => $this->requests_count ?: 0,
-                'disk_usage' => $this->disk_usage ?: 0,
-                'last_active_at' => $this->last_active_at ?: now(),
                 'migration_status' => $this->migration_status ?: 'pending',
+                'active_id' => $this->active_id ?: true,
             ],
         );
 
@@ -132,35 +99,14 @@ class TenantList extends Component
         $this->email = '';
         $this->contact = '';
         $this->phone = '';
-
         $this->db_name = '';
         $this->db_host = '127.0.0.1';
         $this->db_port = '3306';
         $this->db_user = 'root';
         $this->db_pass = 'Computer.1';
-
-        $this->plan = 'free';
-        $this->subscription_start = now();
-        $this->subscription_end = now()->addYear();
-        $this->storage_limit = '50';
-        $this->user_limit = '5';
-
-        $this->active_id = true;
-
-        $this->industry_code = '100';
-        $this->settings = [];
-
-        $this->enabled_features = [];
-        $this->two_factor_enabled = false;
-        $this->api_key = '';
-        $this->whitelisted_ips = '';
-        $this->allow_sso = false;
-
-        $this->active_users = '0';
-        $this->requests_count = '0';
-        $this->disk_usage = '0';
-        $this->last_active_at = now();
+        $this->industry_code = Tenant::getIndustryCode();
         $this->migration_status = 'pending';
+        $this->active_id = true;
     }
 
     public function getObj(int $id): void
@@ -179,28 +125,9 @@ class TenantList extends Component
             $this->db_user = $obj->db_user;
             $this->db_pass = $obj->db_pass;
 
-            $this->plan = $obj->plan;
-            $this->subscription_start = $obj->subscription_start;
-            $this->subscription_end = $obj->subscription_end;
-            $this->storage_limit = $obj->storage_limit;
-            $this->user_limit = $obj->user_limit;
-
-            $this->active_id = $obj->active_id;
-
             $this->industry_code = $obj->industry_code;
-            $this->settings = $obj->settings;
-
-            $this->enabled_features = $obj->enabled_features;
-            $this->two_factor_enabled = $obj->two_factor_enabled;
-            $this->api_key = $obj->api_key;
-            $this->whitelisted_ips = $obj->whitelisted_ips;
-            $this->allow_sso = $obj->allow_sso;
-
-            $this->active_users = $obj->active_users;
-            $this->requests_count = $obj->requests_count;
-            $this->disk_usage = $obj->disk_usage;
-            $this->last_active_at = $obj->last_active_at;
             $this->migration_status = $obj->migration_status;
+            $this->active_id = $obj->active_id;
         }
     }
 

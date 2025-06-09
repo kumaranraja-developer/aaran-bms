@@ -60,6 +60,10 @@ class Tenant extends Model
 //    {
 //        $this->attributes['api_key'] = $value ? Crypt::encryptString($value) : null;
 //    }
+    public static function getIndustryCode()
+    {
+        return self::max('industry_code') + 1;
+    }
 
     public function scopeActive(Builder $query, $status = '1'): Builder
     {
