@@ -1,27 +1,3 @@
-{{--<div>--}}
-{{--    <x-slot name="header">Templates</x-slot>--}}
-
-{{--    <div class="grid grid-cols-3 gap-6 p-6">--}}
-{{--        @foreach($components as $component)--}}
-{{--            <a href="{{ route('ui.show', ['slug' => $component['slug']]) }}">--}}
-{{--                <div class="border p-4 rounded hover:shadow">--}}
-{{--                    <div class="h-32 bg-gray-100 mb-2">--}}
-{{--                        <!-- placeholder for image -->--}}
-{{--                        <img src="{{$component['image']}}"--}}
-{{--                             alt="{{ $component['title'] }} image"--}}
-{{--                             class="object-cover w-full h-full">--}}
-
-
-{{--                    </div>--}}
-{{--                    <h3 class="text-lg font-bold">{{ $component['title'] }}</h3>--}}
-{{--                    <p class="text-sm text-gray-600">{{ $component['description'] }}</p>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--        @endforeach--}}
-{{--    </div>--}}
-
-{{--</div>--}}
-
 <div>
     <x-slot name="header">Templates</x-slot>
 
