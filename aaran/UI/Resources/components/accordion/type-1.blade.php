@@ -3,6 +3,8 @@
     'type' => 'cross'
     ])
 
+
+
 <div
     x-data="{
         activeAccordion: '',
@@ -22,14 +24,16 @@
 
 
                 @switch($type)
+                    {{-- ✅ Chevron Icon --}}
                     @case('chevron')
-                        <svg class="w-4 h-4 duration-200 ease-out" :class="{ 'rotate-180': activeAccordion == id }"
+                        <svg class="w-4 h-4 duration-200 ease-out transform" :class="{ 'rotate-180': activeAccordion === id }"
                              viewBox="0 0 24 24" fill="none" stroke="currentColor"
                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                         @break
 
+                        {{-- ✅ Plus Icon (rotates to ×) --}}
                     @case('plus')
                         <div :class="{ 'rotate-90': activeAccordion==id }"
                              class="relative flex items-center justify-center w-2.5 h-2.5 duration-300 ease-out">
@@ -40,14 +44,17 @@
                         </div>
                         @break
 
+                        {{-- ✅ Cross Icon (rotates like plus) --}}
                     @case('cross')
-                        <svg class="w-5 h-5 duration-300 ease-out" :class="{ '-rotate-[45deg]': activeAccordion==id }"
-                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                             stroke="currentColor">
+                        <svg class="w-5 h-5 transform duration-300 ease-out origin-center"
+                             :class="{ 'rotate-45': activeAccordion === id }"
+                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
                         </svg>
                         @break
                 @endswitch
+
 
 
             </button>

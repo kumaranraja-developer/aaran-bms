@@ -2,53 +2,22 @@
 
 namespace Aaran\UI\Livewire\Class;
 
-use Aaran\Website\Models\Faq;
 use Livewire\Component;
 
 class Index extends Component
 {
-    public $blogs = [];
-
-    public $accordions;
-
-    public $date;
-
-    public $bannerVisible = false;
-
-    public function setShowBanner()
-    {
-        $this->bannerVisible = !$this->bannerVisible;
-    }
-
-    public function getAccordions()
-    {
-
-
-        $this->accordions = Faq::all();
-
-//        $this->accordions =
-//            [
-//                [
-//                    'title' => 'What is Pines? asf',
-//                    'content' => 'Pines is a UI library built for AlpineJS and TailwindCSS.',
-//                ],
-//                [
-//                    'title' => 'How do I install Pines?',
-//                    'content' => 'Add AlpineJS and TailwindCSS to your page and then copy and paste any of these elements into your project.',
-//                ],
-//                [
-//                    'title' => 'Can I use Pines with other libraries or frameworks?',
-//                    'content' => 'Absolutely! Pines works with any other library or framework. Pines works especially well with the TALL stack.',
-//                ],
-//            ];
-
-    }
-
     public function render()
     {
-        $this->getAccordions();
+        $components = [
+            [
+                'title' => 'Accordion',
+                'slug' => 'accordion',
+                'description' => 'Different types of accordions.',
+                'image' => asset('/storage/ui/accordion.png'),
+            ],
+            // Add more component entries here
+        ];
 
-        return view('templates::index');
+        return view('show::index', compact('components'));
     }
-
 }
