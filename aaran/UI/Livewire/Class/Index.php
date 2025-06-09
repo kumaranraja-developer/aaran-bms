@@ -11,15 +11,25 @@ class Index extends Component
 
     public $accordions;
 
+    public $date;
+
+    public $bannerVisible = false;
+
+    public function setShowBanner()
+    {
+        $this->bannerVisible = !$this->bannerVisible;
+    }
+
     public function getAccordions()
     {
+
 
         $this->accordions = Faq::all();
 
 //        $this->accordions =
 //            [
 //                [
-//                    'title' => 'What is Pines?',
+//                    'title' => 'What is Pines? asf',
 //                    'content' => 'Pines is a UI library built for AlpineJS and TailwindCSS.',
 //                ],
 //                [

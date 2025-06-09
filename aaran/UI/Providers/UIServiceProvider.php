@@ -2,6 +2,7 @@
 
 namespace Aaran\UI\Providers;
 
+use Aaran\UI\Livewire\Class\Index;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -17,6 +18,8 @@ class UIServiceProvider extends ServiceProvider
         $this->registerViews();
 
         // Livewire::component('ui::tenant-setup', TenantSetupWizard::class);
+
+         Livewire::component('ui::tenant-setup', Index::class);
     }
 
     private function registerViews()

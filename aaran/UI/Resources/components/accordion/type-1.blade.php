@@ -1,6 +1,6 @@
 @props([
     'items',
-    'type' => 'plus'
+    'type' => 'cross'
     ])
 
 <div
