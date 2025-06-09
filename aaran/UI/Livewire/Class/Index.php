@@ -2,6 +2,7 @@
 
 namespace Aaran\UI\Livewire\Class;
 
+use Aaran\Website\Models\Faq;
 use Livewire\Component;
 
 class Index extends Component
@@ -12,20 +13,24 @@ class Index extends Component
 
     public function getAccordions()
     {
-        $this->accordions = [
-            [
-                'title' => 'What is Pines?',
-                'content' => 'Pines is a UI library built for AlpineJS and TailwindCSS.',
-            ],
-            [
-                'title' => 'How do I install Pines?',
-                'content' => 'Add AlpineJS and TailwindCSS to your page and then copy and paste any of these elements into your project.',
-            ],
-            [
-                'title' => 'Can I use Pines with other libraries or frameworks?',
-                'content' => 'Absolutely! Pines works with any other library or framework. Pines works especially well with the TALL stack.',
-            ],
-        ];
+
+        $this->accordions = Faq::all();
+
+//        $this->accordions =
+//            [
+//                [
+//                    'title' => 'What is Pines?',
+//                    'content' => 'Pines is a UI library built for AlpineJS and TailwindCSS.',
+//                ],
+//                [
+//                    'title' => 'How do I install Pines?',
+//                    'content' => 'Add AlpineJS and TailwindCSS to your page and then copy and paste any of these elements into your project.',
+//                ],
+//                [
+//                    'title' => 'Can I use Pines with other libraries or frameworks?',
+//                    'content' => 'Absolutely! Pines works with any other library or framework. Pines works especially well with the TALL stack.',
+//                ],
+//            ];
 
     }
 

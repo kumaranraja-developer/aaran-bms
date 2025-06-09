@@ -18,7 +18,7 @@
                 @click="setActiveAccordion(id)"
                 class="flex items-center justify-between w-full p-4 text-left select-none group-hover:underline cursor-pointer"
             >
-                <span>{{ $item['title'] }}</span>
+                <span>{{ $item['question'] }}</span>
 
 
                 @switch($type)
@@ -31,11 +31,13 @@
                         @break
 
                     @case('plus')
-                        <svg class="w-5 h-5 duration-300 ease-out" :class="{ '-rotate-[45deg]': activeAccordion==id }"
-                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                             stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
-                        </svg>
+                        <div :class="{ 'rotate-90': activeAccordion==id }"
+                             class="relative flex items-center justify-center w-2.5 h-2.5 duration-300 ease-out">
+                            <div
+                                class="absolute w-0.5 h-full bg-neutral-500 group-hover:bg-neutral-800 rounded-full"></div>
+                            <div :class="{ 'rotate-90': activeAccordion==id }"
+                                 class="absolute w-full h-0.5 ease duration-500 bg-neutral-500 group-hover:bg-neutral-800 rounded-full"></div>
+                        </div>
                         @break
 
                     @case('cross')
@@ -51,7 +53,7 @@
             </button>
             <div x-show="activeAccordion == id" x-collapse x-cloak>
                 <div class="p-4 pt-0 opacity-70">
-                    {{ $item['content'] }}
+                    {{ $item['answer'] }}
                 </div>
             </div>
         </div>
