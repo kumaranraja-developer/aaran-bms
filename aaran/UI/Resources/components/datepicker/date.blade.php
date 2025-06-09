@@ -83,7 +83,7 @@
     "
     x-cloak
 >
-    <div class="relative w-[17rem]">
+    <div class="relative w-[17rem] z-20">
         <input
             x-ref="datePickerInput"
             type="text"
