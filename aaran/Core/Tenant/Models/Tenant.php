@@ -18,7 +18,7 @@ class Tenant extends Model
     protected $fillable = [
         'b_name', 't_name', 'email', 'contact', 'phone',
         'db_name', 'db_host', 'db_port', 'db_user', 'db_pass',
-        'industry_code', 'active_id', 'migration_status'
+        'software_id','remarks', 'active_id', 'migration_status'
     ];
 
     protected $casts = [

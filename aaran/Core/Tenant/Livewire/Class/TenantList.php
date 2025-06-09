@@ -2,6 +2,7 @@
 
 namespace Aaran\Core\Tenant\Livewire\Class;
 
+use Aaran\Assets\Enums\Software;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Core\Tenant\Models\Tenant;
@@ -22,9 +23,12 @@ class TenantList extends Component
     public ?string $db_port = null;
     public ?string $db_user = 'root';
     public ?string $db_pass = 'Computer.1';
-    public ?string $industry_code = null;
+    public ?string $software_id = null;
+    public ?string $remarks = null;
     public ?string $migration_status = null;
     public bool $active_id = true;
+
+    public $software;
 
     public function rules(): array
     {
@@ -34,6 +38,7 @@ class TenantList extends Component
             'db_name' => 'required',
             'db_user' => 'required',
             'db_pass' => 'required',
+            'software_id' => 'required',
         ];
     }
 
@@ -49,6 +54,8 @@ class TenantList extends Component
             'db_user.required' => ':attribute is missing.',
             'db_pass.required' => ':attribute is missing.',
 
+            'software_id.required' => ':attribute is missing.',
+
         ];
     }
 
@@ -60,6 +67,8 @@ class TenantList extends Component
             'db_name' => 'Database name',
             'db_user' => 'Database user',
             'db_pass' => 'Database password',
+
+            'software_id' => 'Software Type',
         ];
     }
 
@@ -81,7 +90,8 @@ class TenantList extends Component
                 'db_port' => $this->db_port ?: '3306',
                 'db_user' => $this->db_user ?: 'root',
                 'db_pass' => $this->db_pass ?: 'Computer.1',
-                'industry_code' => $this->industry_code,
+                'software_id' => $this->software_id,
+                'remarks' => $this->remarks,
                 'migration_status' => $this->migration_status ?: 'pending',
                 'active_id' => $this->active_id ?: true,
             ],
@@ -104,7 +114,8 @@ class TenantList extends Component
         $this->db_port = '3306';
         $this->db_user = 'root';
         $this->db_pass = 'Computer.1';
-        $this->industry_code = Tenant::getIndustryCode();
+        $this->software_id = '1';
+        $this->remarks = '-';
         $this->migration_status = 'pending';
         $this->active_id = true;
     }
@@ -125,7 +136,8 @@ class TenantList extends Component
             $this->db_user = $obj->db_user;
             $this->db_pass = $obj->db_pass;
 
-            $this->industry_code = $obj->industry_code;
+            $this->software_id = $obj->software_id;
+            $this->remarks = $obj->remarks;
             $this->migration_status = $obj->migration_status;
             $this->active_id = $obj->active_id;
         }
@@ -146,6 +158,12 @@ class TenantList extends Component
         if ($obj) {
             $obj->delete();
         }
+    }
+
+
+    public function mount(): void
+    {
+        $this->software = collect(Software::cases())->mapWithKeys(fn($case) => [$case->value => $case->getname()])->toArray();
     }
 
     public function render()

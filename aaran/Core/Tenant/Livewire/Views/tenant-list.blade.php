@@ -65,7 +65,7 @@
                         <x-slot name="tabs">
                             <x-Ui::tabs.tab>Mandatory</x-Ui::tabs.tab>
                             <x-Ui::tabs.tab>Database</x-Ui::tabs.tab>
-                            <x-Ui::tabs.tab>Plan</x-Ui::tabs.tab>
+                            <x-Ui::tabs.tab>Software</x-Ui::tabs.tab>
                         </x-slot>
 
                         <x-slot name="content">
@@ -100,11 +100,6 @@
                                         <x-Ui::input.error-text wire:model="phone"/>
                                     </div>
 
-                                    <div>
-                                        <x-Ui::input.floating wire:model="industry_code" label="Industry code"/>
-                                        <x-Ui::input.error-text wire:model="industry_code"/>
-                                    </div>
-
                                 </div>
                             </x-Ui::tabs.content>
 
@@ -127,6 +122,26 @@
                                         <x-Ui::input.floating wire:model="db_pass" label="DB Pass"/>
                                         <x-Ui::input.error-text wire:model="db_pass"/>
                                     </div>
+                                </div>
+                            </x-Ui::tabs.content>
+
+                            <!-- Tab 2 ------------------------------------------------------------------------------------>
+
+                            <x-Ui::tabs.content>
+
+                                <div>
+                                    <x-Ui::input.floating-dropdown
+                                        wire:model="software_id"
+                                        label="software"
+                                        id="software_id"
+                                        :options="$software"
+                                        placeholder=""
+                                    />
+                                    <x-Ui::input.error-text wire:model="software_id"/>
+                                </div>
+
+                                <div class="mt-5">
+                                    <x-Ui::input.rich-text wire:model="remarks" label="Remarks"/>
                                 </div>
                             </x-Ui::tabs.content>
 

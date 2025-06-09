@@ -23,7 +23,8 @@ class TenantFactory extends Factory
             'db_port' => '3306',
             'db_user' => 'tenant_user',
             'db_pass' => Crypt::encryptString('password'),
-            'industry_code' => $this->faker->unique()->randomNumber(),
+            'software_id' => '100',
+            'remarks' => '-',
             'migration_status' => 'pending',
             'active_id' => true,
         ];

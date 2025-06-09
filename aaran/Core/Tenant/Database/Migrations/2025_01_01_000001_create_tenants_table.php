@@ -20,7 +20,8 @@ return new class extends Migration {
             $table->string('db_port')->default('3306');
             $table->string('db_user');
             $table->text('db_pass');
-            $table->string('industry_code')->nullable();
+            $table->string('software_id')->nullable();
+            $table->string('remarks')->nullable();
             $table->string('migration_status')->default('pending')->nullable();
             $table->boolean('active_id')->default(true);
             $table->softDeletes();
@@ -28,7 +29,6 @@ return new class extends Migration {
 
             // Indexes
             $table->index('t_name');
-            $table->index('industry_code');
         });
     }
 

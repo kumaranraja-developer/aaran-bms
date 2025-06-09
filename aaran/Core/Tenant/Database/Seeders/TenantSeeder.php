@@ -16,21 +16,21 @@ class TenantSeeder extends Seeder
                 't_name' => 'sundar',
                 'email' => 'sundar@sundar.com',
                 'active_id' => true,
-                'industry_code' => '1000',
+                'software_id' => '100',
             ],
             [
                 'b_name' => 'Aaran Software',
                 't_name' => 'aaran_software',
                 'email' => 'aaran@aaran.org',
                 'active_id' => true,
-                'industry_code' => '1001',
+                'software_id' => '100',
             ],
             [
                 'b_name' => 'Demo Software',
                 't_name' => 'demo',
                 'email' => 'demo@demo.com',
                 'active_id' => true,
-                'industry_code' => '1003',
+                'software_id' => '100',
             ],
         ];
 
@@ -43,6 +43,7 @@ class TenantSeeder extends Seeder
                 'db_port' => '3306',
                 'db_user' => 'root',
                 'db_pass' => 'Computer.1', //Crypt::encryptString('password'), --> this would in future
+                'remarks' => '-',
             ]));
         }
     }
