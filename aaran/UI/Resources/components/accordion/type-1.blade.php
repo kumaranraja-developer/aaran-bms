@@ -13,7 +13,7 @@
         <div x-data="{ id: '{{ 'accordion-' . $index }}' }" class="cursor-pointer group">
             <button
                 @click="setActiveAccordion(id)"
-                class="flex items-center justify-between w-full p-4 text-left select-none group-hover:underline"
+                class="flex items-center justify-between w-full p-4 text-left select-none group-hover:underline cursor-pointer"
             >
                 <span>{{ $item['title'] }}</span>
                 <svg class="w-4 h-4 duration-200 ease-out" :class="{ 'rotate-180': activeAccordion == id }"
