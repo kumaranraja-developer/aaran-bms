@@ -23,6 +23,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/faqs', FaqManager::class)->name('admin.faqs');
 });
 
+Route::get('/bill-books', Class\Project\BillBook::class)->name('bill-books');
+
 Route::get('/plan-details', Class\Project\Plan::class)->name('plan-details');
 Route::get('/plan-overview/{id}', Class\Project\PlanOverview::class)->name('plan-overview');
 Route::get('/plan-comparison', Class\Project\PlanComparison::class)->name('plan-comparison');

@@ -6,6 +6,7 @@ use Aaran\Website\Livewire\Class\About;
 use Aaran\Website\Livewire\Class\Admin\FaqManager;
 use Aaran\Website\Livewire\Class\Contact;
 use Aaran\Website\Livewire\Class\Faq;
+use Aaran\Website\Livewire\Class\Project\BillBook;
 use Aaran\Website\Models;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -28,6 +29,8 @@ class WebsiteServiceProvider extends ServiceProvider
 
         Livewire::component('website::about.team', About\Team::class);
         Livewire::component('website::about.user-profile-view', About\UserProfileView::class);
+
+        Livewire::component('website::bill-book', BillBook::class);
 
         Livewire::component('website::blade.faq', Faq\FaqList::class);
         Livewire::component('website::faq.faq-list', Faq\FaqList::class);

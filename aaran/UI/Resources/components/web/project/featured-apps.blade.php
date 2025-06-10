@@ -9,7 +9,7 @@
 ])
 
 <div class="bg-white border rounded-lg border-neutral-300 hover:-translate-y-1.5 transform duration-500 h-full p-2 max-w-md w-full mx-auto">
-    <a  href="{{route('plan-details')}}" role="button"
+    <a  href="{{route('bill-books')}}" role="button"
          class="{{$bg}} rounded-xs border border-neutral-200 p-4 h-full flex flex-col justify-between">
         <div>
             <img src="{{ asset($icon) }}" alt="" class="w-24 h-24 object-contain" />
