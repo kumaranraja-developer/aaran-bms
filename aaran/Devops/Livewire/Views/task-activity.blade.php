@@ -50,76 +50,14 @@
                 </div>
             </div>
 
-            <div class="w-56 h-56 md:w-72 md:h-72 shadow-md shadow-gray-700 rounded-lg overflow-hidden mx-auto">
-
-            @if($taskImage)
-                    <div class="w-full h-full overflow-hidden">
-                        <div x-data="{
-                slides: [
-                    @foreach($taskImage as $row)
-                    {
-                        imgSrc: '{{ URL(\Illuminate\Support\Facades\Storage::url('images/'.$row['image'])) }}',
-                        imgAlt: '{{ URL(\Illuminate\Support\Facades\Storage::url('images/'.$row['image'])) }}',
-                    },
-                    @endforeach
-                ],
-                currentSlideIndex: 1,
-                previous() {
-                    this.currentSlideIndex = this.currentSlideIndex > 1
-                        ? this.currentSlideIndex - 1
-                        : this.slides.length;
-                },
-                next() {
-                    this.currentSlideIndex = this.currentSlideIndex < this.slides.length
-                        ? this.currentSlideIndex + 1
-                        : 1;
-                },
-            }" class="relative w-full h-full">
-
-                            <!-- Previous Button -->
-                            <button type="button"
-                                    class="absolute left-2 top-1/2 z-20 -translate-y-1/2 bg-white/40 p-1.5 rounded-full text-gray-800 hover:bg-white/60"
-                                    x-on:click="previous()">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor" stroke-width="3" class="w-4 h-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/>
-                                </svg>
-                            </button>
-
-                            <!-- Next Button -->
-                            <button type="button"
-                                    class="absolute right-2 top-1/2 z-20 -translate-y-1/2 bg-white/40 p-1.5 rounded-full text-gray-800 hover:bg-white/60"
-                                    x-on:click="next()">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor" stroke-width="3" class="w-4 h-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
-                                </svg>
-                            </button>
-
-                            <!-- Slides -->
-                            <div class="relative w-full h-full overflow-hidden">
-                                <template x-for="(slide, index) in slides">
-                                    <div x-cloak x-show="currentSlideIndex === index + 1"
-                                         class="absolute inset-0" x-transition.opacity.duration.300ms>
-                                        <img :src="slide.imgSrc" :alt="slide.imgAlt"
-                                             class="w-full h-full object-cover rounded-lg"/>
-                                    </div>
-                                </template>
-                            </div>
-
-                        </div>
-                    </div>
-                @else
-                    <img
-                        src="https://grcviewpoint.com/wp-content/uploads/2022/11/Time-to-Correct-A-Long-standing-Curriculum-Coding-Error-Say-Experts-GRCviewpoint.jpg"
-                        class="w-56 h-56 md:w-72 md:h-72 object-cover rounded-lg"
-                        alt="Default image"/>
-                @endif
+            <div>
+                <x-Ui::slider.carousel-light-box :images="$taskImage"/>
             </div>
 
             <!--User Data ------------------------------------------------------------------------------------------------>
 
-            <div class="flex flex-col sm:grid grid-cols-3 gap-y-3 lg:grid-cols-5 font-semibold text-sm font-lex gap-x-5">
+            <div
+                class="flex flex-col sm:grid grid-cols-3 gap-y-3 lg:grid-cols-5 font-semibold text-sm font-lex gap-x-5">
                 <div class="w-[80%] flex justify-between items-center">
                     <span>Created By:</span>
                     <span class="text-red-600">{{ \Aaran\Core\User\Models\User::getName($task->reporter_id) }}</span>
@@ -163,7 +101,8 @@
             @forelse($activities as $index=>$row)
                 <div class=" border border-gray-200 rounded-lg dark:bg-dark-4 dark:text-dark-9">
                     <div>
-                        <div class="text-slate-700 text-sm bg-white capitalize rounded-lg dark:bg-dark-4 p-3 dark:text-dark-9">
+                        <div
+                            class="text-slate-700 text-sm bg-white capitalize rounded-lg dark:bg-dark-4 p-3 dark:text-dark-9">
                             {!! $row->vname !!}
                         </div>
 
