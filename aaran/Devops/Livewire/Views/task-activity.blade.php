@@ -184,18 +184,14 @@
                     </div>
 
                     <div class="w-full flex flex-row gap-3 justify-between">
-                        <div class="w-full flex flex-row gap-3 justify-between">
+                        <div class="w-full flex flex-col lg:flex-row gap-3 justify-between">
 
-                            <button wire:click.prevent="getSaveActivity"
-                                class="px-5 py-2.5 shrink-0 bg-indigo-600 hover:bg-indigo-800 transition-all duration-700 ease-in-out rounded-xl shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] justify-center items-center flex">
-                                <span class="px-2 py-px text-white text-base font-semibold leading-relaxed">Post your comment</span>
-                            </button>
+                            <div class="flex ml-13 flex-col lg:flex-row gap-3 lg:items-center">
 
-                            <div class="flex flex-row gap-3 items-center">
-                                <x-Ui::datepicker.date wire:model="Start_On"/>
-
-                                <x-Ui::datepicker.date wire:model="End_On"/>
-
+                                <div class="flex flex-col md:flex-row gap-2">
+                                    <x-Ui::datepicker.date wire:model="Start_On"/>
+                                    <x-Ui::datepicker.date wire:model="End_On"/>
+                                </div>
                                 <x-Ui::input.floating-dropdown
                                     wire:model="status_id"
                                     label="Status"
@@ -205,7 +201,10 @@
                                 />
 
                             </div>
-
+                            <button wire:click.prevent="getSaveActivity"
+                                    class="px-5 ml-13 py-2.5 shrink-0 bg-indigo-600 hover:bg-indigo-800 transition-all duration-700 ease-in-out rounded-xl shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] justify-center items-center flex">
+                                <span class="px-2 py-px text-white text-base font-semibold leading-relaxed">Post your comment</span>
+                            </button>
                         </div>
                     </div>
                 </div>

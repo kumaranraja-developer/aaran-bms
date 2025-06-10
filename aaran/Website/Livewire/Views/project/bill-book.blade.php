@@ -3,7 +3,7 @@
     <div class="mx-[10%] my-20">
         {{--        Main Script--}}
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-6 justify-center">
                 <div class="text-6xl font-bold text-blue-600">SOFTWARE TO UNLOCK BUSINESS GROWTH</div>
                 <div class="text-sm text-dark-7">Transform Chaos into Control – The Complete Business OS</div>
                 <div class="flex flex-col sm:flex-row gap-5">
@@ -28,42 +28,45 @@
                         <p>password:123456789</p>
                     </div>
                 </div>
-                <div class="flex p-4 gap-4 border border-gray-500 rounded-lg  w-[80%]">
-                    <svg fill="#2d5be6" width="50" viewBox="-3 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                         stroke="#2d5be6">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier"><title>group</title>
-                            <path
-                                d="M20.906 20.75c1.313 0.719 2.063 2 1.969 3.281-0.063 0.781-0.094 0.813-1.094 0.938-0.625 0.094-4.563 0.125-8.625 0.125-4.594 0-9.406-0.094-9.75-0.188-1.375-0.344-0.625-2.844 1.188-4.031 1.406-0.906 4.281-2.281 5.063-2.438 1.063-0.219 1.188-0.875 0-3-0.281-0.469-0.594-1.906-0.625-3.406-0.031-2.438 0.438-4.094 2.563-4.906 0.438-0.156 0.875-0.219 1.281-0.219 1.406 0 2.719 0.781 3.25 1.938 0.781 1.531 0.469 5.625-0.344 7.094-0.938 1.656-0.844 2.188 0.188 2.469 0.688 0.188 2.813 1.188 4.938 2.344zM3.906 19.813c-0.5 0.344-0.969 0.781-1.344 1.219-1.188 0-2.094-0.031-2.188-0.063-0.781-0.188-0.344-1.625 0.688-2.25 0.781-0.5 2.375-1.281 2.813-1.375 0.563-0.125 0.688-0.469 0-1.656-0.156-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.25-2.313 1.438-2.719 1-0.375 2.125 0.094 2.531 0.938 0.406 0.875 0.188 3.125-0.25 3.938-0.5 0.969-0.406 1.219 0.156 1.375 0.125 0.031 0.375 0.156 0.719 0.313-1.375 0.563-3.25 1.594-4.219 2.188zM24.469 18.625c0.75 0.406 1.156 1.094 1.094 1.813-0.031 0.438-0.031 0.469-0.594 0.531-0.156 0.031-0.875 0.063-1.813 0.063-0.406-0.531-0.969-1.031-1.656-1.375-1.281-0.75-2.844-1.563-4-2.063 0.313-0.125 0.594-0.219 0.719-0.25 0.594-0.125 0.688-0.469 0-1.656-0.125-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.219-2.313 1.406-2.719 1.031-0.375 2.156 0.094 2.531 0.938 0.406 0.875 0.25 3.125-0.188 3.938-0.5 0.969-0.438 1.219 0.094 1.375 0.375 0.125 1.563 0.688 2.75 1.313z"></path>
-                        </g>
-                    </svg>
-                    <div class="flex flex-col text-sm">
-                        <p>Admin demo</p>
-                        <p>User: admindemo</p>
-                        <p>password:123456789</p>
-                    </div>
-                </div>
+{{--                <div class="flex p-4 gap-4 border border-gray-500 rounded-lg  w-[80%]">--}}
+{{--                    <svg fill="#2d5be6" width="50" viewBox="-3 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"--}}
+{{--                         stroke="#2d5be6">--}}
+{{--                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>--}}
+{{--                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>--}}
+{{--                        <g id="SVGRepo_iconCarrier"><title>group</title>--}}
+{{--                            <path--}}
+{{--                                d="M20.906 20.75c1.313 0.719 2.063 2 1.969 3.281-0.063 0.781-0.094 0.813-1.094 0.938-0.625 0.094-4.563 0.125-8.625 0.125-4.594 0-9.406-0.094-9.75-0.188-1.375-0.344-0.625-2.844 1.188-4.031 1.406-0.906 4.281-2.281 5.063-2.438 1.063-0.219 1.188-0.875 0-3-0.281-0.469-0.594-1.906-0.625-3.406-0.031-2.438 0.438-4.094 2.563-4.906 0.438-0.156 0.875-0.219 1.281-0.219 1.406 0 2.719 0.781 3.25 1.938 0.781 1.531 0.469 5.625-0.344 7.094-0.938 1.656-0.844 2.188 0.188 2.469 0.688 0.188 2.813 1.188 4.938 2.344zM3.906 19.813c-0.5 0.344-0.969 0.781-1.344 1.219-1.188 0-2.094-0.031-2.188-0.063-0.781-0.188-0.344-1.625 0.688-2.25 0.781-0.5 2.375-1.281 2.813-1.375 0.563-0.125 0.688-0.469 0-1.656-0.156-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.25-2.313 1.438-2.719 1-0.375 2.125 0.094 2.531 0.938 0.406 0.875 0.188 3.125-0.25 3.938-0.5 0.969-0.406 1.219 0.156 1.375 0.125 0.031 0.375 0.156 0.719 0.313-1.375 0.563-3.25 1.594-4.219 2.188zM24.469 18.625c0.75 0.406 1.156 1.094 1.094 1.813-0.031 0.438-0.031 0.469-0.594 0.531-0.156 0.031-0.875 0.063-1.813 0.063-0.406-0.531-0.969-1.031-1.656-1.375-1.281-0.75-2.844-1.563-4-2.063 0.313-0.125 0.594-0.219 0.719-0.25 0.594-0.125 0.688-0.469 0-1.656-0.125-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.219-2.313 1.406-2.719 1.031-0.375 2.156 0.094 2.531 0.938 0.406 0.875 0.25 3.125-0.188 3.938-0.5 0.969-0.438 1.219 0.094 1.375 0.375 0.125 1.563 0.688 2.75 1.313z"></path>--}}
+{{--                        </g>--}}
+{{--                    </svg>--}}
+{{--                    <div class="flex flex-col text-sm">--}}
+{{--                        <p>Admin demo</p>--}}
+{{--                        <p>User: admindemo</p>--}}
+{{--                        <p>password:123456789</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
             <div class="block my-auto">
-                <div class="grid grid-cols-2  gap-5">
+                <div class="grid grid-cols-2  gap-10">
                     <div class="flex flex-col gap-5">
                         <div
-                            class="h-[300px] border border-gray-500 rounded-2xl transform  shadow-xl hover:rotate-x-6 hover:rotate-y-6 transition-all duration-500 ease-in-out perspective-1000">
-
+                            class="h-[300px] border rounded-2xl transform shadow-md shadow-black transition-all duration-500 perspective-1000">
+                               <img src="{{asset('images/home/gstBilling.png')}}" class="overflow-hidden h-[300px] w-full object-cover rounded-2xl"/>
                         </div>
                         <div
-                            class="h-[100px] border border-gray-500 rounded-full transform  shadow-xl hover:rotate-x-6 hover:rotate-y-6 transition-all duration-500 ease-in-out perspective-1000">
+                            class="h-[100px] border rounded-full transform shadow-md shadow-black transition-all duration-500 ease-in-out perspective-1000">
+                            <img src="{{asset('images/home/wall1.webp')}}" class="overflow-hidden h-[100px] w-full object-cover rounded-full"/>
 
                         </div>
                     </div>
-                    <div class="flex flex-col-reverse gap-5 mt-10">
+                    <div class="flex flex-col-reverse gap-5 mt-15">
                         <div
-                            class="h-[300px] border border-gray-500 rounded-2xl transform  shadow-xl hover:rotate-x-6 hover:rotate-y-6 transition-all duration-500 ease-in-out perspective-1000">
+                            class="h-[300px] border  rounded-2xl transform shadow-lg shadow-black transition-all duration-500 ease-in-out perspective-1000">
+                            <img src="{{asset('images/home/gstBilling.png')}}" class="overflow-hidden h-[300px] w-full object-cover rounded-2xl"/>
 
                         </div>
                         <div
-                            class="h-[100px] border border-gray-500 rounded-full transform  shadow-xl hover:rotate-x-6 hover:rotate-y-6 transition-all duration-500 ease-in-out perspective-100">
+                            class="h-[100px] border  rounded-full transform shadow-md shadow-black transition-all duration-500 ease-in-out perspective-100">
+                            <img src="{{asset('images/home/wall1.webp')}}" class="overflow-hidden h-[100px] w-full object-cover rounded-full"/>
 
                         </div>
                     </div>
@@ -489,26 +492,14 @@
         {{--     SVG + Software Content   --}}
         <div>
             {{--            <p class="text-center">Codexsun Efforts</p>--}}
-            <div class="text-6xl font-bold text-center">We’re constantly evolving—enhancing our tools and crafting
+            <div class="text-6xl font-bold my-10 text-center">We’re constantly evolving—enhancing our tools and crafting
                 solutions tailored just for you
             </div>
-            <div class="flex flex-col-reverse md:flex-row mt-20 gap-5">
-{{--                Effortless Setup, Instant Access Content--}}
+            <div class="flex flex-col-reverse md:flex-row mt-20 gap-20">
+                {{--                Effortless Setup, Instant Access Content--}}
                 <div class="md:w-[50%] flex flex-col justify-center gap-3">
                     <div class="flex md:block gap-3">
-                       <div>
-                           <svg fill="currentColor"
-                                class="border block my-auto border-black stroke-black dark:stroke-white dark:border-white rounded-full"
-                                viewBox="-6.5 0 32 32" width="60"
-                                version="1.1" xmlns="http://www.w3.org/2000/svg">
-                               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                               <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                               <g id="SVGRepo_iconCarrier"><title>apple</title>
-                                   <path
-                                       d="M13.313 7.219c0.25-0.688 0.406-1.281 0.406-1.844 0-0.094-0.031-0.156-0.031-0.25s-0.031-0.219-0.063-0.344c-1.563 0.344-2.656 1.031-3.344 2.031-0.688 0.969-1.031 2.125-1.063 3.469 0.563-0.063 1.031-0.156 1.375-0.25 0.469-0.156 0.969-0.469 1.469-0.938 0.563-0.563 1-1.25 1.25-1.875zM11.531 10.344c-0.938 0.313-1.594 0.438-1.938 0.438-0.281 0-0.875-0.125-1.844-0.375-0.938-0.281-1.719-0.438-2.406-0.438-1.531 0-2.813 0.656-3.844 1.969-1 1.313-1.5 2.969-1.5 5.031 0 2.219 0.656 4.469 1.969 6.781 1.344 2.313 2.719 3.438 4.063 3.438 0.438 0 1-0.156 1.781-0.438 0.719-0.281 1.344-0.438 1.906-0.438s1.25 0.125 2.031 0.406c0.813 0.281 1.438 0.406 1.906 0.406 1.156 0 2.313-0.875 3.469-2.594 0.375-0.563 0.719-1.156 1-1.719 0.25-0.531 0.469-1.094 0.656-1.625-0.844-0.25-1.563-0.844-2.156-1.719-0.594-0.906-0.906-1.906-0.906-3 0-1.031 0.281-1.938 0.844-2.781 0.344-0.438 0.875-1 1.563-1.594-0.219-0.281-0.469-0.563-0.688-0.781-0.25-0.219-0.469-0.406-0.688-0.563-0.875-0.563-1.844-0.875-2.906-0.875-0.625 0-1.406 0.188-2.313 0.469z"></path>
-                               </g>
-                           </svg>
-                       </div>
+
                         <div class="text-2xl font-bold block my-auto sm:mt-2">Effortless Setup, Instant Access</div>
                     </div>
                     <div class="text-sm text-dark-7">Get started in minutes—no technical skills needed</div>
@@ -3289,7 +3280,7 @@
 </svg>
                 </div>
             </div>
-            <div class="mt-5 flex flex-col md:flex-row mt-10 justify-center gap-3">
+            <div class="flex flex-col md:flex-row gap-20 mt-10 justify-center">
                 {{--                SVG code --}}
                 <div class="md:w-[50%] mt-5 sm:mt-auto">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -5927,23 +5918,8 @@
 </svg>
                 </div>
                 {{--                Trusted by Businesses Worldwide Content--}}
-
                 <div class="flex md:w-[50%] flex-col justify-center gap-3">
                     <div class="flex md:block gap-3">
-                        <div>
-                            <svg fill="currentColor"
-                                 class="border border-black block my-auto stroke-black dark:stroke-white dark:border-white rounded-full"
-                                 viewBox="-6.5 0 32 32" width="60"
-                                 version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier"><title>apple</title>
-                                    <path
-                                        d="M13.313 7.219c0.25-0.688 0.406-1.281 0.406-1.844 0-0.094-0.031-0.156-0.031-0.25s-0.031-0.219-0.063-0.344c-1.563 0.344-2.656 1.031-3.344 2.031-0.688 0.969-1.031 2.125-1.063 3.469 0.563-0.063 1.031-0.156 1.375-0.25 0.469-0.156 0.969-0.469 1.469-0.938 0.563-0.563 1-1.25 1.25-1.875zM11.531 10.344c-0.938 0.313-1.594 0.438-1.938 0.438-0.281 0-0.875-0.125-1.844-0.375-0.938-0.281-1.719-0.438-2.406-0.438-1.531 0-2.813 0.656-3.844 1.969-1 1.313-1.5 2.969-1.5 5.031 0 2.219 0.656 4.469 1.969 6.781 1.344 2.313 2.719 3.438 4.063 3.438 0.438 0 1-0.156 1.781-0.438 0.719-0.281 1.344-0.438 1.906-0.438s1.25 0.125 2.031 0.406c0.813 0.281 1.438 0.406 1.906 0.406 1.156 0 2.313-0.875 3.469-2.594 0.375-0.563 0.719-1.156 1-1.719 0.25-0.531 0.469-1.094 0.656-1.625-0.844-0.25-1.563-0.844-2.156-1.719-0.594-0.906-0.906-1.906-0.906-3 0-1.031 0.281-1.938 0.844-2.781 0.344-0.438 0.875-1 1.563-1.594-0.219-0.281-0.469-0.563-0.688-0.781-0.25-0.219-0.469-0.406-0.688-0.563-0.875-0.563-1.844-0.875-2.906-0.875-0.625 0-1.406 0.188-2.313 0.469z"></path>
-                                </g>
-                            </svg>
-                        </div>
-
                         <div class="text-2xl block my-auto font-bold">Reliable Support & Continuous Innovation</div>
                     </div>
 
@@ -6022,17 +5998,12 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col-reverse md:flex-row mt-10 justify-center gap-3">
-{{--                Trusted by Businesses Worldwide Content--}}
+            <div class="flex flex-col-reverse md:flex-row mt-10 justify-center gap-20">
+                {{--                Trusted by Businesses Worldwide Content--}}
                 <div class="md:w-[50%] flex flex-col justify-center gap-3">
                     <div class="flex md:block mt-5 sm:mt-0 gap-3">
-                        <div class="flex items-center">
-                            <svg viewBox="0 0 192 192"  xmlns="http://www.w3.org/2000/svg" class="border-2 block my-auto w-10 sm:w-15 border-blue-600 rounded-full" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path stroke="#1a34ff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="12" d="M95.958 22C121.031 42.867 149.785 42 158 42c-1.797 118.676-15 95-62.042 128C49 137 35.798 160.676 34 42c8.13 0 36.883.867 61.958-20Z"></path></g></svg>
-                        </div>
                         <div class="text-xl sm:text-2xl block my-auto font-bold">Trusted by Businesses Worldwide</div>
                     </div>
-
-
                     <div class="text-sm text-dark-7">Join thousands who rely on us for seamless operations every day
                     </div>
                     <div class="flex flex-row gap-3">
@@ -6090,7 +6061,7 @@
                         </div>
                     </div>
                 </div>
-{{--                SVG code --}}
+                {{--                SVG code --}}
                 <div class="md:w-[50%] mt-5 sm:mt-auto">
 
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -8663,49 +8634,39 @@
                 </div>
             </div>
         </div>
-{{--        Bottom Content --}}
-        <div class="mt-20">
-            <h1 class="text-4xl font-bold">Stackposts Modules</h1>
-            <p class="mt-4">Get more social networks with modules to add to Stackposts Main Script</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-[25%_25%_50%] gap-3 mt-10">
-            <div class="flex flex-col text-sm p-4 gap-4 dark:bg-dark-5 bg-blue-50 rounded-lg">
-                <svg fill="#2d5be6" width="50" class="bg-gray-200 rounded-full p-2" viewBox="-3 0 32 32" version="1.1"
-                     xmlns="http://www.w3.org/2000/svg"
-                     stroke="#2d5be6">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier"><title>group</title>
-                        <path
-                            d="M20.906 20.75c1.313 0.719 2.063 2 1.969 3.281-0.063 0.781-0.094 0.813-1.094 0.938-0.625 0.094-4.563 0.125-8.625 0.125-4.594 0-9.406-0.094-9.75-0.188-1.375-0.344-0.625-2.844 1.188-4.031 1.406-0.906 4.281-2.281 5.063-2.438 1.063-0.219 1.188-0.875 0-3-0.281-0.469-0.594-1.906-0.625-3.406-0.031-2.438 0.438-4.094 2.563-4.906 0.438-0.156 0.875-0.219 1.281-0.219 1.406 0 2.719 0.781 3.25 1.938 0.781 1.531 0.469 5.625-0.344 7.094-0.938 1.656-0.844 2.188 0.188 2.469 0.688 0.188 2.813 1.188 4.938 2.344zM3.906 19.813c-0.5 0.344-0.969 0.781-1.344 1.219-1.188 0-2.094-0.031-2.188-0.063-0.781-0.188-0.344-1.625 0.688-2.25 0.781-0.5 2.375-1.281 2.813-1.375 0.563-0.125 0.688-0.469 0-1.656-0.156-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.25-2.313 1.438-2.719 1-0.375 2.125 0.094 2.531 0.938 0.406 0.875 0.188 3.125-0.25 3.938-0.5 0.969-0.406 1.219 0.156 1.375 0.125 0.031 0.375 0.156 0.719 0.313-1.375 0.563-3.25 1.594-4.219 2.188zM24.469 18.625c0.75 0.406 1.156 1.094 1.094 1.813-0.031 0.438-0.031 0.469-0.594 0.531-0.156 0.031-0.875 0.063-1.813 0.063-0.406-0.531-0.969-1.031-1.656-1.375-1.281-0.75-2.844-1.563-4-2.063 0.313-0.125 0.594-0.219 0.719-0.25 0.594-0.125 0.688-0.469 0-1.656-0.125-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.219-2.313 1.406-2.719 1.031-0.375 2.156 0.094 2.531 0.938 0.406 0.875 0.25 3.125-0.188 3.938-0.5 0.969-0.438 1.219 0.094 1.375 0.375 0.125 1.563 0.688 2.75 1.313z"></path>
-                    </g>
-                </svg>
-                <p class="text-md font-bold">User demo</p>
-                <p>User: userdemo</p>
-                <p>password:123456789</p>
+
+
+{{--        Client Review--}}
+        <div class="mt-[100px]">
+            <div class="flex flex-col gap-5">
+{{--                <svg version="1.1" class="block mx-auto" id="Layer_1" width="150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#273B7A;" cx="256" cy="256" r="256"></circle> <path style="fill:#121149;" d="M498.112,339.347L316.49,157.727l-12.048,4.494L256,113.778l-26.145,75.852l-11.24,39.209 l100.397,100.397l-2.45,2.45l-34.569-34.568l-69.953,2.269h-37.064l-60.95,112.387l96.128,96.128C225.03,510.59,240.35,512,256,512 C368.202,512,463.534,439.811,498.112,339.347z"></path> <path style="fill:#FFEDB5;" d="M401.606,278.219c-3.303-4.591-9.307-6.397-14.601-4.41c-0.076,0.029-0.152,0.055-0.228,0.081 l-89.619,29.836c0.019,0.721,0.005,1.445-0.043,2.174c-0.748,11.445-9.599,20.639-20.971,21.792l-54.01,5.61 c-3.417,0.357-6.472-2.126-6.827-5.541c-0.357-3.417,2.126-6.551,5.541-6.827l54.01-5.61c5.33-0.581,9.495-4.86,9.847-10.235 c0.191-2.934-0.772-5.766-2.712-7.975c-1.939-2.21-4.624-3.532-7.558-3.724l-71.711-4.675c-8.054-0.522-16.05,1.255-23.121,5.148 l-94.575,52.079l25.612,51.645l23.757-20.725c10.09-8.801,23.455-12.593,36.667-10.397l79.41,13.196 c14.551,1.934,29.139-1.695,41.088-10.218l108.118-74.461C404.513,290.763,405.371,283.45,401.606,278.219z"></path> <g> <path style="fill:#FEE187;" d="M274.856,315.326c5.33-0.581,9.495-4.86,9.847-10.235c0.191-2.934-0.772-5.766-2.712-7.975 c-1.939-2.21-4.624-3.532-7.558-3.724l-15.948-1.04v24.673L274.856,315.326z"></path> <path style="fill:#FEE187;" d="M401.606,278.219c-3.303-4.591-9.307-6.397-14.601-4.41c-0.076,0.029-0.152,0.055-0.228,0.081 l-89.619,29.836c0.019,0.721,0.005,1.445-0.043,2.174c-0.748,11.445-9.599,20.639-20.971,21.792l-17.653,1.834v50.641 c11.812-0.072,23.323-3.765,33.073-10.721l108.118-74.459C404.513,290.763,405.371,283.45,401.606,278.219z"></path> </g> <polygon style="fill:#FFC61B;" points="256,113.778 277.278,148.094 316.49,157.727 290.43,188.568 293.385,228.838 256,213.583 218.615,228.838 221.57,188.568 195.51,157.727 234.722,148.094 "></polygon> <polygon style="fill:#EAA22F;" points="256,113.778 277.278,148.094 316.49,157.727 290.43,188.568 293.385,228.838 256,213.583 "></polygon> <rect x="88.927" y="330.54" transform="matrix(0.8256 -0.5643 0.5643 0.8256 -189.2337 125.6507)" style="fill:#D35933;" width="39.418" height="76.78"></rect> <polygon style="fill:#B54324;" points="146.568,389.529 124.947,357.897 92.307,379.997 114.026,411.772 "></polygon> </g></svg>--}}
+               <div class="block mx-auto">
+                   <div class="flex flex-row gap-5">
+                       <svg version="1.1" id="Layer_1" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#273B7A;" cx="256" cy="256" r="256"></circle> <path style="fill:#121149;" d="M498.112,339.347L316.49,157.727l-12.048,4.494L256,113.778l-26.145,75.852l-11.24,39.209 l100.397,100.397l-2.45,2.45l-34.569-34.568l-69.953,2.269h-37.064l-60.95,112.387l96.128,96.128C225.03,510.59,240.35,512,256,512 C368.202,512,463.534,439.811,498.112,339.347z"></path> <path style="fill:#FFEDB5;" d="M401.606,278.219c-3.303-4.591-9.307-6.397-14.601-4.41c-0.076,0.029-0.152,0.055-0.228,0.081 l-89.619,29.836c0.019,0.721,0.005,1.445-0.043,2.174c-0.748,11.445-9.599,20.639-20.971,21.792l-54.01,5.61 c-3.417,0.357-6.472-2.126-6.827-5.541c-0.357-3.417,2.126-6.551,5.541-6.827l54.01-5.61c5.33-0.581,9.495-4.86,9.847-10.235 c0.191-2.934-0.772-5.766-2.712-7.975c-1.939-2.21-4.624-3.532-7.558-3.724l-71.711-4.675c-8.054-0.522-16.05,1.255-23.121,5.148 l-94.575,52.079l25.612,51.645l23.757-20.725c10.09-8.801,23.455-12.593,36.667-10.397l79.41,13.196 c14.551,1.934,29.139-1.695,41.088-10.218l108.118-74.461C404.513,290.763,405.371,283.45,401.606,278.219z"></path> <g> <path style="fill:#FEE187;" d="M274.856,315.326c5.33-0.581,9.495-4.86,9.847-10.235c0.191-2.934-0.772-5.766-2.712-7.975 c-1.939-2.21-4.624-3.532-7.558-3.724l-15.948-1.04v24.673L274.856,315.326z"></path> <path style="fill:#FEE187;" d="M401.606,278.219c-3.303-4.591-9.307-6.397-14.601-4.41c-0.076,0.029-0.152,0.055-0.228,0.081 l-89.619,29.836c0.019,0.721,0.005,1.445-0.043,2.174c-0.748,11.445-9.599,20.639-20.971,21.792l-17.653,1.834v50.641 c11.812-0.072,23.323-3.765,33.073-10.721l108.118-74.459C404.513,290.763,405.371,283.45,401.606,278.219z"></path> </g> <polygon style="fill:#FFC61B;" points="256,113.778 277.278,148.094 316.49,157.727 290.43,188.568 293.385,228.838 256,213.583 218.615,228.838 221.57,188.568 195.51,157.727 234.722,148.094 "></polygon> <polygon style="fill:#EAA22F;" points="256,113.778 277.278,148.094 316.49,157.727 290.43,188.568 293.385,228.838 256,213.583 "></polygon> <rect x="88.927" y="330.54" transform="matrix(0.8256 -0.5643 0.5643 0.8256 -189.2337 125.6507)" style="fill:#D35933;" width="39.418" height="76.78"></rect> <polygon style="fill:#B54324;" points="146.568,389.529 124.947,357.897 92.307,379.997 114.026,411.772 "></polygon> </g></svg>
+                       <svg version="1.1" id="Layer_1" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#273B7A;" cx="256" cy="256" r="256"></circle> <path style="fill:#121149;" d="M498.112,339.347L316.49,157.727l-12.048,4.494L256,113.778l-26.145,75.852l-11.24,39.209 l100.397,100.397l-2.45,2.45l-34.569-34.568l-69.953,2.269h-37.064l-60.95,112.387l96.128,96.128C225.03,510.59,240.35,512,256,512 C368.202,512,463.534,439.811,498.112,339.347z"></path> <path style="fill:#FFEDB5;" d="M401.606,278.219c-3.303-4.591-9.307-6.397-14.601-4.41c-0.076,0.029-0.152,0.055-0.228,0.081 l-89.619,29.836c0.019,0.721,0.005,1.445-0.043,2.174c-0.748,11.445-9.599,20.639-20.971,21.792l-54.01,5.61 c-3.417,0.357-6.472-2.126-6.827-5.541c-0.357-3.417,2.126-6.551,5.541-6.827l54.01-5.61c5.33-0.581,9.495-4.86,9.847-10.235 c0.191-2.934-0.772-5.766-2.712-7.975c-1.939-2.21-4.624-3.532-7.558-3.724l-71.711-4.675c-8.054-0.522-16.05,1.255-23.121,5.148 l-94.575,52.079l25.612,51.645l23.757-20.725c10.09-8.801,23.455-12.593,36.667-10.397l79.41,13.196 c14.551,1.934,29.139-1.695,41.088-10.218l108.118-74.461C404.513,290.763,405.371,283.45,401.606,278.219z"></path> <g> <path style="fill:#FEE187;" d="M274.856,315.326c5.33-0.581,9.495-4.86,9.847-10.235c0.191-2.934-0.772-5.766-2.712-7.975 c-1.939-2.21-4.624-3.532-7.558-3.724l-15.948-1.04v24.673L274.856,315.326z"></path> <path style="fill:#FEE187;" d="M401.606,278.219c-3.303-4.591-9.307-6.397-14.601-4.41c-0.076,0.029-0.152,0.055-0.228,0.081 l-89.619,29.836c0.019,0.721,0.005,1.445-0.043,2.174c-0.748,11.445-9.599,20.639-20.971,21.792l-17.653,1.834v50.641 c11.812-0.072,23.323-3.765,33.073-10.721l108.118-74.459C404.513,290.763,405.371,283.45,401.606,278.219z"></path> </g> <polygon style="fill:#FFC61B;" points="256,113.778 277.278,148.094 316.49,157.727 290.43,188.568 293.385,228.838 256,213.583 218.615,228.838 221.57,188.568 195.51,157.727 234.722,148.094 "></polygon> <polygon style="fill:#EAA22F;" points="256,113.778 277.278,148.094 316.49,157.727 290.43,188.568 293.385,228.838 256,213.583 "></polygon> <rect x="88.927" y="330.54" transform="matrix(0.8256 -0.5643 0.5643 0.8256 -189.2337 125.6507)" style="fill:#D35933;" width="39.418" height="76.78"></rect> <polygon style="fill:#B54324;" points="146.568,389.529 124.947,357.897 92.307,379.997 114.026,411.772 "></polygon> </g></svg>
+                       <svg version="1.1" id="Layer_1" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#273B7A;" cx="256" cy="256" r="256"></circle> <path style="fill:#121149;" d="M498.112,339.347L316.49,157.727l-12.048,4.494L256,113.778l-26.145,75.852l-11.24,39.209 l100.397,100.397l-2.45,2.45l-34.569-34.568l-69.953,2.269h-37.064l-60.95,112.387l96.128,96.128C225.03,510.59,240.35,512,256,512 C368.202,512,463.534,439.811,498.112,339.347z"></path> <path style="fill:#FFEDB5;" d="M401.606,278.219c-3.303-4.591-9.307-6.397-14.601-4.41c-0.076,0.029-0.152,0.055-0.228,0.081 l-89.619,29.836c0.019,0.721,0.005,1.445-0.043,2.174c-0.748,11.445-9.599,20.639-20.971,21.792l-54.01,5.61 c-3.417,0.357-6.472-2.126-6.827-5.541c-0.357-3.417,2.126-6.551,5.541-6.827l54.01-5.61c5.33-0.581,9.495-4.86,9.847-10.235 c0.191-2.934-0.772-5.766-2.712-7.975c-1.939-2.21-4.624-3.532-7.558-3.724l-71.711-4.675c-8.054-0.522-16.05,1.255-23.121,5.148 l-94.575,52.079l25.612,51.645l23.757-20.725c10.09-8.801,23.455-12.593,36.667-10.397l79.41,13.196 c14.551,1.934,29.139-1.695,41.088-10.218l108.118-74.461C404.513,290.763,405.371,283.45,401.606,278.219z"></path> <g> <path style="fill:#FEE187;" d="M274.856,315.326c5.33-0.581,9.495-4.86,9.847-10.235c0.191-2.934-0.772-5.766-2.712-7.975 c-1.939-2.21-4.624-3.532-7.558-3.724l-15.948-1.04v24.673L274.856,315.326z"></path> <path style="fill:#FEE187;" d="M401.606,278.219c-3.303-4.591-9.307-6.397-14.601-4.41c-0.076,0.029-0.152,0.055-0.228,0.081 l-89.619,29.836c0.019,0.721,0.005,1.445-0.043,2.174c-0.748,11.445-9.599,20.639-20.971,21.792l-17.653,1.834v50.641 c11.812-0.072,23.323-3.765,33.073-10.721l108.118-74.459C404.513,290.763,405.371,283.45,401.606,278.219z"></path> </g> <polygon style="fill:#FFC61B;" points="256,113.778 277.278,148.094 316.49,157.727 290.43,188.568 293.385,228.838 256,213.583 218.615,228.838 221.57,188.568 195.51,157.727 234.722,148.094 "></polygon> <polygon style="fill:#EAA22F;" points="256,113.778 277.278,148.094 316.49,157.727 290.43,188.568 293.385,228.838 256,213.583 "></polygon> <rect x="88.927" y="330.54" transform="matrix(0.8256 -0.5643 0.5643 0.8256 -189.2337 125.6507)" style="fill:#D35933;" width="39.418" height="76.78"></rect> <polygon style="fill:#B54324;" points="146.568,389.529 124.947,357.897 92.307,379.997 114.026,411.772 "></polygon> </g></svg>
+                   </div>
+               </div>
+                <div class="text-center font-bold text-4xl sm:text-6xl">What our clients say</div>
+                <div class="text-center text-dark-7 text-sm">Our clients praise us for our great results, personable service and expert knowledge. Here are what just a few of them had to say</div>
             </div>
-            <div class="flex flex-col text-sm p-4 gap-4 bg-blue-50 dark:bg-dark-5 rounded-lg">
-                <svg fill="#2d5be6" width="50" class="bg-gray-200 rounded-full p-2" viewBox="-3 0 32 32" version="1.1"
-                     xmlns="http://www.w3.org/2000/svg"
-                     stroke="#2d5be6">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier"><title>group</title>
-                        <path
-                            d="M20.906 20.75c1.313 0.719 2.063 2 1.969 3.281-0.063 0.781-0.094 0.813-1.094 0.938-0.625 0.094-4.563 0.125-8.625 0.125-4.594 0-9.406-0.094-9.75-0.188-1.375-0.344-0.625-2.844 1.188-4.031 1.406-0.906 4.281-2.281 5.063-2.438 1.063-0.219 1.188-0.875 0-3-0.281-0.469-0.594-1.906-0.625-3.406-0.031-2.438 0.438-4.094 2.563-4.906 0.438-0.156 0.875-0.219 1.281-0.219 1.406 0 2.719 0.781 3.25 1.938 0.781 1.531 0.469 5.625-0.344 7.094-0.938 1.656-0.844 2.188 0.188 2.469 0.688 0.188 2.813 1.188 4.938 2.344zM3.906 19.813c-0.5 0.344-0.969 0.781-1.344 1.219-1.188 0-2.094-0.031-2.188-0.063-0.781-0.188-0.344-1.625 0.688-2.25 0.781-0.5 2.375-1.281 2.813-1.375 0.563-0.125 0.688-0.469 0-1.656-0.156-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.25-2.313 1.438-2.719 1-0.375 2.125 0.094 2.531 0.938 0.406 0.875 0.188 3.125-0.25 3.938-0.5 0.969-0.406 1.219 0.156 1.375 0.125 0.031 0.375 0.156 0.719 0.313-1.375 0.563-3.25 1.594-4.219 2.188zM24.469 18.625c0.75 0.406 1.156 1.094 1.094 1.813-0.031 0.438-0.031 0.469-0.594 0.531-0.156 0.031-0.875 0.063-1.813 0.063-0.406-0.531-0.969-1.031-1.656-1.375-1.281-0.75-2.844-1.563-4-2.063 0.313-0.125 0.594-0.219 0.719-0.25 0.594-0.125 0.688-0.469 0-1.656-0.125-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.219-2.313 1.406-2.719 1.031-0.375 2.156 0.094 2.531 0.938 0.406 0.875 0.25 3.125-0.188 3.938-0.5 0.969-0.438 1.219 0.094 1.375 0.375 0.125 1.563 0.688 2.75 1.313z"></path>
-                    </g>
-                </svg>
-                <p class="text-md font-bold">User demo</p>
-                <p>User: userdemo</p>
-                <p>password:123456789</p>
-            </div>
-            <div class="flex flex-col text-sm p-4 gap-4 bg-blue-600 rounded-lg">
-                <div class="text-xl">Over 20 modules to support your marketing campaign</div>
-                <div class="flex flex-col sm:flex-row gap-5">
-                    <button class="rounded-lg px-4 py-2 bg-green-500 text-white w-max">Regular Licence Demo</button>
-                    <button class="rounded-lg px-4 py-2 bg-green-500 text-white w-max">Buy Now</button>
+            <div class="grid grid-cols-1 md:grid-cols-2 my-10 gap-10 lg:grid-cols-3">
+                @foreach($testimonials as $index => $data)
+
+                <div class="flex flex-col gap-2 p-5 bg-gray-100 rounded-xl dark:bg-dark-4">
+                    <p class="leading-relaxed text-sm dark:text-dark-8">{{$data->testimonial}}</p>
+                    <div class="flex gap-3 mt-5">
+                        <img class="w-10 h-10 object-cover" src="https://pagedone.io/asset/uploads/1710225753.png" alt="John smith image"/>
+                        <div>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-lg dark:text-dark-9">{{$data->vname}}</h2>
+                            <p class="text-gray-500 text-sm dark:text-dark-8">{{$data->company}}</p>
+                        </div>
+                    </div>
+
                 </div>
+                @endforeach
             </div>
+
         </div>
 
     </div>

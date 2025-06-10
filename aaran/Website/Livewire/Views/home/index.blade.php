@@ -7,7 +7,7 @@
     <x-Ui::web.home.launch/>
 
     <x-Ui::web.home.features/>
-    <x-Ui::web.home.marquee/>
+{{--    <x-Ui::web.home.marquee/>--}}
     <x-Ui::web.common.footer-address/>
     <x-Ui::web.common.copyright/>
 </div>
