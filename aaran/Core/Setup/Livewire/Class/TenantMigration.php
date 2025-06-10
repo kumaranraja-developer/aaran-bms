@@ -134,7 +134,7 @@ class TenantMigration extends Component
         $id = Subscription::where('tenant_id', $this->tenant->id)->first()?->id;
 
         if ($this->v_days) {
-            $this->to_date = now() + $this->v_days;
+            $this->to_date = now()->addDays($this->v_days);
         }
 
         Subscription::updateOrCreate(
