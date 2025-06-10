@@ -56,4 +56,23 @@ enum Status : int
         };
     }
 
+    public function getTextStyle(): string
+    {
+        return match ($this) {
+            self::NEW => 'text-blue-600',
+            self::PENDING => 'text-gray-600',
+            self::ONPROGRESS => 'text-blue-300',
+            self::NOTSTARTED => 'text-gray-500',
+            self::ARCHIVED => 'text-slate-300',
+            self::FINISHED => 'text-green-500',
+            self::CLOSED => 'text-green-400',
+            self::IMPORTANT => 'text-yellow-500',
+            self::PRIORITY => 'text-yellow-600',
+            self::TOPMOST => 'text-red-300',
+            self::NOTACTIVE => 'text-red-700',
+            self::RECEIVED => 'text-green-600',
+            self::ADMINCLOSED => 'text-purple-100',
+        };
+    }
+
 }

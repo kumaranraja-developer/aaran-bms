@@ -39,4 +39,17 @@ enum Priority: int
         };
     }
 
+    public function getTextStyle(): string
+    {
+        return match ($this) {
+            self::IMPORTANT => 'text-orange-500',
+            self::PRIORITY => 'text-red-600',
+            self::TOPMOST => 'text-purple-600',
+            self::LOW => 'text-gray-300',
+            self::MEDIUM => 'text-yellow-300',
+            self::HIGH => 'text-red-400',
+            self::MODERATE => 'text-blue-300',
+        };
+    }
+
 }
