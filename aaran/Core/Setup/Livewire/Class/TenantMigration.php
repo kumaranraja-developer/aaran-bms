@@ -141,8 +141,8 @@ class TenantMigration extends Component
             ['id' => $id],
             [
                 'tenant_id' => $this->tenant->id,
-                'user_id' => auth()->id(),
-                'plan_id' => $this->plan_id,
+                'user_id' => auth()->id() ?: '1',
+                'plan_id' => $this->plan_id ?: '1',
                 'status' => 'active',
                 'started_at' => Carbon::parse($this->from_date)->format('Y-m-d'),
                 'expires_at' => Carbon::parse($this->to_date)->format('Y-m-d'),
@@ -168,7 +168,8 @@ class TenantMigration extends Component
         }
     }
 
-    private function setMigrationStatus(){
+    private function setMigrationStatus()
+    {
         $tenant = $this->tenant;
         $tenant->migration_status = 'completed - 1.0.0';
         $tenant->save();
