@@ -3,6 +3,8 @@
 namespace Aaran\UI\Providers;
 
 use Aaran\UI\Livewire\Class\Index;
+use Aaran\UI\Livewire\Class\MarkdownEditor;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -18,13 +20,18 @@ class UIServiceProvider extends ServiceProvider
     {
         $this->registerViews();
 
-        // Livewire::component('ui::tenant-setup', TenantSetupWizard::class);
+         Livewire::component('Ui::markdown-editor', MarkdownEditor::class);
 
-         Livewire::component('ui::tenant-setup', Index::class);
+
+         Livewire::component('Ui::tenant-setup', Index::class);
 
          View::addNamespace('Ui',base_path('aaran/UI/Resources/components'));
 
         View::addNamespace('Ui', base_path('aaran/UI/Livewire/Views'));
+
+        Blade::directive('markdown', function ($expression) {
+            return "<?php echo \Illuminate\Support\Str::markdown($expression); ?>";
+        });
 
     }
 

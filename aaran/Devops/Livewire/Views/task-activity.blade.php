@@ -169,9 +169,16 @@
                              alt="John smith image"/>
 
 
-                        <textarea name="" rows="5" wire:model="vname"
-                                  class="w-full px-5 py-3 rounded-2xl border border-gray-300 shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] resize-none focus:outline-none placeholder-gray-400 text-gray-900 text-lg font-normal leading-7"
-                                  placeholder="Write a your thoughts here...."></textarea>
+
+                        <x-Ui::markdown.trix wire:model="vname" :placeholder="'write something'"/>
+
+{{--                        <x-Ui::markdown.mark--}}
+{{--                            name="content"--}}
+{{--                            value="{{ old('content', $vname ?? '') }}"--}}
+{{--                            preview="true"--}}
+{{--                            uploadUrl="{{ route('dashboard') }}"--}}
+{{--                            class="mb-4 h-36"--}}
+{{--                        />--}}
 
 
                     </div>
@@ -209,7 +216,7 @@
 
     <!--Create Record ------------------------------------------------------------------------------------------------->
 
-    <x-Ui::forms.create :id="$vid" :max-width="'6xl'">
+    <x-Ui::forms.create :id="$vid" :max-width="'7xl'">
 
         <!--Left Side ------------------------------------------------------------------------------------------------->
         <div class="flex flex-col sm:flex-row gap-y-3 space-x-5 w-full">
@@ -224,8 +231,11 @@
                     @enderror
                 </div>
 
-                <div>
-                    <x-Ui::input.rich-text wire:model="body" :placeholder="'Content'"/>
+                <div class=" w-2xl">
+{{--                    <x-Ui::input.rich-text wire:model="body" :placeholder="'Content'"/>--}}
+
+                    <x-Ui::markdown.trix wire:model="body" :placeholder="'Content'"/>
+
                     @error('body')
                     <div class="text-xs text-red-500 mt-2">
                         {{$message}}
