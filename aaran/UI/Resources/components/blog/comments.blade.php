@@ -30,10 +30,22 @@
                                     class="text-gray-800 text-sm font-normal mt-3 leading-snug"> {!! $row->vname !!}</div>
                             </div>
 
+
+                            @foreach($row->taskReply as $col)
+                            <div>
+
+                                {{$col->vname}}
+                            </div>
+                            @endforeach
+
+
+
                             <div class="flex w-full flex-row justify-between">
 
                                 <div class="justify-start items-start gap-5 inline-flex">
-                                    <a href="" class="w-5 h-5 flex items-center justify-center group">
+
+
+                                    <button  wire:click="showReplyComments({{$row->id}})"  class="w-5 h-5 flex items-center justify-center group">
                                         <svg
                                             class="text-indigo-300 hover:text-indigo-800 transition-all duration-700 ease-in-out"
                                             xmlns="http://www.w3.org/2000/svg" width="18" height="18"
@@ -43,7 +55,11 @@
                                                 d="M8.57084 0.140905C8.77176 -0.0157322 9.04438 -0.0441704 9.2733 0.067628C9.50221 0.179426 9.6474 0.411912 9.6474 0.666672V4.007C11.5347 4.11302 13.0359 4.67225 14.2134 5.55105C15.5204 6.52639 16.3797 7.85847 16.9418 9.28015C18.0571 12.1006 18.0478 15.3937 17.9706 17.3595C17.9563 17.7223 17.6544 18.007 17.2913 17.9999C16.9283 17.9927 16.6378 17.6964 16.6378 17.3333C16.6378 17.2088 16.599 16.9855 16.4876 16.6619C16.3796 16.3485 16.2165 15.978 16.0015 15.572C15.5714 14.7597 14.9518 13.8391 14.207 12.9928C13.4603 12.1445 12.6071 11.3927 11.716 10.8938C11.0208 10.5045 10.3252 10.2811 9.6474 10.2644V13.6296C9.6474 13.8844 9.50221 14.1169 9.2733 14.2287C9.04438 14.3405 8.77176 14.312 8.57084 14.1554L0.257105 7.67392C0.095068 7.5476 0.000331879 7.35361 0.000331879 7.14815C0.000331879 6.94269 0.095068 6.74871 0.257105 6.62239L8.57084 0.140905Z"
                                                 fill="currentColor"/>
                                         </svg>
-                                    </a>
+                                    </button>
+
+
+
+
                                     <x-Ui::button.edit wire:click="editActivity({{$row->id}})"
                                                        class="text-indigo-300 hover:text-green-500 cursor-pointer"/>
                                     <x-Ui::button.delete wire:click="confirmDelete({{$row->id}})"

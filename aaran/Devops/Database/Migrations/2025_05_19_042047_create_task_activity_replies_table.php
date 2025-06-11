@@ -8,10 +8,11 @@ return new class extends Migration {
 
     public function up(): void
     {
-            Schema::create('replies', function (Blueprint $table) {
+            Schema::create('task_activity_replies', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('task_id')->references('id')->on('tasks');
-                $table->longText('vname');
+                $table->tinyInteger('flag')->nullable();
+                $table->foreignId('task_activity_id')->references('id')->on('task_activities');
+                $table->longText('content')->nullable();
                 $table->foreignId('user_id')->nullable();
                 $table->tinyInteger('active_id')->nullable();
                 $table->timestamps();
@@ -20,6 +21,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('replies');
+        Schema::dropIfExists('task_activity_replies');
     }
 };

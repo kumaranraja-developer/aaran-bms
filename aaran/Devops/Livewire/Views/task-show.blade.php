@@ -154,13 +154,15 @@
             </div>
 
 
-            <!-- Activity ----------------------------------------------------------------------------------------->
+            <!-- TaskActivity ----------------------------------------------------------------------------------------->
 
             <x-Ui::blog.comments :list="$activities"/>
 
+            <x-Ui::blog.reply :show-popup="$showPopup" />
+
             <x-Ui::modal.confirm-delete/>
 
-            <!-- Create Activity -------------------------------------------------------------------------------------->
+            <!-- Create TaskActivity -------------------------------------------------------------------------------------->
 
             <section>
                 <div class="max-w-7xl mx-auto flex-col justify-start items-start gap-5 flex">

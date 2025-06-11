@@ -197,7 +197,7 @@
     </x-Ui::forms.m-panel>
     {{--    <div class="px-10  py-16 space-y-4">--}}
     {{--        @if(!$log->isEmpty())--}}
-    {{--            <div class="text-xs text-orange-600  font-merri underline underline-offset-4">Activity</div>--}}
+    {{--            <div class="text-xs text-orange-600  font-merri underline underline-offset-4">TaskActivity</div>--}}
     {{--        @endif--}}
     {{--        @foreach($log as $row)--}}
     {{--            <div class="px-6">--}}

@@ -5,23 +5,22 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+
     public function up(): void
     {
-            Schema::create('activities', function (Blueprint $table) {
+            Schema::create('task_activities', function (Blueprint $table) {
                 $table->id();
+                $table->tinyInteger('flag')->nullable();
                 $table->foreignId('task_id')->references('id')->on('tasks');
-                $table->text('vname');
-                $table->string('start_on')->nullable();
-                $table->string('end_on')->nullable();
-                $table->foreignId('status_id')->nullable();
-                $table->tinyInteger('active_id')->nullable();
+                $table->longText('content')->nullable();
                 $table->foreignId('user_id')->nullable();
+                $table->tinyInteger('active_id')->nullable();
                 $table->timestamps();
             });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('activities');
+        Schema::dropIfExists('task_activities');
     }
 };

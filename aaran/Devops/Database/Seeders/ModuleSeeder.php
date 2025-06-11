@@ -10,13 +10,13 @@ class ModuleSeeder extends Seeder
 
     public function run(): void
     {
-        $cities = [
-            '-', 'Master','Sales','Purchase','Receipt',
+        $modules = [
+            '-', 'Feature Ideas','Concept','Bug','Issue',
         ];
 
-        foreach ($cities as $city) {
+        foreach ($modules as $row) {
             Module::create([
-                'vname' => $city,
+                'vname' => $row,
                 'description' => '-',
                 'active_id' => '1'
             ]);

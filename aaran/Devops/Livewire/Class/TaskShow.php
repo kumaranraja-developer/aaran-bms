@@ -3,25 +3,22 @@
 namespace Aaran\Devops\Livewire\Class;
 
 use Aaran\Assets\Enums\Active;
-use Aaran\Assets\Enums\Priority;
 use Aaran\Assets\Enums\Status;
 use Aaran\Assets\Services\ImageService;
 use Aaran\Assets\Traits\ComponentStateTrait;
 use Aaran\Assets\Traits\TenantAwareTrait;
 use Aaran\Core\User\Models\User;
 use Aaran\Devops\Models\Activities;
+use Aaran\Devops\Models\TaskActivityReply;
 use Aaran\Devops\Models\Task;
 use Aaran\Devops\Models\TaskImage;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\On;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class TaskActivity extends Component
+class TaskShow extends Component
 {
 
     use ComponentStateTrait, TenantAwareTrait, WithFileUploads;
@@ -60,6 +57,37 @@ class TaskActivity extends Component
     public array $task_images = [];
 
     public bool $isUploaded = false;
+
+    public $showPopup = false;
+    public $comment_id = '';
+    public $reply = '';
+
+    public function showReplyComments($id)
+    {
+        $this->comment_id = $id;
+        $this->showPopup = true;
+
+    }
+
+    public function saveReply()
+    {
+        if (trim($this->reply)) {
+
+            $connection = $this->getTenantConnection();
+
+            TaskActivityReply::on($connection)->updateOrCreate(
+                ['id' => $this->vid],
+                [
+                    'comment_id' => $this->comment_id ?: '1',
+                    'vname' => $this->reply ?: '1',
+                    'user_id' => auth()->id() ?: '1',
+                    'active_id' => '1',
+                ],
+            );
+            $this->showPopup = false;
+            $this->dispatch('notify', ...['type' => 'success', 'body' => ($this->vid ? 'Updated' : 'Saved') . ' Successfully']);
+        }
+    }
 
 
     public function mount($id): void
@@ -210,7 +238,9 @@ class TaskActivity extends Component
         Task::on($connection)->where('id', $this->task->id)->update([
             'status_id' => $this->status_id ?: '1',
         ]);
+
         $this->activities = $this->getActivities($obj->task_id);
+
         $this->clearActivity();
 
         $this->dispatch('notify', ...['type' => 'success', 'body' => ('Actives updated Successfully')]);
@@ -238,7 +268,7 @@ class TaskActivity extends Component
     {
         $this->activities = $this->getActivities();
 
-        return view('devops::task-activity');
+        return view('devops::task-show');
     }
 
 }
