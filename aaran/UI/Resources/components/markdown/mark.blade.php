@@ -13,7 +13,7 @@
      $attributes->merge combines any additional attributes passed to the component from its parent. --}}
 <div x-data="markdownEditor(@js($value), @js($preview), @js($uploadUrl))"
      x-init="init()"
-     class="relative border border-gray-300 rounded-md shadow-sm w-full mx-auto my-4 max-w-3xl bg-white"
+     class="relative border border-gray-300 rounded-md shadow-sm w-full mx-auto my-4 text-black max-w-3xl bg-white"
      x-on:click.outside="showSlashCommands = false"
     {{ $attributes->merge(['id' => $name . '-wrapper']) }}>
 

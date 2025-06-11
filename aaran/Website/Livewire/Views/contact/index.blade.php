@@ -11,14 +11,14 @@
 
     <div class="bg-white dark:bg-dark dark:text-dark-9">
 
-        <section class="relative z-10 overflow-hidden px-15 py-20 lg:py-[120px] dark:bg-dark">
+        <section class="relative z-10 overflow-hidden px-3 sm:px-15 py-20 lg:py-[120px] dark:bg-dark">
             <div class="container mx-auto">
                 <div class="-mx-4 flex flex-wrap lg:justify-between">
-                    <div class="w-full px-4 lg:w-1/2 xl:w-6/12">
+                    <div class="w-full px-8 sm:px-4 lg:w-1/2 xl:w-6/12">
                         <div class="mb-12 max-w-[570px] lg:mb-0">
-            <span class="mb-4 block text-base font-semibold text-primary">
-              Contact Us
-            </span>
+                        <span class="mb-4 block text-base font-semibold text-primary">
+                          Contact Us
+                        </span>
                             <h2
                                 class="mb-6 text-[32px] font-bold uppercase text-dark sm:text-[40px] lg:text-[36px] xl:text-[40px] dark:text-white">
                                 GET IN TOUCH WITH US
@@ -32,7 +32,6 @@
                                 you.
 
                             </p>
-
 
                             <p class="mb-9 text-base indent-5 leading-relaxed text-body-color dark:text-dark-8">
                                 Please feel free to reach out to us through the contact form, email, or phone. We look
@@ -148,7 +147,7 @@
                                     </button>
                                 </div>
                             </form>
-                            <div>
+                            <div class="hidden sm:block">
               <span class="absolute -right-9 -top-10 z-[-1]">
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -336,29 +335,31 @@
             </div>
         </section>
 
+        <h2 class="text-2xl sm:text-3xl font-semibold text-center text-gray-800 dark:text-dark-9">
+            Find Us on the Map
+        </h2>
+
         <section
-            class=" sm:w-9/12 w-auto mx-auto border border-neutral-200 shadow-md shadow-gray-300 mb-24 sm:h-[35rem] h-auto animate__animated wow bounceInUp"
-            data-wow-duration="3s">
-            <section class="">
-                <div class="container mx-auto p-2">
+            class="sm:w-8/12 w-full mx-auto border mt-8 border-neutral-200 shadow-md shadow-gray-300 mb-12 animate__animated wow bounceInUp"
+            data-wow-duration="2s">
 
-                    <!-- Responsive Google Map -->
-                    <div class="relative h-[35rem] overflow-hidden mb-6" style="padding-bottom: 56.25%;">
-
-                        <iframe
-                            class="absolute top-0 left-0 w-full h-[34rem]"
-                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2748.015641009316!2d80.09336597438879!3d13.081369999166006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1747328712316!5m2!1sen!2sin"
-                            frameborder="0"
-                            style="border:0;"
-                            allowfullscreen=""
-                            aria-hidden="false"
-                            tabindex="0"
-                        ></iframe>
-                    </div>
-                    <!-- Additional contact details or a contact form can be added here -->
+            <div class="container mx-auto px-2 py-4">
+                <!-- Smaller Responsive Google Map -->
+                <div class="relative w-full overflow-hidden mb-4" style="padding-bottom: 40%;">
+                    <iframe
+                        class="absolute top-0 left-0 w-full h-full"
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2748.015641009316!2d80.09336597438879!3d13.081369999166006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1747328712316!5m2!1sen!2sin"
+                        frameborder="0"
+                        style="border:0;"
+                        allowfullscreen=""
+                        aria-hidden="false"
+                        tabindex="0"
+                    ></iframe>
                 </div>
-            </section>
+                <!-- You can add a contact form or info here -->
+            </div>
         </section>
+
 
     </div>
     @if(!empty($showDialog))

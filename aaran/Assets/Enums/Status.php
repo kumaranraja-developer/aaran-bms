@@ -52,7 +52,7 @@ enum Status : int
             self::TOPMOST => 'text-red-700 bg-red-300',
             self::NOTACTIVE => 'text-zinc-200 bg-red-700',
             self::RECEIVED => 'text-white bg-green-600',
-            self::ADMINCLOSED => 'text-blue-100 bg-purple-100',
+            self::ADMINCLOSED => 'text-black bg-purple-100',
         };
     }
 
