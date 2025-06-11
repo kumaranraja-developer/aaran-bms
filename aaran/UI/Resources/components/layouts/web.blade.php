@@ -23,7 +23,7 @@
 <div class="w-full">
 
 {{--    <x-Ui::menu.web.top-menu/>--}}
-    <x-Ui::menu.web.top-menu2/>
+    <x-Ui::menu.web.top-menu/>
 
     <!-- Page Content -->
     <main class="w-full dark:bg-dark">

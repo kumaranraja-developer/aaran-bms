@@ -1,14 +1,14 @@
 <div>
 
     <div class="mx-[10%] py-20">
-        {{--        Main Script--}}
+        {{--    Top Content    --}}
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div class="flex flex-col gap-6 justify-center">
-                <div class="text-6xl font-bold text-blue-600">SOFTWARE TO UNLOCK BUSINESS GROWTH</div>
+                <div class="text-6xl font-bold text-[#c5d3f7]">SOFTWARE TO UNLOCK BUSINESS GROWTH</div>
                 <div class="text-sm text-dark-7">Transform Chaos into Control – The Complete Business OS</div>
                 <div class="flex flex-col sm:flex-row gap-5">
                     <button class="rounded-full px-4 py-2 bg-blue-600 text-white w-max">Regular Licence Demo</button>
-                    <button class="rounded-full px-4 py-2 bg-black text-white dark:bg-white dark:text-black w-max">Buy
+                    <button class="rounded-full px-4 py-2 bg-black text-white dark:bg-[#c5d3f7] dark:text-black w-max">Buy
                         Now
                     </button>
                 </div>
@@ -28,22 +28,6 @@
                         <p>password:123456789</p>
                     </div>
                 </div>
-                {{--                <div class="flex p-4 gap-4 border border-gray-500 rounded-lg  w-[80%]">--}}
-                {{--                    <svg fill="#2d5be6" width="50" viewBox="-3 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"--}}
-                {{--                         stroke="#2d5be6">--}}
-                {{--                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>--}}
-                {{--                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>--}}
-                {{--                        <g id="SVGRepo_iconCarrier"><title>group</title>--}}
-                {{--                            <path--}}
-                {{--                                d="M20.906 20.75c1.313 0.719 2.063 2 1.969 3.281-0.063 0.781-0.094 0.813-1.094 0.938-0.625 0.094-4.563 0.125-8.625 0.125-4.594 0-9.406-0.094-9.75-0.188-1.375-0.344-0.625-2.844 1.188-4.031 1.406-0.906 4.281-2.281 5.063-2.438 1.063-0.219 1.188-0.875 0-3-0.281-0.469-0.594-1.906-0.625-3.406-0.031-2.438 0.438-4.094 2.563-4.906 0.438-0.156 0.875-0.219 1.281-0.219 1.406 0 2.719 0.781 3.25 1.938 0.781 1.531 0.469 5.625-0.344 7.094-0.938 1.656-0.844 2.188 0.188 2.469 0.688 0.188 2.813 1.188 4.938 2.344zM3.906 19.813c-0.5 0.344-0.969 0.781-1.344 1.219-1.188 0-2.094-0.031-2.188-0.063-0.781-0.188-0.344-1.625 0.688-2.25 0.781-0.5 2.375-1.281 2.813-1.375 0.563-0.125 0.688-0.469 0-1.656-0.156-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.25-2.313 1.438-2.719 1-0.375 2.125 0.094 2.531 0.938 0.406 0.875 0.188 3.125-0.25 3.938-0.5 0.969-0.406 1.219 0.156 1.375 0.125 0.031 0.375 0.156 0.719 0.313-1.375 0.563-3.25 1.594-4.219 2.188zM24.469 18.625c0.75 0.406 1.156 1.094 1.094 1.813-0.031 0.438-0.031 0.469-0.594 0.531-0.156 0.031-0.875 0.063-1.813 0.063-0.406-0.531-0.969-1.031-1.656-1.375-1.281-0.75-2.844-1.563-4-2.063 0.313-0.125 0.594-0.219 0.719-0.25 0.594-0.125 0.688-0.469 0-1.656-0.125-0.25-0.344-1.063-0.344-1.906-0.031-1.375 0.219-2.313 1.406-2.719 1.031-0.375 2.156 0.094 2.531 0.938 0.406 0.875 0.25 3.125-0.188 3.938-0.5 0.969-0.438 1.219 0.094 1.375 0.375 0.125 1.563 0.688 2.75 1.313z"></path>--}}
-                {{--                        </g>--}}
-                {{--                    </svg>--}}
-                {{--                    <div class="flex flex-col text-sm">--}}
-                {{--                        <p>Admin demo</p>--}}
-                {{--                        <p>User: admindemo</p>--}}
-                {{--                        <p>password:123456789</p>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
             </div>
             <div class="block my-auto">
                 <div class="grid grid-cols-2  gap-10">
@@ -78,7 +62,7 @@
 
             </div>
         </div>
-        {{--        Explore Regular License--}}
+        {{--        All-in-One Business Command Center --}}
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 gap-y-10 mt-30">
             <div>
                 <div class="text-4xl font-bold">All-in-One Business Command Center</div>
@@ -87,7 +71,7 @@
                 </div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+                <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                     <svg width="60" height="60" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" fill="" stroke="">
 
@@ -110,34 +94,22 @@
                         </g>
 
                     </svg>
-                    <div class="text-xl font-bold">Inventory Management</div>
+                    <div class="text-xl font-bold ">Inventory Management</div>
                     <div class="text-sm text-dark-7">Track stock levels, monitor item movements, and generate real-time
                         reports to optimize your inventory efficiently
                     </div>
                 </div>
-                <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+                <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                     <div>
-                        <svg baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" width="60" viewBox="0 0 28 28">
-                            <circle fill="none" stroke="#1a34ff" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-miterlimit="10" cx="2.5" cy="3.5" r="2"></circle>
-                            <circle fill="none" stroke="#1a34ff" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-miterlimit="10" cx="21.5" cy="3.5" r="2"></circle>
-                            <circle fill="none" stroke="#1a34ff" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-miterlimit="10" cx="11.5" cy="21.5" r="2"></circle>
-                            <g fill="none" stroke="#1a34ff" stroke-linecap="round" stroke-linejoin="round"
-                               stroke-miterlimit="10">
-                                <path d="M15.5 3.5h-8M13.2 5.7l2.3-2.2v-.1l-2.3-2.2"></path>
-                            </g>
-                            <g fill="none" stroke="#1a34ff" stroke-linecap="round" stroke-linejoin="round"
-                               stroke-miterlimit="10">
-                                <path d="M15.8 15.6l3.8-7.2M14.9 12.5l.9 3.1 3.1-.9"></path>
-                            </g>
-                            <g fill="none" stroke="#1a34ff" stroke-linecap="round" stroke-linejoin="round"
-                               stroke-miterlimit="10">
-                                <path d="M4.9 9.2l4 7M8 10l-3.1-.8-.9 3.1"></path>
-                                  
-                            </g>
-                        </svg>
+                        <svg fill="#1a34ff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" width="60" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 612.001 612.001" xml:space="preserve">
+
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+                            <g id="SVGRepo_iconCarrier"> <g> <path d="M599.724,169.892L318.584,55.057c-9.642-3.938-20.449-3.908-30.068,0.085L12.173,169.853 C4.803,172.913,0,180.107,0,188.087v41.11c0,10.904,8.839,19.742,19.742,19.742h14.807c2.726,0,4.936,2.209,4.936,4.936v261.582 c0,24.532,19.887,44.42,44.42,44.42h12.901V322.535h418.39v237.341h12.901c24.532,0,44.42-19.887,44.42-44.42V253.875 c0-2.726,2.21-4.936,4.936-4.936h14.807c10.904,0,19.742-8.839,19.742-19.742v-41.029C612,180.148,607.147,172.925,599.724,169.892 z M197.42,248.939h-98.71v-44.42h98.709L197.42,248.939L197.42,248.939z M355.354,248.939h-98.709v-44.42h98.709V248.939z M513.291,248.939H414.58v-44.42h98.71L513.291,248.939L513.291,248.939z M223.099,461.201h-28.093v38.756h-13.124v-38.756h-28.266 c-10.216,0-18.497,8.281-18.497,18.497v61.68c0,10.216,8.282,18.496,18.497,18.496h69.482c10.216,0,18.497-8.28,18.497-18.496 v-61.68C241.596,469.482,233.314,461.201,223.099,461.201z M340.777,461.201h-28.093v38.756h-13.124v-38.756h-28.265 c-10.216,0-18.497,8.281-18.497,18.497v61.68c0,10.216,8.282,18.496,18.497,18.496h69.481c10.216,0,18.497-8.28,18.497-18.496 v-61.68C359.275,469.482,350.993,461.201,340.777,461.201z M460.642,461.201h-28.093v38.756h-13.124v-38.756H391.16 c-10.216,0-18.497,8.281-18.497,18.497v61.68c0,10.216,8.281,18.496,18.497,18.496h69.481c10.216,0,18.497-8.28,18.497-18.496 v-61.68C479.14,469.482,470.857,461.201,460.642,461.201z M282.182,349.896h-28.093v38.757h-13.124v-38.757H212.7 c-10.216,0-18.497,8.282-18.497,18.497v61.68c0,10.216,8.282,18.497,18.497,18.497h69.482c10.216,0,18.497-8.281,18.497-18.497 v-61.68C300.68,358.178,292.397,349.896,282.182,349.896z M402.732,349.896h-28.094v38.757h-13.123v-38.757H333.25 c-10.216,0-18.497,8.282-18.497,18.497v61.68c0,10.216,8.282,18.497,18.497,18.497h69.482c10.216,0,18.496-8.281,18.496-18.497 v-61.68C421.229,358.178,412.948,349.896,402.732,349.896z"/> </g> </g>
+
+</svg>
                     </div>
                     <div class="text-xl font-bold">Godown Management</div>
                     <div class="text-sm text-dark-7">Manage multiple godowns seamlessly—assign items, track inter-godown
@@ -147,7 +119,7 @@
             </div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-5 gap-5">
-            <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+            <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                 <svg viewBox="0 0 1024 1024" width="60" fill="#1a34ff" class="icon" version="1.1"
                      xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -268,7 +240,7 @@
                     interface for Android
                 </div>
             </div>
-            <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+            <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                 <svg fill="#1a34ff" width="60" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#1a34ff">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -282,7 +254,7 @@
                     critical system activities
                 </div>
             </div>
-            <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+            <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                 <svg viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg" width="60"
                      xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -345,7 +317,7 @@
                     cohesive and professional look
                 </div>
             </div>
-            <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+            <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                 <svg viewBox="0 -1.06 70.000009 70.000009" width="60"
                      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg"
                      xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -376,7 +348,7 @@
                     manual input requirements.
                 </div>
             </div>
-            <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+            <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                 <svg viewBox="0 0 1024 1024" width="60" fill="#1a34ff" class="icon" version="1.1"
                      xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -431,7 +403,7 @@
                     system usage for better insights
                 </div>
             </div>
-            <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+            <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                 <svg fill="#1a34ff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 47.168 47.168"
                      xml:space="preserve">
@@ -465,7 +437,7 @@
                     metrics, shortcuts, and visual analytics
                 </div>
             </div>
-            <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+            <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                 <svg fill="#1a34ff" width="60px" height="60px" viewBox="0 0 64 64" data-name="Layer 1" id="Layer_1"
                      xmlns="http://www.w3.org/2000/svg">
 
@@ -502,7 +474,7 @@
                     data and unified controls.
                 </div>
             </div>
-            <div class="p-6 rounded-2xl bg-blue-50 dark:bg-dark-5 flex flex-col gap-5">
+            <div class="p-6 rounded-2xl bg-blue-50 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 dark:bg-dark-5 flex flex-col gap-5">
                 <svg viewBox="0 0 1024 1024" width="60" class="icon" version="1.1"
                      xmlns="http://www.w3.org/2000/svg" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -524,7 +496,7 @@
         </div>
         {{--     Elite License Bonus  --}}
 
-        <div class="my-20 p-10 bg-blue-50 rounded-4xl  dark:bg-dark-5">
+        <div class="my-20 p-10 bg-blue-50 rounded-4xl  dark:bg-dark-3">
             <h1 class="text-4xl font-bold text-center">Elite License Bonus</h1>
             <p class="text-sm text-center mt-3">Turn Your Billing Vision into Reality - Custom Solutions for Your Unique
                 Business Needs</p>
@@ -8791,7 +8763,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 my-10 gap-10 lg:grid-cols-3">
                 @foreach($testimonials as $index => $data)
 
-                    <div class="flex flex-col justify-between flex-grow gap-2 p-5 bg-gray-100 rounded-xl dark:bg-dark-4">
+                    <div class="flex flex-col justify-between flex-grow gap-2 shadow-md shadow-gray-500 transform hover:-translate-y-2 duration-300 p-5 bg-gray-100 rounded-xl dark:bg-dark-4">
                         <p class="leading-relaxed text-sm dark:text-dark-8">{{$data->testimonial}}</p>
                         <div class="flex gap-3 mt-5">
                             <img class="w-10 h-10 object-cover" src="https://pagedone.io/asset/uploads/1710225753.png"

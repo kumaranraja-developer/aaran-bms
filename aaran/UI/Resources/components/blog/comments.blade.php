@@ -3,7 +3,7 @@
 <section class="py-24 relative">
     <div class="max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
         <div class="w-full flex-col justify-start items-start lg:gap-14 gap-7 inline-flex">
-            <h2 class="w-full text-gray-900 text-4xl font-bold flex gap-2 items-center font-manrope leading-normal">
+            <h2 class="w-full text-gray-900 dark:text-dark-9 text-4xl font-bold flex gap-2 items-center font-manrope leading-normal">
                 Comments
                 <span class="inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white
                bg-blue-400 border-2 border-white rounded-full mt-2 dark:border-gray-900"> {{$list->count()}}</span>
@@ -17,7 +17,7 @@
                         <div class="w-full flex-col justify-start items-start gap-3.5 inline-flex">
                             <div class="w-full justify-start items-start flex-col flex gap-1">
                                 <div class="w-full justify-between items-start gap-2 inline-flex">
-                                    <h5 class="text-gray-900 text-sm font-semibold leading-snug"> {{\Aaran\Core\User\Models\User::getName($row->user_id)}}</h5>
+                                    <h5 class="text-gray-900 text-md font-semibold leading-snug dark:text-dark-8"> {{\Aaran\Core\User\Models\User::getName($row->user_id)}}</h5>
                                     <span
                                         class="text-right text-gray-500 text-xs font-normal leading-5">
                                         {{ \Carbon\Carbon::parse($row->created_at)->diffForHumans() }}
@@ -27,7 +27,7 @@
                                     </span>
                                 </div>
                                 <div
-                                    class="text-gray-800 text-sm font-normal mt-3 leading-snug"> {!! $row->vname !!}</div>
+                                    class="text-gray-800 dark:text-dark-8 text-sm font-normal mt-3 leading-snug"> {!! $row->vname !!}</div>
                             </div>
 
                             <div class="flex w-full flex-row justify-between">

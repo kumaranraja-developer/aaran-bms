@@ -59,10 +59,10 @@
                 <!--User Data ------------------------------------------------------------------------------------------------>
 
                 <div
-                    class="flex justify-between border bg-amber-50 px-8 py-2 items-center border-amber-200 rounded-full">
+                    class="flex justify-between border bg-amber-50 dark:bg-dark-2 dark:border-dark-4 px-8 py-2 items-center border-amber-200 rounded-full">
 
                     <div class="">
-                        <div class="text-neutral-600 flex items-start">
+                        <div class="text-neutral-600 dark:text-dark-8 flex items-start">
                             <x-Ui::icons.icon icon="user" class="w-8 h-auto fill-orange-500"/>
                             #
                             <div>{{ \Aaran\Core\User\Models\User::getName($task->reporter_id) }}</div>
@@ -149,7 +149,7 @@
                 </div>
 
                 <div
-                    class="text-sm text-justify leading-loose rounded-xl border bg-white border-neutral-100 p-5 mb-5">{!! $task->body !!}</div>
+                    class="text-sm text-justify leading-loose rounded-xl border bg-white dark:bg-dark-3 dark:border-dark-4 border-neutral-100 p-5 mb-5">{!! $task->body !!}</div>
 
             </div>
 

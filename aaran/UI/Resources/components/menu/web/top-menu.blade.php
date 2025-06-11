@@ -9,23 +9,29 @@
 @endphp
 
 <nav x-data="{ mobileMenuIsOpen: false }" @click.away="mobileMenuIsOpen = false" id="navBar"
-     class="sm:fixed sm:z-40 h-18 sm:w-full flex items-center justify-between border-b border-neutral-300 px-6 py-4 dark:border-neutral-700 dark:bg-dark-4 dark:text-dark-9 text-black
-     {{ Route::currentRouteNamed('home') ? 'transition-colors' : 'bg-white' }}  duration-300">
+     class="sm:fixed sm:z-40 h-18 sm:w-full flex items-center justify-between border-b border-neutral-300 px-6 py-4 dark:border-neutral-700   text-black
+     {{ Route::currentRouteNamed('home') ? 'transition-colors dark:text-black' : 'bg-white dark:bg-dark-4 dark:text-white' }}  duration-300">
 
     <!-- Logo -->
     <a href="#" class="text-3xl min-w-[200px] flex items-center hover:scale-105 transition duration-500">
         <h1 class="hover:tracking-wide text-primary hover:font-semibold">
-            CODEX<span class="text-body-color dark:text-dark-9">SUN</span>
+            CODEX<span class="sm:dark:text-black dark:text-white text-black">SUN</span>
         </h1>
     </a>
 
     <!-- Desktop Menu -->
-    <ul class="hidden lg:flex items-center gap-16 dark:bg-dark-4">
+    <ul class="hidden lg:flex items-center gap-16 ">
         @foreach ($menuItems as $route => $label)
-            <li class="hover:tracking-wide min-w-[80px]  hover:font-bold transition duration-500 ">
-                <a href="{{ route($route) }}" class="menu-text block w-max mx-auto dark:text-dark-9 dark:hover:text-dark-9"
-                >{{ $label }}</a>
+            <li class="min-w-[80px] group">
+                <a href="{{ route($route) }}"
+                   class="relative block w-max mx-auto hover:tracking-wide hover:text-orange-500 transition duration-500 hover:font-bold text-center group">
+                    {{ $label }}
+                    <span class="absolute left-0 bottom-0 h-[2px] bg-orange-500 transition-all duration-500 delay-200
+            {{ Route::currentRouteName() === $route ? 'w-full' : 'w-0 group-hover:w-full' }}">
+        </span>
+                </a>
             </li>
+
         @endforeach
 
     </ul>
@@ -49,7 +55,6 @@
                                                   <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
                                                 </svg>
-
 
                                     </button>
                                 </span>
@@ -88,7 +93,7 @@
     <!-- Mobile Menu Button -->
     <button @click="mobileMenuIsOpen = !mobileMenuIsOpen" :aria-expanded="mobileMenuIsOpen"
             :class="mobileMenuIsOpen ? 'fixed top-6 right-6 z-50' : null" type="button"
-            class="flex  text-neutral-600 dark:text-dark-9 lg:hidden" aria-label="mobile menu">
+            class="flex  text-neutral-600 sm:dark:text-black dark:text-dark-9 lg:hidden" aria-label="mobile menu">
         <svg x-cloak x-show="!mobileMenuIsOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
              viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
             <path stroke-linecap="round" stroke-linejoin="round"

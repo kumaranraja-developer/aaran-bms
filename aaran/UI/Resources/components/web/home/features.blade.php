@@ -1,9 +1,9 @@
-<section class="py-20 bg-zinc-50">
+<section class="py-20 bg-white">
     <div class="container items-center max-w-6xl px-4 px-10 mx-auto sm:px-20 md:px-32 lg:px-16">
         <div class="flex flex-wrap items-center -mx-3">
             <div class="order-1 w-full px-3 lg:w-1/2 lg:order-0">
                 <div class="w-full lg:max-w-md">
-                    <h2 class="mb-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl font-heading">Jam-packed
+                    <h2 class="mb-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl font-heading dark:text-dark">Jam-packed
                         with all the tools you need to succeed!</h2>
                     <p class="mb-4 font-medium tracking-tight text-zinc-400 xl:mb-6">It's never been easier to build a
                         business of your own. Our tools will help you with the following:</p>
