@@ -1,7 +1,8 @@
 @props([
     'height' => 'h-64',
     'width' => 'w-full',
-    'placeholder' => null
+    'placeholder' => null,
+    'name' => 'x'
 ])
 
 <style>
@@ -508,11 +509,11 @@
 >
      <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
 
-    <input id="x" class="hidden w-full">
+    <input id="{{$name}}" class="hidden w-full">
 
     <trix-editor
         x-ref="trix"
-        input="x"
+        input="{{$name}}"
         placeholder="{{ $placeholder }}"
         class="block w-full px-4 py-3 resize-none
                text-gray-900 text-base font-normal leading-normal

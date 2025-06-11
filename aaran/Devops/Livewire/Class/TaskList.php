@@ -27,7 +27,7 @@ class TaskList extends Component
     #[Validate]
     public string $job_id = '';
     public string $title = '';
-    public string $body = '';
+    public string $content = '';
     public mixed $start_at = null;
     public mixed $due_date = null;
     public string $module_id = '';
@@ -100,7 +100,7 @@ class TaskList extends Component
             [
                 'job_id' => $this->job_id,
                 'title' => Str::ucfirst($this->title),
-                'body' => $this->body,
+                'content' => $this->content,
                 'start_at' => $this->start_at ?: now()->format("Y-m-d"),
                 'due_date' => $this->due_date ?: now()->format("Y-m-d"),
                 'module_id' => $this->module_id ?:'1',
@@ -140,7 +140,7 @@ class TaskList extends Component
     {
         $this->vid = null;
         $this->title = '';
-        $this->body = '';
+        $this->content = '';
         $this->start_at = Carbon::now()->format('Y-m-d');;
         $this->due_date = Carbon::now()->addDay(1)->format('Y-m-d');
         $this->module_id = '';
@@ -161,7 +161,7 @@ class TaskList extends Component
             $this->vid = $obj->id;
             $this->job_id = $obj->job_id;
             $this->title = $obj->title;
-            $this->body = $obj->body;
+            $this->content = $obj->content;
             $this->start_at = $obj->start_at;
             $this->due_date = $obj->due_date;
             $this->module_id = $obj->module_id;

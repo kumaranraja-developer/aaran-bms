@@ -171,7 +171,7 @@
                             <div
                                 class="w-9/12 self-start h-[60px] overflow-hidden text-xs dark:text-dark-9  text-gray-700 font-semibold
                                 line-clamp-3 leading-relaxed flex-col justify-start items-center">
-                                {!! $row->body !!}
+                                {!! $row->content !!}
                             </div>
 
                             <div class="space-y-2">
@@ -242,8 +242,8 @@
                 </div>
 
                 <div>
-                    <x-Ui::input.rich-text wire:model="body" :placeholder="'Content'"/>
-                    @error('body')
+                    <x-Ui::input.rich-text wire:model="content" :placeholder="'Content'"/>
+                    @error('content')
                     <div class="text-xs text-red-500 mt-2">
                         {{$message}}
                     </div>

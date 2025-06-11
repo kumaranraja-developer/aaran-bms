@@ -13,6 +13,9 @@ return new class extends Migration {
                 $table->tinyInteger('flag')->nullable();
                 $table->foreignId('task_id')->references('id')->on('tasks');
                 $table->longText('content')->nullable();
+                $table->date('start_on')->nullable();
+                $table->date('end_on')->nullable();
+                $table->string('status_id')->nullable();
                 $table->foreignId('user_id')->nullable();
                 $table->tinyInteger('active_id')->nullable();
                 $table->timestamps();

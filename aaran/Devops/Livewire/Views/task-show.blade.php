@@ -33,7 +33,7 @@
                             <div
                                 class="text-gray-600 my-0.5">Job :
                                 <span
-                                    class="text-blue-500">{{ $task->title}}</span>
+                                    class="text-blue-500">{{ $task->job_title}}</span>
                             </div>
 
                             <div
@@ -53,7 +53,7 @@
                 </div>
 
                 <div>
-                    <x-Ui::slider.carousel-light-box :images="$taskImage"/>
+                    <x-Ui::slider.carousel-light-box :images="$task_images"/>
                 </div>
 
                 <!--User Data ------------------------------------------------------------------------------------------------>
@@ -149,7 +149,7 @@
                 </div>
 
                 <div
-                    class="text-sm text-justify leading-loose rounded-xl border bg-white border-neutral-100 p-5 mb-5">{!! $task->body !!}</div>
+                    class="text-sm text-justify leading-loose rounded-xl border bg-white border-neutral-100 p-5 mb-5">{!! $task->content !!}</div>
 
             </div>
 
@@ -158,7 +158,7 @@
 
             <x-Ui::blog.comments :list="$activities"/>
 
-            <x-Ui::blog.reply :show-popup="$showPopup" />
+            <x-Ui::blog.reply :show-popup="$showReplyPopup" />
 
             <x-Ui::modal.confirm-delete/>
 
@@ -172,7 +172,8 @@
 
 
 
-                        <x-Ui::markdown.trix wire:model="vname" :placeholder="'write something'"/>
+{{--                        <x-Ui::input.rich-text wire:model="vname" name="vname" :placeholder="'Content'"/>--}}
+                        <x-Ui::markdown.trix wire:model="activity_content" name="activity_content" :placeholder="'write something'"/>
 
 {{--                        <x-Ui::markdown.mark--}}
 {{--                            name="content"--}}
@@ -194,14 +195,14 @@
                             </button>
 
                             <div class="flex flex-row gap-3 items-center">
-                                <x-Ui::datepicker.date wire:model="Start_On"/>
+                                <x-Ui::datepicker.date wire:model="activity_start_on"/>
 
-                                <x-Ui::datepicker.date wire:model="End_On"/>
+                                <x-Ui::datepicker.date wire:model="activity_end_on"/>
 
                                 <x-Ui::input.floating-dropdown
-                                    wire:model="status_id"
+                                    wire:model="activity_status_id"
                                     label="Status"
-                                    id="status_id"
+                                    id="activity_status_id"
                                     :options="$statuses"
                                     placeholder=""
                                 />
@@ -234,11 +235,11 @@
                 </div>
 
                 <div class=" w-2xl">
-{{--                    <x-Ui::input.rich-text wire:model="body" :placeholder="'Content'"/>--}}
+{{--                    <x-Ui::input.rich-text wire:model="content" name="content" :placeholder="'Content'"/>--}}
 
-                    <x-Ui::markdown.trix wire:model="body" :placeholder="'Content'"/>
+                    <x-Ui::markdown.trix wire:model="content" name="content" :placeholder="'Content'"/>
 
-                    @error('body')
+                    @error('content')
                     <div class="text-xs text-red-500 mt-2">
                         {{$message}}
                     </div>

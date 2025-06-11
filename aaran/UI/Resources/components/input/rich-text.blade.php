@@ -1,7 +1,8 @@
  @props([
 'height'=>'h-64',
 'width'=>'w-full',
-'placeholder'=>null
+'placeholder'=>null,
+'name' => 'x'
 ])
 
 <div wire:ignore.self class="rounded-md shadow-sm " x-data="{
@@ -17,8 +18,8 @@
         }
 
     </style>
-    <input id="x" class="hidden">
-    <trix-editor x-ref="trix" input="x" placeholder="{{$placeholder}}" class="overflow-y-auto text-ellipsis form-textarea block text text-xs
+    <input id="{{$name}}" class="hidden">
+    <trix-editor x-ref="trix" input="{{$name}}" placeholder="{{$placeholder}}" class="overflow-y-auto text-ellipsis form-textarea block text text-xs
                     rounded-lg appearance-none border-2 {{$height}} {{$width}}
                     border-none py-2 px-3 bg-white text-zinc-700 dark:bg-dark dark:text-dark-9
                     placeholder-gray-400 text-base focus:outline-none

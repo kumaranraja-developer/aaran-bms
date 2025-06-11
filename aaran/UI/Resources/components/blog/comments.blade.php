@@ -9,35 +9,46 @@
                bg-blue-400 border-2 border-white rounded-full mt-2 dark:border-gray-900"> {{$list->count()}}</span>
             </h2>
 
-            <div class="w-full flex-col justify-start items-start gap-8 flex">
-                @forelse($list as $row)
-                    <div class="w-full pb-6 border-b border-gray-300 justify-start items-start gap-2.5 inline-flex">
+            @php
+                $grouped = $list->groupBy('activity_id'); // Group by activity ID
+            @endphp
+
+            <div class="w-full flex-col justify-start items-start gap-3 flex">
+                @forelse($grouped as $activityId => $row)
+                    @php
+                        $activity = $row->first();
+                    @endphp
+
+                    {{--                    <pre>{{ var_export($row, true) }}</pre>--}}
+
+                    <div class="w-full pb-2 border-b border-gray-300 justify-start items-start gap-2.5 inline-flex">
+
+
                         <img class="w-10 h-10 rounded-full object-cover"
                              src="https://pagedone.io/asset/uploads/1710226776.png" alt="Mia Thompson image"/>
+
                         <div class="w-full flex-col justify-start items-start gap-3.5 inline-flex">
                             <div class="w-full justify-start items-start flex-col flex gap-1">
                                 <div class="w-full justify-between items-start gap-2 inline-flex">
-                                    <h5 class="text-gray-900 text-md font-semibold leading-snug dark:text-dark-8"> {{\Aaran\Core\User\Models\User::getName($row->user_id)}}</h5>
+                                    <h5 class="text-gray-900 text-md font-semibold leading-snug dark:text-dark-8">
+                                        {{\Aaran\Core\User\Models\User::getName($activity->activity_user_id)}}
+                                    </h5>
                                     <span
                                         class="text-right text-gray-500 text-xs font-normal leading-5">
-                                        {{ \Carbon\Carbon::parse($row->created_at)->diffForHumans() }}
+                                        {{ \Carbon\Carbon::parse($activity->activity_created_at)->diffForHumans() }}
+
                                     <span class="text-[0.5rem] px-2 py-1 rounded-full mx-1
-                                        {{ \Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getStyle() }}">
-                                            {{  \Aaran\Assets\Enums\Status::tryFrom($row->status_id)->getName() }}</span>
+                                        {{ \Aaran\Assets\Enums\Status::tryFrom($activity->activity_status_id)->getStyle() }}">
+                                            {{  \Aaran\Assets\Enums\Status::tryFrom($activity->activity_status_id)->getName() }}
+                                    </span>
+
                                     </span>
                                 </div>
                                 <div
-                                    class="text-gray-800 dark:text-dark-8 text-sm font-normal mt-3 leading-snug"> {!! $row->vname !!}</div>
+                                    class="text-gray-800 dark:text-dark-8 text-sm font-normal mt-3 leading-snug">
+                                    {!! $activity->activity_content !!}
+                                </div>
                             </div>
-
-
-                            @foreach($row->taskReply as $col)
-                            <div>
-
-                                {{$col->vname}}
-                            </div>
-                            @endforeach
-
 
 
                             <div class="flex w-full flex-row justify-between">
@@ -45,7 +56,9 @@
                                 <div class="justify-start items-start gap-5 inline-flex">
 
 
-                                    <button  wire:click="showReplyComments({{$row->id}})"  class="w-5 h-5 flex items-center justify-center group">
+                                    <button
+                                        wire:click="showReplyComments({{$activity->activity_id}})"
+                                        class="w-5 h-5 flex items-center justify-center group">
                                         <svg
                                             class="text-indigo-300 hover:text-indigo-800 transition-all duration-700 ease-in-out"
                                             xmlns="http://www.w3.org/2000/svg" width="18" height="18"
@@ -58,12 +71,12 @@
                                     </button>
 
 
-
-
-                                    <x-Ui::button.edit wire:click="editActivity({{$row->id}})"
-                                                       class="text-indigo-300 hover:text-green-500 cursor-pointer"/>
-                                    <x-Ui::button.delete wire:click="confirmDelete({{$row->id}})"
-                                                         class="text-indigo-300 hover:text-red-500 cursor-pointer"/>
+                                    <x-Ui::button.edit
+                                        wire:click="editActivity({{$activity->activity_id}})"
+                                        class="text-indigo-300 hover:text-green-500 cursor-pointer"/>
+                                    <x-Ui::button.delete
+                                        wire:click="confirmDelete({{$activity->activity_id}})"
+                                        class="text-indigo-300 hover:text-red-500 cursor-pointer"/>
                                 </div>
 
                                 <div class="flex gap-1 text-xs text-neutral-500">
@@ -76,16 +89,72 @@
                                               stroke-width="1"></path>
                                     </svg>
 
-                                    <div>({{ \Carbon\Carbon::parse($row->start_on)->format('d-m-Y') }}</div>
+                                    <div>
+                                        ({{ \Carbon\Carbon::parse($activity->activity_start_on)->format('d-m-Y') }}</div>
                                     to
-                                    <div>{{ \Carbon\Carbon::parse($row->end_on)->format('d-m-Y') }})</div>
+                                    <div>{{ \Carbon\Carbon::parse($activity->activity_end_on)->format('d-m-Y') }})</div>
                                 </div>
 
                             </div>
                         </div>
                     </div>
+
+                    <section class="w-full">
+                        @php
+                            $replies = $row->filter(fn($row) => $row->replies_id !== null);
+                        @endphp
+
+                        @if($replies->count())
+                            <ul class="w-full gap-1.5 flex flex-col border-b border-b-indigo-200">
+                                @foreach($replies as $reply)
+                                    <li
+                                        class="w-full lg:pl-60 md:pl-20 sm:pl-10 pl-7 pb-2 flex-col justify-start items-end flex">
+                                        <div
+                                            class="w-full p-1 px-4 bg-indigo-50 rounded-2xl border border-indigo-200  ">
+
+                                            <div class="w-full flex-col justify-center items-start  flex">
+
+                                                <div class="w-full justify-between items-center inline-flex ">
+
+                                                    <p class="text-gray-800 text-sm w-full font-normal leading-snug">
+                                                        {{ $reply->replies_content }}
+                                                    </p>
+
+                                                    <div class="items-center gap-1.5 flex justify-end">
+                                                        <div
+                                                            class="w-9 h-9 bg-stone-300 rounded-full justify-end items-start gap-2.5 flex">
+                                                            <img class="rounded-full object-cover"
+                                                                 src="https://pagedone.io/asset/uploads/1710225753.png"
+                                                                 alt="Kevin Patel image"/>
+                                                        </div>
+                                                        <div
+                                                            class="flex-col justify-start items-start gap-1 inline-flex w-28 shrink-0">
+                                                            <h5 class="text-gray-900 text-xs font-semibold leading-snug">
+                                                                {{\Aaran\Core\User\Models\User::getName( $reply->replies_user_id)}}
+                                                            </h5>
+                                                            <h6 class="text-gray-500 text-xs font-normal leading-5 shrink-0">
+                                                                {{ \Carbon\Carbon::parse($reply->replies_created_at)->diffForHumans() }}
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </li>
+
+                                @endforeach
+
+                            </ul>
+                        @else
+                            &nbsp;
+                        @endif
+
+                    </section>
+
                 @empty
-                    <div  class="w-full mx-auto flex item-center justify-center gap-3 text-orange-400">
+                    <div class="w-full mx-auto flex item-center justify-center gap-3 text-orange-400">
                         <svg fill="none" viewBox="0 0 24 24" class="w-12 h-auto text-orange-400">
                             <path fill="currentColor"
                                   d="M21.1643 17.3142c0.004 -0.0408 -0.0001 -0.0819 -0.0121 -0.121 -0.0119 -0.0392 -0.0315 -0.0756 -0.0575 -0.1072 -0.026 -0.0316 -0.058 -0.0577 -0.0941 -0.077 -0.0362 -0.0192 -0.0757 -0.0311 -0.1165 -0.0351 -0.0407 -0.0039 -0.0818 0.0002 -0.121 0.0121 -0.0391 0.012 -0.0755 0.0315 -0.1071 0.0576 -0.0316 0.026 -0.0578 0.058 -0.077 0.0941 -0.0192 0.0361 -0.0312 0.0757 -0.0351 0.1164 -0.0284 0.513 0.0291 1.0271 0.1701 1.5211 0.2102 0.8907 0.7506 2.6019 0.7506 2.642 0 0.04 -1.4611 -0.7606 -2.1516 -1.2209 -1.361 -0.9007 -2.702 -1.9014 -2.702 -1.9014 -0.1077 -0.0853 -0.243 -0.1281 -0.3802 -0.1201 0 0 -1.5111 0.1201 -3.4425 0.1301 -1.0808 0 -2.2917 0 -3.45255 -0.0901 -0.04494 -0.007 -0.09085 -0.0047 -0.13485 0.0069 -0.044 0.0115 -0.08514 0.032 -0.12085 0.0602 -0.0357 0.0282 -0.06519 0.0634 -0.08663 0.1036 -0.02144 0.0401 -0.03436 0.0842 -0.03795 0.1295 -0.00556 0.0461 -0.00193 0.0928 0.01069 0.1374 0.01263 0.0446 0.03399 0.0863 0.06285 0.1226 0.02886 0.0363 0.06464 0.0666 0.10527 0.0889 0.04064 0.0224 0.08531 0.0365 0.13142 0.0414 1.1709 0.1601 2.4017 0.2602 3.4925 0.3203 1.5412 0.08 2.8021 0.08 3.3024 0.08 0.3203 0.2602 1.1209 0.8807 2.0015 1.4911 0.7639 0.5325 1.5745 0.9947 2.4218 1.381 0.4139 0.2109 0.8776 0.3044 1.3409 0.2702 0.1133 -0.0215 0.2212 -0.0654 0.3174 -0.1289 0.0962 -0.0636 0.1788 -0.1456 0.243 -0.2414 0.1036 -0.2775 0.1036 -0.5831 0 -0.8606 -0.2802 -0.9107 -1.3309 -2.8821 -1.2209 -3.9028Z"
@@ -101,14 +170,12 @@
                                   stroke-width="1"></path>
                         </svg>
                         <div class="text-2xl block my-auto">
-                        No Comments
+                            No Comments
                         </div>
 
                     </div>
                 @endforelse
             </div>
-
-
         </div>
     </div>
 </section>
