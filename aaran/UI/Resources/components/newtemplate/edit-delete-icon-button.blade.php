@@ -21,7 +21,7 @@
 @endphp
 
 <button
-    {{ $attributes->merge(['class' => "relative group cursor-pointer text-gray-500 hover:text-{$buttonConfig['color']}-600 transition duration-200 $class"]) }}
+    {{ $attributes->merge(['class' => "relative group cursor-pointer text-{$buttonConfig['color']}-600 hover:text-{$buttonConfig['color']}-600 transition duration-200 $class"]) }}
     aria-label="{{ $buttonConfig['label'] }}"
 >
     <!-- Icon -->
