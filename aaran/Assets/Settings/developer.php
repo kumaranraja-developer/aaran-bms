@@ -6,7 +6,7 @@ use Aaran\Assets\Features\Settings;
 
 return [
 
-    'settings' => [
+    'customise' => [
         Settings::tenant(),
 
         Customise::common(),
