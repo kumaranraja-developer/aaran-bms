@@ -3,6 +3,8 @@
 namespace Aaran\UI\Providers;
 
 use Aaran\UI\Livewire\Class\Index;
+
+use Aaran\UI\Livewire\Class\Show;
 use Aaran\UI\Livewire\Class\MarkdownEditor;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
@@ -22,6 +24,8 @@ class UIServiceProvider extends ServiceProvider
 
          Livewire::component('Ui::markdown-editor', MarkdownEditor::class);
 
+         Livewire::component('ui::tenant-setup', Index::class);
+         Livewire::component('ui::show', Show::class);
 
          Livewire::component('Ui::tenant-setup', Index::class);
 

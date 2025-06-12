@@ -12,8 +12,15 @@ class Index extends Component
             [
                 'title' => 'Accordion',
                 'slug' => 'accordion',
-                'description' => 'Different types of accordions.',
+                'description' => 'Accordion is a collapsible component used to show and hide grouped content.',
                 'image' => asset('/storage/ui/accordion.png'),
+            ],
+            [
+                'title' => 'Banner',
+                'slug' => 'banner',
+                'description' => 'Banners are UI components used to display important messages or updates.
+                    They typically appear at the top of the page with brief text and an action..',
+                'image' => asset('/storage/ui/banner.png'),
             ],
             // Add more component entries here
         ];
