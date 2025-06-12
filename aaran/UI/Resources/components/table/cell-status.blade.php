@@ -3,7 +3,7 @@
 ])
 <td class="border-r px-2 border-neutral-300 text-center text-xs">
     <div
-        class="inline-flex items-center px-3 py-1 rounded-xl gap-x-2 @if($active==1)bg-emerald-100/60 @else bg-red-100/60 @endif ">
+        class="inline-flex items-center px-3 py-1 rounded-xl gap-x-2 @if($active==1)bg-emerald-100/60 dark:bg-emerald-200  @else bg-red-100/60 @endif ">
 
         <span class="h-1.5 w-1.5  rounded-full @if($active==1)bg-emerald-500 @else bg-red-500 @endif"></span>
 
