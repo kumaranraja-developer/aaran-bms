@@ -1,7 +1,7 @@
 <div>
     <x-slot name="header">Account Book</x-slot>
 
-    <x-Ui::forms.m-panel class=" bg-gradient-to-br from-green-300 via-blue-200 to-rose-300">
+    <x-Ui::forms.m-panel class=" bg-gradient-to-br from-purple-300/30 via-blue-200/20 to-red-300/20">
         <x-Ui::alerts.notification/>
 
         <!-- Top Controls --------------------------------------------------------------------------------------------->
@@ -44,7 +44,7 @@
                             $link = route('transactions', ['id' => $row->id]) . '?data=' . $encrypted;
                 @endphp
                 <div class="flex justify-center mt-10">
-                    <div class="bg-transparent border p-3 w-[80%] md:w-[70%] xl:w-[90%] rounded-lg shadow-[inset_0_8px_20px_rgba(0,0,0,0.3)] shadow-white border-gray-300">
+                    <div class="bg-white/10 border p-2 w-[80%] md:w-[70%] xl:w-[90%] rounded-lg shadow-[inset_0_8px_20px_rgba(0,0,0,0.3)] shadow-white border-white">
 
                         <div class="flex flex-col w-full gap-2 p-4 border border-gray-300 dark:border-gray-500 {{ $style['color'] }} rounded-lg">
                             <a href="{{ $link }}">
