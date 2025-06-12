@@ -12,71 +12,60 @@
             {{$list->count()}}
         </x-Ui::table.caption>
 
-        <!-- Table Data ----------------------------------------------------------------------------------------------->
+        {{--        Acccount Book Card View--}}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10 lg:grid-cols-4">
+            @foreach($list as $index=>$row)
 
-        <x-Ui::table.form>
-            <x-slot:table_header>
-                <x-Ui::table.header-serial/>
-                <x-Ui::table.header-text wire:click.prevent="sortBy('id')" sortIcon="{{$sortAsc}}" :left="true">
-                    Name
-                </x-Ui::table.header-text>
-
-                <x-Ui::table.header-text sortIcon="none">Type</x-Ui::table.header-text>
-                <x-Ui::table.header-text sortIcon="none">Account No</x-Ui::table.header-text>
-                <x-Ui::table.header-text sortIcon="none">Bank</x-Ui::table.header-text>
-                <x-Ui::table.header-text sortIcon="none">Balance</x-Ui::table.header-text>
-                <x-Ui::table.header-text sortIcon="none">As on Date</x-Ui::table.header-text>
-                <x-Ui::table.header-status/>
-                <x-Ui::table.header-action/>
-            </x-slot:table_header>
-
-            <x-slot:table_body>
-                @foreach($list as $index=>$row)
-
-                    @php
-                        $data = json_encode([
-                            'opn' => $row->opening_balance,
-                            'name' => $row->vname,
-                            ]);
-                        $encrypted = Crypt::encryptString($data);
-                        $link = route('transactions', ['id' => $row->id]) . '?data=' . $encrypted;
-                    @endphp
-
-                    <x-Ui::table.row>
-                        <x-Ui::table.cell-link :href="$link">
-                                {{$index+1}}
-                        </x-Ui::table.cell-link>
-
-                        <x-Ui::table.cell-link :href="$link" left>
-                            {{$row->vname}}
-                        </x-Ui::table.cell-link>
-
-                        <x-Ui::table.cell-link :href="$link" left>
-                                {{$row->transaction_type->vname}}
-                        </x-Ui::table.cell-link>
-
-                        <x-Ui::table.cell-link :href="$link" left>
-                                {{$row->account_no}}
-                        </x-Ui::table.cell-link>
-
-                        <x-Ui::table.cell-link :href="$link" left>
-                                {{$row->bank->vname}}
-                        </x-Ui::table.cell-link>
-
-                        <x-Ui::table.cell-link :href="$link" left>
-                            {{$row->current_balance}}
-                        </x-Ui::table.cell-link>
-
-                        <x-Ui::table.cell-link :href="$link" left>
-                            {{$row->current_balance_date}}
-                        </x-Ui::table.cell-link>
-
-                        <x-Ui::table.cell-status active="{{$row->active_id}}"/>
-                        <x-Ui::table.cell-action id="{{$row->id}}"/>
-                    </x-Ui::table.row>
-                @endforeach
-            </x-slot:table_body>
-        </x-Ui::table.form>
+                @php
+                    $data = json_encode([
+                        'opn' => $row->opening_balance,
+                        'name' => $row->vname,
+                        ]);
+                    $encrypted = Crypt::encryptString($data);
+                    $link = route('transactions', ['id' => $row->id]) . '?data=' . $encrypted;
+                @endphp
+                <div class="p-1.5 bg-white dark:bg-dark-4 border border-gray-300 dark:border-gray-500 rounded-lg transform hover:-translate-y-2 box-shadow shadow-sm shadow-white duration-300">
+                    <div class="flex flex-col gap-2 p-4 border border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-dark-5 rounded-lg">
+                        <a href="{{$link}}">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between">
+                                    <div>Name</div>
+                                    <div>   {{$row->vname}}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div>Type</div>
+                                    <div> {{$row->transaction_type->vname}}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div>Account No.</div>
+                                    <div> {{$row->account_no}}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div>Bank</div>
+                                    <div>  {{$row->bank->vname}}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div>Balance</div>
+                                    <div>   {{$row->current_balance}}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div>As on Date</div>
+                                    <div> {{$row->current_balance_date}}</div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div>Status</div>
+                                    <x-Ui::table.cell-status active="{{$row->active_id}}"/>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="flex justify-between">
+                            <div>Action</div>
+                            <x-Ui::table.cell-action id="{{$row->id}}"/>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
 
         <!-- Delete Modal --------------------------------------------------------------------------------------------->
         <x-Ui::modal.confirm-delete/>
