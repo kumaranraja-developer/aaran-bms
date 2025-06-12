@@ -1,7 +1,7 @@
 <div>
     <x-slot name="header">Account Book</x-slot>
 
-    <x-Ui::forms.m-panel class=" bg-gradient-to-br from-purple-300/30 via-blue-200/20 to-red-300/20">
+    <x-Ui::forms.m-panel>
         <x-Ui::alerts.notification/>
 
         <!-- Top Controls --------------------------------------------------------------------------------------------->
@@ -43,8 +43,19 @@
                             $encrypted = Crypt::encryptString($data);
                             $link = route('transactions', ['id' => $row->id]) . '?data=' . $encrypted;
                 @endphp
+
+
                 <div class="flex justify-center mt-10">
-                    <div class="bg-white/10 border p-2 w-[80%] md:w-[70%] xl:w-[90%] rounded-lg shadow-[inset_0_8px_20px_rgba(0,0,0,0.3)] shadow-white border-white">
+
+                    <div class="relative inline-flex  group w-full">
+                        <div
+                            class="absolute transitiona-all duration-1000 opacity-60 -inset-px bg-gradient-to-r
+                             from-[#44BCFF]/50 via-[#FF44EC]/60 to-[#FF675E]/60 rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1
+                             group-hover:duration-200 animate-tilt">
+                        </div>
+
+                        <div class="relative inline-flex items-center justify-center  w-full">
+                    <div class="bg-white/10 border p-2 w-full rounded-lg shadow-[inset_0_8px_20px_rgba(0,0,0,0.3)] shadow-white border-white">
 
                         <div class="flex flex-col w-full gap-2 p-4 border border-gray-300 dark:border-gray-500 {{ $style['color'] }} rounded-lg">
                             <a href="{{ $link }}">
@@ -67,6 +78,10 @@
                             </div>
                         </div>
                     </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
             @endforeach
