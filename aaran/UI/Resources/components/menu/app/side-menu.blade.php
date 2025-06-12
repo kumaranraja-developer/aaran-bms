@@ -32,31 +32,31 @@
             {{--            <x-Ui::menu.app.sub.task/>--}}
 
 
-            @if(Aaran\Assets\Features\Settings::hasTenant())
+            @if(Aaran\Assets\Features\Customise::hasTemp())
                 <x-Ui::menu.app.sub.tenant/>
             @endif
 
-            @if(Aaran\Assets\Features\Settings::hasTaskManager())
+            @if(Aaran\Assets\Features\Customise::hasTaskManager())
                 <x-Ui::menu.app.sub.task/>
             @endif
 
-            @if(Aaran\Assets\Features\Settings::hasEntries())
+            @if(Aaran\Assets\Features\Customise::hasEntries())
                 <x-Ui::menu.app.sub.entries/>
             @endif
 
-            @if(Aaran\Assets\Features\Settings::hasEntries())
+            @if(Aaran\Assets\Features\Customise::hasEntries())
                 <x-Ui::menu.app.sub.transaction/>
             @endif
 
-            @if(Aaran\Assets\Features\Settings::hasEntries())
+            @if(Aaran\Assets\Features\Customise::hasEntries())
                 <x-Ui::menu.app.sub.books/>
             @endif
 
-            @if(Aaran\Assets\Features\Settings::hasEntries())
+            @if(Aaran\Assets\Features\Customise::hasEntries())
                 <x-Ui::menu.app.sub.master/>
             @endif
 
-            @if(Aaran\Assets\Features\Settings::hasEntries())
+            @if(Aaran\Assets\Features\Customise::hasEntries())
                 <x-Ui::menu.app.sub.common/>
             @endif
 
