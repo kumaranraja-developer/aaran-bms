@@ -5,7 +5,7 @@ use Aaran\Assets\Features\SaleEntry;
 
 return [
 
-    'customise' => [
+    'settings' => [
         Customise::common(),
         Customise::master(),
         Customise::entries(),

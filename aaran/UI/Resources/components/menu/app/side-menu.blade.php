@@ -28,18 +28,40 @@
             x-data="{selected:null}">
 
 
-{{--            <x-Ui::menu.app.sub.tenant/>--}}
-{{--            <x-Ui::menu.app.sub.task/>--}}
+            {{--            <x-Ui::menu.app.sub.tenant/>--}}
+            {{--            <x-Ui::menu.app.sub.task/>--}}
 
-            <x-Ui::menu.app.sub.entries/>
-            <x-Ui::menu.app.sub.transaction/>
-            <x-Ui::menu.app.sub.books/>
-            <x-Ui::menu.app.sub.master/>
-            <x-Ui::menu.app.sub.common/>
 
+            @if(Aaran\Assets\Features\Settings::hasTenant())
+                <x-Ui::menu.app.sub.tenant/>
+            @endif
+
+            @if(Aaran\Assets\Features\Settings::hasTaskManager())
+                <x-Ui::menu.app.sub.task/>
+            @endif
+
+            @if(Aaran\Assets\Features\Settings::hasEntries())
+                <x-Ui::menu.app.sub.entries/>
+            @endif
+
+            @if(Aaran\Assets\Features\Settings::hasEntries())
+                <x-Ui::menu.app.sub.transaction/>
+            @endif
+
+            @if(Aaran\Assets\Features\Settings::hasEntries())
+                <x-Ui::menu.app.sub.books/>
+            @endif
+
+            @if(Aaran\Assets\Features\Settings::hasEntries())
+                <x-Ui::menu.app.sub.master/>
+            @endif
+
+            @if(Aaran\Assets\Features\Settings::hasEntries())
+                <x-Ui::menu.app.sub.common/>
+            @endif
 
             <a href="{{ route('user.settings') }}">
-                <x-Ui::menu.app.sub.settings />
+                <x-Ui::menu.app.sub.settings/>
             </a>
 
             {{--            <x-Ui::menu.app.sub.blog/>--}}

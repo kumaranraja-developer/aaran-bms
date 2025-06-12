@@ -41,15 +41,15 @@ class Login extends Component
             ]);
         }
 
-        if (Auth::check()) {
-            $tenant = Tenant::where('id', Auth::user()->tenant_id)->first();
-        }
-
-        if ($tenant) {
-            // Store tenant ID in session
-            Session::put('tenant_id', $tenant->id);
-            Session::save();
-        }
+//        if (Auth::check()) {
+//            $tenant = Tenant::where('id', Auth::user()->tenant_id)->first();
+//        }
+//
+//        if ($tenant) {
+//            // Store tenant ID in session
+//            Session::put('tenant_id', $tenant->id);
+//            Session::save();
+//        }
 
 
         RateLimiter::clear($this->throttleKey());

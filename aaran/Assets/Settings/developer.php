@@ -2,10 +2,13 @@
 
 use Aaran\Assets\Features\Customise;
 use Aaran\Assets\Features\SaleEntry;
+use Aaran\Assets\Features\Settings;
 
 return [
 
-    'customise' => [
+    'settings' => [
+        Settings::tenant(),
+
         Customise::common(),
         Customise::master(),
         Customise::entries(),
