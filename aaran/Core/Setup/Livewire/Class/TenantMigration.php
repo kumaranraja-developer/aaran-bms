@@ -160,9 +160,6 @@ class TenantMigration extends Component
         try {
             set_time_limit(300); // 5 minutes
             RunTenantMigrationJob::dispatchSync($this->tenant->t_name);
-
-            $this->setMigrationStatus();
-
         } catch (\Throwable $th) {
             throw $th;
         }
