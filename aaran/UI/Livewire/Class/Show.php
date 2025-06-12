@@ -6,16 +6,29 @@ use Livewire\Component;
 
 class Show extends Component
 {
+
     public string $slug;
+
+    public bool $bannerVisible = false;
+    public string $bannerType = 'calltoaction';
 
     public function mount($slug)
     {
-        $this->slug = $slug;
-    }
 
+
+        $this->slug = $slug;
+
+
+    }
+    public function showBanner($type){
+
+        $this->bannerType = $type;
+        $this->bannerVisible = true;
+
+    }
     public function render()
     {
-        $items = match($this->slug) {
+        $items = match ($this->slug) {
             'accordion' => [
                 ['question' => 'What is Laravel?', 'answer' => 'A PHP framework.'],
                 ['question' => 'What is Livewire?', 'answer' => 'Full-stack for Laravel.'],
@@ -23,6 +36,12 @@ class Show extends Component
             default => [],
         };
 
-        return view('/ui/{slug}::show', compact('items'))->with('slug', $this->slug);
+        $slug = $this->slug;
+        $bannerVisible = $this->bannerVisible;
+        $bannerType = $this->bannerType;
+
+        return view('show::show', compact('items','slug','bannerVisible','bannerType')
+        );
     }
+
 }

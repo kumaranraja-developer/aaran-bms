@@ -160,7 +160,8 @@ class Icons extends Component
             'r-turn-up',
             'chevrons-double-r',
             'forward',
-            'e-way'
+            'e-way',
+            'cell-border'
 
         ]);
     }
