@@ -231,7 +231,7 @@ class Upsert extends Component
             $this->saleItems->{$key} = $value;
         }
 
-        $this->dispatch('refresh-product-lookup', ['vname' => $this->saleItems->product_name]);
+        $this->dispatch('refresh-product-lookup',  $this->saleItems->product_name);
         $this->dispatch('refresh-colour-lookup', ['vname' => $this->saleItems->colour_name]);
         $this->dispatch('refresh-size-lookup', ['vname' => $this->saleItems->size_name]);
 
