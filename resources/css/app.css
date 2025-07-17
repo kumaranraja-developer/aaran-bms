@@ -152,6 +152,27 @@
     --color-dark-8: #a3a2a2;
     --color-dark-9: #faf9f9;
 
+
+    /*new Theme for light and dark*/
+
+    --color-text-1: #ffffff;
+    --color-text-2: #a3a2a2;
+    --color-text-3: #383838;
+    --color-text-4: #000000;
+
+    --color-bg-1: #ffffff;
+    --color-bg-2: #a3a2a2;
+    --color-bg-3: #383838;
+    --color-bg-4: #000000;
+
+    --color-fill-1: #fff;
+    --color-fill-2: #a3a2a2;
+    --color-fill-3: #383838;
+    --color-fill-4: #000;
+
+
+    --color-danger: #e41818;
+
 }
 
 @layer theme {
